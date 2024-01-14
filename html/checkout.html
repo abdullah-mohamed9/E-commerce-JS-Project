@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>checkout</title>
+    <link rel="stylesheet" href="../css/all.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css/font-awesome.css" />
+    <style>
+        #hr {
+            text-align: center;
+            width: 90%;
+            background-color: rgb(202, 207, 196);
+            height: 1px;
+        }
+
+        h5 {
+            font-size: 30;
+            text-align: left;
+
+        }
+
+        input {
+            margin-bottom: 20px;
+        }
+
+        h5:hover {
+            color: chocolate;
+        }
+
+        #main {
+            display: flex;
+        }
+
+        body {
+            margin-bottom: 20px;
+        }
+
+        #head {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #head p:first-child {
+            margin-right: auto;
+
+        }
+
+        @media (max-width: 768px) {
+
+            h5 {
+                font-size: 24px;
+            }
+
+            #leftWrapper,
+            #rightWrapper {
+                width: 100%;
+
+            }
+
+            #main {
+                flex-direction: column;
+            }
+
+            .container {
+                max-width: 100%;
+                padding-right: 0;
+                padding-left: 0;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+<body class="mt-4">
+    <center>
+        <div>
+            <h5 class="m-4" style="font-size: 23px;">checkout</h5>
+            <hr id="hr">
+
+    </center>
+    <div id="main" class="container">
+
+        <div id="leftWrapper" class="col-md-7 ">
+            <h5 class="row g-3 m-4">Billing Details</h5>
+            <hr id="hr" class="row g-3 m-4">
+            <form class="row g-3 m-4" id="checkoutForm">
+
+                <div class="col-md-6">
+                    <label for="fn" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="fn" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid first name.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="ln" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="ln" required>
+                    <p class="invalid-feedback">
+                        Please enter a valid last name.
+                    </p>
+                </div>
+                <div class="col-12">
+                    <label for="country" class="form-label">Country/Region</label>
+                    <input type="text" class="form-control" id="country" placeholder="Egypt" required>
+                </div>
+                <div class="col-12">
+                    <label for="street" class="form-label">Street address</label>
+                    <input type="text" class="form-control" id="street" placeholder="House number and street name"
+                        required>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Town/City</label>
+                    <input type="text" class="form-control" id="inputCity" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="inputZip" class="form-label">Zip Code</label>
+                    <input type="text" class="form-control" id="inputZip" required>
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress2" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="inputAddress2" pattern="[0-9]{11}" maxlength="11"
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
+                    <div class="invalid-feedback">Please enter a 10-digit phone number.</div>
+                </div>
+
+                <div class="col-12">
+                    <label for="inputAddress2" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="inputAddress2" required>
+                    <p class="invalid-feedback">
+                        Please enter email address like "esraa@gmail.com"
+                    </p>
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress2" class="form-label">Order notes(optional)</label>
+                    <textarea type="" class="form-control" id="inputAddress2"
+                        placeholder="note about your order,e.g.special notes for delivery"></textarea>
+                </div>
+
+            </form>
+        </div>
+
+        <div class=" col-md-4 mt-5" id="rightWrapper" style="border: 1px rgb(187, 183, 183) solid;">
+            <h4>Your Order</h4>
+            <div id="head" class="container">
+                <p>Product</p>
+                <p>Subtotal</p>
+            </div>
+            <hr id="hr">
+            <div id="head" class="container">
+                <p>Product</p>
+                <p>t-shirt</p>
+            </div>
+            <hr id="hr">
+            <div id="head" class="container">
+                <p>Subtotal</p>
+                <p>$300</p>
+            </div>
+            <hr id="hr">
+            <div id="head" class="container">
+                <p>Total</p>
+                <p>$300</p>
+            </div>
+            <hr id="hr">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" id="submitButton">Place order</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function () {
+            var form = document.getElementById('checkoutForm');
+            var data = document.getElementsByTagName("input");
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].value.trim() === "") {
+                    event.preventDefault();
+                    data[i].style.border = "1px red solid";
+                    form.classList.add('was-validated');
+
+                } else {
+                    data[i].style.border = "1px black solid";
+
+                }
+            }
+            console.log(data.value);
+            var form = document.querySelector('.needs-validation');
+            form.addEventListener('submit', function (event) {
+
+                if (form.checkValidity() === false) {
+
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    data[i].style.border = "1px green solid";
+
+                }
+
+                form.classList.add('was-validated');
+            });
+
+
+        });
+    </script>
+
+    <script src="../js/JQuery-3.3.1.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script src="../js/productDetails.js"></script>
+</body>
+
+</html>

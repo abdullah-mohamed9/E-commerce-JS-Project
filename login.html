@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Temp</title>
+</head>
+
+<body>
+
+    <!-- Nav bar -->
+    <nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+        <div class="container">
+            <img src="images/logo1.png" alt="Logo Img">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span><i id="bar" class="fa-solid fa-bars-staggered"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fa-solid fa-shopping-cart"> </i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav><!-- Nav bar end -->
+
+    <!-- login page -->
+    <section class="login-sec col-12">
+        <div class="row mx-auto  ">
+            <div class="col-12 col-md-6 p-0 h-100">
+                <div id="card-rel" class="card ">
+                    <div class="login-box mx-auto ">
+                        <div class="login-snip ">
+                            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1"
+                                class="tab">Login</label>
+                            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2"
+                                class="tab">Sign Up</label>
+                            <div class="login-space">
+                                <div class="login">
+                                    <div class="group">
+                                        <label for="user" class="label">Username</label>
+                                        <input id="user" type="text" class="input" placeholder="Enter your username"
+                                            required>
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Password</label>
+                                        <div class="position-relative">
+                                            <input id="pass" type="password" class="input" data-type="password"
+                                                placeholder="Enter your password" required>
+                                            <img src="images/showPass/eye-close.png" id="eye" alt="eye"
+                                                class="position-absolute">
+                                        </div>
+                                    </div>
+                                    <div class="group">
+                                        <input id="check" type="checkbox" class="check" checked>
+                                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                                    </div>
+                                    <div id="invaild_email_pas">
+
+                                    </div>
+                                    <div class="group">
+                                        <input type="submit" id="login-button" class="button" value="Sign In">
+                                    </div>
+                                    <div class="hr"></div>
+                                    <div class="foot">
+                                        <a href="#">Forgot Password?</a>
+                                    </div>
+                                </div>
+                                <div class="sign-up-form">
+                                    <div class="group">
+                                        <label for="user" class="label">Username</label>
+                                        <input id="user-signup" type="text" class="input"
+                                            placeholder="Create your Username">
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Password</label>
+                                        <div class="position-relative">
+                                            <input id="pass-signup" type="password" class="input" data-type="password"
+                                                placeholder="Create your password">
+                                            <img src="images/showPass/eye-close.png" id="eye-signup" alt="eye"
+                                                class="position-absolute">
+                                        </div>
+                                        <div id="invaild_pas">
+
+                                        </div>
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Repeat Password</label>
+                                        <div class="position-relative">
+                                            <input id="pass-signup-val" type="password" class="input"
+                                                data-type="password" placeholder="Repeat your password">
+                                            <img src="images/showPass/eye-close.png" id="eye-signup-val" alt="eye"
+                                                class="position-absolute">
+                                        </div>
+
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Email Address</label>
+                                        <input id="email" type="text" class="input"
+                                            placeholder="Enter your email address">
+                                        <div id="email_exist">
+
+                                        </div>
+                                    </div>
+                                    <div class="group">
+                                        <label for="select-type" class="label">User type</label>
+                                        <select class="form-select input" aria-label="Default select example"
+                                            id="select-type">
+                                            <option value="customer">Customer</option>
+                                            <option value="seller">Seller</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="group">
+                                        <div id="signup_done">
+
+                                        </div>
+                                        <input type="submit" class="button" id="signup_button" value="Sign Up">
+                                        
+                                    </div>
+                                    <div class="hr"></div>
+                                    <div class="foot ">
+                                        <label for="tab-1">Already Member?</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- login page end -->
+
+
+    <!-- Footer section -->
+    <footer class="py-5">
+        <div class="row container mx-auto pt-5">
+            <div class="footer-one col-12 col-mg-6 col-lg-3">
+                <img src="images/logo2.png" alt="Footer Img">
+                <p class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptatem corrupti enim
+                    assumenda
+                    sequi ullam animi cumque, optio fugiat ut sapiente</p>
+            </div>
+            <div class="footer-one col-12 col-mg-6 col-lg-3 mb-3">
+                <h5 class="pb-2">Featured</h5>
+                <ul class="text-uppercase list-unstyled ">
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Boys</a></li>
+                    <li><a href="#">Girls</a></li>
+                    <li><a href="#">New arrivals</a></li>
+                    <li><a href="#">Shoes</a></li>
+                    <li><a href="#">Clothes</a></li>
+                </ul>
+            </div>
+            <div class="footer-one col-12 col-mg-6 col-lg-3 mb-3">
+                <h5 class="pb-2">Contact Us</h5>
+                <div>
+                    <h6 class="text-uppercase">Address</h6>
+                    <p>123, Mansoura Egypt</p>
+                </div>
+                <div>
+                    <h6 class="text-uppercase">Phone</h6>
+                    <p>0_777_5000</p>
+                </div>
+                <div>
+                    <h6 class="text-uppercase">Email</h6>
+                    <p>ITI@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-one col-12 col-mg-6 col-lg-3">
+                <h5 class="pb-2">Instagram</h5>
+                <div class="row">
+                    <img class="img-fluid w-25 h-100 m-2" src="images/insta/1.jpg" alt="Instagram Img">
+                    <img class="img-fluid w-25 h-100 m-2" src="images/insta/2.jpg" alt="Instagram Img">
+                    <img class="img-fluid w-25 h-100 m-2" src="images/insta/3.jpg" alt="Instagram Img">
+                    <img class="img-fluid w-25 h-100 m-2" src="images/insta/4.jpg" alt="Instagram Img">
+                    <img class="img-fluid w-25 h-100 m-2" src="images/insta/5.jpg" alt="Instagram Img">
+                </div>
+            </div>
+
+        </div>
+        <div class="copyright mt-5">
+            <div class="row container mx-auto">
+                <div class="col-12 col-md-6 col-lg-3 mb-4">
+                    <img src="images/payment.png" alt="">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 text-nowrap mb-2">
+                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                </div>
+                <div id="footer-social" class="col-12 col-md-6 col-lg-4">
+                    <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer section end -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/all.min.js"></script>
+</body>
+
+</html>
