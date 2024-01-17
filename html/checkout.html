@@ -73,7 +73,9 @@
                 padding-left: 0;
 
             }
-
+            .form-group {
+      margin-bottom: 15px;
+    }
         }
     </style>
 
@@ -94,53 +96,53 @@
             <form class="row g-3 m-4" id="checkoutForm">
 
                 <div class="col-md-6">
-                    <label for="fn" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="fn" required>
+                    <label for="fn" class="form-label"><i class="fas fa-user"style="margin-right: 3px;"></i>First name</label>
+                    <input type="text" class="form-control" id="fn" pattern="[A-Za-z]+" title="Only alphabetical characters are allowed" required>
                     <div class="invalid-feedback">
                         Please enter a valid first name.
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="ln" class="form-label">Last name</label>
+                    <label for="ln" class="form-label"><i class="fas fa-user" style="margin-right: 3px;"></i>Last name</label>
                     <input type="text" class="form-control" id="ln" required>
                     <p class="invalid-feedback">
                         Please enter a valid last name.
                     </p>
                 </div>
                 <div class="col-12">
-                    <label for="country" class="form-label">Country/Region</label>
+                    <label for="country" class="form-label"><i class="fas fa-globe" style="margin-right: 3px;"></i> Country/Region</label>
                     <input type="text" class="form-control" id="country" placeholder="Egypt" required>
                 </div>
                 <div class="col-12">
-                    <label for="street" class="form-label">Street address</label>
+                    <label for="street" class="form-label"><i class="fas fa-road" style="margin-right: 3px;"></i>Street address</label>
                     <input type="text" class="form-control" id="street" placeholder="House number and street name"
                         required>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputCity" class="form-label">Town/City</label>
+                    <label for="inputCity" class="form-label"><i class="fas fa-map-marked-alt" style="margin-right: 3px;"></i>Town/City</label>
                     <input type="text" class="form-control" id="inputCity" required>
                 </div>
 
                 <div class="col-md-6">
-                    <label for="inputZip" class="form-label">Zip Code</label>
+                    <label for="inputZip" class="form-label"><i class="fas fa-map-marker-alt"></i> Zip Code</label>
                     <input type="text" class="form-control" id="inputZip" required>
                 </div>
                 <div class="col-12">
-                    <label for="inputAddress2" class="form-label">Phone Number</label>
+                    <label for="inputAddress2" class="form-label"><i class="fas fa-phone" style="margin-right: 3px;"></i>Phone Number</label>
                     <input type="text" class="form-control" id="inputAddress2" pattern="[0-9]{11}" maxlength="11"
                         oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
                     <div class="invalid-feedback">Please enter a 10-digit phone number.</div>
                 </div>
 
                 <div class="col-12">
-                    <label for="inputAddress2" class="form-label">Email address</label>
+                    <label for="inputAddress2" class="form-label"><i class="fas fa-envelope" style="margin-right: 3px;"></i>Email address</label>
                     <input type="email" class="form-control" id="inputAddress2" required>
                     <p class="invalid-feedback">
                         Please enter email address like "esraa@gmail.com"
                     </p>
                 </div>
                 <div class="col-12">
-                    <label for="inputAddress2" class="form-label">Order notes(optional)</label>
+                    <label for="inputAddress2" class="form-label"><i class="fas fa-sticky-note" style="margin-right: 3px;"></i>Order notes(optional)</label>
                     <textarea type="" class="form-control" id="inputAddress2"
                         placeholder="note about your order,e.g.special notes for delivery"></textarea>
                 </div>
@@ -171,7 +173,7 @@
             </div>
             <hr id="hr">
             <div class="col-12">
-                <button type="submit" class="btn btn-primary" id="submitButton">Place order</button>
+                <button type="submit" class="btn btn-primary" id="submitButton"><i class="fas fa-check"></i>Place order</button>
             </div>
 
         </div>
@@ -181,7 +183,7 @@
         document.getElementById('submitButton').addEventListener('click', function () {
             var form = document.getElementById('checkoutForm');
             var data = document.getElementsByTagName("input");
-            for (var i = 0; i < data.length; i++) {
+            for (let i = 0; i < data.length; i++) {
                 if (data[i].value.trim() === "") {
                     event.preventDefault();
                     data[i].style.border = "1px red solid";
@@ -191,7 +193,12 @@
                     data[i].style.border = "1px black solid";
 
                 }
+                if(document.getElementById("fn").value.trim().length<3){
+                data[i].style.border = "1px red solid";
+                 
             }
+            }
+          
             console.log(data.value);
             var form = document.querySelector('.needs-validation');
             form.addEventListener('submit', function (event) {

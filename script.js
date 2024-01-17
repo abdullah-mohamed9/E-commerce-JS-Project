@@ -53,7 +53,7 @@ submit.addEventListener("click", function (e) {
         userName.style.border = "solid 3px green";
         //////sweeeeeeeeeeeeeeeeeeeeet aleeeeeeeeeeeeeeeeeeeeeeert
 
-        window.location.href = "index.html";
+        window.location.href = "product.html";
     }
 });
 
