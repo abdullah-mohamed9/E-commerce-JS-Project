@@ -575,7 +575,7 @@ footer .copyright a:hover {
 }
 
 .login-sec {
-    background-image: url("img/banner/2.jpg");
+    background-image: url("images/banner/2.jpg");
     width: 100vw;
     height: 140vh;
     background-size: cover;
@@ -588,7 +588,7 @@ footer .copyright a:hover {
 body {
     margin: 0;
     color: #6a6f8c;
-    background: #c8c8c8;
+    /* background: #c8c8c8; */
     font: 600 16px/18px 'Open Sans', sans-serif;
 }
 
@@ -683,18 +683,22 @@ body {
     border-radius: 25px;
     background: rgba(255, 255, 255, .1);
 }
+
 /* 
 .login-space .group input[data-type="password"] {
     text-security: circle;
     -webkit-text-security: circle;
 } */
 
-#eye,#eye-signup,#eye-signup-val{
+#eye,
+#eye-signup,
+#eye-signup-val {
     right: 12px;
     top: 13px;
     width: 28px;
     cursor: pointer;
 }
+
 .login-space .group .label {
     color: #aaa;
     font-size: 12px;
@@ -803,19 +807,26 @@ a {
 
 #invaild_pas,
 #invaild_email_pas,
-#email_exist,#signup_done {
+#email_exist,
+#signup_done,
+#invaild_username,
+#invaild_pas_val,
+#invaild_login_email,
+#invaild_login_pas {
     color: red;
     font-size: 12px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
-#signup_done{
+
+#signup_done {
     color: #fb774b;
     font-size: 18px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 10px;
 }
-option{
+
+option {
     background-color: rgb(6, 73, 72);
 }

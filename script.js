@@ -8,7 +8,11 @@ let email = document.querySelector("#email");
 let select_type = document.querySelector("#select-type");
 let signup_button = document.querySelector("#signup_button");
 
+let invaild_login_email = document.querySelector("#invaild_login_email");
+let invaild_login_pas = document.querySelector("#invaild_login_pas");
+let invaild_username = document.querySelector("#invaild_username");
 let invaild_pas = document.querySelector("#invaild_pas");
+let invaild_pas_val = document.querySelector("#invaild_pas_val");
 let invaild_email_pas = document.querySelector("#invaild_email_pas");
 let email_exist = document.querySelector("#email_exist");
 let signup_done = document.querySelector("#signup_done");
@@ -32,8 +36,8 @@ if (localStorage.getItem("users") != null) {
     localStorage.setItem("users", JSON.stringify(users));
 }
 
-let nameRegex = /^[a-zA-Z ]{3,}$/;
-let emailRegex = /^[a-zA-Z0-9_.]{4,}@(yahoo|gmail|hotmail|outlook).(com|net|eg)$/;
+const nameRegex = /^[a-zA-Z ]{3,}$/;
+const emailRegex = /^[a-zA-Z0-9_.]{4,}@(yahoo|gmail|hotmail|outlook).(com|net|eg)$/;
 
 
 function User(id, name, email, password, type) {
@@ -51,14 +55,30 @@ submit.addEventListener("click", function (e) {
         e.preventDefault();
         password.style.border = "solid 3px green";
         userName.style.border = "solid 3px green";
-        //////sweeeeeeeeeeeeeeeeeeeeet aleeeeeeeeeeeeeeeeeeeeeeert
+        invaild_email_pas.innerText = "";
 
-        window.location.href = "product.html";
+        //////sweeeeeeeeeeeeeeeeeeeeet aleeeeeeeeeeeeeeeeeeeeeeert
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: "success",
+            title: "Signed in successfully"
+        }).then((result) => {
+            window.location.href = "product.html";
+        });
     }
 });
 
 signup_button.addEventListener("click", function (e) {
-
     if (validateSignup()) {
         e.preventDefault();
         let newUser = new User(users.length + 1, user_signup.value, email.value, password_signup.value, select_type.value);
@@ -70,9 +90,12 @@ signup_button.addEventListener("click", function (e) {
             title: "SignUp Confirmed!",
             text: "Welcome to ITI!",
             icon: "success",
-
+        }).then((result) => {
+            if (result.isConfirmed) {
+                //
+                console.log("OK button clicked. ");
+            }
         });
-        console.log("valid");
     }
 });
 function SignupDone() {
@@ -113,12 +136,10 @@ function validateLogin() {
 
             } else {
                 console.log("user type is admin");
-                
-            }
 
+            }
             localStorage.setItem("user", JSON.stringify(users[i]));
             return true;
-            break;
         } else {
             password.style.border = "solid 3px red";
             userName.style.border = "solid 3px red";
@@ -133,14 +154,16 @@ function validateSignup() {
 
     if (user_signup.value.trim() === "" || !nameRegex.test(user_signup.value)) {
         user_signup.style.border = "solid 3px red";
+        invaild_username.innerText = "Username must be more than 3 char";
         return false;
     } else {
         user_signup.style.border = "solid 3px green";
+        invaild_username.innerText = "";
     }
 
     if (password_signup.value.trim() === "" || password_signup.value.length < 8) {
         password_signup.style.border = "solid 3px red";
-        invaild_pas.innerText = "password must be more than 8 char";
+        invaild_pas.innerText = "password must be more than 8 chars";
         return false;
     } else {
         password_signup.style.border = "solid 3px green";
@@ -149,13 +172,16 @@ function validateSignup() {
 
     if (password_signup_val.value.trim() === "" || password_signup_val.value !== password_signup.value) {
         password_signup_val.style.border = "solid 3px red";
+        invaild_pas_val.innerText = "password must be the same";
         return false;
     } else {
         password_signup_val.style.border = "solid 3px green";
+        invaild_pas_val.innerText = "";
     }
 
     if (email.value.trim() === "" || !emailRegex.test(email.value)) {
         email.style.border = "solid 3px red";
+        email_exist.innerHTML = "invalid email EX: <span style='color: #b6b3b3;'><i>iti@gmail.com</i></span>";
         return false;
     } else {
         for (let i = 0; i < users.length; i++) {
@@ -163,7 +189,6 @@ function validateSignup() {
                 email.style.border = "solid 3px red";
                 email_exist.innerText = "email is already exist";
                 return false;
-                break;
             } else {
                 email.style.border = "solid 3px green";
                 email_exist.innerText = "";
