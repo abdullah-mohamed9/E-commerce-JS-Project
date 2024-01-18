@@ -8,6 +8,7 @@ let products = [
     product_img3: "../images/products2/f4.jpg",
     description: "T-shirt in soft cotton jersey. Regular Fit.",
     price: "150$",
+    category:"pants"
   },
   {
     product_id: 2,

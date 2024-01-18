@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1"></h1>
+    <h1 id="h2"></h1>
+    <h1 id="h3"></h1>
+    <img src="" id="img" width="100px">
+    <script>
+        window.addEventListener("load", function () {
+            var params = new URLSearchParams(window.location.search);
+            let numOfItems = params.get('numOfItems');
+            let sizeOfProduct = params.get('sizeOfProduct');
+            //number of products
+            document.getElementById("h1").innerText = numOfItems;
+            //size of product
+            document.getElementById("h2").innerText = sizeOfProduct;
+            //user id
+            let currentUserId = JSON.parse(localStorage.getItem("user"))['id'];
+            //product id
+            let productId=params.get('productId');
+            document.getElementById('h3').innerText=productId;
+            //productImg
+            document.getElementById('img').src = JSON.parse(localStorage.getItem("products"))[productId][
+                'product_img'
+            ];
+        });
+    </script>
+</body>
+
+</html>

@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../css/font-awesome.css" />
     <style>
+        body {
+            background-color: white;
+        }
+
         .smallImages {
             display: flex;
             justify-content: space-between;
@@ -37,7 +41,7 @@
         }
 
         .myImg11 {
-          flex-basis: 23%;
+            flex-basis: 23%;
         }
 
         #mSmImgs {
@@ -106,7 +110,7 @@
 
 
     <section id="mainWrapper" class="container">
-        <div id="leftWrapper" class="col-12 col-xl-6 col-md-12 order-md-1">
+        <div id="leftWrapper" class="col-12 col-xl-6 col-md-6 order-md-1">
             <img src="" alt="Product Image" id="i1" class="img-fluid" " />
             <div class=" smallImages pd-2" id="mSmImgs">
             <div class="smallImg pd-1">
@@ -123,11 +127,12 @@
         </div>
 
 
-        <div id="rightWrapper" class="col-12 col-xl-6 col-md-12 order-md-2">
+        <div id="rightWrapper" class="col-12 col-xl-6 col-md-6 order-md-2">
             <h1 id="h1">T-shirt</h1>
             <h3 id="price">300$</h3>
             <form>
-                <select class="form-select form-select-md" aria-label="Default select example" style="width: 130px">
+                <select class="form-select form-select-md" aria-label="Default select example" style="width: 130px"
+                    id="select">
                     <option selected>select size</option>
                     <option>XXL</option>
                     <option>XL</option>
@@ -136,7 +141,8 @@
                     <option>small</option>
                 </select><br />
                 <div id="rangeAddTo">
-                    <input type="number" min="1" max="5" value="1" style="border-radius: 5px; margin-right: 5px" />
+                    <input type="number" min="1" max="5" value="2" style="border-radius: 5px; margin-right: 5px"
+                        id="number" />
                     <input type="button" value="Add To Cart" class="btn btn-dark form-control" style="width: 200px"
                         id="AddToCart" />
                 </div>
@@ -167,7 +173,7 @@
         <h3 style="text-align: center" class="mt-5">Other products</h3>
         <div class="mt-5 container k" id="myBottomPro">
             <div class="col-md-6 col-12 col-lg-4 col-xl-3 mb-2 myImg11">
-                <img src="../images/shop/3.jpg" class="footerImages" width="100%"/>
+                <img src="../images/shop/3.jpg" class="footerImages" width="100%" />
                 <h6 class=" textOfPro">Hand Bag</h6>
                 <p>300$</p>
             </div>
@@ -182,7 +188,7 @@
                 <p>100$</p>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 mb-2 myImg11">
-                <img src="../images/shop/1.jpg" class="footerImages" width="100%"/>
+                <img src="../images/shop/1.jpg" class="footerImages" width="100%" />
                 <h6 class="textOfPro">t-shirt</h6>
                 <p>1500$</p>
             </div>
@@ -265,7 +271,7 @@
     </script>
     <script src="../js/productDetails.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        window.addEventListener("load", function () {
             //to get params from url
             var params = new URLSearchParams(window.location.search);
             let productId = decodeURIComponent(params.get('id'));
@@ -289,12 +295,22 @@
             document.getElementById('smImg3').src = JSON.parse(localStorage.getItem("products"))[productId][
                 'product_img3'
             ];
+            //second part passing data to add to cart ==================================================================
+           
+           
+            document.getElementById("AddToCart").addEventListener("click", function () {
+                let numOfItems = document.getElementById("number").value;
+                var sizeSelect = document.getElementById("select");
+                var sizeOfProduct = sizeSelect.options[sizeSelect.selectedIndex].value;
+                window.location.href = '../html/addToCart.html?numOfItems=' + numOfItems +
+                    '&sizeOfProduct=' + sizeOfProduct+'&productId='+productId;
+            });
+
         });
     </script>
     <script>
         var x = document.getElementById("i1");
         var smallImgs = document.querySelectorAll(".small-img");
-
         smallImgs.forEach(function (smallImg) {
             smallImg.addEventListener("click", function () {
                 console.log(this.src);
