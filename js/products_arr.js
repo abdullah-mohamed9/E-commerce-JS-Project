@@ -8,7 +8,7 @@ let products = [
     product_img3: "../images/products2/f4.jpg",
     description: "T-shirt in soft cotton jersey. Regular Fit.",
     price: "150$",
-    category:"pants"
+    category: "pants"
   },
   {
     product_id: 2,
@@ -32,7 +32,7 @@ let products = [
       Oxford fabric
       One chest pocket`,
     price: "600$ ",
-    category:"featured"
+    category: "featured"
   },
   {
     product_id: 4,
@@ -42,7 +42,7 @@ let products = [
     product_img2: "../images/p/p22.jpg",
     product_img3: "../images/p/p23.jpg",
     description: ` Slim Fit Biker Collar Men's Coat With a stylish and modern style, the men's coat fits the body with its slim fit cut. The biker collar and the coat, which stands out with its energy, combines classic and sporty elegance.`,
-    category:"populer",
+    category: "populer",
     price: "1000$ ",
   },
   {
@@ -61,7 +61,7 @@ let products = [
     description: `Slim Fit Men's Jogger Sweatpants 
       Zipper pocket
       Waist with elastic and adjustable drawstring`,
-      category:"populer",
+    category: "populer",
 
     price: "300 $",
   },
@@ -75,7 +75,7 @@ let products = [
     product_img3: "../images/p/p64.jpg",
     description: `Shirt Collar Straight Long Sleeve Women's Tunic
         wonderful flower pant`,
-        category:"populer",
+    category: "populer",
     price: "650$ ",
   },
   {
@@ -83,7 +83,7 @@ let products = [
     product_name: "half-Boot",
     product_img: "images/products/p1.png",
     description: "wonderful half-boot",
-    category:"populer",
+    category: "populer",
     price: "450$ ",
   },
   {
@@ -91,7 +91,7 @@ let products = [
     product_name: "pink H-Boot",
     product_img: "../images/products/p5.PNG",
     description: "wonderful half-boot",
-    category:"featured",
+    category: "featured",
     price: "600$",
   },
   {
@@ -99,7 +99,7 @@ let products = [
     product_name: "brown H-Boot",
     product_img: "../images/products/p7.png",
     description: "wonderful half-boot",
-    category:"featured",
+    category: "featured",
     price: "450$",
   },
   {
@@ -107,7 +107,7 @@ let products = [
     product_name: "white H-Boot",
     product_img: "../images/products/p8.png",
     description: "wonderful half-boot",
-    category:"featured",
+    category: "featured",
     price: "450$ ",
   },
 
@@ -121,7 +121,7 @@ let products = [
 
     description: `Crew Neck Regular Long Sleeve Women's Tricot Sweater
         Ribbed ankles and bottom`,
-        category:"featured",
+    category: "featured",
     price: "450$",
   },
 
@@ -135,7 +135,7 @@ let products = [
     description: `Waistband
         Front double pocket
         made of stamp fabric`,
-        category:"featured",
+    category: "featured",
     price: "1500$",
   },
   {
@@ -146,7 +146,7 @@ let products = [
     product_img2: "../images/p/p33.jpg",
     product_img3: "../images/p/p34.jpg",
     description: `Crew Neck Short Sleeve Combed Cotton Men's T-shirt From combed cotton fabric short sleeved T-Shirt`,
-    category:"featured",
+    category: "featured",
     price: "200$",
   },
   {
@@ -154,16 +154,25 @@ let products = [
     product_name: "Black Boot",
     product_img: "../images/products/p6.PNG",
     description: "wonderful half-boot",
-    category:"populer",
+    category: "populer",
     price: "600$",
   },
 
 ];
+
 //store products in local storage. esraa
 localStorage.setItem("products", JSON.stringify(products));
-
- 
-
+var firstProduct = document.getElementsByClassName("pro")[0];
+var ProductsLength = products['length'];
+var idOfFirstElement = products[0].product_id;
+window.addEventListener("load", function () {
+  for (let i = 0; i < products.length; i++) {
+    document.getElementsByClassName("pro")[i].addEventListener("click", function () {
+      let ID = (products[i].product_id) - 1;
+      window.location.href = '../html/productDetails.html?id=' + ID;
+    });
+  }
+});
 
 function renderProduct() {
   // Retrieve products from local storage
@@ -179,8 +188,8 @@ function renderProduct() {
     productsContainer.innerHTML = "";
 
 
-      products.forEach((item) => {
-        const productHTML = `
+    products.forEach((item) => {
+      const productHTML = `
         <div class="product text-center col-12 col-md-4 col-lg-3">
         <div class="Product_image">
         <img class="img-fluid mb-3" src="${item.product_img}" alt="product">
@@ -198,9 +207,9 @@ function renderProduct() {
     </div>
         `;
 
-        // Append the product HTML to the container
-        productsContainer.innerHTML += productHTML;
-      });
+      // Append the product HTML to the container
+      productsContainer.innerHTML += productHTML;
+    });
     // Loop through each product and generate HTML
   } else {
     // Handle the case when there are no products in local storage

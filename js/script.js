@@ -4,7 +4,7 @@ var myproduct_container = document.getElementById("myproducts");
 
 for (var i in products) {
   var product = `<div class="pro ${products[i].product_id}">
-<img onclick="location.href='productDetails.html?index=${i}' "src="${products[i].product_img}" alt="product img" />
+<img onclick="location.href='../html/productDetails.html?index=${i}' "src="${products[i].product_img}" alt="product img" />
 <div class="des">
   <h5 class="product-name">${products[i].product_name}</h5>
   <div class="star">
