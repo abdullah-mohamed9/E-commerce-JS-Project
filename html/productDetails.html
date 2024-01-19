@@ -268,53 +268,78 @@
     <script src="../js/bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-   </script>
+        </script>
     <script src="../js/productDetails.js"></script>
     <script>
         window.addEventListener("load", function () {
             //to get params from url
             var params = new URLSearchParams(window.location.search);
             let productId = decodeURIComponent(params.get('id'));
-            // console.log(productId);
-            // document.getElementById('h1').innerText = JSON.parse(localStorage.getItem("products"))[productId][
-            //     'product_name'
-            // ];
-            // document.getElementById('price').innerText = JSON.parse(localStorage.getItem("products"))[productId]
-            //     ['price'];
-            // document.getElementById('description').innerText = JSON.parse(localStorage.getItem("products"))[
-            //     productId]['description'];
-            // document.getElementById('i1').src = JSON.parse(localStorage.getItem("products"))[productId][
-            //     'product_img'
-            // ];
-            // document.getElementById('smImg1').src = JSON.parse(localStorage.getItem("products"))[productId][
-            //     'product_img1'
-            // ];
-            // document.getElementById('smImg2').src = JSON.parse(localStorage.getItem("products"))[productId][
-            //     'product_img2'
-            // ];
-            // document.getElementById('smImg3').src = JSON.parse(localStorage.getItem("products"))[productId][
-            //     'product_img3'
-            // ];
-            let products=JSON.parse(window.localStorage.getItem("products")) 
+            console.log(productId);
+            document.getElementById('h1').innerText = JSON.parse(localStorage.getItem("products"))[productId][
+                'product_name'
+            ];
+            document.getElementById('price').innerText = JSON.parse(localStorage.getItem("products"))[productId]
+            ['price'];
+            document.getElementById('description').innerText = JSON.parse(localStorage.getItem("products"))[
+                productId]['description'];
+            document.getElementById('i1').src = JSON.parse(localStorage.getItem("products"))[productId][
+                'product_img'
+            ];
+            document.getElementById('smImg1').src = JSON.parse(localStorage.getItem("products"))[productId][
+                'product_img1'
+            ];
+            document.getElementById('smImg2').src = JSON.parse(localStorage.getItem("products"))[productId][
+                'product_img2'
+            ];
+            document.getElementById('smImg3').src = JSON.parse(localStorage.getItem("products"))[productId][
+                'product_img3'
+            ];
+            let products = JSON.parse(window.localStorage.getItem("products"))
             const selectedProduct = products.find(
-          (product) => productId == product.product_id
-        );  
+                (product) => productId == product.product_id
+            );
             document.getElementById('h1').innerText = selectedProduct.product_name
             document.getElementById('price').innerText = selectedProduct.price
-            document.getElementById('description').innerText =selectedProduct.description
+            document.getElementById('description').innerText = selectedProduct.description
             document.getElementById('i1').src = selectedProduct.product_img
             document.getElementById('smImg1').src = selectedProduct.product_img1
             document.getElementById('smImg2').src = selectedProduct.product_img2
             document.getElementById('smImg3').src = selectedProduct.product_img3
             //second part passing data to add to cart ==================================================================
-           
-           
+
+
             document.getElementById("AddToCart").addEventListener("click", function () {
                 let numOfItems = document.getElementById("number").value;
                 var sizeSelect = document.getElementById("select");
                 var sizeOfProduct = sizeSelect.options[sizeSelect.selectedIndex].value;
-                window.location.href = '../html/addToCart.html?numOfItems=' + numOfItems +
-                    '&sizeOfProduct=' + sizeOfProduct+'&productId='+productId;
+                let currentUserId = JSON.parse(localStorage.getItem("user"))['id'];
+
+                let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+
+                let newCartItem = {
+                    numOfItems: numOfItems,
+                    sizeOfProduct: sizeOfProduct,
+                    productId: productId,
+                    userId: currentUserId
+                };
+                cartData.push(newCartItem);
+                localStorage.setItem("cartData", JSON.stringify(cartData));
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "Added to cart successfully"
+                });
             });
 
         });
@@ -329,6 +354,8 @@
             });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!---->
 </body>
 
