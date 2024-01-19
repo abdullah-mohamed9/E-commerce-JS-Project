@@ -32,6 +32,7 @@ let products = [
       Oxford fabric
       One chest pocket`,
     price: "600$ ",
+    category:"featured"
   },
   {
     product_id: 4,
@@ -41,7 +42,7 @@ let products = [
     product_img2: "../images/p/p22.jpg",
     product_img3: "../images/p/p23.jpg",
     description: ` Slim Fit Biker Collar Men's Coat With a stylish and modern style, the men's coat fits the body with its slim fit cut. The biker collar and the coat, which stands out with its energy, combines classic and sporty elegance.`,
-
+    category:"populer",
     price: "1000$ ",
   },
   {
@@ -60,7 +61,7 @@ let products = [
     description: `Slim Fit Men's Jogger Sweatpants 
       Zipper pocket
       Waist with elastic and adjustable drawstring`,
-
+      category:"populer",
 
     price: "300 $",
   },
@@ -74,7 +75,7 @@ let products = [
     product_img3: "../images/p/p64.jpg",
     description: `Shirt Collar Straight Long Sleeve Women's Tunic
         wonderful flower pant`,
-
+        category:"populer",
     price: "650$ ",
   },
   {
@@ -82,7 +83,7 @@ let products = [
     product_name: "half-Boot",
     product_img: "images/products/p1.png",
     description: "wonderful half-boot",
-
+    category:"populer",
     price: "450$ ",
   },
   {
@@ -90,7 +91,7 @@ let products = [
     product_name: "pink H-Boot",
     product_img: "../images/products/p5.PNG",
     description: "wonderful half-boot",
-
+    category:"featured",
     price: "600$",
   },
   {
@@ -98,7 +99,7 @@ let products = [
     product_name: "brown H-Boot",
     product_img: "../images/products/p7.png",
     description: "wonderful half-boot",
-
+    category:"featured",
     price: "450$",
   },
   {
@@ -106,7 +107,7 @@ let products = [
     product_name: "white H-Boot",
     product_img: "../images/products/p8.png",
     description: "wonderful half-boot",
-
+    category:"featured",
     price: "450$ ",
   },
 
@@ -120,7 +121,7 @@ let products = [
 
     description: `Crew Neck Regular Long Sleeve Women's Tricot Sweater
         Ribbed ankles and bottom`,
-
+        category:"featured",
     price: "450$",
   },
 
@@ -134,7 +135,7 @@ let products = [
     description: `Waistband
         Front double pocket
         made of stamp fabric`,
-
+        category:"featured",
     price: "1500$",
   },
   {
@@ -145,7 +146,7 @@ let products = [
     product_img2: "../images/p/p33.jpg",
     product_img3: "../images/p/p34.jpg",
     description: `Crew Neck Short Sleeve Combed Cotton Men's T-shirt From combed cotton fabric short sleeved T-Shirt`,
-
+    category:"featured",
     price: "200$",
   },
   {
@@ -153,25 +154,74 @@ let products = [
     product_name: "Black Boot",
     product_img: "../images/products/p6.PNG",
     description: "wonderful half-boot",
-
+    category:"populer",
     price: "600$",
   },
 
 ];
 //store products in local storage. esraa
 localStorage.setItem("products", JSON.stringify(products));
-var firstProduct = document.getElementsByClassName("pro")[0];
-var ProductsLength = products['length'];
-var idOfFirstElement = products[0].product_id;
-window.addEventListener("load", function () {
-  for (let i = 0; i < products.length; i++) {
-    document.getElementsByClassName("pro")[i].addEventListener("click", function () {
-      let ID=(products[i].product_id)-1;
-      window.location.href = '../html/productDetails.html?id=' + ID;
-    });
+
+ 
+
+
+function renderProduct() {
+  // Retrieve products from local storage
+  const products = JSON.parse(localStorage.getItem("products"));
+
+  // Get the element where you want to render the products
+  const productsContainer = document.getElementById("products-container");
+  console.log(productsContainer);
+
+  // Check if there are products in local storage
+  if (products && products.length > 0) {
+    // Clear existing content in the container
+    productsContainer.innerHTML = "";
+
+
+      products.forEach((item) => {
+        const productHTML = `
+        <div class="product text-center col-12 col-md-4 col-lg-3">
+        <div class="Product_image">
+        <img class="img-fluid mb-3" src="${item.product_img}" alt="product">
+        </div>
+        <div class="star">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        </div>
+        <h5 class="p-name">${item.product_name}</h5>
+        <h4 class="p-price">${item.price}</h4>
+        <a href=html/productDetails.html?id=${item.product_id}  class="buy-btn id="">Buy Now</a>
+    </div>
+        `;
+
+        // Append the product HTML to the container
+        productsContainer.innerHTML += productHTML;
+      });
+    // Loop through each product and generate HTML
+  } else {
+    // Handle the case when there are no products in local storage
+    productsContainer.innerHTML = "<p>No products available</p>";
   }
-});
+}
+// Check if local storage is supported by the browser
 
+renderProduct();
 
-
-
+// {
+//   product_id: 3,
+//   product_name: "long  Shirt",
+//   product_img: "../images/p/p13.jpg",
+//   product_img1: "../images/p/p14.jpg",
+//   product_img2: "../images/p/p11.jpg",
+//   product_img3: "../images/p/p12.jpg",
+//   description: `Regular Fit Long Sleeve Oxford Men's Shirt
+//     Button collar
+//     Oxford fabric
+//     One chest pocket`,
+//   price: "600$ ",
+//   category:"featured"
+// },
