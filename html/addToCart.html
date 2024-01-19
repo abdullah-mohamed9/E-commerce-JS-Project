@@ -12,23 +12,45 @@
     <h1 id="h3"></h1>
     <img src="" id="img" width="100px">
     <script>
+
         window.addEventListener("load", function () {
-            var params = new URLSearchParams(window.location.search);
-            let numOfItems = params.get('numOfItems');
-            let sizeOfProduct = params.get('sizeOfProduct');
-            //number of products
-            document.getElementById("h1").innerText = numOfItems;
-            //size of product
-            document.getElementById("h2").innerText = sizeOfProduct;
-            //user id
             let currentUserId = JSON.parse(localStorage.getItem("user"))['id'];
-            //product id
-            let productId=params.get('productId');
-            document.getElementById('h3').innerText=productId;
-            //productImg
-            document.getElementById('img').src = JSON.parse(localStorage.getItem("products"))[productId][
-                'product_img'
-            ];
+
+            // Check if the user is logged in
+            if (currentUserId) {
+                // Check if the user has any products in the cart
+                let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+                let userCart = cartData.filter(item => item.userId === currentUserId);
+
+                if (userCart.length > 0) {
+                    // Display all products in the user's cart
+                    userCart.forEach(product => {
+                        let numOfItems = product.numOfItems;
+                        let sizeOfProduct = product.sizeOfProduct;
+                        let productId = product.productId;
+
+                        // Display the product details
+                        let h1 = document.createElement("h1");
+                        h1.innerText = numOfItems;
+                        document.body.appendChild(h1);
+
+                        let h2 = document.createElement("h1");
+                        h2.innerText = sizeOfProduct;
+                        document.body.appendChild(h2);
+
+                        let h3 = document.createElement("h1");
+                        h3.innerText = productId;
+                        document.body.appendChild(h3);
+
+                        // Display the product image
+                        let productImg = JSON.parse(localStorage.getItem("products"))[productId]['product_img'];
+                        let img = document.createElement("img");
+                        img.src = productImg;
+                        img.width = "100px";
+                        document.body.appendChild(img);
+                    });
+                }
+            }
         });
     </script>
 </body>

@@ -98,6 +98,7 @@ signup_button.addEventListener("click", function (e) {
         });
     }
 });
+
 function SignupDone() {
     signup_done.innerText = "SignUp done"
     user_signup.value = '';
