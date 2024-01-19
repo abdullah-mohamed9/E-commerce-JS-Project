@@ -161,10 +161,6 @@ let products = [
 ];
 //store products in local storage. esraa
 localStorage.setItem("products", JSON.stringify(products));
-
- 
-
-
 function renderProduct() {
   // Retrieve products from local storage
   const products = JSON.parse(localStorage.getItem("products"));
