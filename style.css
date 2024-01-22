@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
+@import url("../components/navbar/nav.css");
+@import url("../components/footer/footer.css");
 * {
     margin: 0;
     padding: 0;
@@ -162,53 +163,6 @@ hr {
     background-color: #fb774b;
 }
 
-.navbar {
-    font-size: 1rem;
-    top: 0;
-    left: 0;
-    opacity: 0.9;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-light .navbar-nav .nav-linl {
-    padding: 0 20px;
-    color: black;
-    transform: 0.3 ease;
-}
-
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar svg:hover {
-    color: coral;
-}
-
-.navbar-light .navbar-nav .nav-link:active,
-.navbar svg:active {
-    color: green;
-}
-
-.navbar svg {
-    font-size: 1.2rem;
-    padding: 0px 7px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: 0.3s ease;
-}
-
-#bar {
-    font-size: 1.5rem;
-    padding: 7px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: 0.3s ease;
-    color: black;
-}
-
-
-
-#bar:active {
-    color: green;
-}
-
 /*mobile nav view*/
 .navbar-light .navbar-toggler {
     border: none;
@@ -217,50 +171,7 @@ hr {
 }
 
 #home {
-    background-image: url("img/back.jpg");
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: top 92px center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-#home span {
-    color: coral;
-}
-
-@media screen and (max-width: 991px) {
-    #bar:hover {
-        color: white;
-        background-color: coral;
-    }
-
-    #navbarSupportedContent>ul {
-        margin: 1rem;
-        justify-content: flex-end;
-        align-items: flex-end;
-        text-align: right;
-    }
-
-    #navbarSupportedContent>ul>li:nth-child(n)>a,
-    .navbar svg {
-        padding: 10px 0px;
-    }
-}
-
-/*mobile nav view*/
-.navbar-light .navbar-toggler {
-    border: none;
-    outline: none;
-    background-color: transparent !important;
-}
-
-#home {
-    background-image: url("img/back.jpg");
+    background-image: url("images/back.jpg");
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -388,7 +299,7 @@ hr {
 }
 
 #banner {
-    background-image: url("img/banner/2.jpg");
+    background-image: url("images/banner/2.jpg");
     width: 100%;
     height: 60vh;
     background-size: cover;

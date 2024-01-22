@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
+@import url("../components/navbar/nav.css");
+@import url("../components/footer/footer.css");
 * {
     margin: 0;
     padding: 0;
@@ -61,57 +62,8 @@ h6 {
 hr {
     width: 30px;
     height: 2px;
-    background-color: #fb774b;
+    background-color: coral;
 }
-
-.navbar {
-    font-size: 1rem;
-    top: 0;
-    left: 0;
-    opacity: 0.9;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-light .navbar-nav .nav-link {
-    padding: 0 20px;
-    color: black;
-    transform: 0.3 ease;
-}
-
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar svg:hover,
-.navbar-light .navbar-nav .nav-link:active,
-.navbar svg:active {
-    color: coral;
-}
-
-.navbar-light .navbar-nav .nav-link:active,
-.navbar svg:active {
-    color:white;
-}
-
-.navbar svg {
-    font-size: 1.2rem;
-    padding: 0px 7px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: 0.3s ease;
-}
-
-#bar {
-    font-size: 1.5rem;
-    padding: 7px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: 0.3s ease;
-    color: black;
-}
-
-.navbar-nav .nav-item .icon{
-    color: black;
-    font-weight: 500;
-}
-
 
 /*mobile nav view*/
 .navbar-light .navbar-toggler {
@@ -314,10 +266,10 @@ hr {
     background-color: #fb774b;
 }
 
-/* #banner button:hover{
+ #banner button:hover{
     background-color: #3a3833;
     color: #fb774b;
-} */
+} 
 
 
 
