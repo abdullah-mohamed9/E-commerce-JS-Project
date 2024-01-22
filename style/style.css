@@ -4,97 +4,99 @@
 @import url("../components/footer/footer.css");
 
 
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Spartan', sans-serif;
-    border: none;
-    outline: none;
-} */
-
 body {
     width: 100%;
-}
-
-
-#search-container {
+  }
+  
+  #search-container {
     display: flex;
     flex-direction: row;
     margin: auto;
     justify-content: center;
     align-items: center;
-}
-
-#search-container input {
+  }
+  
+  #search-container select,
+  #search-container input {
     background-color: transparent;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin: 5px;
+  }
+  
+  #search-container select {
+   
+    width: 10vw; 
+    border-radius: 5px;
+  }
+  
+  #search-container input {
     width: 50vw;
     border-bottom: 2px solid #110f29;
-    margin: 5vw;
-    font-size: 3vw;
-}
-
-#search-container input:focus {
-    border-bottom-color: hwb(46 38% 18%);
-}
-
-#search-container button {
-    padding: 1em 2em;
-    margin-left: 1em;
-    background-color: #d1b761;
-    color: #ffffff;
-    border-radius: 5px;
-    margin-top: 0.5em;
-}
-
-.my-button {
-    padding: 1vw;
+  }
+  
+  #search-container input:focus {
+    border-bottom-color: #d1b761;
+  }
+  
+  #search {
+    font-size: 1.5rem !important;
+    margin-left: 0.5rem;
+  }
+  
+  .my-button {
+    padding: 0.5rem;
     background: transparent;
     color: black;
     cursor: pointer;
     font-weight: 200;
     width: 90%;
-}
-
-#filter,
-#search {
+  }
+  
+  #filter,
+  #search {
     background: transparent !important;
     color: #d1b761 !important;
-    font-size: 6vw !important;
-}
-
-#search {
+  }
+  
+  #search {
     margin-left: 5vw;
     font-size: 4vw !important;
-}
+  }
+  
 
-hr {
+  .filter option:checked {
+    background: #d1b761;
+    color: black;
+  }
+  
+  hr {
     color: #d1b761;
     width: 80%;
     margin: auto;
-}
-
-.active-search {
+  }
+  
+  .active-search {
     color: #d1b761;
-}
-
-.hide {
+  }
+  
+  .hide {
     display: none;
-}
-
-#product1 .myproduct-container {
+  }
+  
+  #product1 .myproduct-container {
     display: flex;
     justify-content: center;
     padding-top: 20px;
     flex-wrap: wrap;
-}
-
-#product1 p {
+  }
+  
+  #product1 p {
     font-size: 2.5vw;
-}
-
-#product1 h2 {
+  }
+  
+  #product1 h2 {
     font-size: 5vw;
-}
-
-
+  }
+  

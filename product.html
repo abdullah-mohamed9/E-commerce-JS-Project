@@ -26,29 +26,41 @@
 
 <body>
 
-
-
   <section id="header">
 
   </section>
-  
 
-  <!--& search bar -->
+<br>
+<br>
+<br>
 
-  <div class="wrapper">
-    <div id="search-container">
-      <input type="search" id="search-input" placeholder="Search product name here.." />
-      <i id="search" class="bi bi-search"></i>
-    </div>
 
-    <section id="product1" class="section-p1">
-      <h2>Featured Product</h2>
-      <!-- <br>  -->
 
-      <div class="myproduct-container" id="myproducts">
-        <!-- item cards -->
+<div class="wrapper ">
+  <div id="search-container" class="flex ">
+      <select id="filter" onchange="filterProducts(this.value)">
+          <option class="my-button" value="all">All</option>
+          <option class="my-button" value="topwear">Topwear</option>
+          <option class="my-button" value="bottomwear">Bottomwear</option>
+          <option class="my-button" value="jacket">Jacket</option>
+          <option class="my-button" value="shoes">Shoes</option>
+      </select>
+      
+      <div id="search-container" class="relative">
+          <input type="search" id="search-input" placeholder="Search product name here.." />
+          <i id="search" class="bi bi-search absolute top-1/2 right-4 transform -translate-y-1/2 text-[#d1b761] text-2xl"></i>
       </div>
-    </section>
+  </div>
+
+  <section id="product1" class="section-p1">
+    <h2>Featured Product</h2>
+    <div class="myproduct-container" id="myproducts">
+      <!-- item cards -->
+    </div>
+</section>
+</div>
+
+  
 
     <div id="footer"></div>
     
