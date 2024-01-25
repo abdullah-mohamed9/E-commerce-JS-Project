@@ -8,6 +8,10 @@ body {
     width: 100%;
   }
   
+#header{
+  margin-bottom: 100px;
+}
+
   #search-container {
     display: flex;
     flex-direction: row;
