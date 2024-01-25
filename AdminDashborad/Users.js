@@ -228,7 +228,7 @@ function searchData(value){
     //console.log(value);
     let table="";
     for(let i=0;i<userData.length;i++){
-        if(userData[i].name.includes(value.toLowerCase())){
+        if(userData[i].name.includes(value.toLowerCase())&&userData[i].type=="customer"){
             table += `
             <tr>
             <td>
@@ -294,15 +294,15 @@ document.getElementById("useremail").addEventListener("click", function () {
 
 
 
-let count=0;
-for(let i=0;i<userData.length;i++){
-    if(userData[i].type == "customer"){
-        count++;
-    }
-}
-console.log(count);
+// let count=0;
+// for(let i=0;i<userData.length;i++){
+//     if(userData[i].type == "customer"){
+//         count++;
+//     }
+// }
+// console.log(count);
 
-document.getElementById("numberOfCustomer").innerHTML=`<span> ${count}</span>`;
+// document.getElementById("numberOfCustomer").innerHTML=`<span> ${count}</span>`;
 
 
 

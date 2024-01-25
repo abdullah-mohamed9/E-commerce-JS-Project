@@ -4,7 +4,7 @@ let email=document.getElementById("email");
 let password=document.getElementById("password");
 let type=document.getElementById("type");
 let create=document.getElementById("createSeller");
-let search=document.getElementById("search");
+let search=document.getElementById("searchData");
 
 //console.log(search);
 //global var
@@ -228,11 +228,10 @@ function searchData(value){
     //console.log(value);
     let table="";
     for(let i=0;i<sellerData.length;i++){
-        if(sellerData[i].name.includes(value.toLowerCase())){
+        if(sellerData[i].name.includes(value.toLowerCase()) && sellerData[i].type=="seller"){
             table += `
             <tr>
             <td>
-            <img src="img/img.jpg">
             <p>${sellerData[i].name}</p>
              </td>
              <td>${sellerData[i].email}</td>
@@ -276,14 +275,14 @@ document.getElementById("sellerEmail").addEventListener("click", function () {
 
 
 
-let count=0;
-for(let i=0;i<sellerData.length;i++){
-    if(sellerData[i].type == "seller"){
-        count++;
-    }
-}
-console.log(count);
+// let count=0;
+// for(let i=0;i<sellerData.length;i++){
+//     if(sellerData[i].type == "seller"){
+//         count++;
+//     }
+// }
+// console.log(count);
 
-document.getElementById("numberOfSeller").innerHTML=`<span> ${count}</span>`;
+// document.getElementById("numberOfSeller").innerHTML=`<span> ${count}</span>`;
 
 
