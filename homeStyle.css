@@ -72,6 +72,7 @@ hr {
     background-color: transparent !important;
 }
 
+
 #home {
     background-image: url("images/back.jpg");
     width: 100%;
@@ -272,6 +273,51 @@ hr {
 } 
 
 
+
+
+
+
+/* ------------------------ */
+/* banner */
+#sm-banner{
+    display: flex ;
+    padding-bottom: 1% ;
+    padding-left: 3% ;
+    padding-right: 5% ;
+    justify-content:space-around ;
+    flex-wrap: wrap ;
+    transition: 3s ease;
+}
+#sm-banner .banner-box a{
+text-decoration: none;
+color: rgb(249, 246, 246);
+}
+#sm-banner .banner-box{
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center ;
+    align-items: flex-start ;
+    text-align: center ;
+    background-image:url("images/banner/slider3.jpg");
+    width: 40% ;
+    height: 40vh ;
+    background-size: cover ;
+    background-position: center;
+    padding: 5%;
+    margin: 1%;
+}
+#sm-banner .banner-box2{
+    background-image:url("images/banner/slider7.jpg");
+}
+
+.banner-box:hover{
+    transform: scale(1.05);
+}
+
+.banner-box button:hover{
+    background:lightcoral;
+    color: #000;
+}
 
 /* footer */
 footer {

@@ -153,7 +153,7 @@ function validateInputs() {
 function isEmailDuplicate(newEmail) {
     for (let i = 0; i < userData.length; i++) {
         if(i==temp)continue;
-        if (userData[i].email === newEmail) {
+        if (userData[i].email === newEmail &&userData[i].type == "customer") {
             return true;
         }
     }
