@@ -22,13 +22,31 @@ let eye_signup_val = document.querySelector("#eye-signup-val");
 
 
 
-let users = [{
+let users = [
+    {
     id: 1,
     name: "abdullah",
     email: "abdullah@gmail.com",
     password: "12345678",
-    type: "admin"
-}];
+    type: "seller"
+},
+{
+    id:2000,
+    name:"Yousef",
+    email:"admin@admin.com",
+    password:"password@123",
+    type:"admin"
+},
+{
+
+    id:1000,
+    name:"Helmy",
+    email:"helmy@gamil.com",
+    password:"12345678",
+    type:"customer"
+}
+
+];
 
 if (localStorage.getItem("users") != null) {
     users = JSON.parse(localStorage.getItem("users"));
