@@ -502,7 +502,6 @@ footer .copyright a:hover {
 body {
     margin: 0;
     color: #6a6f8c;
-    /* background: #c8c8c8; */
     font: 600 16px/18px 'Open Sans', sans-serif;
 }
 
@@ -526,7 +525,6 @@ body {
 .login-snip {
     width: 100%;
     height: 100%;
-    /* opacity: 0.5; */
     position: absolute;
     padding: 50px 70px 50px 70px;
     background: rgba(0, 77, 77, .9);
@@ -597,12 +595,6 @@ body {
     border-radius: 25px;
     background: rgba(255, 255, 255, .1);
 }
-
-/* 
-.login-space .group input[data-type="password"] {
-    text-security: circle;
-    -webkit-text-security: circle;
-} */
 
 #eye,
 #eye-signup,
@@ -740,7 +732,6 @@ a {
     text-align: center;
     margin-bottom: 10px;
 }
-
 option {
     background-color: rgb(6, 73, 72);
 }
