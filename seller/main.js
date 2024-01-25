@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
+
+
     const logedinUser = JSON.parse(localStorage.getItem('user'));
 
     
@@ -374,4 +375,3 @@ function ordersData() {
 }
 ordersData();
 
-});

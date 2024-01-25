@@ -8,8 +8,8 @@ let products = [
     product_img3: "../images/products2/f4.jpg",
     description: "T-shirt in soft cotton jersey. Regular Fit.",
     price: "150$",
-    count:20,
-    seller:"SELLER1",
+    count: 20,
+    seller: "SELLER1",
     category: "topwear",
   },
   {
@@ -21,8 +21,8 @@ let products = [
     product_img3: "../images/products2/n5.jpg",
     description: "shirt in soft cotton jersey. Regular Fit.",
     price: "150$",
-    count:25,
-    seller:"SELLER1",
+    count: 25,
+    seller: "SELLER1",
     category: "topwear",
   },
   {
@@ -38,8 +38,8 @@ let products = [
       One chest pocket`,
     price: "600$ ",
     category: "featured",
-    count:30,
-    seller:"SELLER1",
+    count: 30,
+    seller: "SELLER1",
     category: "topwear",
   },
   {
@@ -52,8 +52,8 @@ let products = [
     description: ` Slim Fit Biker Collar Men's Coat With a stylish and modern style, the men's coat fits the body with its slim fit cut. The biker collar and the coat, which stands out with its energy, combines classic and sporty elegance.`,
     category: "jacket",
     price: "1000$ ",
-    count:31,
-    seller:"SELLER2",
+    count: 31,
+    seller: "SELLER2",
   },
   {
     product_id: 5,
@@ -61,8 +61,8 @@ let products = [
     product_img: "../images/products2/f7.jpg",
     description: `wonderful flower pant`,
     price: "150 ",
-    count:28,
-    seller:"SELLER2",
+    count: 28,
+    seller: "SELLER2",
     category: "bottomwear",
   },
   {
@@ -74,8 +74,8 @@ let products = [
       Zipper pocket
       Waist with elastic and adjustable drawstring`,
     category: "populer",
-    count:31,
-    seller:"SELLER2",
+    count: 31,
+    seller: "SELLER2",
     price: "300 $",
     category: "bottomwear",
   },
@@ -91,8 +91,8 @@ let products = [
         wonderful flower pant`,
     category: "populer",
     price: "650$ ",
-    count:25,
-    seller:"SELLER1",
+    count: 25,
+    seller: "SELLER1",
     category: "topwear",
   },
   {
@@ -102,8 +102,8 @@ let products = [
     description: "wonderful half-boot",
     category: "populer",
     price: "450$ ",
-    count:19,
-    seller:"SELLER2",
+    count: 19,
+    seller: "SELLER2",
     category: "shoes",
   },
   {
@@ -113,8 +113,8 @@ let products = [
     description: "wonderful half-boot",
     category: "featured",
     price: "600$",
-    count:23,
-    seller:"SELLER3",
+    count: 23,
+    seller: "SELLER3",
     category: "shoes",
   },
   {
@@ -124,8 +124,8 @@ let products = [
     description: "wonderful half-boot",
     category: "featured",
     price: "450$",
-    count:17,
-    seller:"SELLER3",
+    count: 17,
+    seller: "SELLER3",
     category: "shoes",
   },
   {
@@ -135,8 +135,8 @@ let products = [
     description: "wonderful half-boot",
     category: "featured",
     price: "450$ ",
-    count:14,
-    seller:"SELLER3",
+    count: 14,
+    seller: "SELLER3",
     category: "shoes",
   },
 
@@ -152,8 +152,8 @@ let products = [
         Ribbed ankles and bottom`,
     category: "featured",
     price: "450$",
-    count:47,
-    seller:"SELLER3",
+    count: 47,
+    seller: "SELLER3",
     category: "topwear",
   },
 
@@ -169,8 +169,8 @@ let products = [
         made of stamp fabric`,
     category: "featured",
     price: "1500$",
-    count:23,
-    seller:"SELLER2",
+    count: 23,
+    seller: "SELLER2",
     category: "jacket",
   },
   {
@@ -183,8 +183,8 @@ let products = [
     description: `Crew Neck Short Sleeve Combed Cotton Men's T-shirt From combed cotton fabric short sleeved T-Shirt`,
     category: "featured",
     price: "200$",
-    count:30,
-    seller:"SELLER1",
+    count: 30,
+    seller: "SELLER1",
     category: "topwear",
   },
   {
@@ -194,20 +194,20 @@ let products = [
     description: "wonderful half-boot",
     category: "populer",
     price: "600$",
-    count:29,
-    seller:"SELLER2",
+    count: 29,
+    seller: "SELLER2",
     category: "shoes",
   },
 
 ];
-//localStorage.setItem("products",JSON.stringify(products));
-var numOfProducts=JSON.parse(localStorage.getItem("products")).length;
-var ProductItem=JSON.parse(localStorage.getItem("products"));
+//localStorage.setItem("products", JSON.stringify(products));
+var numOfProducts = JSON.parse(localStorage.getItem("products")).length;
+var ProductItem = JSON.parse(localStorage.getItem("products"));
 //store products in local storage. esraa
 window.addEventListener("load", function () {
   for (let i = 0; i < numOfProducts; i++) {
     document.getElementsByClassName("pro")[i].addEventListener("click", function () {
-      let ID = (ProductItem[i].product_id)-1;
+      let ID = (ProductItem[i].product_id) - 1;
       // Store the ID in localStorage
       localStorage.setItem('productID', ID);
       // Redirect to the productDetails.html page
@@ -235,7 +235,7 @@ function renderProduct() {                           //mohamed
     // Clear existing content in the container
     productsContainer.innerHTML = "";
 
-   shoesContainer.innerHTML="";
+    shoesContainer.innerHTML = "";
 
     // products.forEach((item) => {
     //   const productHTML = `
@@ -260,11 +260,11 @@ function renderProduct() {                           //mohamed
     //   productsContainer.innerHTML += productHTML;
     // });
 
-    let count=0;
-    for(let i=0;i<products.length;i++){
-     
-      
-   let productHTML = `
+    let count = 0;
+    for (let i = 0; i < products.length; i++) {
+
+
+      let productHTML = `
         <div class="product text-center col-12 col-md-4 col-lg-3">
         <div class="Product_image">
         <img class="img-fluid mb-3" src="${products[i].product_img}" alt="product">
@@ -281,15 +281,15 @@ function renderProduct() {                           //mohamed
         <a href=html/productDetails.html?id=${products[i].product_id}  class="buy-btn id="">Buy Now</a>
     </div>
         `;
-      if(products[i].category=="topwear" && count<4){
+      if (products[i].category == "topwear" && count < 4) {
         count++;
-         // Append the product HTML to the container
-      productsContainer.innerHTML += productHTML;
-      }else if(products[i].category=="shoes" && count<8){
+        // Append the product HTML to the container
+        productsContainer.innerHTML += productHTML;
+      } else if (products[i].category == "shoes" && count < 8) {
         count++;
         shoesContainer.innerHTML += productHTML;
       }
-     
+
 
     }
 

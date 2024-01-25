@@ -162,9 +162,9 @@
             let applyCouponBtn = document.getElementById("applyCouponBtn");
             let couponCodeInput = document.getElementById("couponCode");
             let appliedCoupon = document.getElementById("appliedCoupon");
-let mTotal=0;
-let subTotal=0;
-var itemPrice=0;
+            let mTotal = 0;
+            let subTotal = 0;
+            var itemPrice = 0;
 
 
             // Check if the user is logged in
@@ -188,7 +188,7 @@ var itemPrice=0;
 
                         // Calculate total price
                         let totalPrice = parseFloat(productDetails.price) * parseInt(cartItem.numOfItems);
-                        itemPrice=totalPrice;
+                        itemPrice = totalPrice;
                         // Create a new table row
                         let newRow = document.createElement("tr");
                         newRow.innerHTML = `
@@ -289,7 +289,7 @@ var itemPrice=0;
                             let productDetails = productsData[productId] || {};
                             subtotal += parseFloat(productDetails.price) * parseInt(cartItem.numOfItems);
                         });
- subTotal=subtotal;
+                        subTotal = subtotal;
                         subtotalElement.innerText = `$${subtotal.toFixed(2)}`;
                         return subtotal;
                     }
@@ -351,15 +351,15 @@ var itemPrice=0;
                     let coupon = parseFloat(couponValue.innerText.replace('$', '')) || 0;
                     let total = subtotal + shipping - coupon;
                     totalElement.innerText = `$${total.toFixed(2)}`;
-                    mTotal=total;
+                    mTotal = total;
                 }
             }
-              //esraa
-              document.getElementById("k").addEventListener("click",function(){
-                 localStorage.setItem('totalPrice',mTotal);
-                 localStorage.setItem('subTotal',subTotal);
+            //esraa
+            document.getElementById("k").addEventListener("click", function () {
+                localStorage.setItem('totalPrice', mTotal);
+                localStorage.setItem('subTotal', subTotal);
                 window.location.href = '../html/checkout.html';
-                
+
             });
         });
     </script>
