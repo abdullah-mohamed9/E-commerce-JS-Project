@@ -68,6 +68,19 @@ let users = [
 
 ];
 
+
+//yousef
+// document.addEventListener("DOMContentLoaded", function () {
+//    
+//     const user = JSON.parse(localStorage.getItem("user"));
+  
+//     // Check if the user is authenticated and has the "admin" role
+//     if (!user || user.type !== "admin") {
+//       window.location.pathname = "/"; // Redirect to the home page
+//     }
+//   });
+  
+
 if (localStorage.getItem("users") != null) {
     users = JSON.parse(localStorage.getItem("users"));
 } else {
@@ -269,3 +282,36 @@ eye_signup_val.addEventListener('click', function () {
 });
 
 
+
+
+
+// // enter to admin dashboard               //mohamed yousef
+// let userData;
+// if(localStorage.users != null){
+//     userData=JSON.parse(localStorage.users);
+// }
+// else{
+//     userData=[];
+// }
+
+// //console.log(userData);
+// document.getElementById("login-button").addEventListener("submit", function (e) {
+//     e.preventDefault();
+
+//     // Simulate a login process
+//     const email = document.getElementById("user").value;
+//     const password = document.getElementById("pass").value;
+
+//     //console.log(email);
+
+//    // Validate the login (This is where you'd check credentials on the server)
+//    for(let i=0;i<userData.length;i++){
+//      if (userData[i].email === email && userData.password === password &&userData[i].type === "admin") {
+//         // If login is successful, redirect to the dashboard
+//         window.location.href = "AdminDashborad/index.html";
+//         return;
+//    }
+   
+//     } 
+//         alert("Invalid credentials. Please try again.");
+// });

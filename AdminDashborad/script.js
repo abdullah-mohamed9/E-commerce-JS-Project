@@ -70,3 +70,53 @@ switchMode.addEventListener('change', function () {
 		document.body.classList.remove('dark');
 	}
 })
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+	let countCustomer = 0;
+	let countSeller=0;
+	// Count the number of elements with type "customer"
+	for (let i = 0; i < userData.length; i++) {
+		if (userData[i].type === "customer") {
+			countCustomer++;
+		}else if(userData[i].type === "seller"){
+			countSeller++;
+		}
+	}
+
+	console.log(countCustomer);
+
+	// Update HTML element content
+	let numberOfCustomerElement = document.getElementById("numberOfCustomer");
+	let numberOfSellerElement = document.getElementById("numberOfSeller");
+	if (numberOfCustomerElement) {
+		numberOfCustomerElement.innerHTML = `<span>${countCustomer}</span>`;
+	} 
+	if (numberOfSellerElement) {
+		numberOfSellerElement.innerHTML = `<span>${countSeller}</span>`;
+	} 
+
+});
+
+
+//logout
+
+document.addEventListener("DOMContentLoaded", function () {
+    // ... (Your existing code)
+
+    // Get the logout button element
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    // Add an event listener for the logout button
+    logoutBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // Perform logout logic here if needed (e.g., clearing session, etc.)
+
+        // Redirect to the home page (replace 'home.html' with your actual home page URL)
+        window.location.href = '../index.html';
+    });
+});

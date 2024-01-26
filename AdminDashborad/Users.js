@@ -87,7 +87,7 @@ function showData(){
       table += `
      <tr>
      <td>
-     <img src="img/img.jpg">
+    <!-- <img src="img/img.jpg">-->
      <p>${userData[i].name}</p>
       </td>
       <td>${userData[i].email}</td>
@@ -290,20 +290,6 @@ document.getElementById("username").addEventListener("click", function () {
 document.getElementById("useremail").addEventListener("click", function () {
     sortDataBy("email");
 });
-
-
-
-
-// let count=0;
-// for(let i=0;i<userData.length;i++){
-//     if(userData[i].type == "customer"){
-//         count++;
-//     }
-// }
-// console.log(count);
-
-// document.getElementById("numberOfCustomer").innerHTML=`<span> ${count}</span>`;
-
 
 
 
