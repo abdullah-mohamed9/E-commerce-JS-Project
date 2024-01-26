@@ -1,12 +1,12 @@
 
 var myproduct_container = document.getElementById("myproducts");
+var p=JSON.parse(localStorage.getItem("products"));
 
-
-for (var i in products) {
-  var product = `<div class="pro ${products[i].category}">
-<img onclick="location.href='sproduct.html?index=${i}' "src="${products[i].product_img}" alt="product img" />
+for (var i in p) {
+  var product = `<div class="pro ${p[i].category}">
+<img onclick="location.href='sproduct.html?index=${i}' "src="${p[i].product_img}" alt="product img" />
 <div class="des">
-  <h5 class="product-name">${products[i].product_name}</h5>
+  <h5 class="product-name">${p[i].product_name}</h5>
   <div class="star">
     <i class="bi bi-star-fill"></i>
     <i class="bi bi-star-fill"></i>
@@ -14,7 +14,7 @@ for (var i in products) {
     <i class="bi bi-star-fill"></i>
     <i class="bi bi-star"></i>
   </div>
-  <h4>${products[i].price}</h4>
+  <h4>${p[i].price}</h4>
 </div>
 
 </div>`;
@@ -22,7 +22,7 @@ for (var i in products) {
   myproduct_container.insertAdjacentHTML("beforeend", product);
 }
 
-
+console.log(p.length);
 // filter categories by buttons
 function filterProducts(category) {
   let buttons = document.querySelectorAll(".my-button");

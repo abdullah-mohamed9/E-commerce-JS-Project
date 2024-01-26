@@ -21,10 +21,30 @@ let eye_signup = document.querySelector("#eye-signup");
 let eye_signup_val = document.querySelector("#eye-signup-val");
 
 
-
+//add our 3 sellers
 let users = [
-    {
+{
     id: 1,
+    name: "SELLER1",
+    email: "abdullah@gmail.com",
+    password: "12345678",
+    type: "seller"
+},
+{
+    id: 2,
+    name: "SELLER2",
+    email: "seler2@gmail.com",
+    password: "12345678",
+    type: "seller"
+},
+{
+    id: 3,
+    name: "SELLER3",
+    email: "seler3@gmail.com",
+    password: "12345678",
+    type: "seller"
+},{
+    id: 4,
     name: "abdullah",
     email: "abdullah@gmail.com",
     password: "12345678",

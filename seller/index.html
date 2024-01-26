@@ -161,10 +161,10 @@
                   </div>
                   <select class="custom-select custom-select-sm btn-style col-8" required id="category">
                     <option value=0 selected>Please choose category</option>
-                    <option value="Men">Men</option>
-                    <option value="Women">Women</option>
-                    <option value="Boys">Boys</option>
-                    <option value="Girls">Girls</option>
+                    <option value="topwear">topwear</option>
+                    <option value="jacket">jacket</option>
+                    <option value="shoes">shoes</option>
+                    <option value="bottomwear">bottomwear</option>
                   </select>
                   <div id="category_val">
                   </div>
@@ -291,7 +291,7 @@
           var currentIndex = JSON.parse(localStorage.getItem("currentindex"));
           var orderData = localStorage.getItem('OrderData');
           
-          var targetSeller = "SELLER1"; // Replace with the specific seller you want
+          var targetSeller = JSON.parse(localStorage.getItem("user")).name; // Replace with the specific seller you want
 
           // Check if orderData is not null or undefined
           if (orderData) {

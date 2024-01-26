@@ -147,7 +147,6 @@ let products = [
     product_img1: "../images/p/p72.jpg",
     product_img2: "../images/p/p73.jpg",
     product_img3: "../images/p/p74.jpg",
-
     description: `Crew Neck Regular Long Sleeve Women's Tricot Sweater
         Ribbed ankles and bottom`,
     category: "featured",
@@ -200,9 +199,14 @@ let products = [
   },
 
 ];
+var dataInLocalStorage=JSON.parse(localStorage.getItem("products"));
+if(dataInLocalStorage){
 //localStorage.setItem("products", JSON.stringify(products));
+}
+
 var numOfProducts = JSON.parse(localStorage.getItem("products")).length;
 var ProductItem = JSON.parse(localStorage.getItem("products"));
+console.log(numOfProducts);
 //store products in local storage. esraa
 window.addEventListener("load", function () {
   for (let i = 0; i < numOfProducts; i++) {

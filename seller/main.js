@@ -16,7 +16,7 @@ let img_val = document.getElementById("img_val");
 
 let signOut = document.getElementById("signOut");
 signOut.addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent the default link behavior
+    event.preventDefault();
 
     const Toast = Swal.mixin({
         toast: true,
@@ -39,13 +39,11 @@ signOut.addEventListener("click", function (event) {
         confirmButtonText: "Yes,Sign out!"
     }).then((result) => {
         if (result.isConfirmed) {
-            // Remove the user from localStorage    
-            // Redirect to the login page
             Toast.fire({
                 title: "Sign out!",
                 text: "You have signed out successfully.",
                 icon: "success"
-            }).then((result) => {
+            }).then(() => {
                 window.location.href = "../index.html";
                 localStorage.removeItem("user");
             });
@@ -53,87 +51,62 @@ signOut.addEventListener("click", function (event) {
             window.location.href = "index.html";
         }
     });
-
-
 });
-
 
 let mood = 'create';
 let tmp;
-let dataPro;
+let myData;
 
 const titleRegex = /^[a-zA-Z ]{3,}$/;
 const numberRegex = /^[0-9]{1,}$/;
 
-
-
-if (localStorage.product != null) {
-    dataPro = JSON.parse(localStorage.product);
+if (localStorage.products != null) {
+    myData = JSON.parse(localStorage.products);
 } else {
-    dataPro = [];
+    myData = [];
 }
 
 submit.onclick = function (event) {
     var flag = true;
     let newPro = {
-        title: title.value,
+        product_name: title.value,
         price: price.value,
         count: count.value,
         category: category.value,
-        img: imagePreview.src,
-        seller: logedinUser.id
+        product_img: imagePreview.src,
+        seller: logedinUser.name, // Use seller's name instead of ID
+        id: generateProductId()
+    };
 
-    }
-
-    if (titleRegex.test(title.value) && title.value.trim() != '' && numberRegex.test(price.value) && numberRegex.test(count.value) && category.value != '0' && newPro.count < 100 && img.value != '') {
+    if (titleRegex.test(newPro.product_name) &&
+        title.value.trim() !== '' &&
+        numberRegex.test(newPro.price) &&
+        numberRegex.test(newPro.count) &&
+        newPro.count < 100 &&
+        newPro.category !== '0' &&
+        img.value !== ''
+    ) {
         if (mood === 'create') {
-            dataPro.push(newPro);
+            myData.push(newPro);
         } else {
-            dataPro[tmp] = newPro;
-            mood = 'create';
-            submit.innerHTML = "Create";
-            count.style.display = 'block';
+            const indexToUpdate = myData.findIndex(product => product.id === myData[tmp].id);
+            if (indexToUpdate !== -1) {
+                myData[indexToUpdate] = newPro;
+                mood = 'create';
+                submit.innerHTML = "Create";
+                count.style.display = 'block';
+            }
         }
         clearData();
+        localStorage.setItem('products', JSON.stringify(myData));
     } else {
         flag = false;
-        if (title.value.trim() == '' || titleRegex.test(title.value) == false) {
-            title.style.border = "solid 3px red";
-            title_val.innerHTML = 'Title must be more than 3 charcters and only letters';
-        } else {
-            title.style.border = "solid 3px green";
-            title_val.innerHTML = '';
-        }
-        if (price.value.trim() == '' || numberRegex.test(price.value) == false) {
-            price.style.border = "solid 3px red";
-            price_val.innerHTML = 'Price must be a positive number only';
-        } else {
-            price.style.border = "solid 3px green";
-            price_val.innerHTML = '';
-        }
-        if (count.value.trim() == '' || numberRegex.test(count.value) == false || count.value > 100) {
-            count.style.border = "solid 3px red";
-            count_val.innerHTML = 'Count must be between 1 and 100  ';
-        } else {
-            count.style.border = "solid 3px green";
-            count_val.innerHTML = '';
-        }
-        if (category.value == '0') {
-            category.style.border = "solid 3px red";
-            category_val.innerHTML = 'Choose category   ';
-        } else {
-            category.style.border = "solid 3px green";
-            category_val.innerHTML = '';
-        }
-        if (img.value == '') {
-            img.style.border = "solid 3px red";
-            img_val.innerHTML = 'Choose image   ';
-        } else {
-            img.style.border = "solid 3px green";
-            img_val.innerHTML = '';
-        }
+        validateInput('title', newPro.product_name);
+        validateInput('price', newPro.price);
+        validateInput('count', newPro.count, 1, 100);
+        validateInput('category', newPro.category, '0');
+        validateInput('img', img.value);
 
-        // Do not close the modal if there are validation errors
         event.preventDefault();
     }
 
@@ -141,11 +114,9 @@ submit.onclick = function (event) {
         updateAndCloseModal();
         return false;
     } else {
-        localStorage.setItem('product', JSON.stringify(dataPro));
         showData();
     }
-}
-
+};
 
 function clearData() {
     title.value = '';
@@ -154,16 +125,11 @@ function clearData() {
     category.value = '0';
     img.value = '';
     imagePreview.src = 'images/logo1.png';
-    title.style.border = "";
-    price.style.border = "";
-    count.style.border = "";
-    category.style.border = "";
-    img.style.border = "";
-    title_val.innerHTML = '';
-    price_val.innerHTML = '';
-    count_val.innerHTML = '';
-    category_val.innerHTML = '';
-    img_val.innerHTML = '';
+    resetValidation(title, title_val);
+    resetValidation(price, price_val);
+    resetValidation(count, count_val);
+    resetValidation(category, category_val);
+    resetValidation(img, img_val);
 }
 
 function displayImage() {
@@ -173,7 +139,6 @@ function displayImage() {
         var reader = new FileReader();
         reader.onload = function (e) {
             var imageData = e.target.result;
-            // Display the image
             imagePreview.src = imageData;
         };
         reader.readAsDataURL(file);
@@ -182,20 +147,16 @@ function displayImage() {
 
 function showData() {
     let table = '';
-    let sellerProducts = dataPro.filter(product => product.seller === logedinUser.id);
-
-    if (sellerProducts.length === 0) {
-        table = '<tr><td colspan="8">You haven\'t added any products yet.</td></tr>';
-    } else {
-        for (let i = 0; i < sellerProducts.length; i++) {
+    for (let i = 0; i < myData.length; i++) {
+        if (myData[i].seller === logedinUser.name) {
             table += `
-                <tr>
+                <tr data-product-id="${myData[i].id}">
                     <td>${i + 1}</td>
-                    <td>${sellerProducts[i].title}</td>
-                    <td>${sellerProducts[i].price}</td>
-                    <td>${sellerProducts[i].count}</td>
-                    <td>${sellerProducts[i].category}</td>
-                    <td><img src="${sellerProducts[i].img}" width="50px" height="50px"></td>
+                    <td>${myData[i].product_name}</td>
+                    <td>${myData[i].price}</td>
+                    <td>${myData[i].count}</td>
+                    <td>${myData[i].category}</td>
+                    <td><img src="${myData[i].product_img}" width="50px" height="50px"></td>
                     <td><button onclick="updateData(${i})" class="btn-style" style="width:100%" id="update">update</button></td>
                     <td><button onclick="deleteData(${i})" class="btn-style" style="width:100%" id="delete">delete</button></td>
                 </tr>
@@ -205,60 +166,16 @@ function showData() {
     document.getElementById('tbody').innerHTML = table;
 }
 
-// function showData() {
-//     let table = '';
-//     for (let i = 0; i < dataPro.length; i++) {
-//         table += `
-//             <tr>
-//                 <td>${i + 1}</td>
-//                 <td>${dataPro[i].title}</td>
-//                 <td>${dataPro[i].price}</td>
-//                 <td>${dataPro[i].count}</td>
-//                 <td>${dataPro[i].category}</td>
-//                 <td><img src="${dataPro[i].img}" width="50px" height="50px id="imgPreview" "></td>
-//                 <td><button onclick="updateData(${i})" class="btn-style" style="width:100%" id="update">update</button></td>
-//                 <td><button onclick="deleteData(${i})" class="btn-style" style="width:100%" id="delete">delete</button></td>
-//             </tr>
-//         `;
-//     }
-//     document.getElementById('tbody').innerHTML = table;
-// }
-
 img.addEventListener('change', displayImage);
 
 function deleteData(i) {
-    const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-        }
-    });
-
-    Swal.fire({
-        title: "Are you sure?",
-        text: "Do you want to delete this item from your cart?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            dataPro.splice(i, 1);
-            localStorage.product = JSON.stringify(dataPro);
-            showData();
-            Toast.fire({
-                icon: "Deleted",
-                title: "the item has been deleted.",
-                icon: "success"
-            });
-        }
-    });
+    const productIdToDelete = myData[i].id;
+    const indexToDelete = myData.findIndex(product => product.id === productIdToDelete);
+    if (indexToDelete !== -1 && myData[indexToDelete].seller === logedinUser.name) {
+        myData.splice(indexToDelete, 1);
+        localStorage.setItem('products', JSON.stringify(myData));
+        showData();
+    }
 }
 
 var modal = document.getElementById("myModal");
@@ -275,54 +192,53 @@ function closeModal() {
 
 function updateAndCloseModal() {
     let newPro = {
-        title: title.value,
+        product_name: title.value,
         price: price.value,
         count: count.value,
         category: category.value,
-        img: imagePreview.src,
-        seller: logedinUser.id
+        product_img: imagePreview.src,
+        seller: logedinUser.name,
+        id: generateProductId()
     };
 
-    if (
-        titleRegex.test(title.value) &&
-        title.value.trim() != '' &&
-        numberRegex.test(price.value) &&
-        numberRegex.test(count.value) &&
-        category.value != '0' &&
+    if (titleRegex.test(newPro.product_name) &&
+        title.value.trim() !== '' &&
+        numberRegex.test(newPro.price) &&
+        numberRegex.test(newPro.count) &&
         newPro.count < 100 &&
-        img.value != ''
+        newPro.category !== '0' &&
+        img.value !== ''
     ) {
-        dataPro[tmp] = newPro;
+        const indexToUpdate = myData.findIndex(product => product.id === myData[tmp].id);
+        if (indexToUpdate !== -1) {
+            myData[indexToUpdate] = newPro;
+            localStorage.setItem('products', JSON.stringify(myData));
+            showData();
+        }
         mood = 'create';
         submit.innerHTML = 'Create';
         count.style.display = 'block';
         clearData();
     }
-
-    localStorage.setItem('product', JSON.stringify(dataPro));
-    showData();
     closeModal();
 }
 
 showData();
 
 function updateData(i) {
-    console.log("hello from update btn");
-    title.value = dataPro[i].title;
-    price.value = dataPro[i].price;
-    category.value = dataPro[i].category;
-    count.value = dataPro[i].count;
-    imagePreview.src = dataPro[i].img;
+    title.value = myData[i].product_name;
+    price.value = myData[i].price;
+    category.value = myData[i].category;
+    count.value = myData[i].count;
+    imagePreview.src = myData[i].product_img;
     submit.innerHTML = 'Update';
     mood = 'update';
     tmp = i;
 
     openModal();
 
-    // Add an event listener for the "Update" button
     closeModalBtn.removeEventListener("click", closeModal);
     closeModalBtn.addEventListener("click", function () {
-        // Update data and close modal
         // updateAndCloseModal();
     });
 
@@ -338,6 +254,7 @@ window.onclick = function (event) {
         clearData();
     }
 }
+
 let searchMood = 'title';
 
 function getSearchMood(id) {
@@ -356,47 +273,74 @@ function getSearchMood(id) {
 
 function searchData(value) {
     let table = '';
-    for (let i = 0; i < dataPro.length; i++) {
-        if (searchMood == 'title') {
-
-            if (dataPro[i].title.toLowerCase().includes(value.toLowerCase())) {
+    for (let i = 0; i < myData.length; i++) {
+        if (myData[i].seller === logedinUser.name) {
+            if (searchMood == 'title' && myData[i].product_name.toLowerCase().includes(value.toLowerCase())) {
                 table += `
-            <tr>
+            <tr data-product-id="${myData[i].id}">
                 <td>${i + 1}</td>
-                <td>${dataPro[i].title}</td>
-                <td>${dataPro[i].price}</td>
-                <td>${dataPro[i].count}</td>
-                <td>${dataPro[i].category}</td>
-                <td><img src="${dataPro[i].img}" id="imgPreview" width="50px" height="50px"></td>
+                <td>${myData[i].product_name}</td>
+                <td>${myData[i].price}</td>
+                <td>${myData[i].count}</td>
+                <td>${myData[i].category}</td>
+                <td><img src="${myData[i].product_img}" id="imgPreview" width="50px" height="50px"></td>
                 <td><button onclick="updateData(${i})" class="btn-style" style="width:100%" id="update">update</button></td>
                 <td><button onclick="deleteData(${i})" class="btn-style" style="width:100%" id="delete">delete</button></td>
             </tr>
-        `
-            }
-        } else {
-            if (dataPro[i].category.toLowerCase().includes(value.toLowerCase())) {
+        `;
+            } else if (searchMood == 'category' && myData[i].category.toLowerCase().includes(value.toLowerCase())) {
                 table += `
-            <tr>
+            <tr data-product-id="${myData[i].id}">
                 <td>${i + 1}</td>
-                <td>${dataPro[i].title}</td>
-                <td>${dataPro[i].price}</td>
-                <td>${dataPro[i].count}</td>
-                <td>${dataPro[i].category}</td>
-                <td><img src="${dataPro[i].img}" id="imgPreview" width="50px" height="50px"></td>
+                <td>${myData[i].product_name}</td>
+                <td>${myData[i].price}</td>
+                <td>${myData[i].count}</td>
+                <td>${myData[i].category}</td>
+                <td><img src="${myData[i].product_img}" id="imgPreview" width="50px" height="50px"></td>
                 <td><button onclick="updateData(${i})" class="btn-style" style="width:100%" id="update">update</button></td>
                 <td><button onclick="deleteData(${i})" class="btn-style" style="width:100%" id="delete">delete</button></td>
             </tr>
-        `
+        `;
             }
-
         }
     }
     document.getElementById('tbody').innerHTML = table;
-
 }
+
 document.getElementById("submit").addEventListener("click", function () {
     console.log("submit btn");
-
-
 });
-//order Tab
+
+function generateProductId() {
+    return Date.now().toString();
+}
+
+function validateInput(inputId, value, minValue, maxValue) {
+    const inputElement = document.getElementById(inputId);
+    const validationElement = document.getElementById(`${inputId}_val`);
+
+    if (value.trim() === '') {
+        markInputAsInvalid(inputElement, validationElement, `${inputId} must not be empty.`);
+    } else if (minValue !== undefined && parseInt(value) < minValue) {
+        markInputAsInvalid(inputElement, validationElement, `${inputId} must be greater than or equal to ${minValue}.`);
+    } else if (maxValue !== undefined && parseInt(value) > maxValue) {
+        markInputAsInvalid(inputElement, validationElement, `${inputId} must be less than or equal to ${maxValue}.`);
+    } else {
+        markInputAsValid(inputElement, validationElement);
+    }
+}
+
+function markInputAsInvalid(inputElement, validationElement, message) {
+    inputElement.style.border = "solid 3px red";
+    validationElement.innerHTML = message;
+}
+
+function markInputAsValid(inputElement, validationElement) {
+    inputElement.style.border = "solid 3px green";
+    validationElement.innerHTML = '';
+}
+
+function resetValidation(inputElement, validationElement) {
+    inputElement.style.border = "";
+    validationElement.innerHTML = '';
+}

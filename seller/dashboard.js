@@ -4,14 +4,17 @@ let myChartTwo = null;
 
 let chart = document.getElementById("dashboard-tab");
 chart.addEventListener("click", function () {
-    let products = JSON.parse(localStorage.getItem("product"));
+    //let products = JSON.parse(localStorage.getItem("products"));
+    let allProducts = JSON.parse(localStorage.getItem("products"));
 
+    // Filter products based on the seller
+    let sellerProducts = allProducts.filter(product => product.seller === JSON.parse(localStorage.getItem("user")).name);
     // Sort the data based on price for the first chart
-    let sortedByPrice = products.slice().sort((a, b) => b.price - a.price);
+    let sortedByPrice = sellerProducts.slice().sort((a, b) => b.price - a.price);
 
     // Extract data for the first chart (top 5 products)
     let topFiveProducts = sortedByPrice.slice(0, 5);
-    let labelsChartOne = topFiveProducts.map(product => product.title);
+    let labelsChartOne = topFiveProducts.map(product => product.product_name);
     let dataChartOne = topFiveProducts.map(product => parseFloat(product.price));
 
     // Define colors for each bar in Chart 1
@@ -60,7 +63,7 @@ chart.addEventListener("click", function () {
     });
 
     // Sort the data based on category and sum count for the second chart
-    let groupedByCategory = products.reduce((acc, product) => {
+    let groupedByCategory = allProducts.reduce((acc, product) => {
         const key = product.category;
         if (!acc[key]) {
             acc[key] = { category: key, count: 0 };
