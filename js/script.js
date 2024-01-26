@@ -58,24 +58,27 @@ filter.onclick = function () {
 let search = document.getElementById("search");
 let mysearch_input = document.getElementById("search-input")
 
-mySearchFunction=() => {
-    let search_input = document.getElementById("search-input").value;
-    let prod_name = document.querySelectorAll(".product-name");
-    let prod = document.querySelectorAll(".pro");
-  
-    prod_name.forEach((p, index) => {
-      //check if text includes the search value
-      if (p.innerText.toLowerCase().includes(search_input.toLowerCase())) {
-        prod[index].classList.remove("hide");
-      } else {
-        // hide others
-        prod[index].classList.add("hide");
-      }
-    });
-  }
+let mySearchFunction = () => {
+  let searchInput = mysearch_input.value.toLowerCase();
+  let category = document.querySelector(".active-search") ? document.querySelector(".active-search").innerText.toLowerCase() : "all";
+  let prod_name = document.querySelectorAll(".product-name");
+  let prod = document.querySelectorAll(".pro");
 
-search.addEventListener("click",mySearchFunction );
-mysearch_input.addEventListener('input',mySearchFunction)
+  prod_name.forEach((p, index) => {
+      if ((p.innerText.toLowerCase().includes(searchInput) || searchInput === "") &&
+          (category === "all" || prod[index].classList.contains(category))) {
+          prod[index].classList.remove("hide");
+      } else {
+          prod[index].classList.add("hide");
+      }
+  });
+};
+
+search.addEventListener("click", mySearchFunction);
+mysearch_input.addEventListener('input', mySearchFunction);
+
+
+
 
 
 // to make it display all products when the page loaded
