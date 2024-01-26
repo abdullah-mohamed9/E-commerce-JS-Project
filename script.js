@@ -161,13 +161,13 @@ function validateLogin() {
 
             if (users[i].type == "customer") {
                 console.log("user type is customer");
+                window.location.href = "index.html";
 
             } else if (users[i].type == "seller") {
-                console.log("user type is seller");
-
+                window.location.href = "seller/index.html";
             } else {
                 console.log("user type is admin");
-
+                window.location.href = "AdminDashborad/index.html";
             }
             localStorage.setItem("user", JSON.stringify(users[i]));
             return true;

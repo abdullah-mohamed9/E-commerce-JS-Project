@@ -23,7 +23,15 @@
 
     <!-- Cart section -->
     <section id="blog-home" class="pt-5 mt-5 container">
+        <!--alert -->
+        <div class="row">
+            <div id="AlertEmptyCart" class="col-6" style="text-align: center;margin: 0 auto;">
+            </div>
+        </div>
+
+
         <h2 class="font-weight-bold pt-5">Shopping Cart</h2>
+
         <hr>
     </section>
     <section id="cart-container" class="container my-5">
@@ -119,7 +127,7 @@
                         <h6>Total</h6>
                         <p id="lastTotal">$0.00</p>
                     </div>
-                    <button class="ml-auto">Proceed to checkout</button>
+                    <button class="ml-auto" id="k">Proceed to checkout</button>
                 </div>
             </div>
         </div>
@@ -139,6 +147,15 @@
 
     <!-- script for cart -->
     <script>
+        function validateInput(input) {
+            // Parse the input value as a number
+            var inputValue = parseInt(input.value, 10);
+            // Check if the value is negative or greater than the max allowed value
+            if (inputValue < 0 || inputValue > parseInt(input.max, 10) || isNaN(inputValue)) {
+                // If negative, greater than max, or not a number, set the value to the minimum allowed value
+                input.value = input.min;
+            }
+        }
         // Create an object with coupon codes and their corresponding discount percentages
         const coupons = {
             "iti_5": 5,
@@ -162,7 +179,9 @@
             let applyCouponBtn = document.getElementById("applyCouponBtn");
             let couponCodeInput = document.getElementById("couponCode");
             let appliedCoupon = document.getElementById("appliedCoupon");
-
+            let mTotal = 0;
+            let subTotal = 0;
+            var itemPrice = 0;
 
 
             // Check if the user is logged in
@@ -186,7 +205,7 @@
 
                         // Calculate total price
                         let totalPrice = parseFloat(productDetails.price) * parseInt(cartItem.numOfItems);
-
+                        itemPrice = totalPrice;
                         // Create a new table row
                         let newRow = document.createElement("tr");
                         newRow.innerHTML = `
@@ -194,9 +213,10 @@
                     <td><img src="${productDetails.product_img}" alt="Cart Img"></td>
                     <td><h5>${productDetails.product_name}</h5></td>
                     <td><h5>${productDetails.price}</h5></td>
-                    <td><input class="w-50 pl-1" type="number" value="${cartItem.numOfItems}" min="1" max="5" data-product-id="${productId}"></td>
+                    <td><input class="w-50 pl-1" type="number" value="${cartItem.numOfItems}" min="1" max="5" oninput="validateInput(this)"  data-product-id="${productId}"></td>
                     <td><h5 class="totalPrice">$${totalPrice.toFixed(2)}</h5></td>
                 `;
+
 
                         // Append the new row to the tbody
                         cartBody.appendChild(newRow);
@@ -204,6 +224,7 @@
                         // Add event listener to update total price on quantity change
                         let quantityInput = newRow.querySelector('input');
                         quantityInput.addEventListener('change', function () {
+
                             // Update the quantity in the cartData
                             cartItem.numOfItems = parseInt(this.value);
 
@@ -287,7 +308,7 @@
                             let productDetails = productsData[productId] || {};
                             subtotal += parseFloat(productDetails.price) * parseInt(cartItem.numOfItems);
                         });
-
+                        subTotal = subtotal;
                         subtotalElement.innerText = `$${subtotal.toFixed(2)}`;
                         return subtotal;
                     }
@@ -349,8 +370,29 @@
                     let coupon = parseFloat(couponValue.innerText.replace('$', '')) || 0;
                     let total = subtotal + shipping - coupon;
                     totalElement.innerText = `$${total.toFixed(2)}`;
+                    mTotal = total;
                 }
             }
+            //esraa
+            document.getElementById("k").addEventListener("click", function () {
+                localStorage.setItem('totalPrice', mTotal);
+                localStorage.setItem('subTotal', subTotal);
+                var alertContent = document.getElementById("AlertEmptyCart");
+                var cartCurrentData = JSON.parse(localStorage.getItem("cartData"));
+                //check if cart is empty
+                if (cartCurrentData.length < 1) {
+                    alertContent.innerHTML = `<div class="alert alert-danger">
+                        You can't Proceed to checkout Your cart is Empty!
+               </div>`;
+                    setTimeout(function () {
+                        alertContent.classList.add("hidden");
+                    }, 3000);
+                } else {
+                    window.location.href = '../html/checkout.html';
+
+                }
+
+            });
         });
     </script>
     <!-- script for cart end -->

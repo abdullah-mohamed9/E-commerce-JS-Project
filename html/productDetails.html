@@ -24,7 +24,6 @@
         .smallImg {
             cursor: pointer;
             flex-basis: 32.5%;
-
         }
 
         .smallImg:hover {
@@ -47,7 +46,6 @@
         #mSmImgs {
             margin-top: 4px;
         }
-
 
         .footerImages:hover {
             transform: scale(1.1);
@@ -86,7 +84,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../product.html">Products</a>
                     </li>
-                  
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
@@ -94,21 +92,21 @@
                         <a class="nav-link" href="#">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>  
-                      </li>
-                      <li class="nav-item">
-                         <a href="../cart.html"><i class="fa-solid fa-shopping-cart"> </i></a> 
-                      </li>
-                      <li class="nav-item">
-                        <a  href="../login.html"><i class="fa-solid fa-sign-in-alt"></i></a>  
-                      </li>
-                      <li class="nav-item">
-                       <a href="#"><i class="fa-solid fa-heart"></i></a>   
-                      </li>
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../cart.html"><i class="fa-solid fa-shopping-cart"> </i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../login.html"><i class="fa-solid fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                    </li>
                 </ul>
             </div>
         </div>
-    </nav> 
+    </nav>
     <!-- Nav bar end-->
     <!--design of product details-->
 
@@ -116,11 +114,12 @@
 
     </section> -->
 
-
     <section id="mainWrapper" class="container">
+
         <div id="leftWrapper" class="col-12 col-xl-6 col-md-6 order-md-1">
+
             <img src="" alt="Product Image" id="i1" class="img-fluid" " />
-            <div class=" smallImages pd-2" id="mSmImgs">
+        <div class=" smallImages pd-2" id="mSmImgs">
             <div class="smallImg pd-1">
                 <img src="" width="100%" class="small-img" id="smImg1" />
             </div>
@@ -130,51 +129,38 @@
             <div class="smallImg">
                 <img src="" width="100%" class="small-img" id="smImg3" />
             </div>
-
         </div>
         </div>
-
 
         <div id="rightWrapper" class="col-12 col-xl-6 col-md-6 order-md-2">
+            <div id="alertContainer" style="width: 50%; "></div>
             <h1 id="h1">T-shirt</h1>
             <h3 id="price">300$</h3>
             <form>
                 <select class="form-select form-select-md" aria-label="Default select example" style="width: 130px"
                     id="select">
-                    <option selected>select size</option>
-                    <option>XXL</option>
-                    <option>XL</option>
-                    <option>L</option>
-                    <option>Medium</option>
-                    <option>small</option>
+                    <option selected value="0">select size</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XL">XL</option>
+                    <option value="L">L</option>
+                    <option value="Medium">Medium</option>
+                    <option value="small">small</option>
                 </select><br />
                 <div id="rangeAddTo">
                     <input type="number" min="1" max="5" value="2" style="border-radius: 5px; margin-right: 5px"
-                        id="number" />
+                        id="number" oninput="validateInput(this)" />
                     <input type="button" value="Add To Cart" class="btn btn-dark form-control" style="width: 200px"
                         id="AddToCart" />
                 </div>
             </form>
             <h4>Product Details</h4>
             <p class="element" id="description">
-                Crew Neck Short Sleeve Combed Cotton Men's T-shirt From combed cotton fabric short sleeved T-Shirt Crew
-                Neck
-                Short Sleeve Combed Cotton Men's T-shirt From combed cotton fabric short sleeved T-Shirt
+                Crew Neck Short Sleeve Combed Cotton Men's T-shirt From combed cotton
+                fabric short sleeved T-Shirt Crew Neck Short Sleeve Combed Cotton
+                Men's T-shirt From combed cotton fabric short sleeved T-Shirt
             </p>
         </div>
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!--end of details-->
     <section class="k">
@@ -182,7 +168,7 @@
         <div class="mt-5 container k" id="myBottomPro">
             <div class="col-md-6 col-12 col-lg-4 col-xl-3 mb-2 myImg11">
                 <img src="../images/shop/3.jpg" class="footerImages" width="100%" />
-                <h6 class=" textOfPro">Hand Bag</h6>
+                <h6 class="textOfPro">Hand Bag</h6>
                 <p>300$</p>
             </div>
             <div class="col-md-6 col-12 col-lg-4 col-xl-3 mb-2 myImg11">
@@ -209,9 +195,9 @@
             <div class="footer-one col-12 col-mg-6 col-lg-3">
                 <img src="../images/logo2.png" alt="Footer Img" />
                 <p class="pt-3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptatem corrupti enim assumenda
-                    sequi ullam
-                    animi cumque, optio fugiat ut sapiente
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                    voluptatem corrupti enim assumenda sequi ullam animi cumque, optio
+                    fugiat ut sapiente
                 </p>
             </div>
             <div class="footer-one col-12 col-mg-6 col-lg-3 mb-3">
@@ -267,103 +253,20 @@
                 </div>
             </div>
         </div>
-    </footer> 
+    </footer>
 
-    <!-- Footer section end-->
-
-    
-    <!-- <div id="footer"></div> -->
-    
-   
-
+    <!-- Footer section end -->
     <!-- scripts -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+
     <script src="../js/JQuery-3.3.1.min.js"></script>
     <script src="../js/popper.js"></script>
     <script src="../js/bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
-    <script src="../js/productDetails.js"></script>
-    <script>
-        window.addEventListener("load", function () {
-            //to get params from url
-            var params = new URLSearchParams(window.location.search);
-            let productId = decodeURIComponent(params.get('id'));
-            console.log(productId);
-            document.getElementById('h1').innerText = JSON.parse(localStorage.getItem("products"))[productId][
-                'product_name'
-            ];
-            document.getElementById('price').innerText = JSON.parse(localStorage.getItem("products"))[productId]
-            ['price'];
-            document.getElementById('description').innerText = JSON.parse(localStorage.getItem("products"))[
-                productId]['description'];
-            document.getElementById('i1').src = JSON.parse(localStorage.getItem("products"))[productId][
-                'product_img'
-            ];
-            document.getElementById('smImg1').src = JSON.parse(localStorage.getItem("products"))[productId][
-                'product_img1'
-            ];
-            document.getElementById('smImg2').src = JSON.parse(localStorage.getItem("products"))[productId][
-                'product_img2'
-            ];
-            document.getElementById('smImg3').src = JSON.parse(localStorage.getItem("products"))[productId][
-                'product_img3'
-            ];
-            let products = JSON.parse(window.localStorage.getItem("products"))
-            const selectedProduct = products.find(
-                (product) => productId == product.product_id
-            );
-            document.getElementById('h1').innerText = selectedProduct.product_name
-            document.getElementById('price').innerText = selectedProduct.price
-            document.getElementById('description').innerText = selectedProduct.description
-            document.getElementById('i1').src = selectedProduct.product_img
-            document.getElementById('smImg1').src = selectedProduct.product_img1
-            document.getElementById('smImg2').src = selectedProduct.product_img2
-            document.getElementById('smImg3').src = selectedProduct.product_img3
-            //second part passing data to add to cart ==================================================================
-
-
-            document.getElementById("AddToCart").addEventListener("click", function () {
-                let numOfItems = document.getElementById("number").value;
-                var sizeSelect = document.getElementById("select");
-                var sizeOfProduct = sizeSelect.options[sizeSelect.selectedIndex].value;
-                let currentUserId = JSON.parse(localStorage.getItem("user"))['id'];
-
-                let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
-
-                let newCartItem = {
-                    numOfItems: numOfItems,
-                    sizeOfProduct: sizeOfProduct,
-                    productId: productId,
-                    userId: currentUserId
-                };
-                cartData.push(newCartItem);
-                localStorage.setItem("cartData", JSON.stringify(cartData));
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 1000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                });
-                Toast.fire({
-                    icon: "success",
-                    title: "Added to cart successfully"
-                });
-            });
-
-        });
     </script>
-
-    
+   
+   
     <script>
         var x = document.getElementById("i1");
         var smallImgs = document.querySelectorAll(".small-img");
@@ -373,12 +276,12 @@
                 x.src = this.src;
             });
         });
+        //  localStorage.removeItem('productID');
     </script>
+     <script src="../js/productDetails.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../components/navbar/nav.js"></script>
-    <script src="../components/footer/footer.js"></script>
-    <script src="../js/all.min.js"></script>
-    
+
+    <!---->
 </body>
 
 </html>
