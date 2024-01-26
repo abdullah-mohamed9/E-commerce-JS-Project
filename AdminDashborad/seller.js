@@ -275,14 +275,3 @@ document.getElementById("sellerEmail").addEventListener("click", function () {
 
 
 
-// let count=0;
-// for(let i=0;i<sellerData.length;i++){
-//     if(sellerData[i].type == "seller"){
-//         count++;
-//     }
-// }
-// console.log(count);
-
-// document.getElementById("numberOfSeller").innerHTML=`<span> ${count}</span>`;
-
-

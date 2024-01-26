@@ -5,6 +5,8 @@ let email=document.getElementById("email");
 let password=document.getElementById("password");
 let btnUpdate=document.getElementById("updateAccount");
 
+
+
 console.log(btnUpdate);
 
 
@@ -25,6 +27,7 @@ function showData(){
       table += `
      <tr>
      <td>
+     <img src='img/img.jpg' alt="Profile Image">
      <p>${adminData[i].name}</p>
       </td>
       <td>${adminData[i].email}</td>
@@ -77,7 +80,7 @@ btnUpdate.onclick=function(){
        name:Name.value.toLowerCase(),
        email:email.value,
        password:password.value,
-       type:"admin"
+       type:"admin",
     }
 
     console.log(newData);
@@ -93,7 +96,6 @@ btnUpdate.onclick=function(){
   showData();
 
 }
-
 
 
 

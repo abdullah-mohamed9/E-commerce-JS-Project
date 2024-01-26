@@ -376,7 +376,7 @@ body {
 
 #content main .box-info li:nth-child(4) .bx {
 	background: var(--light-orange);
-	color: var(--dark);
+	color: var(--orange);
 }
 
 #content main .box-info li .text h3 {
@@ -509,6 +509,11 @@ body {
 	#content nav .nav-link {
 		display: none;
 	}
+	/* small table */
+	#content main .table-data {
+
+		font-size: 10px;
+	}
 }
 
 
@@ -550,6 +555,7 @@ body {
 	#content main .table-data .head {
 		min-width: 420px;
 	}
+	
 	#content main .table-data .order table {
 		min-width: 420px;
 	}
