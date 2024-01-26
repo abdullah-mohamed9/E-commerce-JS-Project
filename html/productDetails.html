@@ -84,7 +84,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../product.html">Products</a>
                     </li>
-                  
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
@@ -92,21 +92,21 @@
                         <a class="nav-link" href="#">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>  
-                      </li>
-                      <li class="nav-item">
-                         <a href="../cart.html"><i class="fa-solid fa-shopping-cart"> </i></a> 
-                      </li>
-                      <li class="nav-item">
-                        <a  href="../login.html"><i class="fa-solid fa-sign-in-alt"></i></a>  
-                      </li>
-                      <li class="nav-item">
-                       <a href="#"><i class="fa-solid fa-heart"></i></a>   
-                      </li>
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../cart.html"><i class="fa-solid fa-shopping-cart"> </i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../login.html"><i class="fa-solid fa-sign-in-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                    </li>
                 </ul>
             </div>
         </div>
-    </nav> 
+    </nav>
     <!-- Nav bar end-->
     <!--design of product details-->
 
@@ -148,7 +148,7 @@
                 </select><br />
                 <div id="rangeAddTo">
                     <input type="number" min="1" max="5" value="2" style="border-radius: 5px; margin-right: 5px"
-                        id="number" />
+                        id="number" oninput="validateInput(this)" />
                     <input type="button" value="Add To Cart" class="btn btn-dark form-control" style="width: 200px"
                         id="AddToCart" />
                 </div>
@@ -265,96 +265,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-    <script src="../js/productDetails.js"></script>
-    <script>
-        window.addEventListener("load", function () {
-            //to get params from url
-            let storedID = localStorage.getItem("productID");
-            // var params = new URLSearchParams(window.location.search);
-            // let productId = decodeURIComponent(params.get('id'));
-            console.log(storedID);
-            document.getElementById("h1").innerText = JSON.parse(
-                localStorage.getItem("products")
-            )[storedID]["product_name"];
-            document.getElementById("price").innerText = JSON.parse(
-                localStorage.getItem("products")
-            )[storedID]["price"];
-            document.getElementById("description").innerText = JSON.parse(
-                localStorage.getItem("products")
-            )[storedID]["description"];
-            document.getElementById("i1").src = JSON.parse(
-                localStorage.getItem("products")
-            )[storedID]["product_img"];
-            document.getElementById("smImg1").src = JSON.parse(
-                localStorage.getItem("products")
-            )[storedID]["product_img1"];
-            document.getElementById("smImg2").src = JSON.parse(
-                localStorage.getItem("products")
-            )[storedID]["product_img2"];
-            document.getElementById("smImg3").src = JSON.parse(
-                localStorage.getItem("products")
-            )[storedID]["product_img3"];
-            let products = JSON.parse(window.localStorage.getItem("products"));
-            const selectedProduct = products.find(
-                (product) => storedID == product.product_id
-            );
-            //second part passing data to add to cart ==================================================================
-
-            var selectedSize = document.getElementById("select");
-            document
-                .getElementById("AddToCart")
-                .addEventListener("click", function () {
-                    if (selectedSize.value == 0) {
-                        document.getElementById(
-                            "alertContainer"
-                        ).innerHTML = `<div class="alert alert-danger">
-             Please Choose the size of your product!
-          </div>`;
-                    } else {
-                        document.getElementById(
-                            "alertContainer"
-                        ).innerHTML = "";
-                        let numOfItems = document.getElementById("number").value;
-                        var sizeSelect = document.getElementById("select");
-                        var sizeOfProduct =
-                            sizeSelect.options[sizeSelect.selectedIndex].value;
-                        let currentUserId = JSON.parse(localStorage.getItem("user"))[
-                            "id"
-                        ];
-                        let priceOfItem= JSON.parse(localStorage.getItem("products"))[storedID]["price"];
-                        let seller=JSON.parse(localStorage.getItem("products"))[storedID]["seller"];
-
-                        let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
-
-                        let newCartItem = {
-                            numOfItems: numOfItems,
-                            sizeOfProduct: sizeOfProduct,
-                            productId: storedID,
-                            userId: currentUserId,
-                            seller:seller,
-                            priceOfItem:priceOfItem
-                        };
-                        cartData.push(newCartItem);
-                        localStorage.setItem("cartData", JSON.stringify(cartData));
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: "top-end",
-                            showConfirmButton: false,
-                            timer: 1000,
-                            timerProgressBar: true,
-                            didOpen: (toast) => {
-                                toast.onmouseenter = Swal.stopTimer;
-                                toast.onmouseleave = Swal.resumeTimer;
-                            },
-                        });
-                        Toast.fire({
-                            icon: "success",
-                            title: "Added to cart successfully",
-                        });
-                    }
-                });
-        });
-    </script>
+   
+   
     <script>
         var x = document.getElementById("i1");
         var smallImgs = document.querySelectorAll(".small-img");
@@ -366,6 +278,7 @@
         });
         //  localStorage.removeItem('productID');
     </script>
+     <script src="../js/productDetails.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!---->

@@ -1,9 +1,4 @@
-
-
-    const logedinUser = JSON.parse(localStorage.getItem('user'));
-
-    
-
+const logedinUser = JSON.parse(localStorage.getItem('user'));
 let title = document.getElementById("title");
 let price = document.getElementById("price");
 let count = document.getElementById("count");
@@ -331,47 +326,8 @@ function searchData(value) {
 
 }
 document.getElementById("submit").addEventListener("click",function(){
-console.log("submit btnnnnnnnnnnnnnnnn");
+console.log("submit btn");
 
 
 });
 //order Tab
-function ordersData() {
-    var currentIndex = JSON.parse(localStorage.getItem("currentindex"));
-    console.log(currentIndex);
-    if (currentIndex === 2) {
-        var orderData = localStorage.getItem('OrderData');
-        var targetSeller = "SELLER1"; // Replace with the specific seller you want
-        for (let x = 0; x < orderData.length; x++) {
-            // Check if the current order has the target seller
-            if (orderData[x].sellers && orderData[x].sellers.includes(targetSeller)) {
-                orderData[x].quantity.forEach(element => {
-                    // Check if the quantity array element matches the target seller
-                    if (element.seller === targetSeller) {
-                        var calculatedValue = (orderData[x]['Order Id'] * 100);
-                        var tr = document.createElement("tr");
-                        var td1 = document.createElement("td");
-                        var td2 = document.createElement("td");
-                        var td3 = document.createElement("td");
-                        var td4 = document.createElement("td");
-                        var td5 = document.createElement("td");
-
-                        td1.innerText = calculatedValue.toFixed();
-                        td2.innerText = element.productId;
-                        td3.innerText = element.priceOfItem; // Accessing priceOfItem property
-                        td4.innerText = element.numOfItems;
-                        td5.innerText = orderData[x]["Date of Order"];
-                        tr.appendChild(td1);
-                        tr.appendChild(td2);
-                        tr.appendChild(td3);
-                        tr.appendChild(td4);
-                        tr.appendChild(td5);
-                        document.getElementById("orders-tbody").appendChild(tr);
-                    }
-                });
-            }
-        }
-    }
-}
-ordersData();
-

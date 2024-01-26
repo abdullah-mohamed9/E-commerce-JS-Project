@@ -139,6 +139,15 @@
 
     <!-- script for cart -->
     <script>
+        function validateInput(input) {
+    // Parse the input value as a number
+    var inputValue = parseInt(input.value, 10);
+    // Check if the value is negative or greater than the max allowed value
+    if (inputValue < 0 || inputValue > parseInt(input.max, 10) || isNaN(inputValue)) {
+        // If negative, greater than max, or not a number, set the value to the minimum allowed value
+        input.value = input.min;
+    }
+}
         // Create an object with coupon codes and their corresponding discount percentages
         const coupons = {
             "iti_5": 5,
@@ -196,9 +205,10 @@
                     <td><img src="${productDetails.product_img}" alt="Cart Img"></td>
                     <td><h5>${productDetails.product_name}</h5></td>
                     <td><h5>${productDetails.price}</h5></td>
-                    <td><input class="w-50 pl-1" type="number" value="${cartItem.numOfItems}" min="1" max="5" data-product-id="${productId}"></td>
+                    <td><input class="w-50 pl-1" type="number" value="${cartItem.numOfItems}" min="1" max="5" oninput="validateInput(this)"  data-product-id="${productId}"></td>
                     <td><h5 class="totalPrice">$${totalPrice.toFixed(2)}</h5></td>
                 `;
+
 
                         // Append the new row to the tbody
                         cartBody.appendChild(newRow);
@@ -206,6 +216,7 @@
                         // Add event listener to update total price on quantity change
                         let quantityInput = newRow.querySelector('input');
                         quantityInput.addEventListener('change', function () {
+
                             // Update the quantity in the cartData
                             cartItem.numOfItems = parseInt(this.value);
 
