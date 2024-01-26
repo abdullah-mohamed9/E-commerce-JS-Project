@@ -5,6 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Seller Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-7yI2kHsXVT7v1qGQT7cUtU7qQs1+uQWviYnqsFiBeg3ifz4DOGRPUJDX9TxyR+Jcd7P4ptbcejt5nLSx8a9Wog=="
+    crossorigin="anonymous" />
 
   <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/"> -->
 
@@ -82,7 +85,7 @@
 
 <body>
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#" id="currentUserName">Company name</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed " type="button" data-bs-toggle="collapse"
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -119,8 +122,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="customers-tab" data-bs-toggle="pill" data-bs-target="#customers" href="#">
-                Customers
+              <i class="fas fa-user"></i>
+              <a class="nav-link" id="profile-tab" data-bs-toggle="pill" data-bs-target="#customers" href="#">
+                profile
               </a>
             </li>
           </ul>
@@ -258,10 +262,16 @@
           </div>
         </div>
         <div class="tab-pane fade" id="customers">
-          <!-- Content for Customers tab -->
+
+
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Customers</h1>
+            <h1 class="h2"  style="color: #5f4395;">My Profile</h1><br>
+
+          </div>
+          <div>
+            <p id="un" class="h3">User Name</p><br>
+            <p id="uEmail" class="h2">Email</p>
           </div>
           <!-- Your existing Customers content -->
         </div>
@@ -286,54 +296,60 @@
 
   <script src="dashboard.js"></script>
   <script>
-      var myOrderTap = document.getElementById("orders-tab");
-      //  myOrderTap.addEventListener("click", function () {
-          var currentIndex = JSON.parse(localStorage.getItem("currentindex"));
-          var orderData = localStorage.getItem('OrderData');
-          
-          var targetSeller = JSON.parse(localStorage.getItem("user")).name; // Replace with the specific seller you want
+    //display current user data
+    document.getElementById("profile-tab").addEventListener("click", function () {
+      document.getElementById("un").innerText += ": " + JSON.parse(localStorage.getItem("user")).name;
+      document.getElementById("uEmail").innerText += ": " + JSON.parse(localStorage.getItem("user")).email;
+    });
+    var myOrderTap = document.getElementById("orders-tab");
+    //  myOrderTap.addEventListener("click", function () {
+    var currentIndex = JSON.parse(localStorage.getItem("currentindex"));
+    var orderData = localStorage.getItem('OrderData');
 
-          // Check if orderData is not null or undefined
-          if (orderData) {
-            orderData = JSON.parse(orderData); // Parse the JSON if it exists
-            console.log(orderData);
-            for (let x = 0; x < orderData.length; x++) {
-              
-              // Check if orderData[x].quantity is not null or undefined
-              if (orderData[x].quantity) {
-                orderData[x].quantity.forEach(element => {
-                  // Check if the quantity array element matches the target seller
-                  if (element.seller === targetSeller) {
-                    var calculatedValue = (orderData[x]['Order Id'] * 100);
-                    var tr = document.createElement("tr");
-                    var td1 = document.createElement("td");
-                    var td2 = document.createElement("td");
-                    var td3 = document.createElement("td");
-                    var td4 = document.createElement("td");
-                    var td5 = document.createElement("td");
+    var targetSeller = JSON.parse(localStorage.getItem("user")).name; // Replace with the specific seller you want
 
-                    td1.innerText = calculatedValue.toFixed();
-                    td2.innerText = element.productId;
-                    td3.innerText = element.priceOfItem; // Accessing priceOfItem property
-                    td4.innerText = element.numOfItems;
-                    td5.innerText = orderData[x]["Date of Order"];
-                    tr.appendChild(td1);
-                    tr.appendChild(td2);
-                    tr.appendChild(td3);
-                    tr.appendChild(td4);
-                    tr.appendChild(td5);
-                    document.getElementById("orders-tbody").appendChild(tr);
-                  }
-                });
-              }
+    // Check if orderData is not null or undefined
+    if (orderData) {
+      orderData = JSON.parse(orderData); // Parse the JSON if it exists
+      console.log(orderData);
+      for (let x = 0; x < orderData.length; x++) {
+
+        // Check if orderData[x].quantity is not null or undefined
+        if (orderData[x].quantity) {
+          orderData[x].quantity.forEach(element => {
+            // Check if the quantity array element matches the target seller
+            if (element.seller === targetSeller) {
+              var calculatedValue = (orderData[x]['Order Id'] * 100);
+              var tr = document.createElement("tr");
+              var td1 = document.createElement("td");
+              var td2 = document.createElement("td");
+              var td3 = document.createElement("td");
+              var td4 = document.createElement("td");
+              var td5 = document.createElement("td");
+
+              td1.innerText = calculatedValue.toFixed();
+              td2.innerText = element.productId;
+              td3.innerText = element.priceOfItem; // Accessing priceOfItem property
+              td4.innerText = element.numOfItems;
+              td5.innerText = orderData[x]["Date of Order"];
+              tr.appendChild(td1);
+              tr.appendChild(td2);
+              tr.appendChild(td3);
+              tr.appendChild(td4);
+              tr.appendChild(td5);
+              document.getElementById("orders-tbody").appendChild(tr);
             }
-          }
-       // });
+          });
+        }
+      }
+    }
+    // });
 
 
 
 
     window.addEventListener("load", function () {
+      document.getElementById("currentUserName").innerText = JSON.parse(localStorage.getItem("user")).name;
       var modal = document.getElementById("myModal");
       var openModalBtn = document.getElementById("openModalBtn");
       var closeModalBtn = document.getElementById("submit");
@@ -376,7 +392,7 @@
         });
 
 
-      
+
 
 
       });

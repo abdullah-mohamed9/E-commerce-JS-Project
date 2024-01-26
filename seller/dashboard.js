@@ -1,6 +1,4 @@
 
-
-
 // Define variables to hold chart instances
 let myChartOne = null;
 let myChartTwo = null;
