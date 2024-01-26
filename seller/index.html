@@ -297,10 +297,10 @@
   <script src="dashboard.js"></script>
   <script>
     //display current user data
-    document.getElementById("profile-tab").addEventListener("click", function () {
+    
       document.getElementById("un").innerText += ": " + JSON.parse(localStorage.getItem("user")).name;
       document.getElementById("uEmail").innerText += ": " + JSON.parse(localStorage.getItem("user")).email;
-    });
+  
     var myOrderTap = document.getElementById("orders-tab");
     //  myOrderTap.addEventListener("click", function () {
     var currentIndex = JSON.parse(localStorage.getItem("currentindex"));
