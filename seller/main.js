@@ -55,35 +55,35 @@ submit.onclick = function (event) {
         flag = false;
         if (title.value.trim() == '' || titleRegex.test(title.value) == false) {
             title.style.border = "solid 3px red";
-            title_val.innerHTML = 'Title must be more than 3 char';
+            title_val.innerHTML = 'Title must be more than 3 charcters and only letters';
         } else {
             title.style.border = "solid 3px green";
             title_val.innerHTML = '';
         }
         if (price.value.trim() == '' || numberRegex.test(price.value) == false) {
             price.style.border = "solid 3px red";
-            price_val.innerHTML = 'Price must be a positive number';
+            price_val.innerHTML = 'Price must be a positive number only';
         } else {
             price.style.border = "solid 3px green";
             price_val.innerHTML = '';
         }
         if (count.value.trim() == '' || numberRegex.test(count.value) == false || count.value > 100) {
             count.style.border = "solid 3px red";
-            count_val.innerHTML = 'Count must be between 1 and 100';
+            count_val.innerHTML = 'Count must be between 1 and 100  ';
         } else {
             count.style.border = "solid 3px green";
             count_val.innerHTML = '';
         }
         if (category.value == '0') {
             category.style.border = "solid 3px red";
-            category_val.innerHTML = 'Choose category';
+            category_val.innerHTML = 'Choose category   ';
         } else {
             category.style.border = "solid 3px green";
             category_val.innerHTML = '';
         }
         if (img.value == '') {
             img.style.border = "solid 3px red";
-            img_val.innerHTML = 'Choose image';
+            img_val.innerHTML = 'Choose image   ';
         } else {
             img.style.border = "solid 3px green";
             img_val.innerHTML = '';
@@ -138,22 +138,47 @@ function displayImage() {
 
 function showData() {
     let table = '';
-    for (let i = 0; i < dataPro.length; i++) {
-        table += `
-            <tr>
-                <td>${i + 1}</td>
-                <td>${dataPro[i].title}</td>
-                <td>${dataPro[i].price}</td>
-                <td>${dataPro[i].count}</td>
-                <td>${dataPro[i].category}</td>
-                <td><img src="${dataPro[i].img}" width="50px" height="50px id="imgPreview" "></td>
-                <td><button onclick="updateData(${i})" class="btn-style" style="width:100%" id="update">update</button></td>
-                <td><button onclick="deleteData(${i})" class="btn-style" style="width:100%" id="delete">delete</button></td>
-            </tr>
-        `;
+    let sellerProducts = dataPro.filter(product => product.seller === logedinUser.id);
+
+    if (sellerProducts.length === 0) {
+        table = '<tr><td colspan="8">You haven\'t added any products yet.</td></tr>';
+    } else {
+        for (let i = 0; i < sellerProducts.length; i++) {
+            table += `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${sellerProducts[i].title}</td>
+                    <td>${sellerProducts[i].price}</td>
+                    <td>${sellerProducts[i].count}</td>
+                    <td>${sellerProducts[i].category}</td>
+                    <td><img src="${sellerProducts[i].img}" width="50px" height="50px"></td>
+                    <td><button onclick="updateData(${i})" class="btn-style" style="width:100%" id="update">update</button></td>
+                    <td><button onclick="deleteData(${i})" class="btn-style" style="width:100%" id="delete">delete</button></td>
+                </tr>
+            `;
+        }
     }
     document.getElementById('tbody').innerHTML = table;
 }
+
+// function showData() {
+//     let table = '';
+//     for (let i = 0; i < dataPro.length; i++) {
+//         table += `
+//             <tr>
+//                 <td>${i + 1}</td>
+//                 <td>${dataPro[i].title}</td>
+//                 <td>${dataPro[i].price}</td>
+//                 <td>${dataPro[i].count}</td>
+//                 <td>${dataPro[i].category}</td>
+//                 <td><img src="${dataPro[i].img}" width="50px" height="50px id="imgPreview" "></td>
+//                 <td><button onclick="updateData(${i})" class="btn-style" style="width:100%" id="update">update</button></td>
+//                 <td><button onclick="deleteData(${i})" class="btn-style" style="width:100%" id="delete">delete</button></td>
+//             </tr>
+//         `;
+//     }
+//     document.getElementById('tbody').innerHTML = table;
+// }
 
 img.addEventListener('change', displayImage);
 
