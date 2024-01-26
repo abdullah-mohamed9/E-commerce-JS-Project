@@ -23,7 +23,15 @@
 
     <!-- Cart section -->
     <section id="blog-home" class="pt-5 mt-5 container">
+        <!--alert -->
+        <div class="row">
+            <div id="AlertEmptyCart" class="col-6" style="text-align: center;margin: 0 auto;">
+        </div>
+         </div>
+         
+       
         <h2 class="font-weight-bold pt-5">Shopping Cart</h2>
+        
         <hr>
     </section>
     <section id="cart-container" class="container my-5">
@@ -369,8 +377,21 @@
             document.getElementById("k").addEventListener("click", function () {
                 localStorage.setItem('totalPrice', mTotal);
                 localStorage.setItem('subTotal', subTotal);
-                window.location.href = '../html/checkout.html';
+               var alertContent= document.getElementById("AlertEmptyCart");
+                var cartCurrentData=JSON.parse(localStorage.getItem("cartData"));
+                //check if cart is empty
+                if(cartCurrentData.length<1){
+                  alertContent.innerHTML = `<div class="alert alert-danger">
+                        You can't Proceed to checkout Your cart is Empty!
+               </div>`;
+                 setTimeout(function() {
+                   alertContent.classList.add("hidden");
+                      }, 3000);
+                }else{
+                    window.location.href = '../html/checkout.html';
 
+                }
+               
             });
         });
     </script>
