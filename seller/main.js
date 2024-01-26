@@ -14,6 +14,50 @@ let count_val = document.getElementById("count_val");
 let category_val = document.getElementById("category_val");
 let img_val = document.getElementById("img_val");
 
+let signOut = document.getElementById("signOut");
+signOut.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent the default link behavior
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to sign out?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes,Sign out!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Remove the user from localStorage    
+            // Redirect to the login page
+            Toast.fire({
+                title: "Sign out!",
+                text: "You have signed out successfully.",
+                icon: "success"
+            }).then((result) => {
+                window.location.href = "../index.html";
+                localStorage.removeItem("user");
+            });
+        } else {
+            window.location.href = "index.html";
+        }
+    });
+
+
+});
+
+
 let mood = 'create';
 let tmp;
 let dataPro;
@@ -38,7 +82,7 @@ submit.onclick = function (event) {
         category: category.value,
         img: imagePreview.src,
         seller: logedinUser.id
-        
+
     }
 
     if (titleRegex.test(title.value) && title.value.trim() != '' && numberRegex.test(price.value) && numberRegex.test(count.value) && category.value != '0' && newPro.count < 100 && img.value != '') {
@@ -279,7 +323,7 @@ function updateData(i) {
     closeModalBtn.removeEventListener("click", closeModal);
     closeModalBtn.addEventListener("click", function () {
         // Update data and close modal
-       // updateAndCloseModal();
+        // updateAndCloseModal();
     });
 
     scroll({
@@ -350,8 +394,8 @@ function searchData(value) {
     document.getElementById('tbody').innerHTML = table;
 
 }
-document.getElementById("submit").addEventListener("click",function(){
-console.log("submit btn");
+document.getElementById("submit").addEventListener("click", function () {
+    console.log("submit btn");
 
 
 });

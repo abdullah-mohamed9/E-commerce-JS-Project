@@ -107,6 +107,8 @@ td {
 #signOut{
     color: red;
     font-size: 18px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
 }
 #signOut:hover{
     color: #fff;
