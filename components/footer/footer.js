@@ -13,13 +13,12 @@ let footerContent=
     <div class="footer-one col-12 col-mg-6 col-lg-3 mb-3">
         <h5 class="pb-2">Featured</h5>
         <ul class="text-uppercase list-unstyled ">
-            <li><a href="#">Men</a></li>
-            <li><a href="#">Women</a></li>
-            <li><a href="#">Boys</a></li>
-            <li><a href="#">Girls</a></li>
-            <li><a href="#">New arrivals</a></li>
-            <li><a href="#">Shoes</a></li>
-            <li><a href="#">Clothes</a></li>
+            <li><a href="#" onclick="updateFilter('all')">All</a></li>
+            <li><a href="#" onclick="updateFilter('topwear')">Topwear</a></li>
+            <li><a href="#" onclick="updateFilter('bottomwear')">Bottomwear</a></li>
+            <li><a href="#" onclick="updateFilter('jacket')">Jacket</a></li>
+            <li><a href="#" onclick="updateFilter('shoes')">Shoes</a></li>
+            
         </ul>
     </div>
     <div class="footer-one col-12 col-mg-6 col-lg-3 mb-3">
@@ -67,3 +66,32 @@ let footerContent=
 </footer>
 `
 footer.innerHTML=footerContent;
+
+
+// Filter function
+function updateFilter(category) {
+    let buttons = document.querySelectorAll(".my-button");
+    buttons.forEach((button) => {
+        if (category.toLowerCase() === button.innerText.toLowerCase()) {
+            button.classList.add("active-search");
+        } else {
+            button.classList.remove("active-search");
+        }
+    });
+
+    let prods = document.querySelectorAll(".pro");
+    prods.forEach((p) => {
+        if (category === "all") {
+            p.classList.remove("hide");
+        } else if (p.classList.contains(category)) {
+            // Show the products of this category
+            p.classList.remove("hide");
+        } else {
+            // Hide other elements
+            p.classList.add("hide");
+        }
+    });
+
+    // Call the search function after updating the filter
+    mySearchFunction();
+}
