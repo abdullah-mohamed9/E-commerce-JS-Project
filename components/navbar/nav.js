@@ -20,16 +20,15 @@ let navbar=
                 <a class="nav-link" href="product.html">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="../about_contact pages/about.html">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="../about_contact pages/contact.html">Contact Us</a>
             </li>
             <li class="nav-item">
-              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>  
-            </li>
-            <li class="nav-item">
-               <a href="cart.html"><i class="fa-solid fa-shopping-cart"> </i></a> 
+               <a href="cart.html"><i class="fa-solid fa-shopping-cart"> </i>
+               <span id="prod_count">0</span>
+                </a> 
             </li>
             <li class="nav-item">
               <a  href="login.html"><i class="fa-solid fa-sign-in-alt"></i></a>  
@@ -43,3 +42,29 @@ let navbar=
 </nav>
 `
 body.innerHTML=navbar;
+
+let userId;
+
+// Check if localStorage has user data
+if (localStorage.user != null) {
+    userId = JSON.parse(localStorage.user);
+
+    let numOfCart;
+    let count=0;
+    // Check if localStorage has cart data
+    if (localStorage.cartData != null) {
+        numOfCart = JSON.parse(localStorage.cartData);
+
+        console.log(userId.id);
+
+        for (let i = 0; i < numOfCart.length; i++) {
+            if (userId.id == numOfCart[i].userId) {
+                count+=Number(numOfCart[i].numOfItems);
+                document.getElementById("prod_count").innerHTML = `<span>${count}</span>`;
+                // Assuming numOfItems is a property of each cart item
+            } else {
+                
+            }
+        }
+    }
+}
