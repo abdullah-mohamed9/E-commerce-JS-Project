@@ -199,11 +199,15 @@ let products = [
   },
 
 ];
+<<<<<<< HEAD
+localStorage.setItem("products", JSON.stringify(products));
+=======
 var dataInLocalStorage=JSON.parse(localStorage.getItem("products"));
 if(dataInLocalStorage){
 //localStorage.setItem("products", JSON.stringify(products));
 }
 
+>>>>>>> 7cdeba01040dbfb6b12eb704a5cfb38d40c213fc
 var numOfProducts = JSON.parse(localStorage.getItem("products")).length;
 var ProductItem = JSON.parse(localStorage.getItem("products"));
 console.log(numOfProducts);
@@ -281,7 +285,7 @@ function renderProduct() {                           //mohamed
             <i class="fa-solid fa-star"></i>
         </div>
         <h5 class="p-name">${products[i].product_name}</h5>
-        <h4 class="p-price">${products[i].price}</h4>
+        <h4 class="p-price">${products[i].price}$</h4>
         <a href=html/productDetails.html?id=${products[i].product_id}  class="buy-btn id="">Buy Now</a>
     </div>
         `;

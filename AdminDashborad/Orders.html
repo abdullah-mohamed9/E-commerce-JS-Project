@@ -1,16 +1,8 @@
- <!DOCTYPE html> 
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Font Awesome CSS (for sorting icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-
-
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -35,25 +27,25 @@
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li class="active">
+			<li >
 				<a href="Users.html">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Customers</span>
 				</a>
 			</li>
-            <li>
+            <li >
 				<a href="Seller.html">
 					<i class='bx bx-user'></i>
 					<span class="text">Seller</span>
 				</a>
 			</li>
-			<li>
+			<li >
 				<a href="Products.html">
 					<i class='bx bx-receipt'></i>
 					<span class="text">Products</span>
 				</a>
 			</li>
-			<li>
+			<li class="active">
 				<a href="Orders.html">
 					<i class='bx bxs-basket'></i>
 					<span class="text">Orders</span>
@@ -75,7 +67,7 @@
 				</a>
 			</li>
 			<li>
-				<a id="logoutBtn" href="#" class="logout">
+				<a href="#" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
@@ -117,65 +109,58 @@
 					<h1>Dashboard</h1>
 					<ul class="breadcrumb">
 						<li>
-							<a href="#">Dashboard</a>
+							<a href="index.html">Dashboard</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="Users.html">Customers</a>
+							<a class="active" href="Products.html">Products</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 
             <div class="form">
-            <div class="input">
-                <input class="inputs" type="text" placeholder="Name" id="Name" required>
-               
-                <input class="inputs" type="email" id="email" placeholder="email" required>
-                <input class="inputs" type="password" id="password" placeholder="password"required >
-                <!-- <input class="inputs" type="text" id="type" value="customer" disabled > -->
-				<select class="inputs" id="type">
-					<option id="select" value="customer" selected>Customer</option>
-					<option value="seller">Seller</option>
-				</select>
-              
-                <button id="createUser">Create</button>
-        
-            </div>
-            </div>
+
+				<!-- <div class="input">
+					<input class="inputs" type="text" placeholder="title" id="title">
+					<input class="inputs" type="number" placeholder="price">
+					<input class="inputs" type="text" id="description" placeholder="Description" >
+					<input class="inputs" type="number" id="count" placeholder="count" >
+					<input class="inputs" type="text" id="category" placeholder="category" >
+					<input class="inputs file" type="file" id="img" class="col-6 btn-style" />
+                  <img src="images/logo1.png" id="imgPreview" alt="placeholder" /><br>
+                  <div id="img_val">
+
+                  </div>
+				  
+					<button id="submit">Create</button>
+            </div> -->
 
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Users</h3>
+						<h3>Recent Orders</h3>
                         
-                        <input class="inputs search" id="search" placeholder="Search" type="text">
-                        <i id="x" class='bx bx-message-square-x'></i>
+                        <!-- <input class="inputs search" id="search" placeholder="Search" type="text">
+						<button id="searchTitle">Search By Title</button>
+						<button id="searchCatergoy">Search By Category</button> -->
+
+                        <!-- <i id="x" class='bx bx-message-square-x'></i>
 						<i id="s" class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
+						<i class='bx bx-filter' ></i> -->
 					</div>
 					<table>
 						<thead>
 							<tr>
-								<th id="username">Username <i class="fas fa-sort"></i></th>
-								<th id="useremail">Email <i class="fas fa-sort"></i></th>
-                                <th>Password</th>
-								<th>Status</th>
+								<th>ORDER ID</th>
+                                <th>PRODUCT ID</th>
+								<th>Customer Name</th>
+								<th>COUNT</th>
+                                <th>Price</th>
+								<th>DATE OF ORDER</th>
 							</tr>
 						</thead>
 						<tbody id="tbody">
-							<!-- <tr>
-								<td>
-									<img src="img/img.jpg">
-									<p>John Doe</p>
-								</td>
-								<td>mohamedyousef@gmail.com</td>
-                                <td>123456789</td>
-								<td><span class="status update">Update</span></td>
-                                <td><span class="status delete">Delete</span></td>
-
-							</tr>-->
-                         
 							
 						</tbody>
 					</table>     
@@ -190,12 +175,6 @@
 
 
 	<script src="script.js"></script>
-    <script src="Users.js"></script>
-	    <!-- jQuery -->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-		<!-- DataTables JS -->
-		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
-	
+	<script src="Orders.js"></script>
 </body>
 </html>
