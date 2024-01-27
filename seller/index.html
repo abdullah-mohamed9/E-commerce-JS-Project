@@ -5,6 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Seller Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-7yI2kHsXVT7v1qGQT7cUtU7qQs1+uQWviYnqsFiBeg3ifz4DOGRPUJDX9TxyR+Jcd7P4ptbcejt5nLSx8a9Wog=="
+    crossorigin="anonymous" />
 
   <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/"> -->
 
@@ -135,7 +138,7 @@ tbody {
 
 <body>
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#" id="currentUserName">Company name</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed " type="button" data-bs-toggle="collapse"
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -172,8 +175,9 @@ tbody {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="customers-tab" data-bs-toggle="pill" data-bs-target="#customers" href="#">
-                Customers
+              <i class="fas fa-user"></i>
+              <a class="nav-link" id="profile-tab" data-bs-toggle="pill" data-bs-target="#customers" href="#">
+                profile
               </a>
             </li>
           </ul>
@@ -219,13 +223,7 @@ tbody {
                     <option value="shoes">Shoes</option>
                     <option value="bottomwear">Bottom wear</option>
                   </select>
-                  <!-- <select class="custom-select custom-select-sm btn-style col-8" required id="category">
-                    <option value=0 selected>Please choose category</option>
-                    <option value="Top">Men</option>
-                    <option value="Women">Women</option>
-                    <option value="Boys">Boys</option>
-                    <option value="Girls">Girls</option>
-                  </select> -->
+
                   <div id="category_val">
                   </div>
                   <input type="file" id="img" class="col-6 btn-style" />
@@ -318,10 +316,16 @@ tbody {
           </div>
         </div>
         <div class="tab-pane fade" id="customers">
-          <!-- Content for Customers tab -->
+
+
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Customers</h1>
+            <h1 class="h2"  style="color: #5f4395;">My Profile</h1><br>
+
+          </div>
+          <div>
+            <p id="un" class="h3">User Name</p><br>
+            <p id="uEmail" class="h2">Email</p>
           </div>
           <!-- Your existing Customers content -->
         </div>
@@ -346,6 +350,12 @@ tbody {
 
   <script src="dashboard.js"></script>
   <script>
+
+    //display current user data
+    
+      document.getElementById("un").innerText += ": " + JSON.parse(localStorage.getItem("user")).name;
+      document.getElementById("uEmail").innerText += ": " + JSON.parse(localStorage.getItem("user")).email;
+  
     var myOrderTap = document.getElementById("orders-tab");
     //  myOrderTap.addEventListener("click", function () {
     var currentIndex = JSON.parse(localStorage.getItem("currentindex"));
@@ -384,6 +394,7 @@ tbody {
 
               // Format the date as YYYY-MM-DD
               const formattedDate = `${year}-${month}-${day}`;
+
               td1.innerText = calculatedValue.toFixed();
               td2.innerText = element.productId;
               td3.innerText = element.priceOfItem; // Accessing priceOfItem property
@@ -406,6 +417,7 @@ tbody {
 
 
     window.addEventListener("load", function () {
+      document.getElementById("currentUserName").innerText = JSON.parse(localStorage.getItem("user")).name;
       var modal = document.getElementById("myModal");
       var openModalBtn = document.getElementById("openModalBtn");
       var closeModalBtn = document.getElementById("submit");

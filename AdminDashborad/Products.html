@@ -4,6 +4,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	  <!-- Font Awesome CSS (for sorting icons) -->
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+	  <!-- DataTables CSS -->
+	  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+  
+
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
@@ -46,7 +53,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="Orders.html">
 					<i class='bx bxs-basket'></i>
 					<span class="text">Orders</span>
 				</a>
@@ -121,21 +128,20 @@
 
             <div class="form">
 
-				<div class="input">
+				<!-- <div class="input">
 					<input class="inputs" type="text" placeholder="title" id="title">
-					<div class="price">
-						<input class="inputs" type="number" id="price" placeholder="price">
-						<input class="inputs" type="number" id="taxes" placeholder="taxes">
-						<input class="inputs" type="number" id="ads" placeholder="ads">
-						<input class="inputs" type="number" id="discount" placeholder="discount">
-					</div>
-					<input class="inputs" type="file" id="image" value="choose image" >
+					<input class="inputs" type="number" placeholder="price">
 					<input class="inputs" type="text" id="description" placeholder="Description" >
+					<input class="inputs" type="number" id="count" placeholder="count" >
 					<input class="inputs" type="text" id="category" placeholder="category" >
+					<input class="inputs file" type="file" id="img" class="col-6 btn-style" />
+                  <img src="images/logo1.png" id="imgPreview" alt="placeholder" /><br>
+                  <div id="img_val">
+
+                  </div>
 				  
-			
 					<button id="submit">Create</button>
-            </div>
+            </div> -->
 
 			<div class="table-data">
 				<div class="order">
@@ -143,6 +149,9 @@
 						<h3>Products</h3>
                         
                         <input class="inputs search" id="search" placeholder="Search" type="text">
+						<button id="searchTitle">Search By Title</button>
+						<button id="searchCatergoy">Search By Category</button>
+
                         <i id="x" class='bx bx-message-square-x'></i>
 						<i id="s" class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
@@ -150,11 +159,12 @@
 					<table>
 						<thead>
 							<tr>
-								<th id="sellerName">Title</th>
-								<th id="sellerEmail">Image</th>
-                                <th>Price</th>
-								<th>Description</th>
-								<th>Status</th>
+								<th id="title">Title <i class="fas fa-sort"></i></th>
+                                <th id="price">Price <i class="fas fa-sort"></i></th>
+								<th id="category">category <i class="fas fa-sort"></i></th>
+								<th id="count">Count <i class="fas fa-sort"></i></th>
+								<th>Image</th>
+								<th>Delete</th>
 							</tr>
 						</thead>
 						<tbody id="tbody">
@@ -173,5 +183,12 @@
 
 	<script src="script.js"></script>
     <script src="products.js"></script>
+
+	  <!-- jQuery -->
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	  <!-- DataTables JS -->
+	  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+  
 </body>
 </html>

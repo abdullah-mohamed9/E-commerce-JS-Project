@@ -11,6 +11,8 @@ let temp;
 
 let mood="create";
 
+type.style.display="none"
+
 //add user
 let userData;
 //localstorage has data
@@ -44,11 +46,8 @@ create.onclick=function(){
         //after update
         mood="create";
         create.innerHTML="Create";
-        type.style.display="inline-block";
         create.style.background="#6b0808";
-
-
-
+        type.style.display="none"
     }
 
 
@@ -182,10 +181,11 @@ function updateUser(i){
     email.value=userData[i].email;
     password.value=userData[i].password;
 
-    type.style.display="none";
+    
     //change create to update
     create.innerHTML="Update";
     create.style.background="orange";
+    type.style.display="inline-block"
 
     mood="update";
     
@@ -209,12 +209,14 @@ s.onclick=()=>{
    
 
 }
+//remove value in input
 let x=document.getElementById("x");
 x.onclick=()=>{
  search.value="";
     showData();
 
 }
+
 
 search.addEventListener("keyup", () => {
     searchData(search.value);

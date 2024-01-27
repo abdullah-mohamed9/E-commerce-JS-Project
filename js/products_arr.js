@@ -199,11 +199,9 @@ let products = [
   },
 
 ];
-// localStorage.setItem("products", JSON.stringify(products));
-var dataInLocalStorage = JSON.parse(localStorage.getItem("products"));
-// if (dataInLocalStorage == null) {
-// }
-
+if(localStorage.getItem("products")==null){
+  localStorage.setItem("products", JSON.stringify(products));
+}
 var numOfProducts = JSON.parse(localStorage.getItem("products")).length;
 var ProductItem = JSON.parse(localStorage.getItem("products"));
 console.log(numOfProducts);

@@ -73,21 +73,28 @@ switchMode.addEventListener('change', function () {
 
 
 
+let userCount;
+//localstorage has data
+if(localStorage.users != null){
+    userCount=JSON.parse(localStorage.users);
+}
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
 	let countCustomer = 0;
 	let countSeller=0;
 	// Count the number of elements with type "customer"
-	for (let i = 0; i < userData.length; i++) {
-		if (userData[i].type === "customer") {
+	for (let i = 0; i < userCount.length; i++) {
+		if (userCount[i].type === "customer") {
 			countCustomer++;
-		}else if(userData[i].type === "seller"){
+		}else if(userCount[i].type === "seller"){
 			countSeller++;
 		}
 	}
 
-	console.log(countCustomer);
+	//console.log(countCustomer);
+
 
 	// Update HTML element content
 	let numberOfCustomerElement = document.getElementById("numberOfCustomer");
@@ -100,6 +107,63 @@ document.addEventListener("DOMContentLoaded", function() {
 	} 
 
 });
+
+
+let productCount;
+//localstorage has data
+if(localStorage.products != null){
+    productCount=JSON.parse(localStorage.products);
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+	let countOfProducts = 0;
+
+	// Assuming productData is an array of products
+	for (let i = 0; i < productCount.length; i++) {
+		// Example: Count only products with a certain condition (e.g., count products with price > 50)
+			countOfProducts++;
+		
+	}
+
+	console.log(countOfProducts);
+
+	// Update HTML element content
+	let numberOfProductElement = document.getElementById("numberOfProduct");
+	numberOfProductElement.innerHTML = `<span>${countOfProducts}</span>`;
+});
+
+
+
+//count of orders
+
+let ordersCount;
+//localstorage has data
+if(localStorage.OrderData != null){
+    ordersCount=JSON.parse(localStorage.OrderData);
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+	let countOfOrders = 0;
+
+	// Assuming productData is an array of products
+	for (let i = 0; i < ordersCount.length; i++) {
+		// Example: Count only products with a certain condition (e.g., count products with price > 50)
+		countOfOrders++;
+		
+	}
+
+	console.log(countOfOrders);
+
+	// Update HTML element content
+	let numberOfOrdersElement = document.getElementById("numberOfOrders");
+	numberOfOrdersElement.innerHTML = `<span>${countOfOrders}</span>`;
+});
+
+
 
 
 //logout

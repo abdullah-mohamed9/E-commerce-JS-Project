@@ -222,6 +222,7 @@ window.addEventListener("load", function () {
                     console.log("selled items " + selledones);
 
                     var productIdToFind = efg ;
+                  
                     //corresponding id
                     var foundProduct = Object.values(mproducts).find(product => product.product_id == productIdToFind);
                     //  console.log(foundProduct);

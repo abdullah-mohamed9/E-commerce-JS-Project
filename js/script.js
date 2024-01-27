@@ -1,12 +1,13 @@
 
 var myproduct_container = document.getElementById("myproducts");
+var p=JSON.parse(localStorage.getItem("products"));
 
-var myPro=JSON.parse(localStorage.getItem("products"));
-for (var i in myPro) {
-  var product = `<div class="pro ${myPro[i].category}">
-<img onclick="location.href='sproduct.html?index=${i}' "src="${myPro[i].product_img}" alt="product img" />
+
+for (var i in p) {
+  var product = `<div class="pro ${p[i].category}">
+<img onclick="location.href='sproduct.html?index=${i}' "src="${p[i].product_img}" alt="product img" />
 <div class="des">
-  <h5 class="product-name">${myPro[i].product_name}</h5>
+  <h5 class="product-name">${p[i].product_name}</h5>
   <div class="star">
     <i class="bi bi-star-fill"></i>
     <i class="bi bi-star-fill"></i>
@@ -14,7 +15,8 @@ for (var i in myPro) {
     <i class="bi bi-star-fill"></i>
     <i class="bi bi-star"></i>
   </div>
-  <h4>${myPro[i].price}</h4>
+
+  <h4>${p[i].price}</h4>
 </div>
 
 </div>`;
@@ -22,7 +24,7 @@ for (var i in myPro) {
   myproduct_container.insertAdjacentHTML("beforeend", product);
 }
 
-
+console.log(p.length);
 // filter categories by buttons
 function filterProducts(category) {
   let buttons = document.querySelectorAll(".my-button");
@@ -58,24 +60,27 @@ filter.onclick = function () {
 let search = document.getElementById("search");
 let mysearch_input = document.getElementById("search-input")
 
-mySearchFunction=() => {
-    let search_input = document.getElementById("search-input").value;
-    let prod_name = document.querySelectorAll(".product-name");
-    let prod = document.querySelectorAll(".pro");
-  
-    prod_name.forEach((p, index) => {
-      //check if text includes the search value
-      if (p.innerText.toLowerCase().includes(search_input.toLowerCase())) {
-        prod[index].classList.remove("hide");
-      } else {
-        // hide others
-        prod[index].classList.add("hide");
-      }
-    });
-  }
+let mySearchFunction = () => {
+  let searchInput = mysearch_input.value.toLowerCase();
+  let category = document.querySelector(".active-search") ? document.querySelector(".active-search").innerText.toLowerCase() : "all";
+  let prod_name = document.querySelectorAll(".product-name");
+  let prod = document.querySelectorAll(".pro");
 
-search.addEventListener("click",mySearchFunction );
-mysearch_input.addEventListener('input',mySearchFunction)
+  prod_name.forEach((p, index) => {
+      if ((p.innerText.toLowerCase().includes(searchInput) || searchInput === "") &&
+          (category === "all" || prod[index].classList.contains(category))) {
+          prod[index].classList.remove("hide");
+      } else {
+          prod[index].classList.add("hide");
+      }
+  });
+};
+
+search.addEventListener("click", mySearchFunction);
+mysearch_input.addEventListener('input', mySearchFunction);
+
+
+
 
 
 // to make it display all products when the page loaded

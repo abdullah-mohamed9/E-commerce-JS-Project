@@ -12,6 +12,8 @@ let temp;
 
 let mood="create";
 
+type.style.display="none"
+
 //add seller
 let sellerData;
 //localstorage has data
@@ -45,8 +47,8 @@ create.onclick=function(){
         //after update
         mood="create";
         create.innerHTML="Create";
-        type.style.display="inline-block";
         create.style.background="#6b0808";
+        type.style.display="none"
 
 
 
@@ -182,10 +184,11 @@ function updateSeller(i){
     email.value=sellerData[i].email;
     password.value=sellerData[i].password;
 
-    type.style.display="none";
+   
     //change create to update
     create.innerHTML="Update";
     create.style.background="orange";
+    type.style.display="inline-block"
 
     mood="update";
     
