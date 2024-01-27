@@ -11,9 +11,62 @@
   <!-- <link rel="stylesheet" href="style.css"> -->
 
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <script src="../js/products_arr.js"></script>
   <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
+    table {
+      text-align: center;
+    background-color: #50335f;
+	width: 600px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(15, 15, 15, 0.3);
+
+}
+
+th,
+td {
+  text-align: center;
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+}
+
+th {
+	text-align: left;
+}
+
+thead {
+	th {
+    text-align: center;
+		background-color: #292b34;
+	}
+}
+
+tbody {
+	tr {
+		&:hover {
+			background-color: rgba(255,255,255,0.3);
+		}
+	}
+	td {
+    text-align: center;
+		position: relative;
+		&:hover {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+			}
+		}
+	}
+}zz
     .searchBlock {
       display: flex;
       align-items: center;
@@ -161,11 +214,18 @@
                   </div>
                   <select class="custom-select custom-select-sm btn-style col-8" required id="category">
                     <option value=0 selected>Please choose category</option>
-                    <option value="Men">Men</option>
+                    <option value="topwear">Top wear</option>
+                    <option value="jacket">Jacket</option>
+                    <option value="shoes">Shoes</option>
+                    <option value="bottomwear">Bottom wear</option>
+                  </select>
+                  <!-- <select class="custom-select custom-select-sm btn-style col-8" required id="category">
+                    <option value=0 selected>Please choose category</option>
+                    <option value="Top">Men</option>
                     <option value="Women">Women</option>
                     <option value="Boys">Boys</option>
                     <option value="Girls">Girls</option>
-                  </select>
+                  </select> -->
                   <div id="category_val">
                   </div>
                   <input type="file" id="img" class="col-6 btn-style" />
@@ -200,7 +260,7 @@
               <table class="table table-bordered container" border="2px" style="border-collapse: collapse;">
                 <thead>
                   <tr style="background-color:#b097de;">
-                    <th id="test20">id</th>
+                    <th id="test20">Number</th>
                     <th>title</th>
                     <th>price</th>
                     <th>count</th>
@@ -220,7 +280,7 @@
           <!-- Content for Orders tab -->
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Orders</h1>
+            <h1 class="h2">Your Orders</h1>
           </div>
           <table class=" container" border="2px" style="border-collapse: collapse;">
             <thead>
@@ -286,49 +346,61 @@
 
   <script src="dashboard.js"></script>
   <script>
-      var myOrderTap = document.getElementById("orders-tab");
-      //  myOrderTap.addEventListener("click", function () {
-          var currentIndex = JSON.parse(localStorage.getItem("currentindex"));
-          var orderData = localStorage.getItem('OrderData');
-          
-          var targetSeller = "SELLER1"; // Replace with the specific seller you want
+    var myOrderTap = document.getElementById("orders-tab");
+    //  myOrderTap.addEventListener("click", function () {
+    var currentIndex = JSON.parse(localStorage.getItem("currentindex"));
+    var orderData = localStorage.getItem('OrderData');
 
-          // Check if orderData is not null or undefined
-          if (orderData) {
-            orderData = JSON.parse(orderData); // Parse the JSON if it exists
-            console.log(orderData);
-            for (let x = 0; x < orderData.length; x++) {
-              
-              // Check if orderData[x].quantity is not null or undefined
-              if (orderData[x].quantity) {
-                orderData[x].quantity.forEach(element => {
-                  // Check if the quantity array element matches the target seller
-                  if (element.seller === targetSeller) {
-                    var calculatedValue = (orderData[x]['Order Id'] * 100);
-                    var tr = document.createElement("tr");
-                    var td1 = document.createElement("td");
-                    var td2 = document.createElement("td");
-                    var td3 = document.createElement("td");
-                    var td4 = document.createElement("td");
-                    var td5 = document.createElement("td");
+    var targetSeller = JSON.parse(localStorage.getItem("user")).id; // Replace with the specific seller you want
 
-                    td1.innerText = calculatedValue.toFixed();
-                    td2.innerText = element.productId;
-                    td3.innerText = element.priceOfItem; // Accessing priceOfItem property
-                    td4.innerText = element.numOfItems;
-                    td5.innerText = orderData[x]["Date of Order"];
-                    tr.appendChild(td1);
-                    tr.appendChild(td2);
-                    tr.appendChild(td3);
-                    tr.appendChild(td4);
-                    tr.appendChild(td5);
-                    document.getElementById("orders-tbody").appendChild(tr);
-                  }
-                });
-              }
+    // Check if orderData is not null or undefined
+    if (orderData) {
+      orderData = JSON.parse(orderData); // Parse the JSON if it exists
+      console.log(orderData);
+      for (let x = 0; x < orderData.length; x++) {
+
+        // Check if orderData[x].quantity is not null or undefined
+        if (orderData[x].quantity) {
+          orderData[x].quantity.forEach(element => {
+            // Check if the quantity array element matches the target seller
+            if (element.seller === targetSeller) {
+              var calculatedValue = (orderData[x]['Order Id'] * 100);
+              var tr = document.createElement("tr");
+              var td1 = document.createElement("td");
+              var td2 = document.createElement("td");
+              var td3 = document.createElement("td");
+              var td4 = document.createElement("td");
+              var td5 = document.createElement("td");
+              const timestamp = orderData[x]["Date of Order"];
+
+              // Create a Date object from the timestamp
+              const dateObject = new Date(timestamp);
+
+              // Extract the date components
+              const year = dateObject.getUTCFullYear();
+              const month = (dateObject.getUTCMonth() + 1).toString().padStart(2,
+              '0'); // Month is zero-based, so add 1
+              const day = dateObject.getUTCDate().toString().padStart(2, '0');
+
+              // Format the date as YYYY-MM-DD
+              const formattedDate = `${year}-${month}-${day}`;
+              td1.innerText = calculatedValue.toFixed();
+              td2.innerText = element.productId;
+              td3.innerText = element.priceOfItem; // Accessing priceOfItem property
+              td4.innerText = element.numOfItems;
+              td5.innerText = formattedDate;
+              tr.appendChild(td1);
+              tr.appendChild(td2);
+              tr.appendChild(td3);
+              tr.appendChild(td4);
+              tr.appendChild(td5);
+              document.getElementById("orders-tbody").appendChild(tr);
             }
-          }
-       // });
+          });
+        }
+      }
+    }
+    // });
 
 
 
@@ -376,7 +448,7 @@
         });
 
 
-      
+
 
 
       });

@@ -21,33 +21,52 @@ let eye_signup = document.querySelector("#eye-signup");
 let eye_signup_val = document.querySelector("#eye-signup-val");
 
 
-
 let users = [
     {
-    id: 1,
-    name: "abdullah",
-    email: "abdullah@gmail.com",
-    password: "12345678",
-    type: "seller"
-},
-{
-    id:2000,
-    name:"Yousef",
-    email:"admin@admin.com",
-    password:"password@123",
-    type:"admin"
-},
-{
-
-    id:1000,
-    name:"Helmy",
-    email:"helmy@gamil.com",
-    password:"12345678",
-    type:"customer"
-}
-
-];
-
+        id: 1,
+        name: "SELLER1",
+        email: "abdullah@gmail.com",
+        password: "12345678",
+        type: "seller"
+    },
+    {
+        id: 2,
+        name: "SELLER2",
+        email: "seler2@gmail.com",
+        password: "12345678",
+        type: "seller"
+    },
+    {
+        id: 3,
+        name: "SELLER3",
+        email: "seler3@gmail.com",
+        password: "12345678",
+        type: "seller"
+    },{
+        id: 4,
+        name: "abdullah",
+        email: "abdullah@gmail.com",
+        password: "12345678",
+        type: "seller"
+    },
+    {
+        id:2000,
+        name:"Yousef",
+        email:"admin@admin.com",
+        password:"password@123",
+        type:"admin"
+    },
+    {
+    
+        id:1000,
+        name:"Helmy",
+        email:"helmy@gamil.com",
+        password:"12345678",
+        type:"customer"
+    }
+    
+    ];
+    
 
 //yousef
 // document.addEventListener("DOMContentLoaded", function () {
@@ -67,7 +86,7 @@ if (localStorage.getItem("users") != null) {
     localStorage.setItem("users", JSON.stringify(users));
 }
 
-const nameRegex = /^[a-zA-Z ]{3,}$/;
+const nameRegex = /^[a-zA-Z0-9 ]{3,}$/;
 const emailRegex = /^[a-zA-Z0-9_.]{4,}@(yahoo|gmail|hotmail|outlook).(com|net|eg)$/;
 
 

@@ -7,9 +7,9 @@ let products = [
     product_img2: "../images/products2/f3.jpg",
     product_img3: "../images/products2/f4.jpg",
     description: "T-shirt in soft cotton jersey. Regular Fit.",
-    price: "150$",
+    price: 150,
     count: 20,
-    seller: "SELLER1",
+    seller: 1,
     category: "topwear",
   },
   {
@@ -20,9 +20,9 @@ let products = [
     product_img2: "../images/products2/n3.jpg",
     product_img3: "../images/products2/n5.jpg",
     description: "shirt in soft cotton jersey. Regular Fit.",
-    price: "150$",
+    price: 300,
     count: 25,
-    seller: "SELLER1",
+    seller: 1,
     category: "topwear",
   },
   {
@@ -36,10 +36,10 @@ let products = [
       Button collar
       Oxford fabric
       One chest pocket`,
-    price: "600$ ",
+    price: 600,
     category: "featured",
     count: 30,
-    seller: "SELLER1",
+    seller: 1,
     category: "topwear",
   },
   {
@@ -51,18 +51,18 @@ let products = [
     product_img3: "../images/p/p23.jpg",
     description: ` Slim Fit Biker Collar Men's Coat With a stylish and modern style, the men's coat fits the body with its slim fit cut. The biker collar and the coat, which stands out with its energy, combines classic and sporty elegance.`,
     category: "jacket",
-    price: "1000$ ",
+    price: 500,
     count: 31,
-    seller: "SELLER2",
+    seller: 2,
   },
   {
     product_id: 5,
     product_name: "flower pant",
     product_img: "../images/products2/f7.jpg",
-    description: `wonderful flower pant`,
-    price: "150 ",
+    description: "wonderful flower pant",
+    price: 150,
     count: 28,
-    seller: "SELLER2",
+    seller: 2,
     category: "bottomwear",
   },
   {
@@ -75,8 +75,8 @@ let products = [
       Waist with elastic and adjustable drawstring`,
     category: "populer",
     count: 31,
-    seller: "SELLER2",
-    price: "300 $",
+    seller: 2,
+    price: 500,
     category: "bottomwear",
   },
 
@@ -90,9 +90,9 @@ let products = [
     description: `Shirt Collar Straight Long Sleeve Women's Tunic
         wonderful flower pant`,
     category: "populer",
-    price: "650$ ",
+    price:900,
     count: 25,
-    seller: "SELLER1",
+    seller: 1,
     category: "topwear",
   },
   {
@@ -101,9 +101,9 @@ let products = [
     product_img: "images/products/p1.png",
     description: "wonderful half-boot",
     category: "populer",
-    price: "450$ ",
+    price: 450,
     count: 19,
-    seller: "SELLER2",
+    seller: 2,
     category: "shoes",
   },
   {
@@ -112,9 +112,9 @@ let products = [
     product_img: "../images/products/p5.PNG",
     description: "wonderful half-boot",
     category: "featured",
-    price: "600$",
+    price: 800,
     count: 23,
-    seller: "SELLER3",
+    seller: 3,
     category: "shoes",
   },
   {
@@ -123,9 +123,9 @@ let products = [
     product_img: "../images/products/p7.png",
     description: "wonderful half-boot",
     category: "featured",
-    price: "450$",
+    price: 450,
     count: 17,
-    seller: "SELLER3",
+    seller: 3,
     category: "shoes",
   },
   {
@@ -134,9 +134,9 @@ let products = [
     product_img: "../images/products/p8.png",
     description: "wonderful half-boot",
     category: "featured",
-    price: "450$ ",
+    price: 450,
     count: 14,
-    seller: "SELLER3",
+    seller: 3,
     category: "shoes",
   },
 
@@ -147,13 +147,12 @@ let products = [
     product_img1: "../images/p/p72.jpg",
     product_img2: "../images/p/p73.jpg",
     product_img3: "../images/p/p74.jpg",
-
     description: `Crew Neck Regular Long Sleeve Women's Tricot Sweater
         Ribbed ankles and bottom`,
     category: "featured",
-    price: "450$",
+    price: 450,
     count: 47,
-    seller: "SELLER3",
+    seller: 3,
     category: "topwear",
   },
 
@@ -168,9 +167,9 @@ let products = [
         Front double pocket
         made of stamp fabric`,
     category: "featured",
-    price: "1500$",
+    price: 1500,
     count: 23,
-    seller: "SELLER2",
+    seller: 2,
     category: "jacket",
   },
   {
@@ -180,11 +179,11 @@ let products = [
     product_img1: "../images/p/p32.jpg",
     product_img2: "../images/p/p33.jpg",
     product_img3: "../images/p/p34.jpg",
-    description: `Crew Neck Short Sleeve Combed Cotton Men's T-shirt From combed cotton fabric short sleeved T-Shirt`,
+    description: " Crew Neck Short Sleeve Combed Cotton Men's T-shirt From combed cotton fabric short sleeved T-Shirt",
     category: "featured",
-    price: "200$",
+    price: 200,
     count: 30,
-    seller: "SELLER1",
+    seller: 1,
     category: "topwear",
   },
   {
@@ -193,16 +192,21 @@ let products = [
     product_img: "../images/products/p6.PNG",
     description: "wonderful half-boot",
     category: "populer",
-    price: "600$",
+    price: 600,
     count: 29,
-    seller: "SELLER2",
+    seller: 2,
     category: "shoes",
   },
 
 ];
-//localStorage.setItem("products", JSON.stringify(products));
+// localStorage.setItem("products", JSON.stringify(products));
+var dataInLocalStorage = JSON.parse(localStorage.getItem("products"));
+// if (dataInLocalStorage == null) {
+// }
+
 var numOfProducts = JSON.parse(localStorage.getItem("products")).length;
 var ProductItem = JSON.parse(localStorage.getItem("products"));
+console.log(numOfProducts);
 //store products in local storage. esraa
 window.addEventListener("load", function () {
   for (let i = 0; i < numOfProducts; i++) {

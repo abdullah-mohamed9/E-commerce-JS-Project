@@ -1,10 +1,10 @@
 
 window.addEventListener("load", function () {
-  
+
 
     document.getElementById('submitButton').addEventListener('click', function (event) {
-      
- 
+
+
         let myData = {};
         let myAllData = [];
         var allValid = true;
@@ -213,27 +213,27 @@ window.addEventListener("load", function () {
             function updateLocalStorageStock() {
                 var myCart = JSON.parse(localStorage.getItem("cartData"));
                 var mproducts = JSON.parse(localStorage.getItem("products"));
-    
+
                 for (let i = 0; i < myCart.length; i++) {
                     let efg = myCart[i]["productId"];
                     //cout of selled items
                     let selledones = myCart[i]['numOfItems'];
                     console.log("id in cart : " + efg);
                     console.log("selled items " + selledones);
-                  
-                    var productIdToFind = efg+1;
+
+                    var productIdToFind = efg ;
                     //corresponding id
                     var foundProduct = Object.values(mproducts).find(product => product.product_id == productIdToFind);
-                      //  console.log(foundProduct);
+                    //  console.log(foundProduct);
                     //total count
-                  //  console.log("count of product " + foundProduct['count']);
-                     foundProduct['count'] -= selledones;
-                  //  console.log("remain " + remaining);
-                  
-    
-    
+                    //  console.log("count of product " + foundProduct['count']);
+                    foundProduct['count'] -= selledones;
+                    //  console.log("remain " + remaining);
+
+
+
                 }
-        
+
                 // Move this line outside the loop
                 localStorage.setItem("products", JSON.stringify(mproducts));
             }

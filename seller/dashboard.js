@@ -128,7 +128,7 @@ chart.addEventListener("click", function () {
     const sellerId = loggedInUser.id;
 
     // Get products data from localStorage
-    let products = JSON.parse(localStorage.getItem("product"));
+    let products = JSON.parse(localStorage.getItem("products"));
 
     // Filter products based on the seller's ID
     products = products.filter(product => product.seller === sellerId);
@@ -138,7 +138,7 @@ chart.addEventListener("click", function () {
 
     // Extract data for the first chart (top 5 products)
     let topFiveProducts = sortedByPrice.slice(0, 5);
-    let labelsChartOne = topFiveProducts.map(product => product.title);
+    let labelsChartOne = topFiveProducts.map(product => product.product_name);
     let dataChartOne = topFiveProducts.map(product => parseFloat(product.price));
 
     // Define colors for each bar in Chart 1
@@ -171,7 +171,7 @@ chart.addEventListener("click", function () {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Top 5 Products by Price',
+                    text: 'Top Products by Price',
                     padding: {
                         top: 10,
                         bottom: 30

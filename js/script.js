@@ -1,12 +1,12 @@
 
 var myproduct_container = document.getElementById("myproducts");
 
-
-for (var i in products) {
-  var product = `<div class="pro ${products[i].category}">
-<img onclick="location.href='sproduct.html?index=${i}' "src="${products[i].product_img}" alt="product img" />
+var myPro=JSON.parse(localStorage.getItem("products"));
+for (var i in myPro) {
+  var product = `<div class="pro ${myPro[i].category}">
+<img onclick="location.href='sproduct.html?index=${i}' "src="${myPro[i].product_img}" alt="product img" />
 <div class="des">
-  <h5 class="product-name">${products[i].product_name}</h5>
+  <h5 class="product-name">${myPro[i].product_name}</h5>
   <div class="star">
     <i class="bi bi-star-fill"></i>
     <i class="bi bi-star-fill"></i>
@@ -14,7 +14,7 @@ for (var i in products) {
     <i class="bi bi-star-fill"></i>
     <i class="bi bi-star"></i>
   </div>
-  <h4>${products[i].price}</h4>
+  <h4>${myPro[i].price}</h4>
 </div>
 
 </div>`;
