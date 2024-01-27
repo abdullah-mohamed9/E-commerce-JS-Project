@@ -310,11 +310,6 @@ function searchData(value) {
 document.getElementById("submit").addEventListener("click", function () {
     console.log("submit btn");
 });
-<<<<<<< HEAD
-//order Tab
-
-
-=======
 
 function generateProductId() {
     return Date.now().toString();
@@ -349,4 +344,3 @@ function resetValidation(inputElement, validationElement) {
     inputElement.style.border = "";
     validationElement.innerHTML = '';
 }
->>>>>>> 7cdeba01040dbfb6b12eb704a5cfb38d40c213fc

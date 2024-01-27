@@ -49,6 +49,21 @@ let users = [
     email: "abdullah@gmail.com",
     password: "12345678",
     type: "seller"
+},
+{
+    id:2000,
+    name:"Yousef",
+    email:"admin@admin.com",
+    password:"password@123",
+    type:"admin"
+},
+{
+
+    id:1000,
+    name:"Helmy",
+    email:"helmy@gamil.com",
+    password:"12345678",
+    type:"customer"
 }
 
 ];
