@@ -23,6 +23,26 @@
     color: coral;
 }
 
+.dropdown-item:hover{
+    color: coral;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-divider {
+    border-top: 1px solid #dee2e6;
+}
 
 .navbar svg {
     font-size: 1.2rem;

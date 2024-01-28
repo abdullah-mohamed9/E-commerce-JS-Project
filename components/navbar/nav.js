@@ -30,12 +30,27 @@ let navbar=
                <span id="prod_count">0</span>
                 </a> 
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="login">
               <a  href="login.html"><i class="fa-solid fa-sign-in-alt"></i></a>  
             </li>
             <li class="nav-item">
              <a href="#"><i class="fa-solid fa-heart"></i></a>   
             </li>
+
+                 <!-- Profile Dropdown -->
+                <li  class="nav-item dropdown">
+                    <a id="Profile" class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Profile
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <a class="dropdown-item" href="#">My Account</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="logout" class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </li>
+                <!-- End Profile Dropdown -->
         </ul>
     </div>
 </div>
@@ -67,4 +82,17 @@ if (localStorage.user != null) {
             }
         }
     }
+
+    document.getElementById("login").style.display="none";
+    document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
+
+
+     // Logout functionality
+     document.getElementById("logout").addEventListener("click", function () {
+        // Remove user data from localStorage
+        localStorage.removeItem("user");
+
+        // Redirect to the index page
+        window.location.href = "index.html";
+    });
 }
