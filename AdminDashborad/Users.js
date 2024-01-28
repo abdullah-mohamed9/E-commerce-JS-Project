@@ -169,6 +169,7 @@ function deleteUser(i){
    //add data in local storage after remove
    localStorage.users = JSON.stringify(userData);
     //display data after remove
+    alert(`${userData[i].name} has been deleted successfully `);
    showData();
 
 }

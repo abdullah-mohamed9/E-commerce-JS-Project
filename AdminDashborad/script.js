@@ -112,6 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	}
 
+	
 	//console.log(countCustomer);
 
 
@@ -211,18 +212,18 @@ document.addEventListener("DOMContentLoaded", function () {
 //logout
 
 document.addEventListener("DOMContentLoaded", function () {
-    // ... (Your existing code)
+    
 
-    // Get the logout button element
+    //  the logout button element
     const logoutBtn = document.getElementById("logoutBtn");
 
-    // Add an event listener for the logout button
+   
     logoutBtn.addEventListener("click", function (e) {
         e.preventDefault();
 
-        // Perform logout logic here if needed (e.g., clearing session, etc.)
-
-        // Redirect to the home page (replace 'home.html' with your actual home page URL)
+    
+		alert(" You have successfully logged out.")
+        // Redirect to the home page 
         window.location.href = '../index.html';
     });
 });
