@@ -105,7 +105,7 @@ submit.onclick = function (event) {
         localStorage.setItem('products', JSON.stringify(dataPro)); // Store the updated dataPro array
     } else {
 
-        flage = false;
+        flag= false;
         if (title.value.trim() == '' || titleRegex.test(title.value) == false) {
             title.style.border = "solid 3px red";
             title_val.innerHTML = 'Title must be more than 3 char caracters and numbers and "-" only';
