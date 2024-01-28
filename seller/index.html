@@ -84,6 +84,27 @@
       color: white;
     }
 
+    .profile-container {
+      width: 30%;
+      height: 200px;
+      text-align: center;
+      background-color: #f0defa;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-container #un {
+      font-size: 18px;
+      color: #413e3e;
+      margin-bottom: 10px;
+    }
+
+    .profile-container #uEmail {
+      font-size: 18px;
+      color: #555;
+    }
+
     .modal {
       display: none;
       position: fixed;
@@ -164,23 +185,27 @@
           <ul class="nav flex-column nav-pills">
             <li class="nav-item">
               <a class="nav-link active" id="products-tab" data-bs-toggle="pill" data-bs-target="#products" href="#">
-                <i class="fa-solid fa-shop" style="height: 20px; margin-right: 10px;"></i> <span style="font-size: large; font-weight: 700;">Products</span>
+                <i class="fa-solid fa-shop" style="height: 16px; margin-right: 10px;"></i> <span
+                  style="font-size: large; font-weight: 700;">Products</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="orders-tab" data-bs-toggle="pill" data-bs-target="#orders" href="#">
-                <i class="fa-brands fa-shopify" style="height: 20px; margin-right: 10px;"></i> <span style="font-size: large; font-weight: 700;">Orders</span>
+                <i class="fa-brands fa-shopify" style="height: 16px; margin-right: 10px;"></i> <span
+                  style="font-size: large; font-weight: 700;">Orders</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="dashboard-tab" data-bs-toggle="pill" data-bs-target="#dashboard" href="#">
-                <i class="fa-solid fa-chart-pie" style="height: 20px; margin-right: 10px;"></i> <span style="font-size: large; font-weight: 700;">Charts</span>
+                <i class="fa-solid fa-chart-pie" style="height: 16px; margin-right: 10px;"></i> <span
+                  style="font-size: large; font-weight: 700;">Charts</span>
               </a>
             </li>
             <li class="nav-item">
-              
+
               <a class="nav-link" id="profile-tab" data-bs-toggle="pill" data-bs-target="#customers" href="#">
-                <i class="fas fa-user" style="height: 20px; margin-right: 10px;"></i> <span style="font-size: large; font-weight: 700;">Profile</span>
+                <i class="fas fa-user" style="height: 16px; margin-right: 10px;"></i> <span
+                  style="font-size: large; font-weight: 700;">Profile</span>
               </a>
             </li>
           </ul>
@@ -231,7 +256,7 @@
                   </div>
                   <input type="file" id="img" class="col-6 btn-style" accept=".jpg, .jpeg, .png, .gif" />
                   <img src="images/logo1.png" id="imgPreview" style="width: 50px ;height: 30px;"
-                    alt="placeholder"  /><br>
+                    alt="placeholder" /><br>
                   <div id="img_val">
 
                   </div>
@@ -326,8 +351,10 @@
             <h1 class="h2" style="color: #5f4395;">My Profile</h1><br>
 
           </div>
-          <div>
-            <p id="un" class="h3">User Name</p><br>
+          <div class="profile-container">
+          
+            <img src="../images/person.jfif" style="border-radius: 50%;width: 100px;">
+            <p id="un" class="h3">User Name</p>
             <p id="uEmail" class="h2">Email</p>
           </div>
           <!-- Your existing Customers content -->
@@ -348,9 +375,9 @@
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
     integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
   </script>
- 
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../js/all.min.js"></script>
+  <script src="../js/all.min.js"></script>
   <script src="dashboard.js"></script>
   <script>
     //display current user data
