@@ -170,6 +170,71 @@ hr {
     background-color: transparent !important;
 }
 
+.navbar{
+    font-family: "Poppins", sans-serif;  
+  }
+  
+  .navbar {
+      font-size: 1rem;
+      top: 0;
+      left: 0;
+      opacity: 0.9;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-light .navbar-nav .nav-link {
+      padding: 0 20px;
+      color: black;
+      transform: 0.3 ease;
+  }
+  
+  .navbar-light .navbar-nav .nav-link:hover,
+  .navbar svg:hover,
+  .navbar-light .navbar-nav .nav-link:active,
+  .navbar svg:active {
+      color: coral;
+  }
+  
+  
+  .navbar svg {
+      font-size: 1.2rem;
+      padding: 0px 7px;
+      cursor: pointer;
+      font-weight: 500;
+      color: #111;
+      transition: 0.3s ease;
+  }
+  
+  #bar {
+      font-size: 1.5rem;
+      padding: 7px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.3s ease;
+      color: black;
+  }
+  
+  .navbar-nav .nav-item .icon{
+      color: black;
+      font-weight: 500;
+  }
+  
+  .navbar-nav .nav-item {
+     position: relative;
+  }
+  
+  #prod_count{
+      background: tomato;
+      color: #fff;
+      padding: 3px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      font-size:9px;
+    }
+  
+
 #home {
     background-image: url("images/back.jpg");
     width: 100%;
@@ -393,7 +458,7 @@ footer .copyright a:hover {
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
 #cart-container table thead {
@@ -412,24 +477,24 @@ footer .copyright a:hover {
     text-align: center;
 }
 
-#cart-container table td:nth-child(1) {
+/* #cart-container table td:nth-child(1) {
     width: 100px;
-}
+} */
 
-#cart-container table td:nth-child(2),
+/* #cart-container table td:nth-child(2),
 #cart-container table td:nth-child(3) {
     width: 200px;
-}
+} */
 
-#cart-container table td:nth-child(4),
+/* #cart-container table td:nth-child(4),
 #cart-container table td:nth-child(5),
 #cart-container table td:nth-child(6) {
     width: 170px;
-}
+} */
 
 #cart-container table tbody img {
-    width: 100px;
-    height: 80px;
+    width: 90%;
+    max-width: 100px;
     object-fit: cover;
 
 }

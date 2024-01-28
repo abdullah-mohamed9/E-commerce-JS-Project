@@ -20,26 +20,79 @@ let navbar=
                 <a class="nav-link" href="product.html">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="../about_contact pages/about.html">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="../about_contact pages/contact.html">Contact Us</a>
             </li>
             <li class="nav-item">
-              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>  
+               <a href="cart.html"><i class="fa-solid fa-shopping-cart"> </i>
+               <span id="prod_count">0</span>
+                </a> 
             </li>
-            <li class="nav-item">
-               <a href="cart.html"><i class="fa-solid fa-shopping-cart"> </i></a> 
-            </li>
-            <li class="nav-item">
+            <li class="nav-item" id="login">
               <a  href="login.html"><i class="fa-solid fa-sign-in-alt"></i></a>  
             </li>
             <li class="nav-item">
              <a href="#"><i class="fa-solid fa-heart"></i></a>   
             </li>
+
+                 <!-- Profile Dropdown -->
+                <li  class="nav-item dropdown">
+                    <a id="Profile" class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Profile
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <a class="dropdown-item" href="#">My Account</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="logout" class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </li>
+                <!-- End Profile Dropdown -->
         </ul>
     </div>
 </div>
 </nav>
 `
 body.innerHTML=navbar;
+
+let userId;
+
+// Check if localStorage has user data
+if (localStorage.user != null) {
+    userId = JSON.parse(localStorage.user);
+
+    let numOfCart;
+    let count=0;
+    // Check if localStorage has cart data
+    if (localStorage.cartData != null) {
+        numOfCart = JSON.parse(localStorage.cartData);
+
+        console.log(userId.id);
+
+        for (let i = 0; i < numOfCart.length; i++) {
+            if (userId.id == numOfCart[i].userId) {
+                count+=Number(numOfCart[i].numOfItems);
+                document.getElementById("prod_count").innerHTML = `<span>${count}</span>`;
+                // Assuming numOfItems is a property of each cart item
+            } else {
+                
+            }
+        }
+    }
+
+    document.getElementById("login").style.display="none";
+    document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
+
+
+     // Logout functionality
+     document.getElementById("logout").addEventListener("click", function () {
+        // Remove user data from localStorage
+        localStorage.removeItem("user");
+
+        // Redirect to the index page
+        window.location.href = "index.html";
+    });
+}

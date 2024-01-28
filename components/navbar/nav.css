@@ -23,6 +23,26 @@
     color: coral;
 }
 
+.dropdown-item:hover{
+    color: coral;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-divider {
+    border-top: 1px solid #dee2e6;
+}
 
 .navbar svg {
     font-size: 1.2rem;
@@ -47,6 +67,20 @@
     font-weight: 500;
 }
 
+.navbar-nav .nav-item {
+   position: relative;
+}
+
+#prod_count{
+    background: tomato;
+    color: #fff;
+    padding: 3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    font-size:9px;
+  }
 
 /*mobile nav view*/
 .navbar-light .navbar-toggler {

@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="assets/css/template.css">
     <link rel="stylesheet" href="assets/css/custom.css">
 
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
@@ -17,19 +22,83 @@
     <!-- Load map styles -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
 
+
+    <style>
+
+      
+    </style>
+
 </head>
 
 <body>
   
 
+    
+
     <!-- Header -->
-   
+
+    <nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+        <div class="container ">
+            <img src="../images/logo1.png" alt="Logo Img">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span><i id="bar" class="fa-solid fa-bars-staggered"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../product.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about_contact pages/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about_contact pages/contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                       <a href="../cart.html"><i class="fa-solid fa-shopping-cart"> </i>
+                       <span id="prod_count">0</span>
+                        </a> 
+                    </li>
+                    <li id="login" class="nav-item">
+                      <a  href="../login.html"><i class="fa-solid fa-sign-in-alt"></i></a>  
+                    </li>
+                    <li class="nav-item">
+                     <a href="#"><i class="fa-solid fa-heart"></i></a>   
+                    </li>
+
+                    
+                 <!-- Profile Dropdown -->
+                <li class="nav-item dropdown">
+                    <a id="Profile" class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Profile
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <a class="dropdown-item" href="#">My Account</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </li>
+                <!-- End Profile Dropdown -->
+                </ul>
+            </div>
+        </div>
+        </nav>
+  
     <!-- Close Header -->
 
-
+<hr>
+<hr>
+<hr>
 
     <!-- Start Content Page -->
-    <div class="container-fluid bg-light py-5">
+    <div class="container-fluid bg-light py-5 ">
         <div class="col-md-6 m-auto text-center">
             <h1 class="h1">Contact Us</h1>
             <p>
@@ -98,8 +167,71 @@
 
 
     <!-- Start Footer -->
-  
-    <!-- End Footer -->
+    
+    <footer class="mt-5 py-5">
+        <div class="row container mx-auto pt-5">
+            <div class="footer-one col-12 col-mg-6 col-lg-3">
+                <img src="../images/logo2.png" alt="Footer Img">
+                <p class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptatem corrupti enim
+                    assumenda
+                    sequi ullam animi cumque, optio fugiat ut sapiente</p>
+            </div>
+            <div class="footer-one col-12 col-mg-6 col-lg-3 mb-3">
+                <h5 class="pb-2">Featured</h5>
+                <ul class="text-uppercase list-unstyled ">
+                    <li><a href="#" onclick="updateFilter('all')">All</a></li>
+                    <li><a href="#" onclick="updateFilter('topwear')">Topwear</a></li>
+                    <li><a href="#" onclick="updateFilter('bottomwear')">Bottomwear</a></li>
+                    <li><a href="#" onclick="updateFilter('jacket')">Jacket</a></li>
+                    <li><a href="#" onclick="updateFilter('shoes')">Shoes</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-one col-12 col-mg-6 col-lg-3 mb-3">
+                <h5 class="pb-2">Contact Us</h5>
+                <div>
+                    <h6 class="text-uppercase">Address</h6>
+                    <p>123, Mansoura Egypt</p>
+                </div>
+                <div>
+                    <h6 class="text-uppercase">Phone</h6>
+                    <p>0_777_5000</p>
+                </div>
+                <div>
+                    <h6 class="text-uppercase">Email</h6>
+                    <p>ITI@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-one col-12 col-mg-6 col-lg-3">
+                <h5 class="pb-2">Instagram</h5>
+                <div class="row">
+                    <img class="img-fluid w-25 h-100 m-2" src="../images/insta/1.jpg" alt="Instagram Img">
+                    <img class="img-fluid w-25 h-100 m-2" src="../images/insta/2.jpg" alt="Instagram Img">
+                    <img class="img-fluid w-25 h-100 m-2" src="../images/insta/3.jpg" alt="Instagram Img">
+                    <img class="img-fluid w-25 h-100 m-2" src="../images/insta/4.jpg" alt="Instagram Img">
+                    <img class="img-fluid w-25 h-100 m-2" src="../images/insta/5.jpg" alt="Instagram Img">
+                </div>
+            </div>
+        
+        </div>
+        <div class="copyright mt-5">
+            <div class="row container mx-auto">
+                <div class="col-12 col-md-6 col-lg-3 mb-4">
+                    <img src="../images/payment.png" alt="">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 text-nowrap mb-2">
+                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                </div>
+                <div id="footer-social" class="col-12 col-md-6 col-lg-4">
+                    <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        </footer>
+        <!-- End Footer -->
+        <script src="../js/all.min.js"></script>
 
     <!-- Start Script -->
     <script src="assets/js/jquery-1.11.0.min.js"></script>
@@ -108,6 +240,53 @@
     <script src="assets/js/template.js"></script>
     <script src="assets/js/custom.js"></script>
     <!-- End Script -->
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+integrity="sha384-UoT5FjioJDFUOpoYDwSHkxDNxkTR5s5ynZvI6C5+eF+cNU6i/z2IHPmwF5O6c"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+crossorigin="anonymous"></script>
+
+
+
+
+    <script>
+
+
+let userId;
+
+// Check if localStorage has user data
+if (localStorage.user != null) {
+    userId = JSON.parse(localStorage.user);
+
+    let numOfCart;
+    let count=0;
+    // Check if localStorage has cart data
+    if (localStorage.cartData != null) {
+        numOfCart = JSON.parse(localStorage.cartData);
+
+        console.log(userId.id);
+
+        for (let i = 0; i < numOfCart.length; i++) {
+            if (userId.id == numOfCart[i].userId) {
+                count+=Number(numOfCart[i].numOfItems);
+                document.getElementById("prod_count").innerHTML = `<span>${count}</span>`;
+                // Assuming numOfItems is a property of each cart item
+            } else {
+                
+            }
+        }
+    }
+
+    document.getElementById("login").style.display="none";
+    document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
+}
+            </script>
+
 </body>
 
 </html>

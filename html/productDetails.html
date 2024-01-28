@@ -67,10 +67,12 @@
 </head>
 
 <body>
-    <!-- Nav bar -->
+    
+    <!-- Header -->
+
     <nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
-        <div class="container">
-            <img src="../images/logo1.png" alt="Logo Img" />
+        <div class="container ">
+            <img src="../images/logo1.png" alt="Logo Img">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -84,30 +86,45 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../product.html">Products</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about_contact pages/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about_contact pages/contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                       <a href="../cart.html"><i class="fa-solid fa-shopping-cart"> </i>
+                       <span id="prod_count">0</span>
+                        </a> 
+                    </li>
+                    <li id="login" class="nav-item">
+                      <a  href="../login.html"><i class="fa-solid fa-sign-in-alt"></i></a>  
+                    </li>
+                    <li class="nav-item">
+                     <a href="#"><i class="fa-solid fa-heart"></i></a>   
+                    </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../cart.html"><i class="fa-solid fa-shopping-cart"> </i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../login.html"><i class="fa-solid fa-sign-in-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#"><i class="fa-solid fa-heart"></i></a>
-                    </li>
+                    
+                 <!-- Profile Dropdown -->
+                <li class="nav-item dropdown">
+                    <a id="Profile" class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Profile
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <a class="dropdown-item" href="#">My Account</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </li>
+                <!-- End Profile Dropdown -->
                 </ul>
             </div>
         </div>
-    </nav>
-    <!-- Nav bar end-->
+        </nav>
+  
+    <!-- Close Header -->
     <!--design of product details-->
 
     <!-- <section id="header">
@@ -256,15 +273,25 @@
     <!-- Footer section end -->
     <!-- scripts -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <script src="../js/all.min.js"></script>
 
     <script src="../js/JQuery-3.3.1.min.js"></script>
     <script src="../js/popper.js"></script>
     <script src="../js/bootstrap.js"></script>
+
     <script src="../js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+integrity="sha384-UoT5FjioJDFUOpoYDwSHkxDNxkTR5s5ynZvI6C5+eF+cNU6i/z2IHPmwF5O6c"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+crossorigin="anonymous"></script>
+   
     <script>
         //  var i7=JSON.parse(localStorage.getItem("products"))
         var x = document.getElementById("i1");
@@ -283,8 +310,53 @@
         }
 
         //  localStorage.removeItem('productID');
+
+
+
+
+
+
+let userId;
+
+// Check if localStorage has user data
+if (localStorage.user != null) {
+    userId = JSON.parse(localStorage.user);
+
+    let numOfCart;
+    let count=0;
+    // Check if localStorage has cart data
+    if (localStorage.cartData != null) {
+        numOfCart = JSON.parse(localStorage.cartData);
+
+        console.log(userId.id);
+
+        for (let i = 0; i < numOfCart.length; i++) {
+            if (userId.id == numOfCart[i].userId) {
+                count+=Number(numOfCart[i].numOfItems);
+                document.getElementById("prod_count").innerHTML = `<span>${count}</span>`;
+                
+            } else {
+                
+            }
+        }
+    }
+
+
+    document.getElementById("login").style.display="none";
+    document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
+
+
+}
+
+
+
     </script>
-    <script src="../js/productDetails.js"></script>
+
+
+
+    
+     <script src="../js/productDetails.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!---->
