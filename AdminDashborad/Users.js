@@ -121,7 +121,7 @@ function validateInputs() {
     let passwordRegex = /^.{6,}$/; // Minimum 6 characters
 
     // Validate Name
-    if (!Name.value.match(nameRegex)) {
+    if (!Name.value.match(nameRegex) || Name.value.length <= 2) {
         alert("Please enter a valid name.");
         return false;
     }
@@ -152,7 +152,7 @@ function validateInputs() {
 function isEmailDuplicate(newEmail) {
     for (let i = 0; i < userData.length; i++) {
         if(i==temp)continue;
-        if (userData[i].email === newEmail &&userData[i].type == "customer") {
+        if (userData[i].email === newEmail) {
             return true;
         }
     }

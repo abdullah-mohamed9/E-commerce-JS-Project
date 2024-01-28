@@ -1,23 +1,29 @@
+
+let search=document.getElementById("searchData");
+
 let Messages;
 
-// Retrieve data from localStorage
+
 if (localStorage.formData !== null) {
     Messages = JSON.parse(localStorage.formData);
+
+   
 } else {
     Messages = [];
 }
 
 // Read data
 function showMessages() {
-    let table = '';
 
+    let table = '';
+for(let i=0;i<Messages.length;i++){
         table += `
             <tr>
-                <td>${Messages.name}</td>
-                <td>${Messages.email}</td>
-                <td>${Messages.subject}</td>
-                <td>${Messages.message}</td>
-                <td><span onclick="deleteMessage()" class="status delete">Delete</span></td>
+                <td>${Messages[i].name}</td>
+                <td>${Messages[i].email}</td>
+                <td>${Messages[i].subject}</td>
+                <td>${Messages[i].message}</td>
+                <td><span onclick="deleteMessage(${i})" class="status delete">Delete</span></td>
             </tr>`;
     
 
@@ -28,20 +34,81 @@ function showMessages() {
     }
 
     document.getElementById("tbody").innerHTML = table;
+
+
+    let btndeleteAll=document.getElementById("deleteAllContainer");
+
+    if(Messages.length>0){
+        btndeleteAll.innerHTML=`<button onclick="deleteAll()" id="deleteAll">Delete All Messages</button>`
+    }else{
+        btndeleteAll.innerHTML='';
+    }
 }
+}
+
 
 // Display data
 showMessages();
 
-// Delete message
-function deleteMessage() {
-    Messages = []; // Clear the array
 
-    // Update data in local storage after removal
-    localStorage.formData = JSON.stringify(Messages);
+//  delete a message
+function deleteMessage(i) {
 
-    // Display data after removal
-    showMessages();
+    Messages.splice(i, 1);
+    localStorage.setItem("formData", JSON.stringify(Messages));
+    showMessages(); 
 }
 
-console.log(Messages);
+// console.log(Messages);
+
+
+
+
+//search 
+let s=document.getElementById("s");
+s.onclick=()=>{
+    search.focus();
+   
+
+}
+//remove value in input
+let x=document.getElementById("x");
+x.onclick=()=>{
+ search.value="";
+ showMessages();   
+
+}
+
+
+search.addEventListener("keyup", () => {
+    searchData(search.value);
+});
+
+//search by name
+function searchData(value){
+
+    //console.log(value);
+    let table="";
+    for(let i=0;i<Messages.length;i++){
+        if(Messages[i].name.includes(value.toLowerCase())){
+            table += `
+            <tr>
+            <td>${Messages[i].name}</td>
+            <td>${Messages[i].email}</td>
+            <td>${Messages[i].subject}</td>
+            <td>${Messages[i].message}</td>
+            <td><span onclick="deleteMessage(${i})" class="status delete">Delete</span></td>
+        </tr>`; 
+             }
+        }
+        document.getElementById("tbody").innerHTML = table;
+
+    }
+
+// delete all messages
+function deleteAll() {
+    localStorage.removeItem("formData");
+    Messages = [];
+    showMessages();
+    location.reload(); // Reload the page
+}
