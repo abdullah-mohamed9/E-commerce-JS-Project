@@ -85,13 +85,59 @@ function isProductInCart(produc_Id) {
         if (isInCart) {
             alert("This product cannot be deleted because it is in the cart.");
         } else {
-            productData.splice(i, 1);
-            localStorage.products = JSON.stringify(productData);
-            showData();
-            alert("Product has been deleted successfully.");
-
+            const productIdToDelete = productData[i].product_id;
+            const indexToDelete = productData.findIndex(product => product.product_id === productIdToDelete);
+    
+            // Remove the row from the table
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger"
+                },
+                buttonsStyling: false
+            });
+            swalWithBootstrapButtons.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel!",
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    if (indexToDelete !== -1) {
+                        productData.splice(indexToDelete, 1); // Remove the item from the productData array
+                        localStorage.products = JSON.stringify(productData); // Update the localStorage
+                        showData();
+                    }
+                    Toast.fire({
+                        title: "Deleted!",
+                        text: "Your product has been deleted.",
+                        icon: "success"
+                    });
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    Toast.fire({
+                        Toast: "Cancelled",
+                        text: "Your product is safe :)",
+                        icon: "error"
+                    });
+                }
+            });
         }
     }
+    
     
 
 
