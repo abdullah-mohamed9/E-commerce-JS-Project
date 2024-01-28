@@ -6,26 +6,16 @@ let myChartTwo = null;
 let chart = document.getElementById("dashboard-tab");
 chart.addEventListener("click", function () {
 
-    // Get products data from localStorage
-   
     let allProducts = JSON.parse(localStorage.getItem("products"));
 
-    // Filter products based on the seller
-    let sellerProducts = allProducts.filter(product => product.seller === JSON.parse(localStorage.getItem("user")).name);
+    // Get logged-in user data from localStorage
+    const loggedInUser = JSON.parse(localStorage.getItem('user'));
+    const sellerId = loggedInUser.id;
 
-    // // Get logged-in user data from localStorage
-  //  const loggedInUser = JSON.parse(localStorage.getItem('user'));
-   // const sellerId = loggedInUser.id;
+    // Filter products based on the seller's ID
+    let sellerProducts = allProducts.filter(product => product.seller === sellerId);
 
-    
-
-    // Filter products based on the seller's I
-   // products = products.filter(product => product.seller === sellerId);
-
-
-    // Filter products based on the seller
-   // let sellerProducts = allProducts.filter(product => product.seller === JSON.parse(localStorage.getItem("user")).name);
-    // Sort the data based on price for the first chart
+    // Sort the data based on price
     let sortedByPrice = sellerProducts.slice().sort((a, b) => b.price - a.price);
 
     // Extract data for the first chart (top 5 products)
@@ -78,8 +68,10 @@ chart.addEventListener("click", function () {
         }
     });
 
-    // Sort the data based on category and sum count for the second chart
-    let groupedByCategory = allProducts.reduce((acc, product) => {
+    // Sort the data based on category and sum count 
+    let sellerProductsForChartTwo = allProducts.filter(product => product.seller === sellerId);
+
+    let groupedByCategory = sellerProductsForChartTwo.reduce((acc, product) => {
         const key = product.category;
         if (!acc[key]) {
             acc[key] = { category: key, count: 0 };
@@ -88,7 +80,7 @@ chart.addEventListener("click", function () {
         return acc;
     }, {});
 
-    // Extract sorted data for the second chart
+
     let labelsChartTwo = Object.keys(groupedByCategory);
     let dataChartTwo = Object.values(groupedByCategory).map(item => item.count);
 

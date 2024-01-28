@@ -643,3 +643,17 @@ body {
 	#searchTitle ,#searchCatergoy{
 		width: 20%;
 	}
+
+	#deleteAllContainer {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 20px; /* Adjust as needed */
+	}
+	
+	#deleteAll {
+		width: 40%;
+		text-align: center;
+	}
+	

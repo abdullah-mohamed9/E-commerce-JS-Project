@@ -27,7 +27,6 @@ function showData(){
       table += `
      <tr>
      <td>
-     <img src='img/img.jpg' alt="Profile Image">
      <p>${adminData[i].name}</p>
       </td>
       <td>${adminData[i].email}</td>

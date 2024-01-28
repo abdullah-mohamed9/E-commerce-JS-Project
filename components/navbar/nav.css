@@ -44,6 +44,12 @@
     border-top: 1px solid #dee2e6;
 }
 
+#Profile{
+    margin-left: -25px;
+}
+
+
+
 .navbar svg {
     font-size: 1.2rem;
     padding: 0px 7px;
