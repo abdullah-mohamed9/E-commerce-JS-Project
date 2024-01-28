@@ -146,11 +146,20 @@ if(localStorage.OrderData != null){
 }
 
 
+
+
+let MessagesCount;
+//localstorage has data
+if(localStorage.formData != null){
+    MessagesCount=JSON.parse(localStorage.formData);
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
 	let countOfOrders = 0;
 
 	// Assuming productData is an array of products
-	for (let i = 0; i < ordersCount.length; i++) {
+	for (let i = 0; i <ordersCount.length; i++) {
 		// Example: Count only products with a certain condition (e.g., count products with price > 50)
 		countOfOrders++;
 		
@@ -161,6 +170,28 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Update HTML element content
 	let numberOfOrdersElement = document.getElementById("numberOfOrders");
 	numberOfOrdersElement.innerHTML = `<span>${countOfOrders}</span>`;
+
+
+	//number of masseges
+
+
+	let countOfOMessages = 0;
+
+	// Assuming productData is an array of products
+	for (let i = 0; i < MessagesCount.length; i++) {
+		// Example: Count only products
+		countOfOMessages++;
+		
+	}
+
+	console.log(countOfOMessages);
+
+	// Update HTML element content
+	let numberOfMessagesElement =	document.getElementById("numOfMessages");
+	numberOfMessagesElement.innerHTML = `<span>${countOfOMessages}</span>`;
+
+
+
 });
 
 
@@ -184,3 +215,8 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = '../index.html';
     });
 });
+
+
+
+//number of massages
+

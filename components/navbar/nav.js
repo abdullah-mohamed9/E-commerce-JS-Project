@@ -37,8 +37,12 @@ let navbar=
              <a href="#"><i class="fa-solid fa-heart"></i></a>   
             </li>
 
+
+            <i id="user" class="fa-solid fa-user-circle"></i> 
+
                  <!-- Profile Dropdown -->
                 <li  class="nav-item dropdown">
+                
                     <a id="Profile" class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Profile
@@ -76,10 +80,8 @@ if (localStorage.user != null) {
             if (userId.id == numOfCart[i].userId) {
                 count+=Number(numOfCart[i].numOfItems);
                 document.getElementById("prod_count").innerHTML = `<span>${count}</span>`;
-                // Assuming numOfItems is a property of each cart item
-            } else {
                 
-            }
+            } 
         }
     }
 
@@ -95,4 +97,7 @@ if (localStorage.user != null) {
         // Redirect to the index page
         window.location.href = "index.html";
     });
+}else{
+    document.getElementById("Profile").style.display="none";
+    document.getElementById("user").style.display="none";
 }

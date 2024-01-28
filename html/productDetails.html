@@ -104,7 +104,7 @@
                      <a href="#"><i class="fa-solid fa-heart"></i></a>   
                     </li>
 
-                    
+                    <i id="user" class="fa-solid fa-user-circle"></i> 
                  <!-- Profile Dropdown -->
                 <li class="nav-item dropdown">
                     <a id="Profile" class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
@@ -346,6 +346,9 @@ if (localStorage.user != null) {
     document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
 
 
+}else{
+    document.getElementById("Profile").style.display="none";
+    document.getElementById("user").style.display="none";
 }
 
 
