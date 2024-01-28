@@ -265,12 +265,26 @@ body {
 	justify-content: center;
 	align-items: center;
 }
-#content nav .profile img {
+/* CSS */
+#content nav .profile {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: #333; /* Adjust the color as needed */
+  }
+  
+  #content nav .profile img {
 	width: 36px;
 	height: 36px;
 	object-fit: cover;
 	border-radius: 50%;
-}
+	margin-right: 8px; /* Adjust the margin as needed */
+  }
+  
+  #content nav .profile .name {
+	font-size: 14px; /* Adjust the font size as needed */
+	font-weight: bold;
+  }
 #content nav .switch-mode {
 	display: block;
 	min-width: 50px;
