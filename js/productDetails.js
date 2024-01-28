@@ -11,28 +11,27 @@ function validateInput(input) {
 window.addEventListener("load", function () {
     //to get params from url
     let storedID = localStorage.getItem("productID");
+    let product_item = JSON.parse(localStorage.getItem("products"));
     console.log(storedID);
-    document.getElementById("h1").innerText = JSON.parse(
-        localStorage.getItem("products")
-    )[storedID]["product_name"];
-    document.getElementById("price").innerText = JSON.parse(
-        localStorage.getItem("products")
-    )[storedID]["price"];
-    document.getElementById("description").innerText = JSON.parse(
-        localStorage.getItem("products")
-    )[storedID]["description"];
-    document.getElementById("i1").src = JSON.parse(
-        localStorage.getItem("products")
-    )[storedID]["product_img"];
-    document.getElementById("smImg1").src = JSON.parse(
-        localStorage.getItem("products")
-    )[storedID]["product_img1"];
-    document.getElementById("smImg2").src = JSON.parse(
-        localStorage.getItem("products")
-    )[storedID]["product_img2"];
-    document.getElementById("smImg3").src = JSON.parse(
-        localStorage.getItem("products")
-    )[storedID]["product_img3"];
+    let product = product_item.find(item => item.product_id == storedID);
+    document.getElementById("h1").innerText = product.product_name;
+
+    document.getElementById("price").innerText = product.price;
+    document.getElementById("description").innerText = product.description;
+    document.getElementById("i1").src = product.product_img;
+    //check if there are small images with the product if not display none
+    if (product.product_img1) {
+        document.getElementById("smImg1").src = product.product_img1;
+        document.getElementById("smImg2").src = product.product_img2;
+        document.getElementById("smImg3").src = product.product_img3;
+    } else {
+        for (var i = 1; i <= 3; i++) {
+            var imgId = "smImg" + i;
+            document.getElementById(imgId).style.display = "none";
+        }
+    }
+
+
     let products = JSON.parse(window.localStorage.getItem("products"));
     const selectedProduct = products.find(
         (product) => storedID == product.product_id
@@ -55,13 +54,19 @@ window.addEventListener("load", function () {
                 ).innerHTML = "";
                 let numOfItems = document.getElementById("number").value;
                 var sizeSelect = document.getElementById("select");
+                var CheckTheExistenceOfUser = JSON.parse(localStorage.getItem("user"));
                 var sizeOfProduct =
                     sizeSelect.options[sizeSelect.selectedIndex].value;
-                let currentUserId = JSON.parse(localStorage.getItem("user"))[
-                    "id"
-                ];
-                let priceOfItem = JSON.parse(localStorage.getItem("products"))[storedID]["price"];
-                let seller = JSON.parse(localStorage.getItem("products"))[storedID]["seller"];
+                    //check if the user is logged in or not
+                if (!CheckTheExistenceOfUser) {
+                    console.log("nulllllll");
+                    currentUserId = 123;
+                  JSON.parse(sessionStorage.setItem("sessionToken", currentUserId));
+                } else {
+                    var currentUserId = JSON.parse(localStorage.getItem("user"))["id"];
+                }
+                let priceOfItem = product.price;
+                let seller = product.seller;
 
                 let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
 
@@ -73,6 +78,7 @@ window.addEventListener("load", function () {
                     seller: seller,
                     priceOfItem: priceOfItem
                 };
+
                 cartData.push(newCartItem);
                 localStorage.setItem("cartData", JSON.stringify(cartData));
                 const Toast = Swal.mixin({

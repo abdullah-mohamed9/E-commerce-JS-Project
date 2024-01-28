@@ -458,7 +458,7 @@ footer .copyright a:hover {
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
 #cart-container table thead {
@@ -477,24 +477,24 @@ footer .copyright a:hover {
     text-align: center;
 }
 
-#cart-container table td:nth-child(1) {
+/* #cart-container table td:nth-child(1) {
     width: 100px;
-}
+} */
 
-#cart-container table td:nth-child(2),
+/* #cart-container table td:nth-child(2),
 #cart-container table td:nth-child(3) {
     width: 200px;
-}
+} */
 
-#cart-container table td:nth-child(4),
+/* #cart-container table td:nth-child(4),
 #cart-container table td:nth-child(5),
 #cart-container table td:nth-child(6) {
     width: 170px;
-}
+} */
 
 #cart-container table tbody img {
-    width: 100px;
-    height: 80px;
+    width: 90%;
+    max-width: 100px;
     object-fit: cover;
 
 }

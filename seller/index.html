@@ -5,72 +5,67 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Seller Dashboard</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    integrity="sha512-7yI2kHsXVT7v1qGQT7cUtU7qQs1+uQWviYnqsFiBeg3ifz4DOGRPUJDX9TxyR+Jcd7P4ptbcejt5nLSx8a9Wog=="
-    crossorigin="anonymous" />
 
-  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/"> -->
-
-  <!-- <link rel="stylesheet" href="style.css"> -->
-
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
   <script src="../js/products_arr.js"></script>
   <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     table {
       text-align: center;
-    background-color: #50335f;
-	width: 600px;
-	border-collapse: collapse;
-	overflow: hidden;
-	box-shadow: 0 0 20px rgba(15, 15, 15, 0.3);
+      background-color: #50335f;
+      width: 600px;
+      border-collapse: collapse;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(15, 15, 15, 0.3);
 
-}
+    }
 
-th,
-td {
-  text-align: center;
-	padding: 15px;
-	background-color: rgba(255,255,255,0.2);
-	color: #fff;
-}
+    th,
+    td {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
 
-th {
-	text-align: left;
-}
+    th {
+      text-align: left;
+    }
 
-thead {
-	th {
-    text-align: center;
-		background-color: #292b34;
-	}
-}
+    thead {
+      th {
+        text-align: center;
+        background-color: #292b34;
+      }
+    }
 
-tbody {
-	tr {
-		&:hover {
-			background-color: rgba(255,255,255,0.3);
-		}
-	}
-	td {
-    text-align: center;
-		position: relative;
-		&:hover {
-			&:before {
-				content: "";
-				position: absolute;
-				left: 0;
-				right: 0;
-				top: -9999px;
-				bottom: -9999px;
-				background-color: rgba(255,255,255,0.2);
-				z-index: -1;
-			}
-		}
-	}
-}zz
-    .searchBlock {
+    tbody {
+      tr {
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+      }
+
+      td {
+        text-align: center;
+        position: relative;
+
+        &:hover {
+          &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -9999px;
+            bottom: -9999px;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: -1;
+          }
+        }
+      }
+    }
+
+    zz .searchBlock {
       display: flex;
       align-items: center;
     }
@@ -306,10 +301,10 @@ tbody {
           </div>
           <div class="container">
             <div class="row align-items-center">
-              <div class="containerOne col-12 col-md-6">
+              <div class="containerOne  col-md-12 col-lg-6">
                 <canvas id="myChartOne"></canvas>
               </div>
-              <div class="containerTwo col-12 col-md-6">
+              <div class="containerTwo  col-md-12 col-lg-6">
                 <canvas id="myChartTwo"></canvas>
               </div>
             </div>
@@ -320,7 +315,7 @@ tbody {
 
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2"  style="color: #5f4395;">My Profile</h1><br>
+            <h1 class="h2" style="color: #5f4395;">My Profile</h1><br>
 
           </div>
           <div>
@@ -345,17 +340,16 @@ tbody {
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
     integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
   </script>
-
+  <script src="../js/products_arr.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<script src="../js/all.min.js"></script>
   <script src="dashboard.js"></script>
   <script>
-
     //display current user data
-    
-      document.getElementById("un").innerText += ": " + JSON.parse(localStorage.getItem("user")).name;
-      document.getElementById("uEmail").innerText += ": " + JSON.parse(localStorage.getItem("user")).email;
-  
+
+    document.getElementById("un").innerText += ": " + JSON.parse(localStorage.getItem("user")).name;
+    document.getElementById("uEmail").innerText += ": " + JSON.parse(localStorage.getItem("user")).email;
+
     var myOrderTap = document.getElementById("orders-tab");
     //  myOrderTap.addEventListener("click", function () {
     var currentIndex = JSON.parse(localStorage.getItem("currentindex"));
@@ -389,7 +383,7 @@ tbody {
               // Extract the date components
               const year = dateObject.getUTCFullYear();
               const month = (dateObject.getUTCMonth() + 1).toString().padStart(2,
-              '0'); // Month is zero-based, so add 1
+                '0'); // Month is zero-based, so add 1
               const day = dateObject.getUTCDate().toString().padStart(2, '0');
 
               // Format the date as YYYY-MM-DD
@@ -412,10 +406,6 @@ tbody {
       }
     }
     // });
-
-
-
-
     window.addEventListener("load", function () {
       document.getElementById("currentUserName").innerText = JSON.parse(localStorage.getItem("user")).name;
       var modal = document.getElementById("myModal");
@@ -455,14 +445,7 @@ tbody {
           //to be able to access tab index from external json
           window.currentTabIndex = index;
           localStorage.setItem("currentindex", JSON.stringify(index));
-
-
         });
-
-
-
-
-
       });
 
     });
