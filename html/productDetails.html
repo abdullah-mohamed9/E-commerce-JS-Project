@@ -47,6 +47,10 @@
             margin-top: 4px;
         }
 
+        #select option {
+            background-color: rgb(229, 229, 229);
+        }
+
         .footerImages:hover {
             transform: scale(1.1);
             transition: 5s;
@@ -67,7 +71,7 @@
 </head>
 
 <body>
-    
+
     <!-- Header -->
 
     <nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
@@ -93,19 +97,20 @@
                         <a class="nav-link" href="../about_contact pages/contact.html">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                       <a href="../cart.html"><i class="fa-solid fa-shopping-cart"> </i>
-                       <span id="prod_count">0</span>
-                        </a> 
+                        <a href="../cart.html"><i class="fa-solid fa-shopping-cart"> </i>
+                            <span id="prod_count">0</span>
+                        </a>
                     </li>
                     <li id="login" class="nav-item">
-                      <a  href="../login.html"><i class="fa-solid fa-sign-in-alt"></i></a>  
+                        <a href="../login.html"><i class="fa-solid fa-sign-in-alt"></i></a>
                     </li>
                     <li class="nav-item">
-                     <a href="#"><i class="fa-solid fa-heart"></i></a>   
+                        <a href="#"><i class="fa-solid fa-heart"></i></a>
                     </li>
-<!--
+
+
                     <i id="user" class="fa-solid fa-user-circle"></i> 
-                  Profile Dropdown 
+                  <!-- Profile Dropdown  -->
                 <li class="nav-item dropdown">
                     <a id="Profile" class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -117,13 +122,17 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Logout</a>
                     </div>
-                </li>-->             
+                </li>          
                    <!-- End Profile Dropdown -->
+
+
+              
+
                 </ul>
             </div>
         </div>
-        </nav>
-  
+    </nav>
+
     <!-- Close Header -->
     <!--design of product details-->
 
@@ -282,16 +291,16 @@
     <script src="../js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        </script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-integrity="sha384-UoT5FjioJDFUOpoYDwSHkxDNxkTR5s5ynZvI6C5+eF+cNU6i/z2IHPmwF5O6c"
-crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-crossorigin="anonymous"></script>
-   
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UoT5FjioJDFUOpoYDwSHkxDNxkTR5s5ynZvI6C5+eF+cNU6i/z2IHPmwF5O6c"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
     <script>
         //  var i7=JSON.parse(localStorage.getItem("products"))
         var x = document.getElementById("i1");
@@ -316,40 +325,43 @@ crossorigin="anonymous"></script>
 
 
 
-let userId;
+        let userId;
 
-// Check if localStorage has user data
-if (localStorage.user != null) {
-    userId = JSON.parse(localStorage.user);
+        // Check if localStorage has user data
+        if (localStorage.user != null) {
+            userId = JSON.parse(localStorage.user);
 
-    let numOfCart;
-    let count=0;
-    // Check if localStorage has cart data
-    if (localStorage.cartData != null) {
-        numOfCart = JSON.parse(localStorage.cartData);
+            let numOfCart;
+            let count = 0;
+            // Check if localStorage has cart data
+            if (localStorage.cartData != null) {
+                numOfCart = JSON.parse(localStorage.cartData);
 
-        console.log(userId.id);
+                console.log(userId.id);
 
-        for (let i = 0; i < numOfCart.length; i++) {
-            if (userId.id == numOfCart[i].userId) {
-                count+=Number(numOfCart[i].numOfItems);
-                document.getElementById("prod_count").innerHTML = `<span>${count}</span>`;
-                
-            } else {
-                
+                for (let i = 0; i < numOfCart.length; i++) {
+                    if (userId.id == numOfCart[i].userId) {
+                        count += Number(numOfCart[i].numOfItems);
+                        document.getElementById("prod_count").innerHTML = `<span>${count}</span>`;
+
+                    } else {
+
+                    }
+                }
             }
-        }
-    }
 
 
-//     document.getElementById("login").style.display="none";
-//     document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
+
+    document.getElementById("login").style.display="none";
+     document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
 
 
-// }else{
-//     document.getElementById("Profile").style.display="none";
-//     document.getElementById("user").style.display="none";
-// }
+ }else{
+    document.getElementById("Profile").style.display="none";
+     document.getElementById("user").style.display="none";
+}
+
+
 
 
 
@@ -357,8 +369,8 @@ if (localStorage.user != null) {
 
 
 
-    
-     <script src="../js/productDetails.js"></script>
+
+    <script src="../js/productDetails.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

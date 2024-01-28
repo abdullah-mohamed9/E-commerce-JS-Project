@@ -386,7 +386,7 @@ function searchData(value) {
             if (searchMood == 'title' && dataPro[i].product_name.toLowerCase().includes(value.toLowerCase())) {
                 table += `
 
-                <tr data-product-id="${dataPro[i].product_id}">
+            <tr data-product-id="${dataPro[i].product_id}">
 
                 <td>${i + 1}</td>
                 <td>${dataPro[i].product_name}</td>
@@ -416,6 +416,10 @@ function searchData(value) {
     }
     document.getElementById('tbody').innerHTML = table;
 }
+
+// document.getElementById("submit").addEventListener("click", function () {
+//     console.log("submit btn");
+// });
 
 function generateProductId() {
     // Generate a unique product ID using timestamp

@@ -1,4 +1,4 @@
-let userName = document.querySelector("#user");
+let userName = document.querySelector("#user-login");
 let password = document.querySelector("#pass");
 let submit = document.querySelector("#login-button");
 let user_signup = document.querySelector("#user-signup");
@@ -72,13 +72,13 @@ let users = [
 // document.addEventListener("DOMContentLoaded", function () {
 //    
 //     const user = JSON.parse(localStorage.getItem("user"));
-  
+
 //     // Check if the user is authenticated and has the "admin" role
 //     if (!user || user.type !== "admin") {
 //       window.location.pathname = "/"; // Redirect to the home page
 //     }
 //   });
-  
+
 
 if (localStorage.getItem("users") != null) {
     users = JSON.parse(localStorage.getItem("users"));
@@ -197,14 +197,13 @@ function validateLogin() {
         }
     }
     return false;
-
 }
 
 function validateSignup() {
 
     if (user_signup.value.trim() === "" || !nameRegex.test(user_signup.value)) {
         user_signup.style.border = "solid 3px red";
-        invaild_username.innerText = "Username must be more than 3 char";
+        invaild_username.innerText = "Username must be more than 3 char ";
         return false;
     } else {
         user_signup.style.border = "solid 3px green";

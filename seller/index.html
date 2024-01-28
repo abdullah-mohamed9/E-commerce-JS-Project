@@ -6,6 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Seller Dashboard</title>
 
+
+
+  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/"> -->
+
+  <!-- <link rel="stylesheet" href="style.css"> -->
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
   <script src="../js/products_arr.js"></script>
   <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -156,23 +164,23 @@
           <ul class="nav flex-column nav-pills">
             <li class="nav-item">
               <a class="nav-link active" id="products-tab" data-bs-toggle="pill" data-bs-target="#products" href="#">
-                Products
+                <i class="fa-solid fa-shop" style="height: 20px; margin-right: 10px;"></i> <span style="font-size: large; font-weight: 700;">Products</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="orders-tab" data-bs-toggle="pill" data-bs-target="#orders" href="#">
-                Orders
+                <i class="fa-brands fa-shopify" style="height: 20px; margin-right: 10px;"></i> <span style="font-size: large; font-weight: 700;">Orders</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="dashboard-tab" data-bs-toggle="pill" data-bs-target="#dashboard" href="#">
-                Charts
+                <i class="fa-solid fa-chart-pie" style="height: 20px; margin-right: 10px;"></i> <span style="font-size: large; font-weight: 700;">Charts</span>
               </a>
             </li>
             <li class="nav-item">
-              <i class="fas fa-user"></i>
+              
               <a class="nav-link" id="profile-tab" data-bs-toggle="pill" data-bs-target="#customers" href="#">
-                profile
+                <i class="fas fa-user" style="height: 20px; margin-right: 10px;"></i> <span style="font-size: large; font-weight: 700;">Profile</span>
               </a>
             </li>
           </ul>
@@ -221,9 +229,9 @@
 
                   <div id="category_val">
                   </div>
-                  <input type="file" id="img" class="col-6 btn-style" />
+                  <input type="file" id="img" class="col-6 btn-style" accept=".jpg, .jpeg, .png, .gif" />
                   <img src="images/logo1.png" id="imgPreview" style="width: 50px ;height: 30px;"
-                    alt="placeholder" /><br>
+                    alt="placeholder"  /><br>
                   <div id="img_val">
 
                   </div>
@@ -340,7 +348,7 @@
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
     integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
   </script>
-  <script src="../js/products_arr.js"></script>
+ 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../js/all.min.js"></script>
   <script src="dashboard.js"></script>
@@ -450,6 +458,7 @@
 
     });
   </script>
+  <script src="../js/all.min.js"></script>
 </body>
 
 </html>
