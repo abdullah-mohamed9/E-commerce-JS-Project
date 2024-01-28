@@ -16,7 +16,7 @@ window.addEventListener("load", function () {
     let product = product_item.find(item => item.product_id == storedID);
     document.getElementById("h1").innerText = product.product_name;
 
-    document.getElementById("price").innerText = product.price;
+    document.getElementById("price").innerText = product.price + "$";
     document.getElementById("description").innerText = product.description;
     document.getElementById("i1").src = product.product_img;
     //check if there are small images with the product if not display none
@@ -39,9 +39,7 @@ window.addEventListener("load", function () {
     //second part passing data to add to cart ==================================================================
 
     var selectedSize = document.getElementById("select");
-    document
-        .getElementById("AddToCart")
-        .addEventListener("click", function () {
+    document.getElementById("AddToCart").addEventListener("click", function () {
             if (selectedSize.value == 0) {
                 document.getElementById(
                     "alertContainer"
@@ -57,11 +55,11 @@ window.addEventListener("load", function () {
                 var CheckTheExistenceOfUser = JSON.parse(localStorage.getItem("user"));
                 var sizeOfProduct =
                     sizeSelect.options[sizeSelect.selectedIndex].value;
-                    //check if the user is logged in or not
+                //check if the user is logged in or not
                 if (!CheckTheExistenceOfUser) {
                     console.log("nulllllll");
                     currentUserId = 123;
-                  JSON.parse(sessionStorage.setItem("sessionToken", currentUserId));
+                    JSON.parse(sessionStorage.setItem("sessionToken", currentUserId));
                 } else {
                     var currentUserId = JSON.parse(localStorage.getItem("user"))["id"];
                 }
