@@ -2,7 +2,7 @@
 if (localStorage.getItem("products") == null) {
   const products = [
     {
-      product_id: 200,
+      product_id: 1,
       product_name: "t-shirt",
       product_img: "../images/products2/f1.jpg",
       product_img1: "../images/products2/f2.jpg",
@@ -15,7 +15,7 @@ if (localStorage.getItem("products") == null) {
       category: "topwear",
     },
     {
-      product_id: 100,
+      product_id: 2,
       product_name: "shirt",
       product_img: "../images/products2/n1.jpg",
       product_img1: "../images/products2/n2.jpg",
@@ -39,13 +39,12 @@ if (localStorage.getItem("products") == null) {
         Oxford fabric
         One chest pocket`,
       price: 600,
-      category: "featured",
       count: 30,
       seller: 1,
       category: "topwear",
     },
     {
-      product_id: 5,
+      product_id: 4,
       product_name: "Men's Coat",
       product_img: "../images/products2/LC_j.jpg",
       product_img1: "../images/p/p21.jpg",
@@ -58,7 +57,7 @@ if (localStorage.getItem("products") == null) {
       seller: 2,
     },
     {
-      product_id: 4,
+      product_id: 5,
       product_name: "white coat",
       product_img: "../images/coat1.jpg",
       product_img1: "../images/coat2.jfif",
@@ -78,7 +77,6 @@ if (localStorage.getItem("products") == null) {
       product_img2: "../images/product/t3.png",
       product_img3: "../images/product/t4.png",
       description: `Slim Fit Men's shirt suitable for all occasions `,
-      category: "populer",
       count: 31,
       seller: 2,
       price: 500,
@@ -94,7 +92,6 @@ if (localStorage.getItem("products") == null) {
       product_img3: "../images/p/p64.jpg",
       description: `Shirt Collar Straight Long Sleeve Women's Tunic
           wonderful flower pant`,
-      category: "populer",
       price: 900,
       count: 25,
       seller: 1,
@@ -108,7 +105,6 @@ if (localStorage.getItem("products") == null) {
       product_img2: "../images/products/p3.png",
       product_img3: "../images/products/p4.png",
       description: "wonderful half-boot with very suitable price",
-      category: "populer",
       price: 450,
       count: 19,
       seller: 2,
@@ -122,7 +118,6 @@ if (localStorage.getItem("products") == null) {
       product_img2: "../images/half3.jpg",
       product_img3: "../images/half4.jpg",
       description: "wonderful half-boot , very good suitable for you ",
-      category: "featured",
       price: 800,
       count: 23,
       seller: 3,
@@ -133,7 +128,6 @@ if (localStorage.getItem("products") == null) {
       product_name: "brown H-Boot",
       product_img: "../images/products/p7.png",
       description: "wonderful half-boot",
-      category: "featured",
       price: 450,
       count: 17,
       seller: 3,
@@ -147,13 +141,11 @@ if (localStorage.getItem("products") == null) {
       product_img2: "../images/sho3.jpg",
       product_img3: "../images/sho4.jpg",
       description: "wonderful shoes for you ",
-      category: "featured",
       price: 450,
       count: 14,
       seller: 3,
       category: "shoes",
     },
-
     {
       product_id: 12,
       product_name: "Neck Sweater",
@@ -163,13 +155,11 @@ if (localStorage.getItem("products") == null) {
       product_img3: "../images/p/p74.jpg",
       description: `Crew Neck Regular Long Sleeve Women's Tricot Sweater
           Ribbed ankles and bottom`,
-      category: "featured",
       price: 450,
       count: 47,
       seller: 3,
       category: "topwear",
     },
-
     {
       product_id: 13,
       product_name: "Brown Jacket ",
@@ -180,7 +170,6 @@ if (localStorage.getItem("products") == null) {
       description: `Waistband
           Front double pocket
           made of stamp fabric`,
-      category: "featured",
       price: 1500,
       count: 23,
       seller: 2,
@@ -194,24 +183,22 @@ if (localStorage.getItem("products") == null) {
       product_img2: "../images/p/p33.jpg",
       product_img3: "../images/p/p34.jpg",
       description: " Crew Neck Short Sleeve Combed Cotton Men's T-shirt From combed cotton fabric short sleeved T-Shirt",
-      category: "featured",
       price: 200,
       count: 30,
       seller: 1,
       category: "topwear",
     },
     {
-      product_id: 15,
-      product_name: "blouse",
-      product_img: "../images/bl1.jpg",
-      product_img1: "../images/bl2.jpg",
-      product_img2: "../images/bl3.jpg",
-      product_img3: "../images/bl4.jpg",
-      description: "wonderful blouse with a lot of wonderful colors",
-      category: "populer",
-      price: 600,
-      count: 29,
-      seller: 2,
+      product_id: 16,
+      product_name: "shirt",
+      product_img: "../images/products2/n1.jpg",
+      product_img1: "../images/products2/n2.jpg",
+      product_img2: "../images/products2/n3.jpg",
+      product_img3: "../images/products2/n5.jpg",
+      description: "shirt in soft cotton jersey. Regular Fit.",
+      price: 300,
+      count: 25,
+      seller: 1,
       category: "topwear",
     },
 
