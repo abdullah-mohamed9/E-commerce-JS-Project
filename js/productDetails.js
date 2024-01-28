@@ -11,8 +11,8 @@ function validateInput(input) {
 window.addEventListener("load", function () {
     //to get params from url
     let storedID = localStorage.getItem("productID");
+    console.log("id" + storedID);
     let product_item = JSON.parse(localStorage.getItem("products"));
-    console.log(storedID);
     let product = product_item.find(item => item.product_id == storedID);
     document.getElementById("h1").innerText = product.product_name;
 
@@ -36,64 +36,65 @@ window.addEventListener("load", function () {
     const selectedProduct = products.find(
         (product) => storedID == product.product_id
     );
+    console.log(selectedProduct);
     //second part passing data to add to cart ==================================================================
 
     var selectedSize = document.getElementById("select");
     document.getElementById("AddToCart").addEventListener("click", function () {
-            if (selectedSize.value == 0) {
-                document.getElementById(
-                    "alertContainer"
-                ).innerHTML = `<div class="alert alert-danger">
+        if (selectedSize.value == 0) {
+            document.getElementById(
+                "alertContainer"
+            ).innerHTML = `<div class="alert alert-danger">
      Please Choose the size of your product!
   </div>`;
+        } else {
+            document.getElementById(
+                "alertContainer"
+            ).innerHTML = "";
+            let numOfItems = document.getElementById("number").value;
+            var sizeSelect = document.getElementById("select");
+            var CheckTheExistenceOfUser = JSON.parse(localStorage.getItem("user"));
+            var sizeOfProduct =
+                sizeSelect.options[sizeSelect.selectedIndex].value;
+            //check if the user is logged in or not
+            if (!CheckTheExistenceOfUser) {
+                console.log("nulllllll");
+                currentUserId = 99999;
+                JSON.parse(sessionStorage.setItem("sessionToken", currentUserId));
             } else {
-                document.getElementById(
-                    "alertContainer"
-                ).innerHTML = "";
-                let numOfItems = document.getElementById("number").value;
-                var sizeSelect = document.getElementById("select");
-                var CheckTheExistenceOfUser = JSON.parse(localStorage.getItem("user"));
-                var sizeOfProduct =
-                    sizeSelect.options[sizeSelect.selectedIndex].value;
-                //check if the user is logged in or not
-                if (!CheckTheExistenceOfUser) {
-                    console.log("nulllllll");
-                    currentUserId = 123;
-                    JSON.parse(sessionStorage.setItem("sessionToken", currentUserId));
-                } else {
-                    var currentUserId = JSON.parse(localStorage.getItem("user"))["id"];
-                }
-                let priceOfItem = product.price;
-                let seller = product.seller;
-
-                let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
-
-                let newCartItem = {
-                    numOfItems: numOfItems,
-                    sizeOfProduct: sizeOfProduct,
-                    productId: storedID,
-                    userId: currentUserId,
-                    seller: seller,
-                    priceOfItem: priceOfItem
-                };
-
-                cartData.push(newCartItem);
-                localStorage.setItem("cartData", JSON.stringify(cartData));
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 1000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    },
-                });
-                Toast.fire({
-                    icon: "success",
-                    title: "Added to cart successfully",
-                });
+                var currentUserId = JSON.parse(localStorage.getItem("user"))["id"];
             }
-        });
+            let priceOfItem = product.price;
+            let seller = product.seller;
+
+            let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+            console.log(storedID);
+            let newCartItem = {
+                numOfItems: numOfItems,
+                sizeOfProduct: sizeOfProduct,
+                productId: storedID,
+                userId: currentUserId,
+                seller: seller,
+                priceOfItem: priceOfItem
+            };
+
+            cartData.push(newCartItem);
+            localStorage.setItem("cartData", JSON.stringify(cartData));
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                },
+            });
+            Toast.fire({
+                icon: "success",
+                title: "Added to cart successfully",
+            });
+        }
+    });
 });
