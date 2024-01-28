@@ -15,7 +15,20 @@ else{
     productData=[];
 }
 
-console.log(productData);
+//console.log(productData);
+
+
+let cartArr;
+//localstorage has data
+if(localStorage.cartData != null){
+    cartArr=JSON.parse(localStorage.cartData);
+}
+//localstorage is empty
+else{
+    cartArr=[];
+}
+
+console.log(cartArr);
 
 
 //read data
@@ -31,14 +44,14 @@ function showData(){
       <td>${productData[i].category}</td>
       <td>${productData[i].count}</td>
       <td><img src="${productData[i].product_img}"></td>
-      <td><span onclick="deleteProduct(${i})" class="status delete">Delete</span></td>
+      <td><span onclick="deleteProduct(${i})" class="status delete" ${isProductInCart(productData[i].product_id) ? 'disabled' : ''}>Delete</span></td>
       </tr>`
       ;  
       }
       //console.log(table);
 
       if(productData.length<=0){
-        table="<p>not found users</p>";
+        table="<p>not found products</p>";
       }
 
 
@@ -47,6 +60,13 @@ function showData(){
 
 }
 
+
+// Check if a product is in the cart
+function isProductInCart(productId) {
+    return cartArr.some(item => item.productId === productId);
+}
+
+
     //display data
     showData();
 
@@ -54,16 +74,15 @@ function showData(){
 
     //delete products
 
-function deleteProduct(i){
-    // console.log(i);
-    productData.splice(i,1);
- 
-    //add data in local storage after remove
-    localStorage.products = JSON.stringify(productData);
-     //display data after remove
-    showData();
- 
- }
+    function deleteProduct(i) {
+        if (isProductInCart(productData[i].product_id)) {
+            alert("This product cannot be deleted because it is in the cart.");
+        } else {
+            productData.splice(i, 1);
+            localStorage.products = JSON.stringify(productData);
+            showData();
+        }
+    }
 
 
 
