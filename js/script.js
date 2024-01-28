@@ -24,6 +24,29 @@ for (var i in p) {
   myproduct_container.insertAdjacentHTML("beforeend", product);
 }
 
+
+
+//to retreive data from local storage//esraa
+var numOfProducts = JSON.parse(localStorage.getItem("products")).length;
+var ProductItem = JSON.parse(localStorage.getItem("products"));
+window.addEventListener("load", function () {
+  for (let i = 0; i < numOfProducts; i++) {
+    //event listener
+    document.getElementsByClassName("pro")[i].addEventListener("click", function () {
+      let ID=0;
+       ID = (ProductItem[i].product_id) ;
+       console.log("id",ID);
+      // Store the ID in localStorage
+      localStorage.setItem('productID', ID);
+      // Redirect to the productDetails.html page
+      window.location.href = '../html/productDetails.html';
+    });
+  }
+ });
+ ////////////////////////////////////
+
+
+
 console.log(p.length);
 // filter categories by buttons
 function filterProducts(category) {

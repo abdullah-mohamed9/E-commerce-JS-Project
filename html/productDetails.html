@@ -115,9 +115,7 @@
     </section> -->
 
     <section id="mainWrapper" class="container">
-
         <div id="leftWrapper" class="col-12 col-xl-6 col-md-6 order-md-1">
-
             <img src="" alt="Product Image" id="i1" class="img-fluid" " />
         <div class=" smallImages pd-2" id="mSmImgs">
             <div class="smallImg pd-1">
@@ -133,7 +131,7 @@
         </div>
 
         <div id="rightWrapper" class="col-12 col-xl-6 col-md-6 order-md-2">
-            <div id="alertContainer" style="width: 50%; "></div>
+            <div id="alertContainer" style="width: 50%"></div>
             <h1 id="h1">T-shirt</h1>
             <h3 id="price">300$</h3>
             <form>
@@ -149,8 +147,8 @@
                 <div id="rangeAddTo">
                     <input type="number" min="1" max="5" value="2" style="border-radius: 5px; margin-right: 5px"
                         id="number" oninput="validateInput(this)" />
-                    <input type="button" value="Add To Cart" class="btn btn-dark form-control" style="width: 200px; background-color:  #ea5828;"
-                        id="AddToCart" />
+                    <input type="button" value="Add To Cart" class="btn btn-dark form-control"
+                        style="width: 200px; background-color: #ea5828" id="AddToCart" />
                 </div>
             </form>
             <h4>Product Details</h4>
@@ -166,23 +164,23 @@
     <section class="k">
         <h3 style="text-align: center" class="mt-5">Other products</h3>
         <div class="mt-5 container k" id="myBottomPro">
-            <div class="col-md-6 col-12 col-lg-4 col-xl-3 mb-2 myImg11">
-                <img src="../images/shop/3.jpg" class="footerImages" width="100%" />
+            <div class="col-md-6 col-12 col-lg-4 col-xl-3 mb-2 myImg11" id="myproducts">
+                <img src="../images/half1.jpg" class="footerImages" width="100%" height="75%" />
                 <h6 class="textOfPro">Hand Bag</h6>
                 <p>300$</p>
             </div>
             <div class="col-md-6 col-12 col-lg-4 col-xl-3 mb-2 myImg11">
-                <img src="../images/shop/4.jpg" class="footerImages" width="100%" />
+                <img src="../images/p/p54.jpg" class="footerImages" width="100%" />
                 <h6 class="textOfPro">shoose</h6>
                 <p>2000$</p>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 mb-2 myImg11">
-                <img src="../images/shop/13.jpg" class="footerImages" width="100%" />
+                <img src="../images/p/p72.jpg" class="footerImages" width="100%" />
                 <h6 class="textOfPro">watch</h6>
                 <p>100$</p>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 mb-2 myImg11">
-                <img src="../images/shop/1.jpg" class="footerImages" width="100%" />
+                <img src="../images/sho2.jpg" class="footerImages" width="100%" height="75%" />
                 <h6 class="textOfPro">t-shirt</h6>
                 <p>1500$</p>
             </div>
@@ -262,12 +260,13 @@
     <script src="../js/JQuery-3.3.1.min.js"></script>
     <script src="../js/popper.js"></script>
     <script src="../js/bootstrap.js"></script>
+    <script src="../js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-   
-   
+
     <script>
+        //  var i7=JSON.parse(localStorage.getItem("products"))
         var x = document.getElementById("i1");
         var smallImgs = document.querySelectorAll(".small-img");
         smallImgs.forEach(function (smallImg) {
@@ -276,9 +275,16 @@
                 x.src = this.src;
             });
         });
+        let smImgs = document.getElementsByClassName("myImg11");
+        for (let i = 0; i < smImgs.length; i++) {
+            smImgs[i].addEventListener("click", function () {
+                window.location.href = "../html/productDetails.html";
+            });
+        }
+
         //  localStorage.removeItem('productID');
     </script>
-     <script src="../js/productDetails.js"></script>
+    <script src="../js/productDetails.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!---->
