@@ -15,7 +15,7 @@ body {
   #search-container {
     display: flex;
     flex-direction: row;
-    margin: auto;
+    margin: 20px;
     justify-content: center;
     align-items: center;
   }
@@ -33,11 +33,13 @@ body {
    
     width: 10vw; 
     border-radius: 5px;
+    margin-left: 138px;
   }
   
   #search-container input {
     width: 50vw;
     border-bottom: 2px solid #110f29;
+    
   }
   
   #search-container input:focus {
@@ -62,6 +64,11 @@ body {
   #search {
     background: transparent !important;
     color: #d1b761 !important;
+  }
+
+  #filter{
+    background: #D7CCC8 !important;
+    color: #000 !important;
   }
   
   #search {
@@ -95,6 +102,8 @@ body {
     padding-top: 20px;
     flex-wrap: wrap;
   }
+
+ 
   
   #product1 p {
     font-size: 2.5vw;

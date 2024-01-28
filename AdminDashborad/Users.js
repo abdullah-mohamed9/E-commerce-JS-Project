@@ -95,6 +95,7 @@ function showData(){
       <td><span onclick="deleteUser(${i})" class="status delete">Delete</span></td>
       </tr>`
       ;  
+      console.log(i);
       }
       //console.log(table);
       //console.log(userData[i].type);
@@ -152,7 +153,7 @@ function validateInputs() {
 function isEmailDuplicate(newEmail) {
     for (let i = 0; i < userData.length; i++) {
         if(i==temp)continue;
-        if (userData[i].email === newEmail) {
+        if (userData[i].email === newEmail && userData[i].type == "customer") {
             return true;
         }
     }
@@ -169,9 +170,7 @@ function deleteUser(i){
    //add data in local storage after remove
    localStorage.users = JSON.stringify(userData);
     //display data after remove
-    alert(`${userData[i].name} has been deleted successfully `);
    showData();
-
 }
 
 //update data 

@@ -155,7 +155,7 @@ function validateInputs() {
 function isEmailDuplicate(newEmail) {
     for (let i = 0; i < sellerData.length; i++) {
         if(i==temp)continue;
-        if (sellerData[i].email === newEmail) {
+        if (sellerData[i].email === newEmail && sellerData[i].type == "seller") {
             return true;
         }
     }
@@ -172,7 +172,6 @@ function deleteSeller(i){
    //add data in local storage after remove
    localStorage.users = JSON.stringify(sellerData);
     //display data after remove
-    alert(`${sellerData[i].name} has been deleted successfully `);
 
    showData();
 

@@ -21,6 +21,20 @@ let eye_signup = document.querySelector("#eye-signup");
 let eye_signup_val = document.querySelector("#eye-signup-val");
 
 
+
+// //yousef
+// document.addEventListener("DOMContentLoaded", function () {
+   
+//     const user = JSON.parse(localStorage.getItem("user"));
+
+//     // Check if the user is authenticated and has the "admin" role
+//     if (!user || user.type !== "admin") {
+//       window.location.pathname = "/"; // Redirect to the home page
+//     }
+//   });
+
+
+
 let users = [
     {
         id: 1,
@@ -69,15 +83,15 @@ let users = [
     
 
 //yousef
-// document.addEventListener("DOMContentLoaded", function () {
-//    
-//     const user = JSON.parse(localStorage.getItem("user"));
+document.addEventListener("DOMContentLoaded", function () {
+   
+    const user = JSON.parse(localStorage.getItem("user"));
 
-//     // Check if the user is authenticated and has the "admin" role
-//     if (!user || user.type !== "admin") {
-//       window.location.pathname = "/"; // Redirect to the home page
-//     }
-//   });
+    // Check if the user is authenticated and has the "admin" role
+    if (!user || user.type !== "admin") {
+      window.location.pathname = "/"; // Redirect to the home page
+    }
+  });
 
 
 if (localStorage.getItem("users") != null) {
