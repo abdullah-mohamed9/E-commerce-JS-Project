@@ -83,7 +83,13 @@ function isProductInCart(produc_Id) {
         let isInCart = cartArr.some(item => parseInt(item.productId) === productId);
     
         if (isInCart) {
-            alert("This product cannot be deleted because it is in the cart.");
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Product in Cart',
+                text: 'This product cannot be deleted because it is in the cart.',
+            });
+           
         } else {
             const productIdToDelete = productData[i].product_id;
             const indexToDelete = productData.findIndex(product => product.product_id === productIdToDelete);
