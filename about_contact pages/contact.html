@@ -35,64 +35,63 @@
 
     
 
-    <!-- Header -->
+  <!-- Header -->
 
-    <nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
-        <div class="container ">
-            <img src="../images/logo1.png" alt="Logo Img">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span><i id="bar" class="fa-solid fa-bars-staggered"></i></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../product.html">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../about_contact pages/about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../about_contact pages/contact.html">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                       <a href="../cart.html"><i class="fa-solid fa-shopping-cart"> </i>
-                       <span id="prod_count">0</span>
-                        </a> 
-                    </li>
-                    <li id="login" class="nav-item">
-                      <a  href="../login.html"><i class="fa-solid fa-sign-in-alt"></i></a>  
-                    </li>
-                    <li class="nav-item">
-                     <a href="#"><i class="fa-solid fa-heart"></i></a>   
-                    </li>
- <!--
-                    <i id="user" class="fa-solid fa-user-circle"></i> 
+<nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+    <div class="container">
+        <img src="../images/logo1.png" alt="Logo Img">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span><i id="bar" class="fa-solid fa-bars-staggered"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../product.html">Products</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-link" href="../about_contact pages/about.html">About</a>
+                </li>
 
-                 Profile Dropdown
-                <li class="nav-item dropdown">
-                    <a id="Profile" class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Profile
+                <li class="nav-item">
+                    <a class="nav-link" href="../about_contact pages/contact.html">Contact Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="../cart.html" class="nav-link">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span id="prod_count">0</span>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item" href="#">My Account</a>
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
+                </li>
+
+               
+                <li id="login" class="nav-item">
+                    <a href="../login.html" class="nav-link">
+                        <i id="user" class="fa-solid fa-user-circle"></i>
+                    </a>
+                </li>
+                
+                <li id="ProfileLI" class="nav-item dropdown">
+                    <a id="Profile" class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Update</a>
+                        <a id="logout" class="dropdown-item" href="../index.html">Logout</a>
                     </div>
-                </li> -->
-                <!-- End Profile Dropdown -->
-                </ul>
-            </div>
+                </li>
+            </ul>
         </div>
-        </nav>
-  
-    <!-- Close Header -->
+    </div>
+</nav>
+
+
 
 <hr>
 <hr>
@@ -241,19 +240,6 @@
     <script src="assets/js/template.js"></script>
     <script src="assets/js/custom.js"></script>
     <!-- End Script -->
-    <!-- jQuery, Popper.js, and Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-integrity="sha384-UoT5FjioJDFUOpoYDwSHkxDNxkTR5s5ynZvI6C5+eF+cNU6i/z2IHPmwF5O6c"
-crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-crossorigin="anonymous"></script>
-
-
-
 
     <script>
 
@@ -283,13 +269,22 @@ if (localStorage.user != null) {
         }
     }
 
-//     document.getElementById("login").style.display="none";
-//     document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
-// }
-// else{
-//     document.getElementById("Profile").style.display="none";
-//     document.getElementById("user").style.display="none";
+    document.getElementById("login").style.display="none";
+    document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
+
+
+     // Logout functionality
+     document.getElementById("logout").addEventListener("click", function () {
+        // Remove user data from localStorage
+        localStorage.removeItem("user");
+
+        // Redirect to the index page
+        window.location.href = "index.html";
+    });
+}else{
+    document.getElementById("ProfileLI").style.display="none";
 }
+
 
             </script>
 

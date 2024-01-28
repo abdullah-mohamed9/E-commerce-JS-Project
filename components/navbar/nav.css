@@ -51,7 +51,7 @@
 
 
 .navbar svg {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     padding: 0px 7px;
     cursor: pointer;
     font-weight: 500;
@@ -77,16 +77,49 @@
    position: relative;
 }
 
-#prod_count{
+
+#prod_count {
     background: red;
     color: #fff;
     padding: 4px;
     position: absolute;
-    top: -53%;
-    right: -6%;
-    border-radius: 50%;
-    font-size: 10px;
-  }
+    top: -62%;
+    right: 24%;
+    border-radius: 53%;
+    font-size: 11px;
+}
+
+
+  /* Custom CSS for the User dropdown */
+#Profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#Profile i {
+  margin-right: 5px;
+}
+
+/* Style for the dropdown menu */
+.dropdown-menu {
+  background-color: #fff; /* Background color */
+  border: 1px solid #ddd; /* Border color */
+  border-radius: 0; /* Border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+.dropdown-menu a {
+  color: #333; /* Text color */
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus {
+  background-color: #f8f9fa; /* Hover background color */
+  color: #333; /* Hover text color */
+}
+
+  
 
 /*mobile nav view*/
 .navbar-light .navbar-toggler {
