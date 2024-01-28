@@ -78,14 +78,14 @@
 }
 
 #prod_count{
-    background: tomato;
+    background: red;
     color: #fff;
-    padding: 3px;
+    padding: 4px;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: -53%;
+    right: -6%;
     border-radius: 50%;
-    font-size:9px;
+    font-size: 10px;
   }
 
 /*mobile nav view*/

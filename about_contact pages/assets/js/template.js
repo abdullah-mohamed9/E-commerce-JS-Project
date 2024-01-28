@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Additional validation for the "name" field - only allow alphabetical characters
-        var namePattern = /^[a-zA-Z]+$/;
+        var namePattern = /^[a-zA-Z\s]+$/; // Only letters and spaces allowed
         if (!namePattern.test(name) || name.length <= 2) {
             alert("Please enter a valid name with only alphabetical characters and length greater than 2.");
             return;
