@@ -15,7 +15,7 @@ else{
     productData=[];
 }
 
-//console.log(productData);
+console.log(productData);
 
 
 let cartArr;
@@ -28,7 +28,7 @@ else{
     cartArr=[];
 }
 
-console.log(cartArr);
+//console.log(cartArr);
 
 
 //read data
@@ -48,7 +48,7 @@ function showData(){
       </tr>`
       ;  
       }
-      //console.log(table);
+      console.log(table);
 
       if(productData.length<=0){
         table="<p>not found products</p>";
@@ -62,8 +62,9 @@ function showData(){
 
 
 // Check if a product is in the cart
-function isProductInCart(productId) {
-    return cartArr.some(item => item.productId === productId);
+function isProductInCart(produc_Id) {
+    
+    return cartArr.some(item => parseInt(item.productId) === produc_Id);
 }
 
 
@@ -75,14 +76,69 @@ function isProductInCart(productId) {
     //delete products
 
     function deleteProduct(i) {
-        if (isProductInCart(productData[i].product_id)) {
+        // Get the product ID from the productData array
+        let productId = productData[i].product_id;
+    
+        // Check if the product ID is in the cartData array after converting it to an integer
+        let isInCart = cartArr.some(item => parseInt(item.productId) === productId);
+    
+        if (isInCart) {
             alert("This product cannot be deleted because it is in the cart.");
         } else {
-            productData.splice(i, 1);
-            localStorage.products = JSON.stringify(productData);
-            showData();
+            const productIdToDelete = productData[i].product_id;
+            const indexToDelete = productData.findIndex(product => product.product_id === productIdToDelete);
+    
+            // Remove the row from the table
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger"
+                },
+                buttonsStyling: false
+            });
+            swalWithBootstrapButtons.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel!",
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    if (indexToDelete !== -1) {
+                        productData.splice(indexToDelete, 1); // Remove the item from the productData array
+                        localStorage.products = JSON.stringify(productData); // Update the localStorage
+                        showData();
+                    }
+                    Toast.fire({
+                        title: "Deleted!",
+                        text: "Your product has been deleted.",
+                        icon: "success"
+                    });
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    Toast.fire({
+                        Toast: "Cancelled",
+                        text: "Your product is safe :)",
+                        icon: "error"
+                    });
+                }
+            });
         }
     }
+    
+    
 
 
 

@@ -37,10 +37,10 @@ let navbar=
              <a href="#"><i class="fa-solid fa-heart"></i></a>   
             </li>
 
-
+<!--
             <i id="user" class="fa-solid fa-user-circle"></i> 
 
-                 <!-- Profile Dropdown -->
+                <!--   Profile Dropdown 
                 <li  class="nav-item dropdown">
                 
                     <a id="Profile" class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
@@ -54,6 +54,8 @@ let navbar=
                         <a id="logout" class="dropdown-item" href="#">Logout</a>
                     </div>
                 </li>
+                -->
+            
                 <!-- End Profile Dropdown -->
         </ul>
     </div>
@@ -85,19 +87,19 @@ if (localStorage.user != null) {
         }
     }
 
-    document.getElementById("login").style.display="none";
-    document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
+//     document.getElementById("login").style.display="none";
+//     document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
 
 
-     // Logout functionality
-     document.getElementById("logout").addEventListener("click", function () {
-        // Remove user data from localStorage
-        localStorage.removeItem("user");
+//      // Logout functionality
+//      document.getElementById("logout").addEventListener("click", function () {
+//         // Remove user data from localStorage
+//         localStorage.removeItem("user");
 
-        // Redirect to the index page
-        window.location.href = "index.html";
-    });
-}else{
-    document.getElementById("Profile").style.display="none";
-    document.getElementById("user").style.display="none";
-}
+//         // Redirect to the index page
+//         window.location.href = "index.html";
+//     });
+// }else{
+//     document.getElementById("Profile").style.display="none";
+//     document.getElementById("user").style.display="none";
+  }
