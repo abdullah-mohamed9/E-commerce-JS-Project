@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (!user || (user.type !== "seller")) {
-        window.location.href = "../login.html"; // Redirect to the login page
+        window.location.href = "../../html/login.html"; // Redirect to the login page
     }
 });
 
@@ -50,17 +50,16 @@ signOut.addEventListener("click", function (event) {
         confirmButtonText: "Yes,Sign out!"
     }).then((result) => {
         if (result.isConfirmed) {
-
             Toast.fire({
                 title: "Sign out!",
                 text: "You have signed out successfully.",
                 icon: "success"
             }).then((result) => {
-                window.location.href = "../index.html";
+                window.location.href = "../../index.html";
                 localStorage.removeItem("user");
             });
         } else {
-            window.location.href = "index.html";
+            window.location.href = "../html/index.html";
         }
     });
 });
@@ -149,7 +148,6 @@ submit.onclick = function (event) {
             img.style.border = "solid 3px green";
             img_val.innerHTML = '';
         }
-        // Do not close the modal if there are validation errors
         event.preventDefault();
     }
     if (flag) {
@@ -167,7 +165,7 @@ function clearData() {
     category.value = '0';
     img.value = '';
     description.value = '';
-    imagePreview.src = 'images/logo1.png';
+    imagePreview.src = '../images/logo1.png';
     title.style.border = "";
     price.style.border = "";
     count.style.border = "";
