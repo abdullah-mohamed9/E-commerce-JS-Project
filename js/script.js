@@ -1,11 +1,11 @@
 
 var myproduct_container = document.getElementById("myproducts");
-var p=JSON.parse(localStorage.getItem("products"));
+var p = JSON.parse(localStorage.getItem("products"));
 
 
 for (var i in p) {
   var product = `<div class="pro ${p[i].category}">
-<img onclick="location.href='sproduct.html?index=${i}' "src="${p[i].product_img}" alt="product img" />
+<img "src="${p[i].product_img}" alt="product img" />
 <div class="des">
   <h5 class="product-name">${p[i].product_name}</h5>
   <div class="star">
@@ -33,17 +33,17 @@ window.addEventListener("load", function () {
   for (let i = 0; i < numOfProducts; i++) {
     //event listener
     document.getElementsByClassName("pro")[i].addEventListener("click", function () {
-      let ID=0;
-       ID = (ProductItem[i].product_id) ;
-       console.log("id",ID);
+      let ID = 0;
+      ID = (ProductItem[i].product_id);
+      console.log("id", ID);
       // Store the ID in localStorage
       localStorage.setItem('productID', ID);
       // Redirect to the productDetails.html page
       window.location.href = '../html/productDetails.html';
     });
   }
- });
- ////////////////////////////////////
+});
+////////////////////////////////////
 
 
 
@@ -73,8 +73,8 @@ function filterProducts(category) {
   });
 }
 
-var filter=document.getElementById("filter");
-var buttons =document.getElementById("my-buttons");
+var filter = document.getElementById("filter");
+var buttons = document.getElementById("my-buttons");
 // console.log(buttons.classList)
 filter.onclick = function () {
   buttons.classList.toggle("hide")
@@ -90,12 +90,12 @@ let mySearchFunction = () => {
   let prod = document.querySelectorAll(".pro");
 
   prod_name.forEach((p, index) => {
-      if ((p.innerText.toLowerCase().includes(searchInput) || searchInput === "") &&
-          (category === "all" || prod[index].classList.contains(category))) {
-          prod[index].classList.remove("hide");
-      } else {
-          prod[index].classList.add("hide");
-      }
+    if ((p.innerText.toLowerCase().includes(searchInput) || searchInput === "") &&
+      (category === "all" || prod[index].classList.contains(category))) {
+      prod[index].classList.remove("hide");
+    } else {
+      prod[index].classList.add("hide");
+    }
   });
 };
 
