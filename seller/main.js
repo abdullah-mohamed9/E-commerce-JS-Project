@@ -18,6 +18,14 @@ let img_val = document.getElementById("img_val");
 
 let signOut = document.getElementById("signOut");
 
+document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user || (user.type !== "seller")) {
+        window.location.href = "../login.html"; // Redirect to the login page
+    }
+});
+
 signOut.addEventListener("click", function (event) {
     event.preventDefault(); // Prevent the default link behavior
 

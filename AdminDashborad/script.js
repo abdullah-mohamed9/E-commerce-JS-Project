@@ -58,7 +58,7 @@ switchMode.addEventListener('change', function () {
 document.addEventListener("DOMContentLoaded", function () {
     const user = JSON.parse(localStorage.getItem("user"));
 
-    if (!user || (user.type !== "admin" && user.type !== "seller")) {
+    if (!user || (user.type !== "admin")) {
         window.location.href = "../login.html"; // Redirect to the login page
     }
 });
