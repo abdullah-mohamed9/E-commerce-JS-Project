@@ -53,6 +53,16 @@ switchMode.addEventListener('change', function () {
 })
 
 
+//protect admin and seller
+
+document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user || (user.type !== "admin" && user.type !== "seller")) {
+        window.location.href = "../login.html"; // Redirect to the login page
+    }
+});
+
 
 
 //number of massages

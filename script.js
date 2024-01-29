@@ -22,16 +22,6 @@ let eye_signup_val = document.querySelector("#eye-signup-val");
 
 
 
-// //yousef
-// document.addEventListener("DOMContentLoaded", function () {
-   
-//     const user = JSON.parse(localStorage.getItem("user"));
-
-//     // Check if the user is authenticated and has the "admin" role
-//     if (!user || user.type !== "admin") {
-//       window.location.pathname = "/"; // Redirect to the home page
-//     }
-//   });
 
 
 
@@ -82,16 +72,7 @@ let users = [
     ];
     
 
-//yousef
-document.addEventListener("DOMContentLoaded", function () {
-   
-    const user = JSON.parse(localStorage.getItem("user"));
 
-    // Check if the user is authenticated and has the "admin" role
-    if (!user || user.type !== "admin") {
-      window.location.pathname = "/"; // Redirect to the home page
-    }
-  });
 
 
 if (localStorage.getItem("users") != null) {
@@ -292,5 +273,9 @@ eye_signup_val.addEventListener('click', function () {
         eye_signup_val.src = "images/showPass/eye-close.png";
     }
 });
+
+
+
+
 
 
