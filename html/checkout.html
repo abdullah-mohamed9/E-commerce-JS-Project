@@ -15,8 +15,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Checkout</title>
     <script src="../js/productCheckout.js" type="module"></script>
-  
-    
+
+
     <style>
         #submitButton {
             margin-bottom: 20px;
@@ -173,8 +173,8 @@
                     <input type="text" class="form-control" id="inputZip" required>
                 </div>
                 <div class="col-12">
-                    <label for="phone" class="form-label"><i class="fas fa-phone"
-                            style="margin-right: 3px;"></i>Phone Number</label>
+                    <label for="phone" class="form-label"><i class="fas fa-phone" style="margin-right: 3px;"></i>Phone
+                        Number</label>
                     <input type="text" class="form-control" id="phone" pattern="[0-9]{11}" maxlength="11"
                         oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
                     <div class="invalid-feedback">Please enter a 10-digit phone number.</div>
@@ -238,12 +238,14 @@
                 </div>
                 <div class="col-12 col-md-3">
                     <label for="CVV" class="form-label">CVV</label>
-                    <input type="text" id="CVV" class="form-control" pattern="[0-9]{3,4}"   oninput="this.value=this.value.replace(/[^0-9]/g,'');" title="CVV must be 3 or 4 numeric digits" required>
+                    <input type="text" id="CVV" class="form-control" pattern="[0-9]{3,4}"
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');" title="CVV must be 3 or 4 numeric digits"
+                        required>
                     <div class="invalid-feedback">
                         CVV must be 3 or 4 numeric digits
                     </div>
                 </div>
-                
+
             </form>
         </div>
 
@@ -316,9 +318,9 @@
     <script src="../js/bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="../js/productDetails.js"></script>
-    
+
 </body>
 
 </html>
