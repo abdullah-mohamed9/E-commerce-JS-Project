@@ -1,5 +1,4 @@
 
-// Define variables to hold chart instances
 let myChartOne = null;
 let myChartTwo = null;
 
@@ -8,30 +7,22 @@ chart.addEventListener("click", function () {
 
     let allProducts = JSON.parse(localStorage.getItem("products"));
 
-    // Get logged-in user data from localStorage
     const loggedInUser = JSON.parse(localStorage.getItem('user'));
     const sellerId = loggedInUser.id;
 
-    // Filter products based on the seller's ID
     let sellerProducts = allProducts.filter(product => product.seller === sellerId);
 
-    // Sort the data based on price
     let sortedByPrice = sellerProducts.slice().sort((a, b) => b.price - a.price);
 
-    // Extract data for the first chart (top 5 products)
     let topFiveProducts = sortedByPrice.slice(0, 5);
     let labelsChartOne = topFiveProducts.map(product => product.product_name);
     let dataChartOne = topFiveProducts.map(product => parseFloat(product.price));
 
-    // Define colors for each bar in Chart 1
     let colorsChartOne = ["rgba(255, 99, 132, 0.6)", "rgba(54, 162, 235, 0.6)", "rgba(255, 206, 86, 0.6)", "rgba(75, 192, 192, 0.6)", "rgba(153, 102, 255, 0.6)"];
-
-    // Destroy existing chart if it exists
     if (myChartOne) {
         myChartOne.destroy();
     }
 
-    // Create the first chart
     myChartOne = new Chart(document.getElementById("myChartOne").getContext("2d"), {
         type: "bar",
         data: {
@@ -46,7 +37,6 @@ chart.addEventListener("click", function () {
             }],
         },
         options: {
-
             legend: {
                 position: "right",
             },
@@ -68,7 +58,6 @@ chart.addEventListener("click", function () {
         }
     });
 
-    // Sort the data based on category and sum count 
     let sellerProductsForChartTwo = allProducts.filter(product => product.seller === sellerId);
 
     let groupedByCategory = sellerProductsForChartTwo.reduce((acc, product) => {
@@ -80,11 +69,9 @@ chart.addEventListener("click", function () {
         return acc;
     }, {});
 
-
     let labelsChartTwo = Object.keys(groupedByCategory);
     let dataChartTwo = Object.values(groupedByCategory).map(item => item.count);
 
-    // Destroy existing chart if it exists
     if (myChartTwo) {
         myChartTwo.destroy();
     }
