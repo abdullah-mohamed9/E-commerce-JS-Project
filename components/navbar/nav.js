@@ -7,7 +7,8 @@ let navbar=
 
 <nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
     <div class="container">
-        <img src="../images/logo1.png" alt="Logo Img">
+         <img src="../../images/logo1.png" alt="Logo Img">
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -16,22 +17,22 @@ let navbar=
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Home</a>
+                    <a class="nav-link" href="../../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../product.html">Products</a>
+                    <a class="nav-link" href="../../html/product.html">Products</a>
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link" href="../about_contact pages/about.html">About</a>
+                    <a class="nav-link" href="../../about_contact pages/about.html">About</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../about_contact pages/contact.html">Contact Us</a>
+                    <a class="nav-link" href="../../about_contact pages/contact.html">Contact Us</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="../cart.html" class="nav-link">
+                    <a href="../../html/cart.html" class="nav-link">
                         <i class="fa-solid fa-shopping-cart"></i>
                         <span id="prod_count">0</span>
                     </a>
@@ -39,7 +40,7 @@ let navbar=
 
                
                 <li id="login" class="nav-item">
-                    <a href="../login.html" class="nav-link">
+                    <a href="../../html/login.html" class="nav-link">
                         <i id="user" class="fa-solid fa-user-circle"></i>
                     </a>
                 </li>
@@ -51,7 +52,7 @@ let navbar=
                     </a>
                     <div class="dropdown-menu" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">Update</a>
-                        <a id="logout" class="dropdown-item" href="../index.html">Logout</a>
+                        <a id="logout" class="dropdown-item" href="../../index.html">Logout</a>
                     </div>
                 </li>
             </ul>
