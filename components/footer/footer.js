@@ -5,7 +5,7 @@ let footerContent=
 <footer class="mt-5 py-5">
 <div class="row container mx-auto pt-5">
     <div class="footer-one col-12 col-mg-6 col-lg-3">
-        <img src="images/logo2.png" alt="Footer Img">
+        <img src="../../images/logo2.png" alt="Footer Img">
         <p class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptatem corrupti enim
             assumenda
             sequi ullam animi cumque, optio fugiat ut sapiente</p>
@@ -39,11 +39,11 @@ let footerContent=
     <div class="footer-one col-12 col-mg-6 col-lg-3">
         <h5 class="pb-2">Instagram</h5>
         <div class="row">
-            <img class="img-fluid w-25 h-100 m-2" src="images/insta/1.jpg" alt="Instagram Img">
-            <img class="img-fluid w-25 h-100 m-2" src="images/insta/2.jpg" alt="Instagram Img">
-            <img class="img-fluid w-25 h-100 m-2" src="images/insta/3.jpg" alt="Instagram Img">
-            <img class="img-fluid w-25 h-100 m-2" src="images/insta/4.jpg" alt="Instagram Img">
-            <img class="img-fluid w-25 h-100 m-2" src="images/insta/5.jpg" alt="Instagram Img">
+            <img class="img-fluid w-25 h-100 m-2" src="../../images/insta/1.jpg" alt="Instagram Img">
+            <img class="img-fluid w-25 h-100 m-2" src="../../images/insta/2.jpg" alt="Instagram Img">
+            <img class="img-fluid w-25 h-100 m-2" src="../../images/insta/3.jpg" alt="Instagram Img">
+            <img class="img-fluid w-25 h-100 m-2" src="../../images/insta/4.jpg" alt="Instagram Img">
+            <img class="img-fluid w-25 h-100 m-2" src="../../images/insta/5.jpg" alt="Instagram Img">
         </div>
     </div>
 
@@ -51,7 +51,7 @@ let footerContent=
 <div class="copyright mt-5">
     <div class="row container mx-auto">
         <div class="col-12 col-md-6 col-lg-3 mb-4">
-            <img src="images/payment.png" alt="">
+            <img src="../../images/payment.png" alt="">
         </div>
         <div class="col-12 col-md-6 col-lg-4 text-nowrap mb-2">
             <p>Lorem ipsum dolor sit amet consectetur</p>
