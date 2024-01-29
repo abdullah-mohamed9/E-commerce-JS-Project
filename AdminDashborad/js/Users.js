@@ -86,7 +86,7 @@ function showData(){
       table += `
      <tr>
      <td>
-    <!-- <img src="img/img.jpg">-->
+    <!-- <img src="../img/img.jpg">-->
      <p>${userData[i].name}</p>
       </td>
       <td>${userData[i].email}</td>
