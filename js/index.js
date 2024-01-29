@@ -33,6 +33,7 @@ function renderProduct() {                           //mohamed
         <a href=../html/productDetails.html?id=${products[i].product_id}  class="buy-btn id="">Buy Now</a>
     </div>
         `;
+        
       if (products[i].category == "topwear" && count < 4) {
         count++;
         // Append the product HTML to the container
