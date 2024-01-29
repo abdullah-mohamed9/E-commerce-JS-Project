@@ -9,12 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/bootstrap.css" />
-    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/font-awesome.css" />
-
-    <!-- Add this link to include Font Awesome CSS from CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-integrity="sha384-GLhlTQ8iK7ZETccaW2rJL0t+5RHv5S+49LKE2/Jm49q5sIh6Uq3bT9BDdQT1wInw" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha384-GLhlTQ8iK7ZETccaW2rJL0t+5RHv5S+49LKE2/Jm49q5sIh6Uq3bT9BDdQT1wInw" crossorigin="anonymous">
+        <title>Product Details</title>
 
     <style>
         body {
@@ -77,62 +76,62 @@ integrity="sha384-GLhlTQ8iK7ZETccaW2rJL0t+5RHv5S+49LKE2/Jm49q5sIh6Uq3bT9BDdQT1wI
 
 <body>
 
-  
-  <!-- Header -->
 
-<nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
-    <div class="container">
-        <img src="../images/logo1.png" alt="Logo Img">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span><i id="bar" class="fa-solid fa-bars-staggered"></i></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../product.html">Products</a>
-                </li>
-    
-                <li class="nav-item">
-                    <a class="nav-link" href="../about_contact pages/about.html">About</a>
-                </li>
+    <!-- Header -->
 
-                <li class="nav-item">
-                    <a class="nav-link" href="../about_contact pages/contact.html">Contact Us</a>
-                </li>
+    <nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+        <div class="container">
+            <img src="../images/logo1.png" alt="Logo Img">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span><i id="bar" class="fa-solid fa-bars-staggered"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../product.html">Products</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a href="../cart.html" class="nav-link">
-                        <i class="fa-solid fa-shopping-cart"></i>
-                        <span id="prod_count">0</span>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about_contact pages/about.html">About</a>
+                    </li>
 
-               
-                <li id="login" class="nav-item">
-                    <a href="../login.html" class="nav-link">
-                        <i id="user" class="fa-solid fa-user-circle"></i>
-                    </a>
-                </li>
-                
-                <li id="ProfileLI" class="nav-item dropdown">
-                    <a id="Profile" class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Update</a>
-                        <a id="logout" class="dropdown-item" href="../index.html">Logout</a>
-                    </div>
-                </li>
-            </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about_contact pages/contact.html">Contact Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../cart.html" class="nav-link">
+                            <i class="fa-solid fa-shopping-cart"></i>
+                            <span id="prod_count">0</span>
+                        </a>
+                    </li>
+
+
+                    <li id="login" class="nav-item">
+                        <a href="../login.html" class="nav-link">
+                            <i id="user" class="fa-solid fa-user-circle"></i>
+                        </a>
+                    </li>
+
+                    <li id="ProfileLI" class="nav-item dropdown">
+                        <a id="Profile" class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">Update</a>
+                            <a id="logout" class="dropdown-item" href="../index.html">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
 
     <!--design of product details-->
@@ -292,15 +291,15 @@ integrity="sha384-GLhlTQ8iK7ZETccaW2rJL0t+5RHv5S+49LKE2/Jm49q5sIh6Uq3bT9BDdQT1wI
     <script src="../js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UoT5FjioJDFUOpoYDwSHkxDNxkTR5s5ynZvI6C5+eF+cNU6i/z2IHPmwF5O6c"
-        crossorigin="anonymous"></script>
+        integrity="sha384-UoT5FjioJDFUOpoYDwSHkxDNxkTR5s5ynZvI6C5+eF+cNU6i/z2IHPmwF5O6c" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 
     <script>
         //  var i7=JSON.parse(localStorage.getItem("products"))
@@ -348,19 +347,14 @@ integrity="sha384-GLhlTQ8iK7ZETccaW2rJL0t+5RHv5S+49LKE2/Jm49q5sIh6Uq3bT9BDdQT1wI
 
 
 
-    document.getElementById("login").style.display="none";
-     document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
+            document.getElementById("login").style.display = "none";
+            document.getElementById("Profile").innerHTML = `<span>${userId.name}</span>`;
 
 
- }else{
-    document.getElementById("Profile").style.display="none";
-     document.getElementById("user").style.display="none";
-}
-
-
-
-
-
+        } else {
+            document.getElementById("Profile").style.display = "none";
+            document.getElementById("user").style.display = "none";
+        }
     </script>
 
 
