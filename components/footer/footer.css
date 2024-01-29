@@ -2,15 +2,15 @@
 /* footer */
 
 h6 {
-    color: #d8d8d8;
+    color: #d8d8d8 !important;
 }
 footer {
-    background-color: #222222;
+    background-color: #222222 !important;
 
 }
 
 footer h5 {
-    color: #d8d8d8;
+    color: #d8d8d8 !important;
     font-weight: 700;
     font-size: 1.2rem;
 }
