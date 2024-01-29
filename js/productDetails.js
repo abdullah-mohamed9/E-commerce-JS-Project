@@ -52,9 +52,9 @@ window.addEventListener("load", function () {
                 document.getElementById("AddToCart").disabled = true;
                 return;
             }
-      //  var x=50;
         //sweet Alerttttttttttttttttttttttttt
         let MyCurrentUser=JSON.parse(localStorage.getItem("user"));
+        
         for (let i = 0; i < cartData.length; i++) {
             if (cartData[i].productId == storedID && cartData[i].userId ==  MyCurrentUser.id) {
                 alert("This item is already in your cart. You can't add it again.");
@@ -75,43 +75,69 @@ window.addEventListener("load", function () {
                 sizeSelect.options[sizeSelect.selectedIndex].value;
             //check if the user is logged in or not
             if (!CheckTheExistenceOfUser) {
-                console.log("nulllllll");
-                currentUserId = 99999;
-                JSON.parse(sessionStorage.setItem("sessionToken", currentUserId));
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Swal.fire({
+                    title: "You are not logged in!",
+                    text: "Do you want to sign in?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes,Sign in!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Toast.fire({
+                            title: "login page",
+                            text: "move to login page",
+                            icon: "success"
+                        }).then((result) => {
+                            window.location.href = "../html/login.html";
+                        });
+                    } 
+                });
             } else {
                 var currentUserId = JSON.parse(localStorage.getItem("user"))["id"];
+                let priceOfItem = product.price;
+                let seller = product.seller;
+              //  let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+                let newCartItem = {
+                    numOfItems: numOfItems,
+                    sizeOfProduct: sizeOfProduct,
+                    productId: storedID,
+                    userId: currentUserId,
+                    seller: seller,
+                    priceOfItem: priceOfItem
+                };
+    
+                cartData.push(newCartItem);
+                localStorage.setItem("cartData", JSON.stringify(cartData));
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    },
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "Added to cart successfully",
+                });
             }
-            let priceOfItem = product.price;
-            let seller = product.seller;
-
-          //  let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
-            console.log(storedID);
-            let newCartItem = {
-                numOfItems: numOfItems,
-                sizeOfProduct: sizeOfProduct,
-                productId: storedID,
-                userId: currentUserId,
-                seller: seller,
-                priceOfItem: priceOfItem
-            };
-
-            cartData.push(newCartItem);
-            localStorage.setItem("cartData", JSON.stringify(cartData));
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 1000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                },
-            });
-            Toast.fire({
-                icon: "success",
-                title: "Added to cart successfully",
-            });
+           
         }
     });
 });
