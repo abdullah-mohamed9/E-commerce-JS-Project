@@ -225,11 +225,8 @@ window.addEventListener("load", function () {
                   
                     //corresponding id
                     var foundProduct = Object.values(mproducts).find(product => product.product_id == productIdToFind);
-                    //  console.log(foundProduct);
                     //total count
-                    //  console.log("count of product " + foundProduct['count']);
                     foundProduct['count'] -= selledones;
-                    //  console.log("remain " + remaining);
 
 
 
@@ -251,7 +248,6 @@ window.addEventListener("load", function () {
                 icon: "success",
                 confirmButtonText: "OK"
             }).then((result) => {
-
                 if (result.isConfirmed) {
                     console.log("User clicked OK!");
                     window.location.href = '../index.html';
