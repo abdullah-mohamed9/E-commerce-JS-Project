@@ -16,11 +16,7 @@
 
     <!-- navbar -->
     <section id="header">
-
     </section>
-
-
-
     <!-- Cart section -->
     <section id="blog-home" class="pt-5 mt-5 container">
         <!--alert -->
@@ -28,10 +24,7 @@
             <div id="AlertEmptyCart" class="col-6" style="text-align: center;margin: 0 auto;">
             </div>
         </div>
-
-
         <h2 class="font-weight-bold pt-5">Shopping Cart</h2>
-
         <hr>
     </section>
     <section id="cart-container" class="container my-5">
@@ -49,50 +42,6 @@
             <tbody id="cartBody">
                 <!-- Dynamic data will be inserted here -->
             </tbody>
-            <!-- <tbody>
-                <tr>
-                    <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                    <td><img src="images/shoes/1.jpg" alt="Cart Img"></td>
-                    <td>
-                        <h5>Product Name</h5>
-                    </td>
-                    <td>
-                        <h5>$99.00</h5>
-                    </td>
-                    <td><input class="w-50 pl-1" type="number" value="1"></td>
-                    <td>
-                        <h5>$99.00</h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                    <td><img src="images/shoes/2.jpg" alt="Cart Img"></td>
-                    <td>
-                        <h5>Product Name</h5>
-                    </td>
-                    <td>
-                        <h5>$99.00</h5>
-                    </td>
-                    <td><input class="w-50 pl-1" type="number" value="1"></td>
-                    <td>
-                        <h5>$99.00</h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                    <td><img src="images/shoes/3.jpg" alt="Cart Img"></td>
-                    <td>
-                        <h5>Product Name</h5>
-                    </td>
-                    <td>
-                        <h5>$99.00</h5>
-                    </td>
-                    <td><input class="w-50 pl-1" type="number" value="1"></td>
-                    <td>
-                        <h5>$99.00</h5>
-                    </td>
-                </tr>
-            </tbody> -->
         </table>
     </section>
     <!-- Cart section end -->
@@ -145,10 +94,8 @@
 
 
 
-    <!-- script for cart -->
     <script>
         function validateInput(input) {
-            // Parse the input value as a number
             var inputValue = parseInt(input.value, 10);
             // Check if the value is negative or greater than the max allowed value
             if (inputValue < 0 || inputValue > parseInt(input.max, 10) || isNaN(inputValue)) {
@@ -156,7 +103,6 @@
                 input.value = input.min;
             }
         }
-        // Create an object with coupon codes and their corresponding discount percentages
         const coupons = {
             "iti_5": 5,
             "iti_10": 10,
@@ -165,12 +111,9 @@
             "iti_50": 50
         };
 
-        // Save the object to local storage
         localStorage.setItem("coupons", JSON.stringify(coupons));
-
         document.addEventListener("DOMContentLoaded", function () {
             let currentUserId = JSON.parse(localStorage.getItem("user"))?.id;
-
             let appliedCouponDiv = document.getElementById("appliedCoupon");
             let subtotalElement = document.getElementById("subtotal");
             let shippingElement = document.getElementById("shipping");
@@ -181,33 +124,24 @@
             let mTotal = 0;
             let subTotal = 0;
             let itemPrice = 0;
-
             if (currentUserId) {
                 let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
                 let userCart = cartData.filter(item => item.userId === currentUserId);
                 let cartBody = document.getElementById("cartBody");
-                // console.log(userCart);
-                // console.log(cartData);
                 if (userCart.length > 0) {
                     let productsData = JSON.parse(localStorage.getItem("products")) || {};
                     console.log(productsData);
                     userCart.forEach(function (cartItem) {
                         var productId = cartItem.productId;
-
                         if (cartItem.productId) {
-                            console.log(productId);
-                            // let productDetails = productsData.find(product => product.product_id === productId);
-                            // let productIndex = productsData.findIndex((product) => product.product_id === productId);
+                            //  let productIndex = productsData.findIndex((product) => +product.product_id === +productId);
                             let productIndex = -1;
                             for (let index = 0; index < productsData.length; index++) {
                                 if (parseInt(productsData[index].product_id) === parseInt(productId)) {
                                     productIndex = index;
                                     break;
                                 }
-
                             }
-                            console.log(productIndex);
-
                             if (productIndex !== -1) {
                                 let productDetails = productsData[productIndex];
                                 console.log(productDetails);
@@ -223,9 +157,7 @@
                             <td><input class="w-50 pl-1" type="number" value="${cartItem.numOfItems}" min="1" max="5" oninput="validateInput(this)"  data-product-id="${productId}"></td>
                             <td><h5 class="totalPrice">$${totalPrice.toFixed(2)}</h5></td>
                         `;
-
                                     cartBody.appendChild(newRow);
-
                                     let quantityInput = newRow.querySelector('input');
                                     quantityInput.addEventListener('change', function () {
                                         cartItem.numOfItems = parseInt(this.value);
@@ -236,7 +168,6 @@
                                         subtotalElement.innerText = `$${initialSubtotal.toFixed(2)}`;
                                         updateTotal();
                                     });
-
                                     let removeIcon = newRow.querySelector('.remove-item');
                                     removeIcon.addEventListener('click', function (event) {
                                         event.preventDefault();
@@ -251,7 +182,6 @@
                                                 toast.onmouseleave = Swal.resumeTimer;
                                             }
                                         });
-
                                         Swal.fire({
                                             title: "Are you sure?",
                                             text: "Do you want to delete this item from your cart?",
@@ -283,7 +213,6 @@
                             }
                         }
                     });
-
                     function calculateSubtotal() {
                         let subtotal = 0;
                         let userCart = cartData.filter(item => item.userId === currentUserId);
@@ -363,16 +292,13 @@
     <!-- script for cart end -->
 
 
-    <!-- <script src="components/navbar/nav.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
-    <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
     <script src="js/all.min.js"></script>
 </body>
 

@@ -97,7 +97,7 @@ td {
 #price_val,
 #category_val,
 #category_val,
-#count_val {
+#count_val,#description_val {
     color: red;
     font-size: 12px;
     margin-top: 5px;

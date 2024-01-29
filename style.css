@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("../components/navbar/nav.css");
 @import url("../components/footer/footer.css");
+
 * {
     margin: 0;
     padding: 0;
@@ -170,74 +171,82 @@ hr {
     background-color: transparent !important;
 }
 
-.navbar{
-    font-family: "Poppins", sans-serif;  
-  }
-  
-  .navbar {
-      font-size: 1rem;
-      top: 0;
-      left: 0;
-      opacity: 0.9;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar-light .navbar-nav .nav-link {
-      padding: 0 20px;
-      color: black;
-      transform: 0.3 ease;
-  }
-  
-  .navbar-light .navbar-nav .nav-link:hover,
-  .navbar svg:hover,
-  .navbar-light .navbar-nav .nav-link:active,
-  .navbar svg:active {
-      color: coral;
-  }
-  
-  
-  .navbar svg {
-      font-size: 1.8rem;
-      padding: 0px 7px;
-      cursor: pointer;
-      font-weight: 500;
-      color: #111;
-      transition: 0.3s ease;
-  }
-  
-  #bar {
-      font-size: 1.5rem;
-      padding: 7px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: 0.3s ease;
-      color: black;
-  }
-  
-  .navbar-nav .nav-item .icon{
-      color: black;
-      font-weight: 500;
-  }
-  
-  .navbar-nav .nav-item {
-     position: relative;
-  }
-  
- 
-element.style {
+.navbar {
+    font-family: "Poppins", sans-serif;
 }
-*, :after, :before {
+
+.navbar {
+    font-size: 1rem;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    padding: 0 20px;
+    color: black;
+    transform: 0.3 ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar svg:hover,
+.navbar-light .navbar-nav .nav-link:active,
+.navbar svg:active {
+    color: coral;
+}
+
+.navbar svg {
+    font-size: 1.8rem;
+    padding: 0px 7px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #111;
+    transition: 0.3s ease;
+}
+
+#bar {
+    font-size: 1.5rem;
+    padding: 7px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s ease;
+    color: black;
+}
+
+.navbar-nav .nav-item .icon {
+    color: black;
+    font-weight: 500;
+}
+
+.navbar-nav .nav-item {
+    position: relative;
+}
+
+
+element.style {}
+
+*,
+:after,
+:before {
     box-sizing: border-box;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-*, ::after, ::before {
+
+*,
+::after,
+::before {
     box-sizing: border-box;
 }
-*, ::after, ::before {
+
+*,
+::after,
+::before {
     box-sizing: border-box;
 }
 
@@ -256,36 +265,43 @@ element.style {
 }
 
 
-  /* Custom CSS for the User dropdown */
+/* Custom CSS for the User dropdown */
 #Profile {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 #Profile i {
-  margin-right: 5px;
+    margin-right: 5px;
 }
 
 /* Style for the dropdown menu */
 .dropdown-menu {
-  background-color: #fff; /* Background color */
-  border: 1px solid #ddd; /* Border color */
-  border-radius: 0; /* Border radius */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+    background-color: #fff;
+    /* Background color */
+    border: 1px solid #ddd;
+    /* Border color */
+    border-radius: 0;
+    /* Border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Box shadow */
 }
 
 .dropdown-menu a {
-  color: #333; /* Text color */
+    color: #333;
+    /* Text color */
 }
 
 .dropdown-menu a:hover,
 .dropdown-menu a:focus {
-  background-color: #f8f9fa; /* Hover background color */
-  color: #333; /* Hover text color */
+    background-color: #f8f9fa;
+    /* Hover background color */
+    color: #333;
+    /* Hover text color */
 }
 
-  
+
 
 #home {
     background-image: url("images/back.jpg");
@@ -304,9 +320,10 @@ element.style {
     color: coral;
 }
 
-#new .one{
+#new .one {
     position: relative;
 }
+
 #new .one img {
     width: 100%;
     height: 70%;
@@ -315,6 +332,7 @@ element.style {
     background-size: cover;
     position: relative;
 }
+
 #new .one .details {
     position: absolute;
     width: 100%;
@@ -619,7 +637,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: url(https://images.unsplash.com/photo-1507208773393-40d9fc670acf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80) no-repeat center;
+    background: url("images/login_img.avif") no-repeat center;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
 }
 
@@ -629,6 +647,18 @@ body {
     position: absolute;
     padding: 50px 70px 50px 70px;
     background: rgba(0, 77, 77, .9);
+}
+
+@media screen and (max-width: 768px) {
+    .login-snip {
+        width: 100%;
+        padding: 70px 30px;
+    }
+
+    .login-box {
+        width: 80%;
+    }
+
 }
 
 .login-snip .login,
