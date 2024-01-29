@@ -7,7 +7,7 @@ let navbar=
 
 <nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
     <div class="container">
-         <img src="../../images/logo1.png" alt="Logo Img">
+         <img id="logo" src="../../images/logo1.png" alt="Logo Img">
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -49,7 +49,7 @@ let navbar=
                       
                     </a>
                     <div class="dropdown-menu" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Update</a>
+                        <a class="dropdown-item" href="../../html/profile.html">Update</a>
                         <a id="logout" class="dropdown-item" href="../../index.html">Logout</a>
                     </div>
                 </li>
