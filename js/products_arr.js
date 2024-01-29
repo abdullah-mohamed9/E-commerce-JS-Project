@@ -29,7 +29,7 @@ if (localStorage.getItem("products") == null) {
     },
     {
       product_id: 3,
-      product_name: "long  Shirt",
+      product_name: "long Shirt",
       product_img: "../images/p/p13.jpg",
       product_img1: "../images/p/p14.jpg",
       product_img2: "../images/p/p11.jpg",

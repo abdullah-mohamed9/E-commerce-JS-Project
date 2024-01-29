@@ -36,9 +36,7 @@ let navbar=
                         <i class="fa-solid fa-shopping-cart"></i>
                         <span id="prod_count">0</span>
                     </a>
-                </li>
-
-               
+                </li>               
                 <li id="login" class="nav-item">
                     <a href="../../html/login.html" class="nav-link">
                         <i id="user" class="fa-solid fa-user-circle"></i>
