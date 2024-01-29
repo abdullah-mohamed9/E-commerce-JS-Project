@@ -5,7 +5,7 @@ var p = JSON.parse(localStorage.getItem("products"));
 
 for (var i in p) {
   var product = `<div class="pro ${p[i].category}">
-<img onclick="location.href='sproduct.html?index=${i}' "src="${p[i].product_img}" alt="product img" />
+<img onclick="location.href='productDetails.html?index=${i}' "src="${p[i].product_img}" alt="product img" />
 <div class="des">
   <h5 class="product-name">${p[i].product_name}</h5>
   <div class="star">

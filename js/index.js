@@ -29,8 +29,8 @@ function renderProduct() {                           //mohamed
         </div>
         <h5 class="p-name">${products[i].product_name}</h5>
         <h4 class="p-price">${products[i].price}$</h4>
-        <a href=html/productDetails.html?id=${products[i].product_id}  class="buy-btn id="">Buy Now</a>
-
+        
+        <a href=html/product.html  class="buy-btn id="">Buy Now</a>
     </div>
         `;
         
