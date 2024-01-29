@@ -10,6 +10,10 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
+#logo  {
+    width: 70px;
+	border-radius: 50%;
+  }
 .navbar-light .navbar-nav .nav-link {
     padding: 0 20px;
     color: black;

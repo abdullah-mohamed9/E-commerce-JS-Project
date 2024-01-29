@@ -5,7 +5,7 @@ let footerContent=
 <footer class="mt-5 py-5">
 <div class="row container mx-auto pt-5">
     <div class="footer-one col-12 col-mg-6 col-lg-3">
-        <img src="../../images/logo2.png" alt="Footer Img">
+        <img id="logo" src="../../images/logo1.png" alt="Footer Img">
         <p class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptatem corrupti enim
             assumenda
             sequi ullam animi cumque, optio fugiat ut sapiente</p>

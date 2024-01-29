@@ -9,6 +9,10 @@ footer {
 
 }
 
+#logo  {
+    width: 70px;
+	border-radius: 30%;
+  }
 footer h5 {
     color: #d8d8d8 ;
     font-weight: 700;
