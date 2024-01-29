@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 signOut.addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent the default link behavior
+    event.preventDefault();
 
     const Toast = Swal.mixin({
         toast: true,
@@ -88,20 +88,14 @@ submit.onclick = function (event) {
         category: category.value,
         product_img: imagePreview.src,
         seller: logedinUser.id,
-        product_id: generateProductId() // Generate unique product ID
+        product_id: generateProductId()
     };
 
-    if (titleRegex.test(title.value) && title.value.trim() != '' && numberRegex.test(price.value) && numberRegex.test(count.value) && category.value != '0' && newPro.count < 100 && img.value != '') {
+    if (titleRegex.test(title.value) && title.value.trim() != '' && description.value.trim() != '' && numberRegex.test(price.value) && numberRegex.test(count.value) && category.value != '0' && newPro.count < 100 && img.value != '') {
         if (mood === 'create') {
             dataPro.push(newPro);
         } else {
-            // Find the index of the product to update based on its id
-
-
             const indexToUpdate = dataPro.findIndex(product => product.product_id === dataPro[tmp].product_id);
-
-            //   const indexToUpdate = dataPro.findIndex(product => product.id === dataPro[tmp].id);
-
             if (indexToUpdate !== -1) {
                 dataPro[indexToUpdate] = newPro;
                 mood = 'create';
@@ -110,34 +104,26 @@ submit.onclick = function (event) {
             }
         }
         clearData();
-
-        localStorage.setItem('products', JSON.stringify(dataPro)); // Store the updated dataPro array
+        localStorage.setItem('products', JSON.stringify(dataPro));
     } else {
-
         flag = false;
-
         if (title.value.trim() == '' || titleRegex.test(title.value) == false) {
             title.style.border = "solid 3px red";
             title_val.innerHTML = 'Title must be more than 3 char caracters and numbers and "-" only';
-
         } else {
             title.style.border = "solid 3px green";
             title_val.innerHTML = '';
         }
         if (price.value.trim() == '' || numberRegex.test(price.value) == false) {
             price.style.border = "solid 3px red";
-
             price_val.innerHTML = 'Price must be a positive number only';
-
         } else {
             price.style.border = "solid 3px green";
             price_val.innerHTML = '';
         }
         if (count.value.trim() == '' || numberRegex.test(count.value) == false || count.value > 100) {
             count.style.border = "solid 3px red";
-
             count_val.innerHTML = 'Count must be between 1 and 100';
-
         } else {
             count.style.border = "solid 3px green";
             count_val.innerHTML = '';
@@ -151,30 +137,21 @@ submit.onclick = function (event) {
         }
         if (category.value == '0') {
             category.style.border = "solid 3px red";
-
             category_val.innerHTML = 'Choose category';
-
         } else {
             category.style.border = "solid 3px green";
             category_val.innerHTML = '';
         }
         if (img.value == '') {
             img.style.border = "solid 3px red";
-
             img_val.innerHTML = 'Choose image';
-
         } else {
             img.style.border = "solid 3px green";
             img_val.innerHTML = '';
         }
-
-
         // Do not close the modal if there are validation errors
         event.preventDefault();
-
     }
-
-
     if (flag) {
         updateAndCloseModal();
         return false;
@@ -218,7 +195,6 @@ function displayImage() {
         reader.readAsDataURL(file);
     }
 }
-
 function showData() {
     let table = '';
     for (let i = 0; i < dataPro.length; i++) {
@@ -239,13 +215,11 @@ function showData() {
     }
     document.getElementById('tbody').innerHTML = table;
 }
-
 img.addEventListener('change', displayImage);
 
 function deleteData(i) {
     const productIdToDelete = dataPro[i].product_id;
     const indexToDelete = dataPro.findIndex(products => products.product_id === productIdToDelete);
-
     // Remove the row from the table
     const Toast = Swal.mixin({
         toast: true,
@@ -317,9 +291,8 @@ function updateAndCloseModal() {
         category: category.value,
         product_img: imagePreview.src,
         seller: logedinUser.id,
-        product_id: generateProductId() // Generate unique product ID
+        product_id: generateProductId()
     };
-
     if (
         titleRegex.test(title.value) &&
         title.value.trim() != '' &&
@@ -329,7 +302,6 @@ function updateAndCloseModal() {
         newPro.count < 100 &&
         img.value != ''
     ) {
-        // Find the index of the product to update based on its id
         const indexToUpdate = dataPro.findIndex(product => product.product_id === dataPro[tmp].product_id);
         if (indexToUpdate !== -1) {
             dataPro[indexToUpdate] = newPro; // Update the item in the dataPro array
@@ -345,11 +317,8 @@ function updateAndCloseModal() {
 
     closeModal();
 }
-
 showData();
-
 function updateData(i) {
-    // console.log("hello from update btn");
     title.value = dataPro[i].product_name;
     price.value = dataPro[i].price;
     category.value = dataPro[i].category;
@@ -359,33 +328,22 @@ function updateData(i) {
     submit.innerHTML = 'Update';
     mood = 'update';
     tmp = i;
-
     openModal();
-
-    // Add an event listener for the "Update" button
     closeModalBtn.removeEventListener("click", closeModal);
     closeModalBtn.addEventListener("click", function () {
-        // Update data and close modal
-
-        //   updateAndCloseModal();
-
     });
-
     scroll({
         top: 0,
         behavior: "smooth",
     });
 }
-
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
         clearData();
     }
 }
-
 let searchMood = 'title';
-
 function getSearchMood(id) {
     let search = document.getElementById('search');
     if (id == 'searchTitle') {
@@ -406,9 +364,7 @@ function searchData(value) {
         if (dataPro[i].seller === logedinUser.id) {
             if (searchMood == 'title' && dataPro[i].product_name.toLowerCase().includes(value.toLowerCase())) {
                 table += `
-
             <tr data-product-id="${dataPro[i].product_id}">
-
                 <td>${i + 1}</td>
                 <td>${dataPro[i].product_name}</td>
                 <td>${dataPro[i].price}</td>
@@ -437,10 +393,6 @@ function searchData(value) {
     }
     document.getElementById('tbody').innerHTML = table;
 }
-
-// document.getElementById("submit").addEventListener("click", function () {
-//     console.log("submit btn");
-// });
 
 function generateProductId() {
     // Generate a unique product ID using timestamp
