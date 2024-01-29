@@ -119,51 +119,6 @@
     <script src="../components/footer/footer.js"></script>
 
 
-    <script>
-
-
-
-        let userId;
-
-        // Check if localStorage has user data
-        if (localStorage.user != null) {
-            userId = JSON.parse(localStorage.user);
-
-            let numOfCart;
-            let count = 0;
-            // Check if localStorage has cart data
-            if (localStorage.cartData != null) {
-                numOfCart = JSON.parse(localStorage.cartData);
-
-                for (let i = 0; i < numOfCart.length; i++) {
-                    if (userId.id == numOfCart[i].userId) {
-                        count += Number(numOfCart[i].numOfItems);
-                        document.getElementById("prod_count").innerHTML = `<span>${count}</span>`;
-                        // Assuming numOfItems is a property of each cart item
-                    } else {
-
-                    }
-                }
-            }
-            document.getElementById("login").style.display = "none";
-            document.getElementById("Profile").innerHTML = `<span>${userId.name}</span>`;
-
-
-            // Logout functionality
-            document.getElementById("logout").addEventListener("click", function () {
-                // Remove user data from localStorage
-                localStorage.removeItem("user");
-
-
-                // Redirect to the index page
-                window.location.href = "index.html";
-            });
-        } else {
-            document.getElementById("ProfileLI").style.display = "none";
-        }
-
-
-    </script>
 </body>
 
 </html>
