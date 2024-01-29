@@ -44,30 +44,38 @@ window.addEventListener("load", function () {
         let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
 
         var c = JSON.parse(localStorage.getItem("products"));
-        
-            if (selectedProduct.count === 0) {
-                alert("This item is out of stock");
-                e.preventDefault();
-                document.getElementById("AddToCart").value = "out Of Stock";
-                document.getElementById("AddToCart").disabled = true;
-                return;
-            }
+
+        if (selectedProduct.count === 0) {
+            alert("This item is out of stock");
+            e.preventDefault();
+            document.getElementById("AddToCart").value = "out Of Stock";
+            document.getElementById("AddToCart").disabled = true;
+            return;
+        }
         //sweet Alerttttttttttttttttttttttttt
-        let MyCurrentUser=JSON.parse(localStorage.getItem("user"));
-        
+        let MyCurrentUser = JSON.parse(localStorage.getItem("user"));
+        let currentId;
+        if (MyCurrentUser) {
+            currentId = MyCurrentUser.id;
+        } else {
+            currentId = -1;
+        }
+
         for (let i = 0; i < cartData.length; i++) {
-            if (cartData[i].productId == storedID && cartData[i].userId ==  MyCurrentUser.id) {
+            if (cartData[i].productId == storedID && cartData[i].userId == currentId ) {
                 alert("This item is already in your cart. You can't add it again.");
                 e.preventDefault();
                 document.getElementById("AddToCart").disabled = true;
                 return;
             }
         }
-        if (selectedSize.value == 0) {document.getElementById("alertContainer"
+        if (selectedSize.value == 0) {
+            document.getElementById("alertContainer"
             ).innerHTML = `<div class="alert alert-danger">
-     Please Choose the size of your product!
-  </div>`;
-        } else {document.getElementById("alertContainer").innerHTML = "";
+                Please Choose the size of your product!
+                </div>`;
+        } else {
+            document.getElementById("alertContainer").innerHTML = "";
             let numOfItems = document.getElementById("number").value;
             var sizeSelect = document.getElementById("select");
             var CheckTheExistenceOfUser = JSON.parse(localStorage.getItem("user"));
@@ -103,13 +111,13 @@ window.addEventListener("load", function () {
                         }).then((result) => {
                             window.location.href = "../html/login.html";
                         });
-                    } 
+                    }
                 });
             } else {
                 var currentUserId = JSON.parse(localStorage.getItem("user"))["id"];
                 let priceOfItem = product.price;
                 let seller = product.seller;
-              //  let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+                //  let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
                 let newCartItem = {
                     numOfItems: numOfItems,
                     sizeOfProduct: sizeOfProduct,
@@ -118,7 +126,7 @@ window.addEventListener("load", function () {
                     seller: seller,
                     priceOfItem: priceOfItem
                 };
-    
+
                 cartData.push(newCartItem);
                 localStorage.setItem("cartData", JSON.stringify(cartData));
                 const Toast = Swal.mixin({
@@ -137,7 +145,7 @@ window.addEventListener("load", function () {
                     title: "Added to cart successfully",
                 });
             }
-           
+
         }
     });
 });
