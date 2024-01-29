@@ -1,20 +1,8 @@
 
-
-
-
-    
-  
 document.getElementById("logout").addEventListener("click" , ()=>{
   window.location.href = "index.html";
-
 })
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    
+document.addEventListener("DOMContentLoaded", function() {  
   // get thr user from localStorage  
 var user = JSON.parse(localStorage.getItem("user"));
 var userName = user.name;
@@ -22,8 +10,6 @@ var email = user.email;
 // get username input from form and set value to userName
 document.getElementById("username").value = userName;
 document.getElementById("e-mail").value = email;
-
-
 });
 
 document.getElementById("submit").addEventListener("click" , ()=>{
@@ -33,7 +19,6 @@ var userName  = document.getElementById("username").value;
 
 
 //Validate Name //
-
     var input = userName;
     var regex = /^[a-zA-Z\s\-]+$/; 
 
@@ -65,9 +50,6 @@ document.getElementById("submit").addEventListener("click", function updatePassw
         // Store the updated user object back into local storage
         localStorage.setItem("user", JSON.stringify(user));
         var users = JSON.parse(localStorage.getItem("users"));
-        
-
-
     }
 });
 
