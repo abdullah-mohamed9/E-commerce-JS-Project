@@ -1,15 +1,16 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	  <!-- Font Awesome CSS (for sorting icons) -->
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<!-- Font Awesome CSS (for sorting icons) -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-	  <!-- DataTables CSS -->
-	  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-  
+	<!-- DataTables CSS -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -18,6 +19,7 @@
 
 	<title>AdminDashborad</title>
 </head>
+
 <body>
 
 
@@ -30,17 +32,17 @@
 		<ul class="side-menu top">
 			<li>
 				<a href="index.html">
-					<i class='bx bxs-dashboard' ></i>
+					<i class='bx bxs-dashboard'></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li >
+			<li>
 				<a href="Users.html">
-					<i class='bx bxs-group' ></i>
+					<i class='bx bxs-group'></i>
 					<span class="text">Customers</span>
 				</a>
 			</li>
-            <li >
+			<li>
 				<a href="Seller.html">
 					<i class='bx bx-user'></i>
 					<span class="text">Seller</span>
@@ -64,18 +66,18 @@
 					<span class="text">Message</span>
 				</a>
 			</li>
-			
+
 		</ul>
 		<ul class="side-menu">
 			<li>
 				<a href="updateAccount.html">
-					<i class='bx bxs-cog' ></i>
+					<i class='bx bxs-cog'></i>
 					<span class="text">Settings</span>
 				</a>
 			</li>
 			<li>
 				<a id="logoutBtn" href="#" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
+					<i class='bx bxs-log-out-circle'></i>
 					<span class="text">Logout</span>
 				</a>
 			</li>
@@ -89,20 +91,20 @@
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-			<i class='bx bx-menu' ></i>
+			<i class='bx bx-menu'></i>
 			<a href="#" class="nav-link">Categories</a>
 			<form action="#">
-				
+
 			</form>
 			<input type="checkbox" id="switch-mode" hidden>
 			<label for="switch-mode" class="switch-mode"></label>
 			<a href="messages.html" class="notification">
-				<i class='bx bxs-bell' ></i>
+				<i class='bx bxs-bell'></i>
 				<span id="numOfMessages" class="num">0</span>
 			</a>
 			<a href="updateAccount.html" class="profile">
 				<img src="../img/img.jpg">
-				<span id="yourName"  class="name"></span>
+				<span id="yourName" class="name"></span>
 
 			</a>
 		</nav>
@@ -117,7 +119,7 @@
 						<li>
 							<a href="index.html">Dashboard</a>
 						</li>
-						<li><i class='bx bx-chevron-right' ></i></li>
+						<li><i class='bx bx-chevron-right'></i></li>
 						<li>
 							<a class="active" href="Products.html">Products</a>
 						</li>
@@ -125,7 +127,7 @@
 				</div>
 			</div>
 
-            <div class="form">
+			<div class="form">
 
 				<!-- <div class="input">
 					<input class="inputs" type="text" placeholder="title" id="title">
@@ -142,53 +144,55 @@
 					<button id="submit">Create</button>
             </div> -->
 
-			<div class="table-data">
-				<div class="order">
-					<div class="head">
-						<h3>Products</h3>
-                        
-                        <input class="inputs search" id="search" placeholder="Search" type="text">
-						<button id="searchTitle">Search By Title</button>
-						<button id="searchCatergoy">Search By Category</button>
+				<div class="table-data">
+					<div class="order">
+						<div class="head">
+							<h3>Products</h3>
 
-                        <i id="x" class='bx bx-message-square-x'></i>
-						<i id="s" class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
+							<input class="inputs search" id="search" placeholder="Search" type="text">
+							<button id="searchTitle">Search By Title</button>
+							<button id="searchCatergoy">Search By Category</button>
+
+							<i id="x" class='bx bx-message-square-x'></i>
+							<i id="s" class='bx bx-search'></i>
+							<i class='bx bx-filter'></i>
+						</div>
+						<table>
+							<thead>
+								<tr>
+									<th id="title">Title <i class="fas fa-sort"></i></th>
+									<th id="price">Price <i class="fas fa-sort"></i></th>
+									<th id="category">category <i class="fas fa-sort"></i></th>
+									<th id="count">Count <i class="fas fa-sort"></i></th>
+									<th>Image</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody id="tbody">
+
+							</tbody>
+						</table>
 					</div>
-					<table>
-						<thead>
-							<tr>
-								<th id="title">Title <i class="fas fa-sort"></i></th>
-                                <th id="price">Price <i class="fas fa-sort"></i></th>
-								<th id="category">category <i class="fas fa-sort"></i></th>
-								<th id="count">Count <i class="fas fa-sort"></i></th>
-								<th>Image</th>
-								<th>Delete</th>
-							</tr>
-						</thead>
-						<tbody id="tbody">
-							
-						</tbody>
-					</table>     
 				</div>
-			</div>
 		</main>
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
-	
-   
+
+
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<script src="../js/script.js"></script>
-    <script src="../js/products.js"></script>
+	<script src="../js/products.js"></script>
 
-	  <!-- jQuery -->
-	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-	  <!-- DataTables JS -->
-	  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
-  
+	<!-- DataTables JS -->
+	<script type="text/javascript" charset="utf8"
+		src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
 </body>
+
 </html>

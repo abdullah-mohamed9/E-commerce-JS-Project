@@ -43,7 +43,7 @@ function showData(){
       <td>${productData[i].price}</td>
       <td>${productData[i].category}</td>
       <td>${productData[i].count}</td>
-      <td><img src="${productData[i].product_img}"></td>
+      <td><img src="../${productData[i].product_img}"></td>
       <td><span onclick="deleteProduct(${i})" class="status delete" ${isProductInCart(productData[i].product_id) ? 'disabled' : ''}>Delete</span></td>
       </tr>`
       ;  
