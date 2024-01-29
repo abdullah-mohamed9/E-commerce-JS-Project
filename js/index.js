@@ -13,37 +13,8 @@ function renderProduct() {                           //mohamed
   // Check if there are products in local storage
   if (products && products.length > 0) {
     // Clear existing content in the container
-  //  productsContainer.innerHTML = "";
-
-   // shoesContainer.innerHTML = "";
-
-    // products.forEach((item) => {
-    //   const productHTML = `
-    //     <div class="product text-center col-12 col-md-4 col-lg-3">
-    //     <div class="Product_image">
-    //     <img class="img-fluid mb-3" src="${item.product_img}" alt="product">
-    //     </div>
-    //     <div class="star">
-    //         <i class="fa-solid fa-star"></i>
-    //         <i class="fa-solid fa-star"></i>
-    //         <i class="fa-solid fa-star"></i>
-    //         <i class="fa-solid fa-star"></i>
-    //         <i class="fa-solid fa-star"></i>
-    //     </div>
-    //     <h5 class="p-name">${item.product_name}</h5>
-    //     <h4 class="p-price">${item.price}</h4>
-    //     <a href=html/productDetails.html?id=${item.product_id}  class="buy-btn id="">Buy Now</a>
-    // </div>
-    //     `;
-
-    //   // Append the product HTML to the container
-    //   productsContainer.innerHTML += productHTML;
-    // });
-
     let count = 0;
     for (let i = 0; i < products.length; i++) {
-
-
       let productHTML = `
         <div class="product text-center col-12 col-md-4 col-lg-3">
         <div class="Product_image">
@@ -58,7 +29,8 @@ function renderProduct() {                           //mohamed
         </div>
         <h5 class="p-name">${products[i].product_name}</h5>
         <h4 class="p-price">${products[i].price}$</h4>
-        <a href=html/productDetails.html?id=${products[i].product_id}  class="buy-btn id="">Buy Now</a>
+        
+        <a href=../html/productDetails.html?id=${products[i].product_id}  class="buy-btn id="">Buy Now</a>
     </div>
         `;
       if (products[i].category == "topwear" && count < 4) {

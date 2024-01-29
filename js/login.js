@@ -21,10 +21,6 @@ let eye_signup = document.querySelector("#eye-signup");
 let eye_signup_val = document.querySelector("#eye-signup-val");
 
 
-
-
-
-
 let users = [
     {
         id: 1,
@@ -115,7 +111,7 @@ submit.addEventListener("click", function (e) {
             icon: "success",
             title: "Signed in successfully"
         }).then((result) => {
-            window.location.href = "product.html";
+            window.location.href = "../index.html";
         });
     }
 });
@@ -172,13 +168,13 @@ function validateLogin() {
 
             if (users[i].type == "customer") {
                 console.log("user type is customer");
-                window.location.href = "index.html";
+                window.location.href = "../index.html";
 
             } else if (users[i].type == "seller") {
-                window.location.href = "seller/index.html";
+                window.location.href = "../seller/html/index.html";
             } else {
                 console.log("user type is admin");
-                window.location.href = "AdminDashborad/index.html";
+                window.location.href = "../AdminDashborad/html/index.html";
             }
             localStorage.setItem("user", JSON.stringify(users[i]));
             return true;
@@ -244,30 +240,30 @@ function validateSignup() {
 eye.addEventListener('click', function () {
     if (password.type == "password") {
         password.type = "text";
-        eye.src = "images/showPass/eye-open.png";
+        eye.src = "../images/showPass/eye-open.png";
     } else {
         password.type = "password";
-        eye.src = "images/showPass/eye-close.png";
+        eye.src = "../images/showPass/eye-close.png";
     }
 });
 
 eye_signup.addEventListener('click', function () {
     if (password_signup.type == "password") {
         password_signup.type = "text";
-        eye_signup.src = "images/showPass/eye-open.png";
+        eye_signup.src = "../images/showPass/eye-open.png";
     } else {
         password_signup.type = "password";
-        eye_signup.src = "images/showPass/eye-close.png";
+        eye_signup.src = "../images/showPass/eye-close.png";
     }
 });
 
 eye_signup_val.addEventListener('click', function () {
     if (password_signup_val.type == "password") {
         password_signup_val.type = "text";
-        eye_signup_val.src = "images/showPass/eye-open.png";
+        eye_signup_val.src = "../images/showPass/eye-open.png";
     } else {
         password_signup_val.type = "password";
-        eye_signup_val.src = "images/showPass/eye-close.png";
+        eye_signup_val.src = "../images/showPass/eye-close.png";
     }
 });
 
