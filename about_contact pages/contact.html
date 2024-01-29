@@ -24,18 +24,12 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
-
-
-    <style>
-
-
-    </style>
-
 </head>
 
 <body>
 
     <!-- Header -->
+<<<<<<< HEAD
 
     <nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
         <div class="container">
@@ -91,6 +85,10 @@
         </div>
     </nav>
     
+=======
+    <section id="header">
+    </section>
+>>>>>>> 0da6bdeaa9cd8eff00ca8b1f731c2f5878769e55
     <hr>
     <hr>
     <hr>
@@ -173,69 +171,7 @@
 
     <div id="footer"></div>
 
-    <!-- <footer class="mt-5 py-5">
-        <div class="row container mx-auto pt-5">
-            <div class="footer-one col-12 col-mg-6 col-lg-3">
-                <img src="../images/logo2.png" alt="Footer Img">
-                <p class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptatem corrupti enim
-                    assumenda
-                    sequi ullam animi cumque, optio fugiat ut sapiente</p>
-            </div>
-            <div class="footer-one col-12 col-mg-6 col-lg-3 mb-3">
-                <h5 class="pb-2">Featured</h5>
-                <ul class="text-uppercase list-unstyled ">
-                    <li><a href="#" onclick="updateFilter('all')">All</a></li>
-                    <li><a href="#" onclick="updateFilter('topwear')">Topwear</a></li>
-                    <li><a href="#" onclick="updateFilter('bottomwear')">Bottomwear</a></li>
-                    <li><a href="#" onclick="updateFilter('jacket')">Jacket</a></li>
-                    <li><a href="#" onclick="updateFilter('shoes')">Shoes</a></li>
-                    
-                </ul>
-            </div>
-            <div class="footer-one col-12 col-mg-6 col-lg-3 mb-3">
-                <h5 class="pb-2">Contact Us</h5>
-                <div>
-                    <h6 class="text-uppercase">Address</h6>
-                    <p>123, Mansoura Egypt</p>
-                </div>
-                <div>
-                    <h6 class="text-uppercase">Phone</h6>
-                    <p>0_777_5000</p>
-                </div>
-                <div>
-                    <h6 class="text-uppercase">Email</h6>
-                    <p>ITI@gmail.com</p>
-                </div>
-            </div>
-            <div class="footer-one col-12 col-mg-6 col-lg-3">
-                <h5 class="pb-2">Instagram</h5>
-                <div class="row">
-                    <img class="img-fluid w-25 h-100 m-2" src="../images/insta/1.jpg" alt="Instagram Img">
-                    <img class="img-fluid w-25 h-100 m-2" src="../images/insta/2.jpg" alt="Instagram Img">
-                    <img class="img-fluid w-25 h-100 m-2" src="../images/insta/3.jpg" alt="Instagram Img">
-                    <img class="img-fluid w-25 h-100 m-2" src="../images/insta/4.jpg" alt="Instagram Img">
-                    <img class="img-fluid w-25 h-100 m-2" src="../images/insta/5.jpg" alt="Instagram Img">
-                </div>
-            </div>
-        
-        </div>
-        <div class="copyright mt-5">
-            <div class="row container mx-auto">
-                <div class="col-12 col-md-6 col-lg-3 mb-4">
-                    <img src="../images/payment.png" alt="">
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 text-nowrap mb-2">
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                </div>
-                <div id="footer-social" class="col-12 col-md-6 col-lg-4">
-                    <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-        </footer> -->
-    <!-- End Footer -->
+    
     <script src="../js/all.min.js"></script>
 
     <!-- Start Script -->
@@ -250,6 +186,7 @@
 
   
     <script>
+<<<<<<< HEAD
 
 
 
@@ -259,20 +196,31 @@
         if (localStorage.user != null) {
             userId = JSON.parse(localStorage.user);
         
+=======
+        let userId;
+        // Check if localStorage has user data
+        if (localStorage.user != null) {
+            userId = JSON.parse(localStorage.user);
+>>>>>>> 0da6bdeaa9cd8eff00ca8b1f731c2f5878769e55
             let numOfCart;
             let count=0;
             // Check if localStorage has cart data
             if (localStorage.cartData != null) {
                 numOfCart = JSON.parse(localStorage.cartData);
+<<<<<<< HEAD
         
                 console.log(userId.id);
         
+=======
+                console.log(userId.id);
+>>>>>>> 0da6bdeaa9cd8eff00ca8b1f731c2f5878769e55
                 for (let i = 0; i < numOfCart.length; i++) {
                     if (userId.id == numOfCart[i].userId) {
                         count+=Number(numOfCart[i].numOfItems);
                         document.getElementById("prod_count").innerHTML = `<span>${count}</span>`;
                         // Assuming numOfItems is a property of each cart item
                     } else {
+<<<<<<< HEAD
                         
                     }
                 }
@@ -286,15 +234,29 @@
                 // Remove user data from localStorage
                 localStorage.removeItem("user");
         
+=======
+                    }
+                }
+            }
+            document.getElementById("login").style.display = "none";
+            document.getElementById("Profile").innerHTML = `<span>${userId.name}</span>`;
+            // Logout functionality
+            document.getElementById("logout").addEventListener("click", function () {
+                // Remove user data from localStorage
+                localStorage.removeItem("user");
+>>>>>>> 0da6bdeaa9cd8eff00ca8b1f731c2f5878769e55
                 // Redirect to the index page
                 window.location.href = "index.html";
             });
         }else{
             document.getElementById("ProfileLI").style.display="none";
         }
+<<<<<<< HEAD
         
             </script>
 
+=======
+    </script>
+>>>>>>> 0da6bdeaa9cd8eff00ca8b1f731c2f5878769e55
 </body>
-
 </html>
