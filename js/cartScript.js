@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <td><a href="#" class="remove-item"><i class="fas fa-trash-alt"></i></a></td>
                     <td><img src="${productDetails.product_img}" alt="Cart Img"></td>
                     <td><h5>${productDetails.product_name}</h5></td>
-                    <td><h5>${productDetails.price}</h5></td>
+                    <td><h5>$${productDetails.price}</h5></td>
                     <td><input class="w-50 pl-1" type="number" value="${cartItem.numOfItems}" min="1" max="5" oninput="validateInput(this)"  data-product-id="${productId}"></td>
                     <td><h5 class="totalPrice">$${totalPrice.toFixed(2)}</h5></td>
                 `;
