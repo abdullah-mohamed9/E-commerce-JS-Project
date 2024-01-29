@@ -29,9 +29,9 @@
 <body>
 
     <!-- Header -->
-<<<<<<< HEAD
 
-    <nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+
+    <!-- <nav id="navBar" class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
         <div class="container">
             <img src="../images/logo1.png" alt="Logo Img">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -83,12 +83,12 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
     
-=======
+
     <section id="header">
     </section>
->>>>>>> 0da6bdeaa9cd8eff00ca8b1f731c2f5878769e55
+    
     <hr>
     <hr>
     <hr>
@@ -186,77 +186,51 @@
 
   
     <script>
-<<<<<<< HEAD
 
 
 
-        let userId;
         
-        // Check if localStorage has user data
-        if (localStorage.user != null) {
-            userId = JSON.parse(localStorage.user);
-        
-=======
-        let userId;
-        // Check if localStorage has user data
-        if (localStorage.user != null) {
-            userId = JSON.parse(localStorage.user);
->>>>>>> 0da6bdeaa9cd8eff00ca8b1f731c2f5878769e55
-            let numOfCart;
-            let count=0;
-            // Check if localStorage has cart data
-            if (localStorage.cartData != null) {
-                numOfCart = JSON.parse(localStorage.cartData);
-<<<<<<< HEAD
-        
-                console.log(userId.id);
-        
-=======
-                console.log(userId.id);
->>>>>>> 0da6bdeaa9cd8eff00ca8b1f731c2f5878769e55
-                for (let i = 0; i < numOfCart.length; i++) {
-                    if (userId.id == numOfCart[i].userId) {
-                        count+=Number(numOfCart[i].numOfItems);
-                        document.getElementById("prod_count").innerHTML = `<span>${count}</span>`;
-                        // Assuming numOfItems is a property of each cart item
-                    } else {
-<<<<<<< HEAD
-                        
-                    }
-                }
+let userId;
+
+// Check if localStorage has user data
+if (localStorage.user != null) {
+    userId = JSON.parse(localStorage.user);
+
+    let numOfCart;
+    let count = 0;
+    // Check if localStorage has cart data
+    if (localStorage.cartData != null) {
+        numOfCart = JSON.parse(localStorage.cartData);
+
+        console.log(userId.id);
+
+        for (let i = 0; i < numOfCart.length; i++) {
+            if (userId.id == numOfCart[i].userId) {
+                count += Number(numOfCart[i].numOfItems);
+                document.getElementById("prod_count").innerHTML = <span>${count}</span>;
+                // Assuming numOfItems is a property of each cart item
+            } else {
+
             }
-              document.getElementById("login").style.display="none";
-            document.getElementById("Profile").innerHTML =`<span>${userId.name}</span>`;
-        
-        
-             // Logout functionality
-             document.getElementById("logout").addEventListener("click", function () {
-                // Remove user data from localStorage
-                localStorage.removeItem("user");
-        
-=======
-                    }
-                }
-            }
-            document.getElementById("login").style.display = "none";
-            document.getElementById("Profile").innerHTML = `<span>${userId.name}</span>`;
-            // Logout functionality
-            document.getElementById("logout").addEventListener("click", function () {
-                // Remove user data from localStorage
-                localStorage.removeItem("user");
->>>>>>> 0da6bdeaa9cd8eff00ca8b1f731c2f5878769e55
-                // Redirect to the index page
-                window.location.href = "index.html";
-            });
-        }else{
-            document.getElementById("ProfileLI").style.display="none";
         }
-<<<<<<< HEAD
-        
-            </script>
+    }
+    document.getElementById("login").style.display = "none";
+    document.getElementById("Profile").innerHTML = <span>${userId.name}</span>;
 
-=======
+
+    // Logout functionality
+    document.getElementById("logout").addEventListener("click", function () {
+        // Remove user data from localStorage
+        localStorage.removeItem("user");
+
+        // Redirect to the index page
+        window.location.href = "index.html";
+    });
+} else {
+    document.getElementById("ProfileLI").style.display = "none";
+}
+
+
     </script>
->>>>>>> 0da6bdeaa9cd8eff00ca8b1f731c2f5878769e55
 </body>
 </html>
