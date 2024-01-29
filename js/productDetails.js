@@ -41,16 +41,33 @@ window.addEventListener("load", function () {
 
     var selectedSize = document.getElementById("select");
     document.getElementById("AddToCart").addEventListener("click", function () {
-        if (selectedSize.value == 0) {
-            document.getElementById(
-                "alertContainer"
+        let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+
+        var c = JSON.parse(localStorage.getItem("products"));
+        
+            if (selectedProduct.count === 0) {
+                alert("This item is out of stock");
+                e.preventDefault();
+                document.getElementById("AddToCart").value = "out Of Stock";
+                document.getElementById("AddToCart").disabled = true;
+                return;
+            }
+      //  var x=50;
+        //sweet Alerttttttttttttttttttttttttt
+        let MyCurrentUser=JSON.parse(localStorage.getItem("user"));
+        for (let i = 0; i < cartData.length; i++) {
+            if (cartData[i].productId == storedID && cartData[i].userId ==  MyCurrentUser.id) {
+                alert("This item is already in your cart. You can't add it again.");
+                e.preventDefault();
+                document.getElementById("AddToCart").disabled = true;
+                return;
+            }
+        }
+        if (selectedSize.value == 0) {document.getElementById("alertContainer"
             ).innerHTML = `<div class="alert alert-danger">
      Please Choose the size of your product!
   </div>`;
-        } else {
-            document.getElementById(
-                "alertContainer"
-            ).innerHTML = "";
+        } else {document.getElementById("alertContainer").innerHTML = "";
             let numOfItems = document.getElementById("number").value;
             var sizeSelect = document.getElementById("select");
             var CheckTheExistenceOfUser = JSON.parse(localStorage.getItem("user"));
@@ -67,7 +84,7 @@ window.addEventListener("load", function () {
             let priceOfItem = product.price;
             let seller = product.seller;
 
-            let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+          //  let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
             console.log(storedID);
             let newCartItem = {
                 numOfItems: numOfItems,
