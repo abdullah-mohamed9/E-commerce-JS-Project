@@ -153,7 +153,9 @@ function validateInputs() {
 function isEmailDuplicate(newEmail) {
     for (let i = 0; i < userData.length; i++) {
         if(i==temp)continue;
-        if (userData[i].email === newEmail && userData[i].type == "customer") {
+        if (userData[i].email === newEmail && userData[i].type == "customer" && type.value == "customer") {
+            return true;
+        }else if(userData[i].email === newEmail &&type.value == "seller" ){
             return true;
         }
     }
@@ -234,7 +236,6 @@ function searchData(value){
             table += `
             <tr>
             <td>
-            <img src="img/img.jpg">
             <p>${userData[i].name}</p>
              </td>
              <td>${userData[i].email}</td>
