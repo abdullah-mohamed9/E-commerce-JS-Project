@@ -3,6 +3,7 @@ const logedinUser = JSON.parse(localStorage.getItem('user'));
 let title = document.getElementById("title");
 let price = document.getElementById("price");
 let count = document.getElementById("count");
+let description = document.getElementById("description");
 let category = document.getElementById("category");
 let submit = document.getElementById("submit");
 let imagePreview = document.getElementById('imgPreview');
@@ -41,8 +42,7 @@ signOut.addEventListener("click", function (event) {
         confirmButtonText: "Yes,Sign out!"
     }).then((result) => {
         if (result.isConfirmed) {
-            // Remove the user from localStorage    
-            // Redirect to the login page
+
             Toast.fire({
                 title: "Sign out!",
                 text: "You have signed out successfully.",
@@ -76,6 +76,7 @@ submit.onclick = function (event) {
         product_name: title.value,
         price: price.value,
         count: count.value,
+        description: description.value,
         category: category.value,
         product_img: imagePreview.src,
         seller: logedinUser.id,
@@ -133,6 +134,13 @@ submit.onclick = function (event) {
             count.style.border = "solid 3px green";
             count_val.innerHTML = '';
         }
+        if (description.value.trim() == '') {
+            description.style.border = "solid 3px red";
+            description_val.innerHTML = 'please write description';
+        } else {
+            description.style.border = "solid 3px green";
+            description_val.innerHTML = '';
+        }
         if (category.value == '0') {
             category.style.border = "solid 3px red";
 
@@ -173,15 +181,18 @@ function clearData() {
     count.value = '';
     category.value = '0';
     img.value = '';
+    description.value = '';
     imagePreview.src = 'images/logo1.png';
     title.style.border = "";
     price.style.border = "";
     count.style.border = "";
     category.style.border = "";
+    description.style.border = "";
     img.style.border = "";
     title_val.innerHTML = '';
     price_val.innerHTML = '';
     count_val.innerHTML = '';
+    description_val.innerHTML = '';
     category_val.innerHTML = '';
     img_val.innerHTML = '';
 }
@@ -294,6 +305,7 @@ function updateAndCloseModal() {
         product_name: title.value,
         price: price.value,
         count: count.value,
+        description: description.value,
         category: category.value,
         product_img: imagePreview.src,
         seller: logedinUser.id,
@@ -333,7 +345,8 @@ function updateData(i) {
     title.value = dataPro[i].product_name;
     price.value = dataPro[i].price;
     category.value = dataPro[i].category;
-    count.value = dataPro[i].count;
+    description.value = dataPro[i].description,
+        count.value = dataPro[i].count;
     imagePreview.src = dataPro[i].product_img;
     submit.innerHTML = 'Update';
     mood = 'update';

@@ -630,7 +630,16 @@ body {
     padding: 50px 70px 50px 70px;
     background: rgba(0, 77, 77, .9);
 }
-
+@media screen and (max-width: 768px) {
+    .login-snip {
+        width: 100%;
+        padding: 70px 30px;
+    }
+    .login-box {
+        width: 80%;
+        }
+    
+}
 .login-snip .login,
 .login-snip .sign-up-form {
     top: 0;

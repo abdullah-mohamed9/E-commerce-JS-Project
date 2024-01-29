@@ -82,18 +82,6 @@ let users = [
     ];
     
 
-//yousef
-document.addEventListener("DOMContentLoaded", function () {
-   
-    const user = JSON.parse(localStorage.getItem("user"));
-
-    // Check if the user is authenticated and has the "admin" role
-    if (!user || user.type !== "admin") {
-      window.location.pathname = "/"; // Redirect to the home page
-    }
-  });
-
-
 if (localStorage.getItem("users") != null) {
     users = JSON.parse(localStorage.getItem("users"));
 } else {
