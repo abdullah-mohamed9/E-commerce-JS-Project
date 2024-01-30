@@ -201,6 +201,7 @@ if (localStorage.getItem("products") == null) {
       seller: 1,
       category: "topwear",
     },
+    
   ];
   localStorage.setItem("products", JSON.stringify(products));
 }
