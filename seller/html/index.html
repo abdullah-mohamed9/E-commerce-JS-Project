@@ -170,7 +170,7 @@
           <ul class="nav flex-column nav-pills">
             <li class="nav-item">
               <a class="nav-link active" id="products-tab" data-bs-toggle="pill" data-bs-target="#products" href="#">
-                <i class="fa-solid fa-shop" style="height: 16px; margin-right: 10px;"></i> 
+                <i class="fa-solid fa-shop" style="height: 16px; margin-right: 10px;"></i>
                 Products
               </a>
             </li>
@@ -334,15 +334,42 @@
             <h1 class="h2" style="color: #5f4395;">My Profile</h1><br>
 
           </div>
-          <div class="profile-container">
-            <img src="../../images/person.jfif" style="border-radius: 50%;width: 100px;">
-            <p id="un" class="h3">User Name</p>
-            <p id="uEmail" class="h2">Email</p>
+          <div id="sellerInfo">
+            <div class="profile-container">
+              <img src="../../images/person.jfif" style="border-radius: 50%;width: 100px;">
+              <p id="un" class="h3">User Name</p>
+              <p id="uEmail" class="h2">Email</p>
+            </div>
+            <div class="editProfile">
+              <button type="button" class="btn btn-primary mt-3 ml-3 " style="margin-left: 13%;"
+                id="openBtn">Edit</button>
+            </div>
+          </div>
+          <div class="row mt-4 p-2 mb-5" id="EditDataDiv" style="display: none; border: 1px solid black; width: 50%;">
+            <div class="m-1 p-1 ">
+              <label for="Username">Username</label>
+              <input type="text" class="form-control" id="Username" placeholder="username">
+              <div id="invalid_username"></div>
+            </div>
+            <div class="m-1 p-1 ">
+              <label for="Email1">Email address</label>
+              <input type="email" class="form-control" id="Email1" aria-describedby="emailHelp"
+                placeholder="Enter email">
+              <div id="invalid_email"></div>
+            </div>
+            <div class="m-1 p-1 ">
+              <label for="Password1">Password</label>
+              <input type="password" class="form-control" id="Password1" placeholder="Password">
+              <div id="invalid_password"></div>
+            </div>
+            <div style="margin-top: 10px; text-align: center;">
+              <button type="button" class="btn btn-primary m-3" style="text-align: center;" id="saveChanges">Save
+                Changes</button>
+            </div>
           </div>
         </div>
+      </main>
     </div>
-    </main>
-  </div>
   </div>
 
   <!-- Your existing script imports -->
@@ -358,7 +385,120 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="../../js/all.min.js"></script>
   <script src="../js/dashboard.js"></script>
+
+
   <script>
+    let username = document.getElementById("Username");
+    let email = document.getElementById("Email1");
+    let password = document.getElementById("Password1");
+    let user = JSON.parse(localStorage.getItem("user"));
+    let invalid_username = document.getElementById("invalid_username");
+    let invalid_email = document.getElementById("invalid_email");
+    let invalid_password = document.getElementById("invalid_password");
+    let openBtn = document.getElementById("openBtn");
+    let div = document.getElementById("EditDataDiv");
+    let saveChanges = document.getElementById("saveChanges");
+    let sellerInfo = document.getElementById("sellerInfo");
+    let users = JSON.parse(localStorage.getItem("users"));
+
+    const nameRegex = /^[a-zA-Z0-9 ]{3,}$/;
+    const emailRegex = /^[a-zA-Z0-9_.]{4,}@(yahoo|gmail|hotmail|outlook).(com|net|eg)$/;
+
+
+    openBtn.addEventListener("click", function () {
+      div.style.display = "block";
+      username.value = user.name;
+      email.value = user.email;
+      password.value = user.password;
+      sellerInfo.style.display = "none";
+    });
+
+    saveChanges.addEventListener("click", function () {
+      if (!nameRegex.test(username.value) || !emailRegex.test(email.value) || password.value.length < 8) {
+        if (!nameRegex.test(username.value)) {
+          username.style.border = "2px solid red";
+          invalid_username.innerHTML = "Username must be more than 3 char";
+        } else {
+          username.style.border = "2px solid green";
+          invalid_username.innerHTML = "";
+        }
+        if (!emailRegex.test(email.value)) {
+          email.style.border = "2px solid red";
+          invalid_email.innerHTML = "invalid email EX: <span style='color: #b6b3b3;'><i>iti@gmail.com</i></span>"
+        } else {
+          email.style.border = "2px solid green";
+          invalid_email.innerHTML = "";
+        }
+        if (password.value.length < 8) {
+          password.style.border = "2px solid red";
+          invalid_password.innerHTML = "Password must be more than 8 char";
+        } else {
+          password.style.border = "2px solid green";
+          invalid_password.innerHTML = "";
+        }
+      } else {
+        for (let i = 0; i < users.length; i++) {
+          if (users[i].id == user.id) {
+            users[i].name = username.value;
+            users[i].email = email.value;
+            users[i].password = password.value;
+            localStorage.setItem("users", JSON.stringify(users));
+            localStorage.setItem("user", JSON.stringify(users[i]));
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Your changes have been saved',
+              showConfirmButton: false,
+              timer: 1500
+            }).then(function () {
+              div.style.display = "none";
+              sellerInfo.style.display = "block";
+              clearData();
+            });
+            break;
+          }
+        }
+
+      }
+    });
+
+    function clearData() {
+      email.value = "";
+      username.value = "";
+      password.value = "";
+      invalid_username.innerHTML = "";
+      invalid_email.innerHTML = "";
+      invalid_password.innerHTML = "";
+      username.style.border = "";
+      email.style.border = "";
+      password.style.border = "";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //display current user data
 
     document.getElementById("un").innerText += ": " + JSON.parse(localStorage.getItem("user")).name;
