@@ -363,6 +363,8 @@
               <div id="invalid_password"></div>
             </div>
             <div style="margin-top: 10px; text-align: center;">
+              <button type="button" class="btn btn-danger m-3" style="text-align: center;"
+                id="cancelChanges">Cancel</button>
               <button type="button" class="btn btn-primary m-3" style="text-align: center;" id="saveChanges">Save
                 Changes</button>
             </div>
@@ -398,6 +400,7 @@
     let openBtn = document.getElementById("openBtn");
     let div = document.getElementById("EditDataDiv");
     let saveChanges = document.getElementById("saveChanges");
+    let cancelChanges = document.getElementById("cancelChanges");
     let sellerInfo = document.getElementById("sellerInfo");
     let users = JSON.parse(localStorage.getItem("users"));
 
@@ -458,10 +461,13 @@
             break;
           }
         }
-
       }
     });
-
+    cancelChanges.addEventListener("click", function () {
+      clearData();
+      sellerInfo.style.display = "block";
+      div.style.display = "none";
+    });
     function clearData() {
       email.value = "";
       username.value = "";
