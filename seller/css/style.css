@@ -94,20 +94,22 @@ td {
 #price_val,
 #category_val,
 #category_val,
-#count_val,#description_val {
+#count_val,
+#description_val {
     color: red;
     font-size: 12px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-#signOut{
+#signOut {
     color: red;
     font-size: 18px;
     background-color: rgba(0, 0, 0, 0);
     border: none;
 }
-#signOut:hover{
+
+#signOut:hover {
     color: #fff;
     font-size: 18px;
     background-color: red;
@@ -120,6 +122,7 @@ td {
     transition: all 0.3s ease-in-out;
     color: #000 !important;
 }
+
 .nav-pills .nav-link.active {
     background-color: #677f97;
     color: #000 !important;
@@ -132,4 +135,13 @@ td {
 
 .nav-pills .nav-link.active:focus {
     color: #000 !important;
+}
+
+#invalid_username,
+#invalid_email,
+#invalid_password {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
