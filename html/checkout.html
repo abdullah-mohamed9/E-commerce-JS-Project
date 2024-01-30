@@ -281,18 +281,29 @@
         </div>
     </div>
     <script>
+
         window.addEventListener("load", function () {
-            var CartData = JSON.parse(localStorage.getItem("cartData"));
+            let currentUserId = JSON.parse(localStorage.getItem("user"))?.id;
+            let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+            let userCart = cartData.filter(item => item.userId === currentUserId);
             var innerDiv = document.getElementById("myInnerDiv");
-            if (CartData) {
-                for (let i = 0; i < CartData.length; i++) {
-                    var productId = CartData[i]['productId'];
-                    var products = JSON.parse(localStorage.getItem('products'));
-                    if (products[productId]) {
+            if (userCart.length > 0) {
+                let productsData = JSON.parse(localStorage.getItem("products")) || {};
+                userCart.forEach(function (cartItem) {
+                    var productId = cartItem.productId;
+                    if (cartItem.productId) {
+                        let productIndex = -1;
+                        for (let index = 0; index < productsData.length; index++) {
+                            if (parseInt(productsData[index].product_id) === parseInt(productId)) {
+                                productIndex = index;
+                                break;
+                            }
+                        }
+
                         var imageElement = document.createElement("img");
                         imageElement.setAttribute("width", "50px");
-                        imageElement.src = products[productId]['product_img'];
-                        var title = products[productId]['product_name'];
+                        imageElement.src = productsData[productIndex]['product_img'];
+                        var title = productsData[productIndex]['product_name'];
                         var titleElement = document.createElement("p");
                         titleElement.innerText = title;
                         var hrElement = document.createElement("hr");
@@ -301,12 +312,11 @@
                         innerDiv.appendChild(titleElement);
                         innerDiv.appendChild(hrElement);
 
-                        console.log(productId);
                     }
-                }
+
+                });
+
             }
-
-
             document.getElementById("total").innerText = JSON.parse(localStorage.getItem('totalPrice'));
             document.getElementById("subtotal").innerText = JSON.parse(localStorage.getItem('subTotal'));
         });

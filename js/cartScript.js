@@ -29,10 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
         let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
         let userCart = cartData.filter(item => item.userId === currentUserId);
         let cartBody = document.getElementById("cartBody");
+
         if (userCart.length > 0) {
             let productsData = JSON.parse(localStorage.getItem("products")) || {};
-            console.log(productsData);
+
             userCart.forEach(function (cartItem) {
+
                 var productId = cartItem.productId;
                 if (cartItem.productId) {
                     let productIndex = -1;

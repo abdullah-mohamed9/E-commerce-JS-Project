@@ -86,8 +86,6 @@ document.getElementById("submit").addEventListener("click", function updatePassw
             localStorage.setItem("user", JSON.stringify(user));
             alert(" updated successfully!");
 
-            
-           
         } else {
             alert("User not found in users array!");
         }

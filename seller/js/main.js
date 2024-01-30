@@ -90,7 +90,7 @@ submit.onclick = function (event) {
         product_id: generateProductId()
     };
 
-    if (titleRegex.test(title.value) && title.value.trim() != '' && description.value.trim() != '' && numberRegex.test(price.value) && numberRegex.test(count.value) && category.value != '0' && newPro.count < 100 && img.value != '') {
+    if (titleRegex.test(title.value) && title.value.trim() != '' && description.value.trim() != '' && numberRegex.test(price.value) && price.value != 0 && count.value !=0 && numberRegex.test(count.value) && category.value != '0' && newPro.count <= 100 && img.value != '') {
         if (mood === 'create') {
             dataPro.push(newPro);
         } else {
@@ -113,14 +113,14 @@ submit.onclick = function (event) {
             title.style.border = "solid 3px green";
             title_val.innerHTML = '';
         }
-        if (price.value.trim() == '' || numberRegex.test(price.value) == false) {
+        if (price.value.trim() == '' || numberRegex.test(price.value) == false || price.value == 0) {
             price.style.border = "solid 3px red";
-            price_val.innerHTML = 'Price must be a positive number only';
+            price_val.innerHTML = 'Price must be a positive number only and not 0';
         } else {
             price.style.border = "solid 3px green";
             price_val.innerHTML = '';
         }
-        if (count.value.trim() == '' || numberRegex.test(count.value) == false || count.value > 100) {
+        if (count.value.trim() == '' || numberRegex.test(count.value) == false || count.value > 100 || count.value == 0) {
             count.style.border = "solid 3px red";
             count_val.innerHTML = 'Count must be between 1 and 100';
         } else {
@@ -341,6 +341,7 @@ window.onclick = function (event) {
         clearData();
     }
 }
+
 let searchMood = 'title';
 function getSearchMood(id) {
     let search = document.getElementById('search');
@@ -393,6 +394,5 @@ function searchData(value) {
 }
 
 function generateProductId() {
-    // Generate a unique product ID using timestamp
     return Date.now().toString();
 }
