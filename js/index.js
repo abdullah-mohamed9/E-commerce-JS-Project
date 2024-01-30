@@ -28,6 +28,7 @@ function renderProduct() {
         </div>
       `;
 
+
       if (products[i].category == "topwear" && count < 4) {
         count++;
         // Append the product HTML to the container

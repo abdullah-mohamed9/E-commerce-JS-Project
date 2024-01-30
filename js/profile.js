@@ -1,6 +1,8 @@
 
-document.getElementById("logout").addEventListener("click" , ()=>{
-  window.location.href = "index.html";
+document.getElementById("logout2").addEventListener("click" , ()=>{
+  window.location.href = "../html/login.html";
+   // Remove user data from localStorage
+   localStorage.removeItem("user");
 })
 document.addEventListener("DOMContentLoaded", function() {  
   // get thr user from localStorage  
@@ -86,6 +88,12 @@ document.getElementById("submit").addEventListener("click", function updatePassw
             localStorage.setItem("user", JSON.stringify(user));
             alert(" updated successfully!");
 
+            //clear input fields
+            document.getElementById("Currentpassword").value = "";
+            document.getElementById("Newpassword").value = "";
+            document.getElementById("Confirmnewpassword").value = "";
+            
+           
         } else {
             alert("User not found in users array!");
         }

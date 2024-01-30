@@ -49,7 +49,7 @@ let navbar=
                       
                     </a>
                     <div class="dropdown-menu" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="../../html/profile.html">Update</a>
+                        <a class="dropdown-item" href="../../html/profile.html">Profile</a>
                         <a id="logout" class="dropdown-item" href="../../index.html">Logout</a>
                     </div>
                 </li>
