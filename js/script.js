@@ -15,7 +15,7 @@ for (var i in p) {
     <i class="bi bi-star-fill"></i>
     <i class="bi bi-star"></i>
   </div>
-  <h4>${p[i].price}</h4>
+  <h4>${p[i].price}$</h4>
 </div>
 </div>`;
   myproduct_container.insertAdjacentHTML("beforeend", product);
