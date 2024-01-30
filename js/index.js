@@ -31,6 +31,7 @@ function renderProduct() {                           //mohamed
         <h4 class="p-price">${products[i].price}$</h4>
         
        <a href=html/product.html  class="buy-btn id="">Buy Now</a>
+       <!--         <a href=html/productDetails.html?id=${products[i].product_id}  class="buy-btn id="">Buy Now</a>       -->
 
     </div>
         `;
