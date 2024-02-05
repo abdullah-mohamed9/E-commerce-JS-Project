@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                     if (productIndex !== -1) {
                         let productDetails = productsData[productIndex];
-                        console.log(productDetails);
                         if (productDetails) {
                             let totalPrice = parseFloat(productDetails.price) * parseInt(cartItem.numOfItems);
                             itemPrice = totalPrice;
@@ -99,6 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                         localStorage.setItem("cartData", JSON.stringify(cartData));
                                         calculateSubtotal();
                                         updateTotal();
+                                        if(cartData.length < 1){
+                                            shippingElement.innerText = "$0.00";
+                                            cartBody.innerHTML = `<tr  height='30px'><td colspan="6">Your cart is empty</td></tr>`;
+                                        }
                                         Toast.fire({
                                             icon: "Deleted",
                                             title: "the item has been deleted.",
@@ -109,7 +112,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             });
                         }
                     }
-
                     else {
                         console.warn("Product details not found for productId:", productId);
                     }
