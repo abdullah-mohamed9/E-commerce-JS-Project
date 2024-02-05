@@ -35,15 +35,8 @@ html {
 	overflow-x: hidden;
 }
 
-body.dark {
-	--light: #0C0C1E;
-	--grey: #060714;
-	--dark: #FBFBFB;
-}
-
 body {
 	background: var(--grey);
-	/* overflow-x: hidden; */
 }
 
 
@@ -61,9 +54,7 @@ body {
 	overflow-x: hidden;
 	scrollbar-width: none;
 }
-#sidebar::--webkit-scrollbar {
-	display: none;
-}
+
 #sidebar.hide {
 	width: 60px;
 }
@@ -270,7 +261,7 @@ body {
 	display: flex;
 	align-items: center;
 	text-decoration: none;
-	color: #333; /* Adjust the color as needed */
+	color: #333; 
   }
   
   #content nav .profile img {
@@ -278,40 +269,16 @@ body {
 	height: 36px;
 	object-fit: cover;
 	border-radius: 50%;
-	margin-right: 8px; /* Adjust the margin as needed */
+	margin-right: 8px; 
   }
   
   #content nav .profile .name {
-	font-size: 14px; /* Adjust the font size as needed */
+	font-size: 14px; 
 	font-weight: bold;
   }
-#content nav .switch-mode {
-	display: block;
-	min-width: 50px;
-	height: 25px;
-	border-radius: 25px;
-	background: var(--grey);
-	cursor: pointer;
-	position: relative;
-}
-#content nav .switch-mode::before {
-	content: '';
-	position: absolute;
-	top: 2px;
-	left: 2px;
-	bottom: 2px;
-	width: calc(25px - 4px);
-	background: var(--blue);
-	border-radius: 50%;
-	transition: all .3s ease;
-}
-#content nav #switch-mode:checked + .switch-mode::before {
-	left: calc(100% - (25px - 4px) - 2px);
-}
+
+
 /* NAVBAR */
-
-
-
 
 
 /* MAIN */
@@ -403,9 +370,6 @@ body {
 }
 
 
-
-
-
 #content main .table-data {
 	display: flex;
 	flex-wrap: wrap;
@@ -458,12 +422,7 @@ body {
 #content main .table-data .order table td {
 	padding: 16px 0;
 }
-/* #content main .table-data .order table tr td:first-child {
-	display: flex;
-	align-items: center;
-	grid-gap: 12px;
-	padding-left: 6px;
-} */
+
 #content main .table-data .order table td img {
 	width: 50px;
 	height: 50px;
@@ -480,19 +439,11 @@ body {
 	border-radius: 20px;
 	font-weight: 700;
 }
-#content main .table-data .order table tr td .status.completed {
-	background: var(--blue);
-}
-#content main .table-data .order table tr td .status.process {
-	background: var(--yellow);
-}
-#content main .table-data .order table tr td .status.pending  {
-	background: var(--orange);
-}
+
 
 #content main .table-data .order table tr td .status.update  {
 	background: var(--yellow);
-}
+} 
 
 #content main .table-data .order table tr td .status.update:hover  {
 	cursor: pointer;
@@ -539,30 +490,7 @@ body {
 
 
 @media screen and (max-width: 576px) {
-	#content nav form .form-input input {
-		display: none;
-	}
-
-	#content nav form .form-input button {
-		width: auto;
-		height: auto;
-		background: transparent;
-		border-radius: none;
-		color: var(--dark);
-	}
-
-	#content nav form.show .form-input input {
-		display: block;
-		width: 100%;
-	}
-	#content nav form.show .form-input button {
-		width: 36px;
-		height: 100%;
-		border-radius: 0 36px 36px 0;
-		color: var(--light);
-		background: var(--red);
-	}
-
+	
 	#content nav form.show ~ .notification,
 	#content nav form.show ~ .profile {
 		display: none;
@@ -663,7 +591,7 @@ body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-top: 20px; /* Adjust as needed */
+		margin-top: 20px; 
 	}
 	
 	#deleteAll {
