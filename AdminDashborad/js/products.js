@@ -239,7 +239,7 @@ function searchData(value) {
                          <td>${productData[i].price}</td>
                          <td>${productData[i].category}</td>
                          <td>${productData[i].count}</td>
-                         <td><img src="${productData[i].product_img}"></td>
+                         <td><img src="../${productData[i].product_img}"></td>
                          <td><span onclick="deleteProduct(${i})" class="status delete">Delete</span></td>
                          </tr>
                          `

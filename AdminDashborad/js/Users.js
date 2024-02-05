@@ -65,7 +65,7 @@ create.onclick=function(){
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min; 
   }
 
 //clear inputs
@@ -118,12 +118,12 @@ function showData(){
 // Function to validate inputs
 function validateInputs() {
     let nameRegex = /^[a-zA-Z\s]+$/; // Only letters and spaces allowed
-    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format
+    let emailRegex = /^[a-zA-Z0-9_.]{4,}@(yahoo|gmail|hotmail|outlook).(com|net|eg)$/; // Basic email format
     let passwordRegex = /^.{6,}$/; // Minimum 6 characters
 
     // Validate Name
     if (!Name.value.match(nameRegex) || Name.value.length <= 2) {
-        alert("Please enter a valid name.");
+        alert("Please enter a valid name with at least 3 character.");
         return false;
     }
 

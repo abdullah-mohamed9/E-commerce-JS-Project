@@ -89,7 +89,6 @@ submit.onclick = function (event) {
         seller: logedinUser.id,
         product_id: generateProductId()
     };
-
     if (titleRegex.test(title.value) && title.value.trim() != '' && description.value.trim() != '' && numberRegex.test(price.value) && price.value != 0 && count.value !=0 && numberRegex.test(count.value) && category.value != '0' && newPro.count <= 100 && img.value != '') {
         if (mood === 'create') {
             dataPro.push(newPro);
@@ -301,7 +300,7 @@ function updateAndCloseModal() {
         img.value != ''
     ) {
         const indexToUpdate = dataPro.findIndex(product => dataPro[tmp] && product.product_id === dataPro[tmp].product_id);
-        // const indexToUpdate = dataPro.findIndex(product => product.product_id === dataPro[tmp].product_id);
+        //const indexToUpdate = dataPro.findIndex(product => product.product_id === dataPro[tmp].product_id);
         if (indexToUpdate !== -1) {
             dataPro[indexToUpdate] = newPro; // Update the item in the dataPro array
             localStorage.setItem('products', JSON.stringify(dataPro)); // Update the localStorage

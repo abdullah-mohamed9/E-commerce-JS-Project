@@ -79,7 +79,6 @@ if (localStorage.user != null) {
             if (userId.id == numOfCart[i].userId) {
                 count+=Number(numOfCart[i].numOfItems);
                 document.getElementById("prod_count").innerHTML = `<span>${count}</span>`;
-                
             } 
         }
     }
@@ -98,3 +97,7 @@ if (localStorage.user != null) {
 }else{
     document.getElementById("ProfileLI").style.display="none";
 }
+
+
+
+

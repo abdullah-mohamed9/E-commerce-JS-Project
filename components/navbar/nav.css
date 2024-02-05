@@ -20,6 +20,8 @@
     transform: 0.3 ease;
 }
 
+
+
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar svg:hover,
 .navbar-light .navbar-nav .nav-link:active,
@@ -165,5 +167,12 @@
     #navbarSupportedContent>ul>li:nth-child(n)>a,
     .navbar svg {
         padding: 10px 0px;
+    }
+}
+
+@media (max-width:768px) {
+    #prod_count{
+        top: 4%;
+        right: -14%;
     }
 }

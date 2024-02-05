@@ -366,3 +366,9 @@ footer .copyright a:hover {
     background-color: #fb774b;
     color: #fff;
 }
+@media (max-width:768px) {
+    #prod_count{
+        top: 4%;
+        right: -14%;
+    }
+}

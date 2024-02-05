@@ -121,7 +121,7 @@ if (localStorage.getItem("products") == null) {
       price: 800,
       count: 23,
       seller: 3,
-      category: "shoes",
+      category: "topwear",
     },
     {
       product_id: 10,
