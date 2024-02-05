@@ -102,7 +102,7 @@ btnUpdate.onclick=function(){
 // Function to validate inputs
 function validateInputs() {
     let nameRegex = /^[a-zA-Z\s]+$/; // Only letters and spaces allowed
-    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format
+    let emailRegex =/^[a-zA-Z0-9_.]{4,}@(yahoo|gmail|hotmail|outlook |admin).(com|net|eg)$/; // Basic email format
     let passwordRegex = /^.{6,}$/; // Minimum 6 characters
 
     // Validate Name
