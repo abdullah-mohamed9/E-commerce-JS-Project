@@ -89,7 +89,6 @@ submit.onclick = function (event) {
         seller: logedinUser.id,
         product_id: generateProductId()
     };
-
     if (titleRegex.test(title.value) && title.value.trim() != '' && description.value.trim() != '' && numberRegex.test(price.value) && price.value != 0 && count.value !=0 && numberRegex.test(count.value) && category.value != '0' && newPro.count <= 100 && img.value != '') {
         if (mood === 'create') {
             dataPro.push(newPro);
@@ -152,7 +151,6 @@ submit.onclick = function (event) {
     }
     if (flag) {
         updateAndCloseModal();
-        // clearData();
         return false;
     } else {
         showData();

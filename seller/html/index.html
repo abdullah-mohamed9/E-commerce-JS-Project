@@ -456,7 +456,7 @@
             }).then(function () {
               div.style.display = "none";
               sellerInfo.style.display = "block";
-              clearData();
+              clearProfileData();
             });
             break;
           }
@@ -464,11 +464,11 @@
       }
     });
     cancelChanges.addEventListener("click", function () {
-      clearData();
+      clearProfileData();
       sellerInfo.style.display = "block";
       div.style.display = "none";
     });
-    function clearData() {
+    function clearProfileData() {
       email.value = "";
       username.value = "";
       password.value = "";
@@ -479,32 +479,6 @@
       email.style.border = "";
       password.style.border = "";
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //display current user data
 
     document.getElementById("un").innerText += ": " + JSON.parse(localStorage.getItem("user")).name;
@@ -573,13 +547,13 @@
       var closeModalBtn = document.getElementById("submit");
 
       function openModal() {
+
         modal.style.display = "block";
       }
 
       function closeModal() {
         modal.style.display = "none";
       }
-
       openModalBtn.addEventListener("click", openModal);
       var I = 0;
       window.addEventListener("click", function (event) {
