@@ -96,7 +96,7 @@ window.addEventListener("load", function () {
                 });
                 Swal.fire({
                     title: "You are not logged in!",
-                    text: "Do you want to sign in?",
+                    text: "Please sign in to add this item to your cart!",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",

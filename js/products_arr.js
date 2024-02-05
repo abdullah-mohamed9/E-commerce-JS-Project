@@ -58,11 +58,11 @@ if (localStorage.getItem("products") == null) {
     },
     {
       product_id: 5,
-      product_name: "white coat",
-      product_img: "../images/coat1.jpg",
-      product_img1: "../images/coat2.jfif",
-      product_img2: "../images/coat3.jpg",
-      product_img3: "../images/coat4.jfif",
+      product_name: "Brown Jacket ",
+      product_img: "../images/p/p53.jpg",
+      product_img1: "../images/p/p54.jpg",
+      product_img2: "../images/p/p51.jpg",
+      product_img3: "../images/p/p52.jpg",
       description: "wonderful white coat suitable for all women",
       price: 1500,
       count: 28,
@@ -112,11 +112,11 @@ if (localStorage.getItem("products") == null) {
     },
     {
       product_id: 9,
-      product_name: "black H-Boot",
-      product_img: "../images/half1.jpg",
-      product_img1: "../images/half2.jpg",
-      product_img2: "../images/half3.jpg",
-      product_img3: "../images/half4.jpg",
+      product_name: "Neck Sweater",
+      product_img: "../images/p/p71.jpg",
+      product_img1: "../images/p/p72.jpg",
+      product_img2: "../images/p/p73.jpg",
+      product_img3: "../images/p/p74.jpg",
       description: "wonderful half-boot , very good suitable for you ",
       price: 800,
       count: 23,
@@ -135,11 +135,9 @@ if (localStorage.getItem("products") == null) {
     },
     {
       product_id: 11,
-      product_name: "White Shoes",
-      product_img: "../images/sho1.jpg",
-      product_img1: "../images/sho2.jpg",
-      product_img2: "../images/sho3.jpg",
-      product_img3: "../images/sho4.jpg",
+      product_name: "Snikers",
+      product_img: "../images/shoes/2.jpg",
+      
       description: "wonderful shoes for you ",
       price: 450,
       count: 14,
@@ -201,7 +199,7 @@ if (localStorage.getItem("products") == null) {
       seller: 1,
       category: "topwear",
     },
-    
+
   ];
   localStorage.setItem("products", JSON.stringify(products));
 }

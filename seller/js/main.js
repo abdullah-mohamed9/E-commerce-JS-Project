@@ -300,7 +300,8 @@ function updateAndCloseModal() {
         newPro.count < 100 &&
         img.value != ''
     ) {
-        const indexToUpdate = dataPro.findIndex(product => product.product_id === dataPro[tmp].product_id);
+        const indexToUpdate = dataPro.findIndex(product => dataPro[tmp] && product.product_id === dataPro[tmp].product_id);
+        // const indexToUpdate = dataPro.findIndex(product => product.product_id === dataPro[tmp].product_id);
         if (indexToUpdate !== -1) {
             dataPro[indexToUpdate] = newPro; // Update the item in the dataPro array
             localStorage.setItem('products', JSON.stringify(dataPro)); // Update the localStorage

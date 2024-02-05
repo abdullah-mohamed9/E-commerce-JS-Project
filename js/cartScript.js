@@ -174,10 +174,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     document.getElementById("k").addEventListener("click", function () {
+
         localStorage.setItem('totalPrice', mTotal);
         localStorage.setItem('subTotal', subTotal);
         var alertContent = document.getElementById("AlertEmptyCart");
-        var cartCurrentData = JSON.parse(localStorage.getItem("cartData"));
+        var cartCurrentData = JSON.parse(localStorage.getItem("cartData"))||[];
         if (cartCurrentData.length < 1) {
             alertContent.innerHTML = `<div class="alert alert-danger">
         You can't Proceed to checkout Your cart is Empty!
