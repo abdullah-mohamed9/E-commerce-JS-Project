@@ -90,8 +90,10 @@ function showData(){
      <td>
      <p>${sellerData[i].name}</p>
       </td>
+      <td>${sellerData[i].id}</td>
       <td>${sellerData[i].email}</td>
       <td>${sellerData[i].password}</td>
+
       <td><span onclick="updateSeller(${i})" class="status update">Update</span></td>
       <td><span onclick="deleteSeller(${i})" class="status delete">Delete</span></td>
       </tr>`
@@ -262,6 +264,7 @@ function searchData(value){
             <td>
             <p>${sellerData[i].name}</p>
              </td>
+             <td>${sellerData[i].id}</td>
              <td>${sellerData[i].email}</td>
              <td>${sellerData[i].password}</td>
              <td><span onclick="updateSeller(${i})" class="status update">Update</span></td>
@@ -274,23 +277,36 @@ function searchData(value){
 
     }
 
-let lastSorted = "";
-let isAscending = true;
+    
 
-function sortDataBy(column) {
-    if (lastSorted == column) {
-        sellerData.reverse();
-        isAscending = false;
-    } else {
-        sellerData.sort(function (a, b) {
-            return a[column].toLowerCase().localeCompare(b[column].toLowerCase());
-        });
-        isAscending = true;
+
+    let lastSorted = "";
+    let isAscending = true;
+    
+    function sortDataBy(column) {
+        if (lastSorted === column) {
+            sellerData.reverse();
+            isAscending = false; // Toggle the sorting order
+        } else {
+            sellerData.sort(function (a, b) {
+                // Check if the column is numeric
+                const isNumeric = !isNaN(parseFloat(a[column])) && !isNaN(parseFloat(b[column]));
+    
+                
+                if (isNumeric) {
+                    return isAscending ? parseFloat(a[column]) - parseFloat(b[column]) : parseFloat(b[column]) - parseFloat(a[column]);
+                } else {
+                    return a[column].toLowerCase().localeCompare(b[column].toLowerCase());
+                }
+            });
+            isAscending = true;
+        }
+    
         lastSorted = column;
+        showData();
     }
+    
 
-    showData();
-}
 //sort by name
 document.getElementById("sellerName").addEventListener("click", function () {
     sortDataBy("name");
@@ -301,5 +317,9 @@ document.getElementById("sellerEmail").addEventListener("click", function () {
     sortDataBy("email");
 });
 
+// Sort by id
+document.getElementById("sellerID").addEventListener("click", function () {
+    sortDataBy("id");
+});
 
 

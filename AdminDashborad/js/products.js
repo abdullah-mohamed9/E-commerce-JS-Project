@@ -43,6 +43,7 @@ function showData() {
       <td>${productData[i].price}</td>
       <td>${productData[i].category}</td>
       <td>${productData[i].count}</td>
+      <td>${productData[i].seller}</td>
       <td><img src="../${productData[i].product_img}"></td>
       <td><span onclick="deleteProduct(${i})" class="status delete" ${isProductInCart(productData[i].product_id) ? 'disabled' : ''}>Delete</span></td>
       </tr>`
@@ -218,6 +219,8 @@ function searchData(value) {
                  <td>${productData[i].price}</td>
                  <td>${productData[i].category}</td>
                  <td>${productData[i].count}</td>
+                 <td>${productData[i].seller}</td>
+
                  <td><img src="../${productData[i].product_img}"></td>
                  <td><span onclick="deleteProduct(${i})" class="status delete">Delete</span></td>
                  </tr>
@@ -238,6 +241,8 @@ function searchData(value) {
                          <td>${productData[i].price}</td>
                          <td>${productData[i].category}</td>
                          <td>${productData[i].count}</td>
+                         <td>${productData[i].seller}</td>
+
                          <td><img src="../${productData[i].product_img}"></td>
                          <td><span onclick="deleteProduct(${i})" class="status delete">Delete</span></td>
                          </tr>
@@ -283,6 +288,7 @@ function sortDataBy(column) {
     showData();
 }
 
+
 // Sort by name
 document.getElementById("title").addEventListener("click", function () {
     sortDataBy("product_name");
@@ -301,6 +307,11 @@ document.getElementById("price").addEventListener("click", function () {
 // Sort by count
 document.getElementById("count").addEventListener("click", function () {
     sortDataBy("count");
+});
+
+// Sort by id
+document.getElementById("sellerID").addEventListener("click", function () {
+    sortDataBy("seller");
 });
 
 
