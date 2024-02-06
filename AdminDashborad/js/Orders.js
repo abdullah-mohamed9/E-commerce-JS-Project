@@ -9,7 +9,7 @@ else{
   ordersData=[]; 
 }
 
-console.log(ordersData);
+//console.log(ordersData);
 
 // read data
 function showData() {

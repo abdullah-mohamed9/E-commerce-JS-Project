@@ -59,37 +59,20 @@ body {
     width: 90%;
   }
   
-  #filter,
+  
   #search {
     background: transparent !important;
     color: #d1b761 !important;
-  }
-
-  #filter{
-    background: #D7CCC8 !important;
-    color: #000 !important;
-  }
-  
-  #search {
     margin-left: 5vw;
     font-size: 4vw !important;
   }
-  
 
-  .filter option:checked {
-    background: #d1b761;
-    color: black;
+  #filter{
+    background: #e7d6a0 !important;
+    color: #000 !important;
   }
+
   
-  hr {
-    color: #d1b761;
-    width: 80%;
-    margin: auto;
-  }
-  
-  .active-search {
-    color: #d1b761;
-  }
   
   .hide {
     display: none;
@@ -102,9 +85,6 @@ body {
     flex-wrap: wrap;
   }
 
-  #product1 p {
-    font-size: 2.5vw;
-  }
   
   #product1 h2 {
     font-size: 5vw;

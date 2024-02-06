@@ -232,7 +232,7 @@ function searchData(value){
     //console.log(value);
     let table="";
     for(let i=0;i<userData.length;i++){
-        if(userData[i].name.includes(value.toLowerCase())&&userData[i].type=="customer"){
+        if(userData[i].name.toLowerCase().includes(value.toLowerCase())&&userData[i].type=="customer"){
             table += `
             <tr>
             <td>

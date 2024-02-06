@@ -1,4 +1,3 @@
-
 let Name=document.getElementById("Name");
 let email=document.getElementById("email");
 let password=document.getElementById("password");
@@ -234,7 +233,7 @@ function searchData(value){
     //console.log(value);
     let table="";
     for(let i=0;i<sellerData.length;i++){
-        if(sellerData[i].name.includes(value.toLowerCase()) && sellerData[i].type=="seller"){
+        if(sellerData[i].name.toLowerCase().includes(value.toLowerCase()) && sellerData[i].type=="seller"){
             table += `
             <tr>
             <td>

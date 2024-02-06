@@ -66,6 +66,22 @@ let users = [
     }
     
     ];
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const user = JSON.parse(localStorage.getItem("user"));
+    
+        if (user && typeof user === "object") {
+            if (user.type === "customer") {
+                window.location.href = "../index.html"; // Redirect to the home page
+            } else if (user.type === "admin") {
+                window.location.href = "../AdminDashborad/html/index.html"; // Redirect to the admin page
+            } else if (user.type === "seller") {
+                window.location.href = "../seller/html/index.html"; // Redirect to the seller page
+            } 
+        } 
+    });
     
 
 if (localStorage.getItem("users") != null) {
@@ -87,14 +103,11 @@ function User(id, name, email, password, type) {
 }
 
 submit.addEventListener("click", function (e) {
-
-
     if (validateLogin()) {
         e.preventDefault();
         password.style.border = "solid 3px green";
         userName.style.border = "solid 3px green";
         invaild_email_pas.innerText = "";
-
         //////sweeeeeeeeeeeeeeeeeeeeet aleeeeeeeeeeeeeeeeeeeeeeert
         const Toast = Swal.mixin({
             toast: true,
@@ -149,13 +162,11 @@ function SignupDone() {
 }
 
 function validateLogin() {
-
     if (userName.value.trim() === "") {
         userName.style.border = "solid 3px red";
     } else {
         userName.style.border = "solid 3px green";
     }
-
     if (password.value.trim() === "") {
         password.style.border = "solid 3px red";
     } else {
@@ -163,17 +174,12 @@ function validateLogin() {
     }
 
     for (let i = 0; i < users.length; i++) {
-
         if (users[i].email === userName.value && users[i].password === password.value) {
-
             if (users[i].type == "customer") {
-                console.log("user type is customer");
                 window.location.href = "../index.html";
-
             } else if (users[i].type == "seller") {
                 window.location.href = "../seller/html/index.html";
             } else {
-                console.log("user type is admin");
                 window.location.href = "../AdminDashborad/html/index.html";
             }
             localStorage.setItem("user", JSON.stringify(users[i]));
@@ -197,7 +203,6 @@ function validateSignup() {
         user_signup.style.border = "solid 3px green";
         invaild_username.innerText = "";
     }
-
     if (password_signup.value.trim() === "" || password_signup.value.length < 8) {
         password_signup.style.border = "solid 3px red";
         invaild_pas.innerText = "password must be more than 8 chars";
@@ -206,7 +211,6 @@ function validateSignup() {
         password_signup.style.border = "solid 3px green";
         invaild_pas.innerText = "";
     }
-
     if (password_signup_val.value.trim() === "" || password_signup_val.value !== password_signup.value) {
         password_signup_val.style.border = "solid 3px red";
         invaild_pas_val.innerText = "password must be the same";
@@ -215,7 +219,6 @@ function validateSignup() {
         password_signup_val.style.border = "solid 3px green";
         invaild_pas_val.innerText = "";
     }
-
     if (email.value.trim() === "" || !emailRegex.test(email.value)) {
         email.style.border = "solid 3px red";
         email_exist.innerHTML = "invalid email EX: <span style='color: #b6b3b3;'><i>iti@gmail.com</i></span>";
@@ -234,8 +237,6 @@ function validateSignup() {
     }
     return true;
 }
-
-
 
 eye.addEventListener('click', function () {
     if (password.type == "password") {
