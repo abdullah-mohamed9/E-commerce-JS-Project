@@ -164,21 +164,41 @@ function isEmailDuplicate(newEmail) {
 }
 
 
-//delete user
+// Delete user
+function deleteSeller(i) {
+    // Remove the seller from sellerData array
+    sellerData.splice(i, 1);
 
-function deleteSeller(i){
-   // console.log(i);
-   sellerData.splice(i,1);
+    // Update localStorage with the modified seller data
+    localStorage.users = JSON.stringify(sellerData);
 
-   //add data in local storage after remove
-   localStorage.users = JSON.stringify(sellerData);
-    //display data after remove
+    // Display data after removal
+    showData();
+    searchData(currentSearch);
 
-   showData();
-   searchData(currentSearch);
+    // Deleting products associated with the deleted seller
+    let productData;
 
+    // Check if there is data in localStorage
+    if (localStorage.products != null) {
+        productData = JSON.parse(localStorage.products);
 
+        // Loop through productData to find products associated with the deleted seller
+        for (let j = 0; j < productData.length; j++) {
+            if (productData[j].seller === sellerData[i].id) {
+                // Remove the product associated with the deleted seller
+                productData.splice(j, 1);
+                // Decrement j as the array length will be reduced
+                j--;
+            }
+        }
+
+        // Update localStorage with the modified product data
+        localStorage.products = JSON.stringify(productData);
+    }
 }
+
+
 
 //update data 
 
