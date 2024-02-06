@@ -8,7 +8,7 @@ let searchByCategory = document.getElementById("searchCatergoy");
 let productData;
 //localstorage has data
 if (localStorage.products != null) {
-    productData = JSON.parse(localStorage.products);
+    productData = JSON.parse(localStorage.getItem("products"));
 }
 //localstorage is empty
 else {
@@ -45,6 +45,7 @@ function showData() {
       <td>${productData[i].count}</td>
       <td>${productData[i].seller}</td>
       <td><img src="../${productData[i].product_img}"></td>
+
       <td><span onclick="deleteProduct(${i})" class="status delete" ${isProductInCart(productData[i].product_id) ? 'disabled' : ''}>Delete</span></td>
       </tr>`
             ;

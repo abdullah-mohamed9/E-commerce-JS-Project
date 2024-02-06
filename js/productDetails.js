@@ -15,11 +15,16 @@ function validateInput(input) {
 window.addEventListener("load", function () {
   //to get params from url
   let storedID = localStorage.getItem("productID");
-  console.log("id" + storedID);
+ 
   let product_item = JSON.parse(localStorage.getItem("products"));
   let product = product_item.find((item) => item.product_id == storedID);
-  document.getElementById("h1").innerText = product.product_name;
+  console.log(product.product_name);
 
+      document.getElementById("h1").innerText = product.product_name;
+    
+  
+  
+  
   document.getElementById("price").innerText = product.price + "$";
   document.getElementById("description").innerText = product.description;
   document.getElementById("i1").src = product.product_img;
@@ -39,7 +44,6 @@ window.addEventListener("load", function () {
   const selectedProduct = products.find(
     (product) => storedID == product.product_id
   );
-  console.log(selectedProduct);
   //second part passing data to add to cart ==================================================================
 
   var selectedSize = document.getElementById("select");
