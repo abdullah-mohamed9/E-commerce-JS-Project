@@ -31,7 +31,7 @@ function showData() {
 
       table += `
         <tr>
-          <td>${(ordersData[i]['Order Id'] * 100).toFixed(0)}</td>
+          <td>${(ordersData[i]['Order Id'])}</td>
           <td>${ordersData[i]['productId']}</td>
           <td>${ordersData[i]['First name']} ${ordersData[i]['Last name']}</td>
           <td>${count}</td>
