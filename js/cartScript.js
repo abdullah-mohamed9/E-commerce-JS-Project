@@ -25,17 +25,17 @@ document.addEventListener("DOMContentLoaded", function () {
     let mTotal = 0;
     let subTotal = 0;
     let itemPrice = 0;
+
     if (currentUserId) {
         let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
         let userCart = cartData.filter(item => item.userId === currentUserId);
         let cartBody = document.getElementById("cartBody");
-
         if (userCart.length > 0) {
             let productsData = JSON.parse(localStorage.getItem("products")) || {};
 
             userCart.forEach(function (cartItem) {
-
                 var productId = cartItem.productId;
+                
                 if (cartItem.productId) {
                     let productIndex = -1;
                     for (let index = 0; index < productsData.length; index++) {
@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             break;
                         }
                     }
+
                     if (productIndex !== -1) {
                         let productDetails = productsData[productIndex];
                         if (productDetails) {
@@ -51,13 +52,13 @@ document.addEventListener("DOMContentLoaded", function () {
                             itemPrice = totalPrice;
                             let newRow = document.createElement("tr");
                             newRow.innerHTML = `
-                    <td><a href="#" class="remove-item"><i class="fas fa-trash-alt"></i></a></td>
-                    <td><img src="${productDetails.product_img}" alt="Cart Img"></td>
-                    <td><h5>${productDetails.product_name}</h5></td>
-                    <td><h5>$${productDetails.price}</h5></td>
-                    <td><input class="w-50 pl-1" type="number" value="${cartItem.numOfItems}" min="1" max="5" oninput="validateInput(this)"  data-product-id="${productId}"></td>
-                    <td><h5 class="totalPrice">$${totalPrice.toFixed(2)}</h5></td>
-                `;
+                                <td><a href="#" class="remove-item"><i class="fas fa-trash-alt"></i></a></td>
+                                <td><img src="${productDetails.product_img}" alt="Cart Img"></td>
+                                <td><h5>${productDetails.product_name}</h5></td>
+                                <td><h5>$${productDetails.price}</h5></td>
+                                <td><input class="w-50 pl-1" type="number" value="${cartItem.numOfItems}" min="1" max="5" oninput="validateInput(this)"  data-product-id="${productId}"></td>
+                                <td><h5 class="totalPrice">$${totalPrice.toFixed(2)}</h5></td>
+                                    `;
                             cartBody.appendChild(newRow);
                             let quantityInput = newRow.querySelector('input');
                             quantityInput.addEventListener('change', function () {
@@ -113,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         }
                     }
                     else {
-                        console.warn("Product details not found for productId:", productId);
+                        //console.warn("Product details not found for productId:", productId);
                     }
                 }
             });
@@ -136,11 +137,9 @@ document.addEventListener("DOMContentLoaded", function () {
             let initialSubtotal = calculateSubtotal();
             subtotalElement.innerText = `$${initialSubtotal.toFixed(2)}`;
             updateTotal();
-
             applyCouponBtn.addEventListener('click', function () {
                 let couponCode = couponCodeInput.value;
                 const coupons = JSON.parse(localStorage.getItem("coupons")) || {};
-
                 if (coupons.hasOwnProperty(couponCode)) {
                     appliedCoupon.innerHTML = `<h6 style='color:green' >Applied Coupon</h6>
                 <p id="couponValue" style='color:green'>$${coupons[couponCode]}</p>`;
