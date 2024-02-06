@@ -1,4 +1,3 @@
-
 let Name=document.getElementById("Name");
 let email=document.getElementById("email");
 let password=document.getElementById("password");
@@ -11,8 +10,13 @@ let temp;
 
 let mood="create";
 
-type.style.display="none"
 
+document.addEventListener("DOMContentLoaded", function() {
+
+    if(type){
+        type.style.display="none"
+    }
+});
 //add user
 let userData;
 //localstorage has data
@@ -95,7 +99,7 @@ function showData(){
       <td><span onclick="deleteUser(${i})" class="status delete">Delete</span></td>
       </tr>`
       ;  
-      console.log(i);
+    //   console.log(i);
       }
       //console.log(table);
       //console.log(userData[i].type);
@@ -173,6 +177,8 @@ function deleteUser(i){
    localStorage.users = JSON.stringify(userData);
     //display data after remove
    showData();
+   searchData(currentSearch);
+
 }
 
 //update data 
@@ -219,9 +225,10 @@ x.onclick=()=>{
 
 }
 
-
+let currentSearch="";
 search.addEventListener("keyup", () => {
-    searchData(search.value);
+    currentSearch=search.value;
+    searchData(currentSearch);
 });
 
 

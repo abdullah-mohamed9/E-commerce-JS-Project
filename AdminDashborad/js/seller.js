@@ -175,6 +175,8 @@ function deleteSeller(i){
     //display data after remove
 
    showData();
+   searchData(currentSearch);
+
 
 }
 
@@ -220,9 +222,10 @@ x.onclick=()=>{
     showData();
 
 }
-
+let currentSearch="";
 search.addEventListener("keyup", () => {
-    searchData(search.value);
+    currentSearch=search.value;
+    searchData(currentSearch);
 });
 
 

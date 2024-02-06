@@ -1,4 +1,3 @@
-
 let ordersData;
 //localstorage has data
 if(localStorage.OrderData != null){
