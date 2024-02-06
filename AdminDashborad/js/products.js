@@ -269,7 +269,7 @@ function sortDataBy(column) {
             // Check if the column is numeric
             const isNumeric = !isNaN(parseFloat(a[column])) && !isNaN(parseFloat(b[column]));
 
-            // If numeric, use numeric comparison; otherwise, use string comparison
+            
             if (isNumeric) {
                 return isAscending ? parseFloat(a[column]) - parseFloat(b[column]) : parseFloat(b[column]) - parseFloat(a[column]);
             } else {
@@ -313,7 +313,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Assuming productData is an array of products
     for (let i = 0; i < productData.length; i++) {
-        // Example: Count only products with a certain condition (e.g., count products with price > 50)
         countProducts++;
 
     }
