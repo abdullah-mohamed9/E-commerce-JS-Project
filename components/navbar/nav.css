@@ -175,4 +175,20 @@
         top: 4%;
         right: -14%;
     }
+
+}
+
+.active{
+
+    color: coral !important;
+}
+
+.navbar-nav .link.active::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: coral;
+    position: absolute;
+    bottom: 0px;
+    left: 30px;
 }
