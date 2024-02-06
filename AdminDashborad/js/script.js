@@ -75,6 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+ 
+
 // document.addEventListener("DOMContentLoaded", function () {
 //     const user = JSON.parse(localStorage.getItem("user"));
 

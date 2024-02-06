@@ -66,7 +66,40 @@ let users = [
     }
     
     ];
+
+
+
+ //protect login for user
+
+document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if  (user.type === "customer") {
+        window.location.href = "../index.html"; // Redirect to the home page
+    }
+});
+
+
+//protect login for admin
+
+document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if  (user.type === "admin") {
+        window.location.href = "../AdminDashborad/html/index.html"; // Redirect to the admin page
+    }
+});
     
+
+//protect login for seller
+
+document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if  (user.type === "seller") {
+        window.location.href = "../seller/html/index.html"; // Redirect to the admin page
+    }
+});
 
 if (localStorage.getItem("users") != null) {
     users = JSON.parse(localStorage.getItem("users"));
