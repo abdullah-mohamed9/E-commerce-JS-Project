@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		
 	}
 
-	console.log(countOfOMessages);
+	// console.log(countOfOMessages);
 
 	// Update HTML element content
 	let numberOfMessagesElement =	document.getElementById("numOfMessages");
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		
 	}
 
-	console.log(countOfProducts);
+	// console.log(countOfProducts);
 
 	// Update HTML element content
 	let numberOfProductElement = document.getElementById("numberOfProduct");
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //count of orders
 
-let ordersCount;
+let ordersCount=[];
 //localstorage has data
 if(localStorage.OrderData != null){
     ordersCount=JSON.parse(localStorage.OrderData);
@@ -205,12 +205,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Assuming productData is an array of products
 	for (let i = 0; i <ordersCount.length; i++) {
-		// Example: Count only products with a certain condition (e.g., count products with price > 50)
+		// Example: Count only products with a certain
 		countOfOrders++;
 		
 	}
 
-	console.log(countOfOrders);
+	// console.log(countOfOrders);
 
 	// Update HTML element content
 	let numberOfOrdersElement = document.getElementById("numberOfOrders");
@@ -224,12 +224,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Assuming productData is an array of products
 	for (let i = 0; i < MessagesCount.length; i++) {
-		// Example: Count only products
+		
 		countOfOMessages++;
 		
 	}
 
-	console.log(countOfOMessages);
+	// console.log(countOfOMessages);
 
 	// Update HTML element content
 	let numberOfMessagesElement =	document.getElementById("numOfMessages");
