@@ -1,23 +1,4 @@
-/*
----------------------------------------------
-Table of contents
-------------------------------------------------
-1. Typography
-2. General
-3. Nav
-8. Carousel Hero
-9. Carousel Brand
-10. Services
-11. Contact map
-12. Footer
-13. Small devices (landscape phones, 576px and up)
-14. Medium devices (tablets, 768px and up)
-15. Large devices (desktops, 992px and up)
-16. Extra large devices (large desktops, 1200px and up)
---------------------------------------------- */
 
-
-/* Typography */
 
 
 
@@ -129,17 +110,7 @@ p {
     min-height: 30rem !important;
   }
 
-  .product-wap .h3,
-  .product-wap li,
-  .product-wap i,
-  .product-wap p {
-    font-size: 18px !important;
-  }
-
-  .product-wap .product-color-dot {
-    width: 12px;
-    height: 12px;
-  }
+  
 }
 
 /* Extra large devices (large desktops, 1200px and up)*/

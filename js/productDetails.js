@@ -158,15 +158,12 @@ window.addEventListener("load", function () {
     // Check if localStorage has user data
     if (localStorage.user != null) {
       userId2 = JSON.parse(localStorage.user);
-
       let numOfCart;
       let count = 0;
       // Check if localStorage has cart data
       if (localStorage.cartData != null) {
         numOfCart = JSON.parse(localStorage.cartData);
-
         console.log(userId2.id);
-
         for (let i = 0; i < numOfCart.length; i++) {
           if (userId2.id == numOfCart[i].userId) {
             count += Number(numOfCart[i].numOfItems);

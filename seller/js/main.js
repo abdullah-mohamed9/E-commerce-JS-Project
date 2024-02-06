@@ -308,7 +308,7 @@ function updateAndCloseModal() {
         }
         mood = 'create';
         submit.innerHTML = 'Create';
-        count.style.display = 'block';
+       
         clearData();
     }
     showData();
