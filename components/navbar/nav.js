@@ -17,18 +17,18 @@ let navbar=
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../../index.html">Home</a>
+                    <a class="nav-link link" href="../../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../html/product.html">Products</a>
+                    <a class="nav-link link" href="../../html/product.html">Products</a>
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link" href="../../about_contact pages/about.html">About</a>
+                    <a class="nav-link link" href="../../about_contact pages/about.html">About</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../../about_contact pages/contact.html">Contact Us</a>
+                    <a class="nav-link link" href="../../about_contact pages/contact.html">Contact Us</a>
                 </li>
 
                 <li class="nav-item">
@@ -60,6 +60,32 @@ let navbar=
 
 `
 body.innerHTML=navbar;
+
+
+
+
+// Get the current page URL
+const currentPage = window.location.href;
+
+//console.log(currentPage);
+
+// Get all the navigation links
+const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+// Loop through each navigation link
+navLinks.forEach(navLink => {
+    // Get the href attribute of the navigation link
+    const linkUrl = navLink.href;
+
+    // Check if the current page URL is equal to the link URL
+    if (currentPage === linkUrl) {
+        // Add the "active" class 
+        navLink.classList.add('active');
+    }
+});
+
+
+
 
 let userId;
 

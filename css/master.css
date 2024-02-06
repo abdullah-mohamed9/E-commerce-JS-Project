@@ -247,7 +247,7 @@ hr {
 
 
 
-
+/* 
 #prod_count {
     background: red;
     color: #fff;
@@ -257,7 +257,7 @@ hr {
     right: 24%;
     border-radius: 53%;
     font-size: 11px;
-}
+} */
 
 #Profile {
     display: flex;

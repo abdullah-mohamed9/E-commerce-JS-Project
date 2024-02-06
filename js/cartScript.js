@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             let removeIcon = newRow.querySelector('.remove-item');
                             removeIcon.addEventListener('click', function (event) {
                                 event.preventDefault();
+                              
                                 const Toast = Swal.mixin({
                                     toast: true,
                                     position: "top-end",
@@ -99,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         localStorage.setItem("cartData", JSON.stringify(cartData));
                                         calculateSubtotal();
                                         updateTotal();
+                                        location.reload();
                                         if(cartData.length < 1){
                                             shippingElement.innerText = "$0.00";
                                             cartBody.innerHTML = `<tr  height='30px'><td colspan="6">Your cart is empty</td></tr>`;

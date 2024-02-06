@@ -13,44 +13,55 @@ allSideMenu.forEach(item=> {
 
 
 
-
 // TOGGLE SIDEBAR
 const menuBar = document.querySelector('#content nav .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');
 
+
+//Check if there is a previous state stored in localStorage
+
+const isSidebarHidden = localStorage.getItem('sidebarHidden') === 'true';
+
+// Set the state of the list based on a value stored in localStorage
+
+if (isSidebarHidden) {
+  sidebar.classList.add('hide');
+}
+
 menuBar.addEventListener('click', function () {
-	sidebar.classList.toggle('hide');
-
-})
-
-
-window.addEventListener('resize', function () {
-    //  close when size >768
-    if (window.innerWidth < 768) { 
-        sidebar.classList.add('hide');
-    }
-});
-
-window.addEventListener('resize', function () {
-    // open when size >768
-    if (window.innerWidth >= 768) { 
-        sidebar.classList.remove('hide');
-    }
+  sidebar.classList.toggle('hide');
+  
+// Save the list state to localStorage
+  localStorage.setItem('sidebarHidden', sidebar.classList.contains('hide'));
 });
 
 
+// Update the list state when the window size changes
+function updateSidebar() {
+  if (window.innerWidth < 768) {
+    sidebar.classList.add('hide');
+  } else {
+    sidebar.classList.remove('hide');
+  }
+}
+
+// Listen for the window resize event and the list status event
+
+window.addEventListener('resize', function () {
+  updateSidebar();
+});
 
 
+// Update the list state when the page is loaded and the code is executed
+window.addEventListener('load', function () {
+  updateSidebar();
+  
+  window.addEventListener('beforeunload', function () {
+    localStorage.setItem('sidebarHidden', sidebar.classList.contains('hide'));
+  });
+  
+});
 
-const switchMode = document.getElementById('switch-mode');
-
-switchMode.addEventListener('change', function () {
-	if(this.checked) {
-		document.body.classList.add('dark');
-	} else {
-		document.body.classList.remove('dark');
-	}
-})
 
 
 //protect admin and seller
@@ -63,6 +74,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+
+
+ 
 
 // document.addEventListener("DOMContentLoaded", function () {
 //     const user = JSON.parse(localStorage.getItem("user"));

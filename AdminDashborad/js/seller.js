@@ -120,12 +120,12 @@ function showData(){
 // Function to validate inputs
 function validateInputs() {
     let nameRegex = /^[a-zA-Z\s]+$/; // Only letters and spaces allowed
-    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format
+    let emailRegex = /^[a-zA-Z0-9_.]{4,}@(yahoo|gmail|hotmail|outlook).(com|net|eg)$/; // Basic email format
     let passwordRegex = /^.{6,}$/; // Minimum 6 characters
 
     // Validate Name
     if (!Name.value.match(nameRegex) || Name.value.length <= 2) {
-        alert("Please enter a valid name.");
+        alert("Please enter a valid name with at least 3 character.");
         return false;
     }
 
@@ -234,7 +234,7 @@ function searchData(value){
     //console.log(value);
     let table="";
     for(let i=0;i<sellerData.length;i++){
-        if(sellerData[i].name.includes(value.toLowerCase()) && sellerData[i].type=="seller"){
+        if(sellerData[i].name.toLowerCase().includes(value.toLowerCase()) && sellerData[i].type=="seller"){
             table += `
             <tr>
             <td>

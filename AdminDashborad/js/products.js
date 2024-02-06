@@ -15,7 +15,7 @@ else {
     productData = [];
 }
 
-console.log(productData);
+//console.log(productData);
 
 
 let cartArr;
@@ -48,7 +48,7 @@ function showData() {
       </tr>`
             ;
     }
-    console.log(table);
+  //  console.log(table);
 
     if (productData.length <= 0) {
         table = "<p>not found products</p>";
@@ -76,6 +76,7 @@ showData();
 //delete products
 
 function deleteProduct(i) {
+   // console.log(i);
     // Get the product ID from the productData array
     let productId = productData[i].product_id;
 
@@ -93,7 +94,7 @@ function deleteProduct(i) {
     } else {
         const productIdToDelete = productData[i].product_id;
         const indexToDelete = productData.findIndex(product => product.product_id === productIdToDelete);
-
+        //console.log(indexToDelete);
         // Remove the row from the table
         const Toast = Swal.mixin({
             toast: true,
@@ -124,7 +125,7 @@ function deleteProduct(i) {
         }).then((result) => {
             if (result.isConfirmed) {
                 if (indexToDelete !== -1) {
-                    productData.splice(indexToDelete, 1); // Remove the item from the productData array
+                    productData.splice(i, 1); // Remove the item from the productData array
                     localStorage.products = JSON.stringify(productData); // Update the localStorage
                     showData();
                 }
@@ -168,8 +169,6 @@ x.onclick = () => {
 
 let searchMood = "title";
 
-//searchByTitle.addEventListener("click",getSearchMood(this.id));
-//searchByCategory.addEventListener("click",getSearchMood(this.id));
 
 searchByTitle.addEventListener("click", () => {
     getSearchMood(searchByTitle.id);
@@ -182,7 +181,7 @@ searchByCategory.addEventListener("click", () => {
 
 //search mood
 function getSearchMood(id) {
-    console.log(id);
+    //console.log(id);
 
     if (id == "searchTitle") {
         searchMood = "title";
@@ -206,12 +205,12 @@ search.addEventListener("keyup", () => {
 function searchData(value) {
 
     let table = "";
-    console.log(value);
+   // console.log(value);
     for (let i = 0; i < productData.length; i++) {
         if (searchMood == "title") {
 
 
-            if (productData[i].product_name.includes(value.toLowerCase())) {
+            if (productData[i].product_name.toLowerCase().includes(value.toLowerCase())) {
 
                 table += `
                 <tr>
@@ -319,7 +318,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    console.log(countProducts);
+    //console.log(countProducts);
 
     // Update HTML element content
     let numberOfProductElement = document.getElementById("numberOfProduct");

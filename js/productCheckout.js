@@ -12,51 +12,78 @@ window.addEventListener("load", function () {
 
         var form = document.getElementById('checkoutForm');
         var data = document.getElementsByTagName("input");
-        var errormsg = document.getElementById("errorFnMsg");
+        var errormsg = document.getElementsByClassName("invalid-feedback");
         let inputField = document.getElementById("fn");
         let lnInputField = document.getElementById("ln");
         //to return field to the default style
-        inputField.addEventListener('blur', function () {
-            if (inputField.value.trim().length >= 3) {
-                errormsg.innerText = "";
-                inputField.style.border = "1px solid black";
-            }
-        });
-        lnInputField.addEventListener("blur", function () {
-            if (lnInputField.value.trim().length >= 3) {
-                errormsg.innerText = "";
-                lnInputField.style.border = "1px solid black";
-            }
+        for (let i = 0; i < data.length; i++) {
+            data[i].addEventListener('keyup', function () {
+                if (/^[A-Za-z]{3,}$/.test(data[i].value.trim())) {
+                    errormsg[i].innerText = "";
+                    data[i].style.border = "1px solid black";
+                    data[i].classList.add('is-valid');
+                } else {
+                  
+                    data[i].style.border = "1px solid red";
+                    form.classList.add('was-validated');
+                    data[i].classList.add('is-invalid');
 
-        });
+                    allValid = false;
+                }
+                if (data[i].id === "phone") {
+                    if (/^(010|011|012)[0-9]{8}$/.test(data[i].value.trim())) {
+                        data[i].style.border = "1px solid black";
+                        data[i].classList.add('is-valid');
+                    }
+                }
+                if (data[i].id === "email") {
+                    if (/^[a-zA-Z0-9_.]{4,}@(yahoo|gmail|hotmail|outlook).(com|net|eg)$/.test(data[i].value.trim())) {
+                        data[i].style.border = "1px solid black";
+                        data[i].classList.add('is-valid');
+                    }
+                }
+                if (data[i].id === "Expirtaion") {
+                    if (/^[a-zA-Z0-9_.]{4,}@(yahoo|gmail|hotmail|outlook).(com|net|eg)$/.test(data[i].value.trim())) {
+                        data[i].style.border = "1px solid black";
+                        data[i].classList.add('is-valid');
+                    }
+                }
+                if (data[i].id === "CVV") {
+                    if (/^[0-9]{3,4}$/.test(data[i].value.trim())) {
+                        data[i].style.border = "1px solid black";
+                        data[i].classList.add('is-valid');
+                        
+                    }
+                }
+                if (data[i].id === "inputZip") {
+                    if (/^[0-9]{4,5}$/.test(data[i].value.trim())) {
+                        data[i].style.border = "1px solid black";
+                        data[i].classList.add('is-valid');
+                        
+                    }
+                }
+                if (data[i].id === "fnCard") {
+                    if (/^[A-Za-z]{3,}$/.test(data[i].value.trim())) {
+                        data[i].style.border = "1px solid black";
+                        data[i].classList.add('is-valid');
+                        
+                    }
+                }
 
+
+            });
+        }
         for (let i = 0; i < data.length; i++) {
             if (data[i].value.trim() === "") {
                 event.preventDefault();
-
                 form.classList.add('was-validated');
                 data[i].style.border = "1px red solid";
+                data[i].classList.add('is-invalid');
                 // Set the flag to false when a validation fails
-                allValid = false;
+
             } else {
                 data[i].style.border = "1px black solid";
             }
-            //validation on all fields to check that data 
-            if (data[i].id === "fn" && data[i].value.trim().length < 3) {
-                event.preventDefault();
-                data[i].style.border = "1px solid red";
-                console.log("hello from fn");
-                allValid = false;
-                errormsg.style.color = "red";
-                errormsg.style.fontSize = "12px";
-                errormsg.style.marginBottom = "10px";
-                errormsg.style.marginTop = "-12px";
-                errormsg.innerText = "name must be at least 3 chars";
-            } else if (data[i].id === "fn" && data[i].value.trim().length >= 3) {
-                errormsg.innerText = "";
-                errormsg.style.marginTop = "12px";
-            }
-
             //store fields in array
             var c = document.getElementsByTagName("label")[i].innerText;
             myData[c] = data[i].value;
@@ -68,8 +95,10 @@ window.addEventListener("load", function () {
         for (let i = 0; i < radioButtons.length; i++) {
             if (radioButtons[i].checked) {
                 radioSelected = true;
-
             }
+            radioButtons[i].addEventListener("click", function () {
+                document.getElementById("alertContainer").innerHTML = "";
+            });
         }
         document.getElementById('Expirtaion').addEventListener("input", function (event) {
             var expirationInput = document.getElementById('Expirtaion');
@@ -84,6 +113,7 @@ window.addEventListener("load", function () {
             } else {
                 expirationInput.setCustomValidity('');
                 expirationInput.classList.remove('is-invalid');
+                expirationInput.style.border = "1px solid black";
             }
         });
         if (!radioSelected) {
@@ -92,68 +122,13 @@ window.addEventListener("load", function () {
           </div>`;
             event.preventDefault();
             allValid = false;
+        } else {
+            document.getElementById("alertContainer").innerHTML = "";
+
         }
-        //payment validation
-        //  var nameOnCard = document.getElementById('fnCard').value;
-        // var creditCardNumber = document.getElementById('creditCard').value;
-        // var expiration = document.getElementById('Expirtaion').value;
-        // var cvv = document.getElementById('CVV').value;
-        // document.getElementById('CVV').addEventListener("blur", function () {
-        //     if (cvv.length < 3) {
-        //         document.getElementById('CVV').style.border = "3px solid red";
-        //         console.log("noooooo");
-        //     }
-        // });
-        // function luhnCheck(creditCardNumber) {
-        //     // Luhn algorithm implementation
-        //     var sum = 0;
-        //     var isEven = false;
-
-        //     for (var i = creditCardNumber.length - 1; i >= 0; i--) {
-        //         var digit = parseInt(creditCardNumber[i]);
-
-        //         if (isEven) {
-        //             digit *= 2;
-        //             if (digit > 9) {
-        //                 digit -= 9;
-        //             }
-        //         }
-
-        //         sum += digit;
-        //         isEven = !isEven;
-        //     }
-
-        //     return (sum % 10 === 0);
-        // }
-
-        // function isValidExpiration(expiration) {
-        //     var regex = /^(0[1-9]|1[0-2])\/[0-9]{4}$/;
-        //     return regex.test(expiration);
-        // }
-
-        // function isValidCVV(cvv) {
-        //     var regex = /^[0-9]{3,4}$/;
-        //     return regex.test(cvv);
-        // }
-        // if (!luhnCheck(creditCardNumber)) {
-        //     alert('Invalid credit card number');
-        //     allValid = false;
-
-        //     return;
-        // }
-
-        // if (!isValidExpiration(expiration)) {
-        //     allValid = false;
-        //     return;
-        // }
-
-        // if (!isValidCVV(cvv)) {
-        //     allValid = false;
-        //     return;
-        // }
-
-        ////
-        //end of radio buttons
+        function generateProductId() {
+            return Date.now().toString();
+        }
         var productId = [0];
         var numOfItems = [0];
         var sellers1 = [0];
@@ -162,11 +137,6 @@ window.addEventListener("load", function () {
             numOfItems[i] = JSON.parse(localStorage.getItem("cartData"))[i]['numOfItems'];
             sellers1[i] = JSON.parse(localStorage.getItem("cartData"))[i]['seller'];
         }
-        //storing data in local storage
-        //var numOfFirstCartItem=JSON.parse(localStorage.getItem('cartData'))[0]['numOfItems'];
-        //var id=JSON.parse(localStorage.getItem('cartData'))[0]['productId'];
-        //to generate random id for each product
-        //  const newOrderId = generateOrderId();
         let myData1 = {
             "First name": document.getElementById('fn').value,
             "Last name": document.getElementById('ln').value,
@@ -190,7 +160,7 @@ window.addEventListener("load", function () {
             "productId": productId,
             "numOfItems": numOfItems,
             "sellers": sellers1,
-            "Order Id": Math.random(0, 1),
+            "Order Id": generateProductId(),
         };
         //
 
@@ -213,7 +183,7 @@ window.addEventListener("load", function () {
             function updateLocalStorageStock() {
                 var myCart = JSON.parse(localStorage.getItem("cartData"));
                 var mproducts = JSON.parse(localStorage.getItem("products"));
-
+                //to reduce the selled product from our stock
                 for (let i = 0; i < myCart.length; i++) {
                     let efg = myCart[i]["productId"];
                     //cout of selled items
@@ -221,15 +191,12 @@ window.addEventListener("load", function () {
                     console.log("id in cart : " + efg);
                     console.log("selled items " + selledones);
 
-                    var productIdToFind = efg ;
-                  
+                    var productIdToFind = efg;
+
                     //corresponding id
                     var foundProduct = Object.values(mproducts).find(product => product.product_id == productIdToFind);
                     //total count
                     foundProduct['count'] -= selledones;
-
-
-
                 }
 
                 // Move this line outside the loop

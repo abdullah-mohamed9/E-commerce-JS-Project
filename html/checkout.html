@@ -135,7 +135,7 @@
                 <div class="col-md-6">
                     <label for="fn" class="form-label"><i class="fas fa-user" style="margin-right: 3px;"></i>First
                         name</label>
-                    <input type="text" class="form-control" id="fn" pattern="[A-Za-z]+"
+                    <input type="text" class="form-control is_invalid" id="fn" pattern="[A-Za-z]{3,}"
                         title="Only alphabetical characters are allowed" required>
                     <div class="invalid-feedback" id="errorFnMsg">
                         Please enter a valid first name.
@@ -145,45 +145,45 @@
                 <div class="col-md-6">
                     <label for="ln" class="form-label"><i class="fas fa-user" style="margin-right: 3px;"></i>Last
                         name</label>
-                    <input type="text" class="form-control" id="ln" required>
-                    <p class="invalid-feedback">
+                    <input type="text" class="form-control" id="ln" pattern="[A-Za-z]{3,}" required>
+                    <p class="invalid-feedback" id="errorLnMsg">
                         Please enter a valid last name.
                     </p>
                 </div>
                 <div class="col-12">
                     <label for="country" class="form-label"><i class="fas fa-globe" style="margin-right: 3px;"></i>
                         Country/Region</label>
-                    <input type="text" class="form-control" id="country" placeholder="Egypt" required>
+                    <input type="text" class="form-control" id="country" placeholder="Egypt" required pattern="[A-Za-z]{3,}">
                 </div>
                 <div class="col-12">
                     <label for="inputCity" class="form-label"><i class="fas fa-map-marked-alt"
                             style="margin-right: 3px;"></i>Town/City</label>
-                    <input type="text" class="form-control" id="inputCity" required>
+                    <input type="text" class="form-control" id="inputCity" required pattern="[A-Za-z]{3,}">
                 </div>
                 <div class="col-md-6">
                     <label for="street" class="form-label"><i class="fas fa-road" style="margin-right: 3px;"></i>Street
                         address</label>
                     <input type="text" class="form-control" id="street" placeholder="House number and street name"
-                        required>
+                        required pattern="[A-Za-z]{3,}">
                 </div>
 
 
                 <div class="col-md-6">
                     <label for="inputZip" class="form-label"><i class="fas fa-map-marker-alt"></i> Zip Code</label>
-                    <input type="text" class="form-control" id="inputZip" required>
+                    <input type="text" class="form-control" id="inputZip" pattern="[0-9]{4,5}" maxlength="5" required>
                 </div>
                 <div class="col-12">
                     <label for="phone" class="form-label"><i class="fas fa-phone" style="margin-right: 3px;"></i>Phone
                         Number</label>
-                    <input type="text" class="form-control" id="phone" pattern="[0-9]{11}" maxlength="11"
+                    <input type="text" class="form-control" id="phone" pattern="(010|011|012)[0-9]{8}" maxlength="11"
                         oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
-                    <div class="invalid-feedback">Please enter a 10-digit phone number.</div>
+                    <div class="invalid-feedback">Please enter a valid mobile number like 010xxxxxxxx.</div>
                 </div>
 
                 <div class="col-12">
                     <label for="email" class="form-label"><i class="fas fa-envelope"
                             style="margin-right: 3px;"></i>Email address</label>
-                    <input type="email" class="form-control" id="email" required>
+                    <input class="form-control"  id="email" pattern="[a-zA-Z0-9_.]{4,}@(yahoo|gmail|hotmail|outlook).(com|net|eg)" required>
                     <p class="invalid-feedback">
                         Please enter email address like "esraa@gmail.com"
                     </p>
@@ -193,7 +193,7 @@
                             style="margin-right: 3px;"></i>Order notes(optional)</label>
                     <textarea type="" class="form-control" id="orderNotes"
                         placeholder="note about your order,e.g.special notes for delivery"></textarea>
-                    <hr style="width: 100%;" id="hr">
+                    <hr style="width: 100%;" id="hr"> 
                 </div>
 
                 <div class="col-12" id="divOfCheck1">
@@ -223,7 +223,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <label for="fnCard" class="form-label">Name On Card</label>
-                    <input type="text" class="form-control" id="fnCard" required>
+                    <input type="text" class="form-control" id="fnCard" pattern="[A-Za-z]{3,}" required>
                 </div>
                 <!-- <div class="col-12 col-md-6">
                     <label for="num" class="form-label"></i>Credit

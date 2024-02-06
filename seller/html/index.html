@@ -390,6 +390,7 @@
 
 
   <script>
+    //edit current user profile
     let username = document.getElementById("Username");
     let email = document.getElementById("Email1");
     let password = document.getElementById("Password1");
@@ -457,6 +458,10 @@
               div.style.display = "none";
               sellerInfo.style.display = "block";
               clearProfileData();
+              //display updated data
+              document.getElementById("un").innerText = "username "+": " + JSON.parse(localStorage.getItem("user")).name;
+              document.getElementById("uEmail").innerText ="password"+ ": " + JSON.parse(localStorage.getItem("user")).email;
+              document.getElementById("currentUserName").innerText = JSON.parse(localStorage.getItem("user")).name;
             });
             break;
           }
@@ -480,23 +485,18 @@
       password.style.border = "";
     }
     //display current user data
-
-    document.getElementById("un").innerText += ": " + JSON.parse(localStorage.getItem("user")).name;
-    document.getElementById("uEmail").innerText += ": " + JSON.parse(localStorage.getItem("user")).email;
-
+    document.getElementById("un").innerText = "username "+": " + JSON.parse(localStorage.getItem("user")).name;
+    document.getElementById("uEmail").innerText ="password"+ ": " + JSON.parse(localStorage.getItem("user")).email;
+/////////////////////////////////
+//display order to seller
     var myOrderTap = document.getElementById("orders-tab");
-    //  myOrderTap.addEventListener("click", function () {
     var currentIndex = JSON.parse(localStorage.getItem("currentindex"));
     var orderData = localStorage.getItem('OrderData');
-
     var targetSeller = JSON.parse(localStorage.getItem("user")).id; // Replace with the specific seller you want
-
     // Check if orderData is not null or undefined
     if (orderData) {
       orderData = JSON.parse(orderData); // Parse the JSON if it exists
-      console.log(orderData);
       for (let x = 0; x < orderData.length; x++) {
-
         // Check if orderData[x].quantity is not null or undefined
         if (orderData[x].quantity) {
           orderData[x].quantity.forEach(element => {
@@ -519,10 +519,8 @@
               const month = (dateObject.getUTCMonth() + 1).toString().padStart(2,
                 '0'); // Month is zero-based, so add 1
               const day = dateObject.getUTCDate().toString().padStart(2, '0');
-
               // Format the date as YYYY-MM-DD
               const formattedDate = `${year}-${month}-${day}`;
-
               td1.innerText = calculatedValue.toFixed();
               td2.innerText = element.productId;
               td3.innerText = element.priceOfItem; // Accessing priceOfItem property
@@ -539,7 +537,7 @@
         }
       }
     }
-    // });
+   //end of displaying order to seller
     window.addEventListener("load", function () {
       document.getElementById("currentUserName").innerText = JSON.parse(localStorage.getItem("user")).name;
       var modal = document.getElementById("myModal");
