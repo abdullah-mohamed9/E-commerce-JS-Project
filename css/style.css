@@ -68,15 +68,11 @@ body {
   }
 
   #filter{
-    background: #D7CCC8 !important;
+    background: #e7d6a0 !important;
     color: #000 !important;
   }
 
   
-  
-  .active-search {
-    color: #d1b761;
-  }
   
   .hide {
     display: none;

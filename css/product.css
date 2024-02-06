@@ -4,6 +4,9 @@
 #product1 h2{
     padding-top: 50px;
     margin-left: 10px;
+    color: #d1b761;
+    
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #product1 .pro{
