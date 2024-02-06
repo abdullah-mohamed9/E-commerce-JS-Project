@@ -5,13 +5,7 @@
     padding-top: 50px;
     margin-left: 10px;
 }
-#product1 .pro-container{
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
-    flex-wrap: wrap;
-   
-}
+
 #product1 .pro{
     width: 20%;
     min-width: 250px;
@@ -32,10 +26,7 @@
                transform: scale(1.1)
               }
 
-#product1 a{
-    font-weight: 500;
-    color: #000;
-}
+
 #product1 .pro img{
     max-width: 100%;
     object-fit: contain;

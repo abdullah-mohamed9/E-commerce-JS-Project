@@ -21,15 +21,13 @@ for (var i in p) {
   myproduct_container.insertAdjacentHTML("beforeend", product);
 }
 
-//to retreive data from local storage//esraa
-var numOfProducts = JSON.parse(localStorage.getItem("products")).length;
-var ProductItem = JSON.parse(localStorage.getItem("products"));
+
 window.addEventListener("load", function () {
-  for (let i = 0; i < numOfProducts; i++) {
+  for (let i = 0; i < p.length; i++) {
     //event listener
     document.getElementsByClassName("pro")[i].addEventListener("click", function () {
       let ID = 0;
-      ID = (ProductItem[i].product_id);
+      ID = (p[i].product_id);
       // Store the ID in localStorage
       localStorage.setItem('productID', ID);
       // Redirect to the productDetails.html page
@@ -64,12 +62,7 @@ function filterProducts(category) {
   });
 }
 
-var filter = document.getElementById("filter");
-var buttons = document.getElementById("my-buttons");
-// console.log(buttons.classList)
-filter.onclick = function () {
-  buttons.classList.toggle("hide")
-}
+
 //search button
 let search = document.getElementById("search");
 let mysearch_input = document.getElementById("search-input")
@@ -80,7 +73,7 @@ let mySearchFunction = () => {
   let prod = document.querySelectorAll(".pro");
 
   prod_name.forEach((p, index) => {
-    if ((p.innerText.toLowerCase().includes(searchInput) || searchInput === "") &&
+    if ((p.innerText.toLowerCase().includes(searchInput) ) &&
       (category === "all" || prod[index].classList.contains(category))) {
       prod[index].classList.remove("hide");
     } else {
@@ -91,7 +84,7 @@ let mySearchFunction = () => {
 search.addEventListener("click", mySearchFunction);
 mysearch_input.addEventListener('input', mySearchFunction);
 
-// to make it display all products when the page loaded
-window.onload = () => {
-  filterProducts("all");
-};
+
+// window.onload = () => {
+//   filterProducts("all");
+// };
