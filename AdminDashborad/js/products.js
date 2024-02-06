@@ -307,19 +307,3 @@ document.getElementById("count").addEventListener("click", function () {
 
 
 
-
-document.addEventListener("DOMContentLoaded", function () {
-    let countProducts = 0;
-
-    // Assuming productData is an array of products
-    for (let i = 0; i < productData.length; i++) {
-        countProducts++;
-
-    }
-
-    //console.log(countProducts);
-
-    // Update HTML element content
-    let numberOfProductElement = document.getElementById("numberOfProduct");
-    numberOfProductElement.innerHTML = `<span>${countProducts}</span>`;
-});
