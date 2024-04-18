@@ -5,6 +5,7 @@ Welcome to Esase Wear, your ultimate destination for all your fashion needs. Thi
 Introduction
 
 Esase Wear is a comprehensive e-commerce platform designed to offer users a seamless shopping experience. Our platform is equipped with various pages, each serving a specific purpose to enhance user interaction and satisfaction.
+![screencapture-127-0-0-1-5503-index-html-2024-04-14-17_14_57](https://github.com/esraashabana/JS-Project/assets/121031158/7c2b331a-4829-4dcf-b0ef-872e56875f38)
 
 Pages Overview:
 
@@ -94,14 +95,14 @@ Thank you for choosing Esase Wear!
 
 
 
-![screencapture-127-0-0-1-5503-seller-html-index-html-2024-04-14-17_24_10](https://github.com/esraashabana/JS-Project/assets/121031158/eda4d304-63e7-480c-a119-42fed859ce7f)
 ![screencapture-127-0-0-1-5503-html-login-html-2024-04-14-17_14_11](https://github.com/esraashabana/JS-Project/assets/121031158/ca2a26b7-9d99-42cc-807d-b222117d00bb)
-![screencapture-127-0-0-1-5503-index-html-2024-04-14-17_14_57](https://github.com/esraashabana/JS-Project/assets/121031158/7c2b331a-4829-4dcf-b0ef-872e56875f38)
 ![screencapture-127-0-0-1-5503-html-productDetails-html-2024-04-14-17_15_43](https://github.com/esraashabana/JS-Project/assets/121031158/c513de55-a2e7-4889-920f-83c92713c1dd)
 ![screencapture-127-0-0-1-5503-html-cart-html-2024-04-14-17_20_11](https://github.com/esraashabana/JS-Project/assets/121031158/c4b5cc64-e77b-4cca-bcc2-272748e282e2)
 ![screencapture-127-0-0-1-5503-html-checkout-html-2024-04-14-17_20_29](https://github.com/esraashabana/JS-Project/assets/121031158/0d245b30-ecab-4eb2-9813-d747a5bae403)
 ![screencapture-127-0-0-1-5503-AdminDashborad-html-index-html-2024-04-14-17_21_28](https://github.com/esraashabana/JS-Project/assets/121031158/029009e8-8a34-4186-9183-cf1494d511fd)
 ![screencapture-127-0-0-1-5503-AdminDashborad-html-Users-html-2024-04-14-17_23_11](https://github.com/esraashabana/JS-Project/assets/121031158/6b9a7660-1398-4e77-82fd-fbaca00c4f6a)
+![screencapture-127-0-0-1-5503-seller-html-index-html-2024-04-14-17_24_10](https://github.com/esraashabana/JS-Project/assets/121031158/eda4d304-63e7-480c-a119-42fed859ce7f)
+
 ![screencapture-127-0-0-1-5503-seller-html-index-html-2024-04-14-17_24_26](https://github.com/esraashabana/JS-Project/assets/121031158/a0ef2bdf-2ae0-4def-97f5-b7bba4bd7c39)
 
 
